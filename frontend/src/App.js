@@ -9,7 +9,7 @@ import Location from './pages/Location';
 import Hotel from './pages/Hotel';
 import Restaurant from './pages/Restaurant';
 import About from './pages/About';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
