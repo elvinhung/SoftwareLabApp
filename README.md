@@ -8,3 +8,8 @@
 * `npm install` to install dependencies
 * `npm start` to host website locally
 
+## Additional dependencies
+
+* `npm install react-router-dom`
+* `npm install bootstrap` to add bootstrap
+* `npm install font-awesome` to add Font Awesome 4.7.0 library (used for ratings and more)
