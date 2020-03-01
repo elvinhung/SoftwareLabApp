@@ -8,6 +8,9 @@ import Home from './pages/Home';
 import Location from './pages/Location';
 import Hotel from './pages/Hotel';
 import Restaurant from './pages/Restaurant';
+import KatzDeli from './pages/KatzDeli';
+import Fitzrovia from './pages/Fitzrovia';
+import Roxie from './pages/Roxie'
 import About from './pages/About';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -19,6 +22,9 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route path="/locations" component={Location} />
         <Route path="/hotels" component={Hotel} />
+        <Route path="/restaurants/katz's_delicatessen" component={KatzDeli} />
+        <Route path="/restaurants/attendant_fitzrovia" component={Fitzrovia} />
+        <Route path="/restaurants/roxie_food_center" component={Roxie} />
         <Route path="/restaurants" component={Restaurant} />
         <Route path="/about" component={About} />
       </Switch>
