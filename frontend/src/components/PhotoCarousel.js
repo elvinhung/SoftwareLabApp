@@ -6,10 +6,6 @@ import roxie from "../roxie_food_center.jpg";
 import '../App.css'
 
 const PhotoCarousel = () => {
-  let img1 = {katz};
-  let img2 = {fitzrovia};
-  let img3 = {roxie};
-
   return (
     <MDBContainer>
       <MDBCarousel
