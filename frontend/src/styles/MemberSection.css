@@ -1,0 +1,69 @@
+.member-img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.member-section-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.member-section {
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding: 10px 20px 20px 20px;
+    border-bottom: 1px solid #f2f2f2;
+    animation: 1s background-color;
+}
+
+.member-section:hover {
+    background-color: #f2f2f2;
+}
+
+.member-section:last-child {
+    border-bottom: 0;
+}
+
+.bold {
+    font-weight: 700;
+    color: black;
+}
+
+.member-info {
+    padding: 20px 20px 20px 30px;
+}
+
+.member-name {
+    margin: 0px 0px 3px 0px;
+    font-weight: 400;
+}
+
+.member-major {
+    margin: 0;
+}
+
+.github-info-container {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+}
+
+@media only screen and (max-width: 600px) {
+    .github-info-container {
+        display: block;
+        width: auto;
+    }
+}
+
+.github-info-container > p {
+    margin: 0;
+}
+
+.member-bio {
+    padding: 10px 20px 0px 20px;
+}
+
+.member-bio > p {
+    margin: 0;
+}
