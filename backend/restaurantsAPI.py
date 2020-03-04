@@ -1,6 +1,6 @@
 import requests
 import json
-api_key='9cScMoHChZwCT3W4Rr3IK2Szy8iDQAKKvmuK0OMqor5L10Oa3JDm-D_MFDvIimzqp40rnBNQ55Pi2xzRxYlSUMEJnFix-LDqryJr2WMYIA4mdOszmSUfU2cA1UZUXnYx'
+
 headers = {'Authorization': 'Bearer %s' % api_key}
 url = 'https://api.yelp.com/v3/businesses/search'
 params = {'term':'seafood','location':'New York City', 'limit':1}
