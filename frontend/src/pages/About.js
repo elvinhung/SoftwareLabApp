@@ -13,6 +13,7 @@ import alex from '../assets/AlexKim.JPG';
 import manun from '../assets/ManunChopra.jpg';
 import elvin from '../assets/ElvinHung.jpg';
 import '../styles/About.css';
+import '../styles/GlobalStyles.css';
 
 const PURPOSE = " is a web application for travelers who want to make the most out of their trip. When travelling to an unfamiliar place, the amount of places to see and things to do can be overwhelming. _ provides users the ability to filter and sort through all the noise in order to find the experience they are looking for.";
 const FLASK_USAGE = "Our backend will be a RESTful API built with Flask. It will allow our front end to make HTTP Requests to our database.";
