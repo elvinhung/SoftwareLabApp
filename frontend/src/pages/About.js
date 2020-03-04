@@ -4,6 +4,12 @@ import MemberSection from '../components/MemberSection';
 import SectionHeader from "../components/SectionHeader";
 import '../styles/About.css';
 
+const PURPOSE = " is a web application for travelers who want to make the most out of their trip. When travelling to an unfamiliar place, the amount of places to see and things to do can be overwhelming. _ provides users the ability to filter and sort through all the noise in order to find the experience they are looking for.";
+const FLASK_USAGE = "Our backend will be a RESTful API built with Flask. It will allow our front end to make HTTP Requests to our database.";
+const AWS_USAGE = "In order to host our website, we employed the use of AWS S3 for static website hosting."
+const REACT_USAGE = "We used React to implement the frontend of our application. It allows us to break up our website into different components and manage states of those components over time."
+
+
 const GithubStat = (props) => {
   return (
     <div className="github-stat">
@@ -27,10 +33,6 @@ const ToolCard = (props) => {
 }
 
 const About = () => {
-  const purpose = "";
-  const flaskUsage = "Our backend will be a RESTful API built with Flask. It will allow our front end to make HTTP Requests to our database.";
-  const awsUsage = "In order to host our website, we employed the use of AWS S3 for static website hosting."
-  const reactUsage = "We used React to implement the frontend of our application. It allows us to break up our website into different components and manage states of those components over time."
   const teamMembers = [
     {
       name: 'Alex Kim',
@@ -93,6 +95,7 @@ const About = () => {
   const [contributors, setContributors] = useState(teamMembers);
   const [stats, setStats] = useState(teamStats);
 
+  // updates state for team member stats and team stats
   function updateStats(data, type) {
     if (type === 'commits') {
       let commits = 0;
@@ -120,6 +123,7 @@ const About = () => {
     setContributors((prevState) => [...contributors]);
   }
 
+  // github api calls for commits and issues
   function getStats() {
     fetch("https://api.github.com/repos/elvinhung/SoftwareLabApp/stats/contributors")
       .then((res) => res.json())
@@ -139,6 +143,7 @@ const About = () => {
       });
   }
 
+  // runs upon initial render
   useEffect(() => {
     getStats();
   }, []);
@@ -148,9 +153,7 @@ const About = () => {
       <Header />
       <SectionHeader name="About" />
       <div className="section-body">
-        <p>
-
-        </p>
+        <p>{PURPOSE}</p>
       </div>
       <SectionHeader name="The Team" />
       <div className="member-container">
@@ -173,17 +176,17 @@ const About = () => {
       <div className="centered-container wide">
         <ToolCard
           link="https://aws.amazon.com/"
-          usage={awsUsage}
+          usage={AWS_USAGE}
           img="AWS.png"
         />
         <ToolCard
           link="https://reactjs.org/"
-          usage={reactUsage}
+          usage={REACT_USAGE}
           img="react.png"
         />
         <ToolCard
           link="https://www.fullstackpython.com/flask.html"
-          usage={flaskUsage}
+          usage={FLASK_USAGE}
           img="flask.jpg"
         />
       </div>

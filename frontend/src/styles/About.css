@@ -2,6 +2,15 @@
     height: 100vh;
 }
 
+.section-body {
+    width: 700px;
+    margin: 0 auto;
+}
+
+.section-body > p {
+    margin: 0;
+}
+
 .member-container {
     padding: 0px 0px 40px 0px;
 }
@@ -11,12 +20,6 @@
     width: 700px;
     margin: 0 auto;
     box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
-}
-
-@media only screen and (max-width: 600px) {
-    .member-section-container {
-        width: 100%;
-    }
 }
 
 .centered-container {
@@ -72,4 +75,28 @@
     display: flex;
     justify-content: center;
     padding: 40px;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .section-body {
+        width: 90%;
+    }
+
+    .member-section-container {
+        width: 100%;
+    }
+    .centered-container {
+        display: block;
+        width: 100%;
+    }
+
+    .tool-card {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .wide {
+        width: 100%;
+    }
 }
