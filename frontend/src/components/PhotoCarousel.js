@@ -1,11 +1,8 @@
 import React from 'react';
 import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView, MDBContainer } from "mdbreact";
-import katz from "../katz's_delicatessen.jpg";
-import fitzrovia from "../attendant_fitzrovia.jpg";
-import roxie from "../roxie_food_center.jpg";
 import '../App.css'
 
-const PhotoCarousel = () => {
+const PhotoCarousel = (props) => {
   return (
     <MDBContainer>
       <MDBCarousel
@@ -23,7 +20,7 @@ const PhotoCarousel = () => {
               <img
                 className="d-block w-100"
                 className="carousel_img"
-                src={katz}
+                src={require("../" + props.images.img1)}
                 alt="First slide"
               />
             </MDBView>
@@ -33,7 +30,7 @@ const PhotoCarousel = () => {
               <img
                 className="d-block w-100"
                 className="carousel_img"
-                src={fitzrovia}
+                src={require("../" + props.images.img2)}
                 alt="Second slide"
               />
             </MDBView>
@@ -43,7 +40,7 @@ const PhotoCarousel = () => {
               <img
                 className="d-block w-100"
                 className="carousel_img"
-                src={roxie}
+                src={require("../" + props.images.img3)}
                 alt="Third slide"
               />
             </MDBView>

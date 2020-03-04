@@ -1,134 +1,128 @@
 import React from 'react';
 import 'font-awesome/css/font-awesome.min.css';
 
-export const RatingFive = () => {
-  return (
-    <div>
-      <i className="fa fa-star"></i>
-      <i className="fa fa-star"></i>
-      <i className="fa fa-star"></i>
-      <i className="fa fa-star"></i>
-      <i className="fa fa-star"></i>
-    </div>
-  );
+const Ratings = (props) => {
+  if (props.rating == "RatingFive") {
+    return (
+      <div>
+        <i className="fa fa-star"></i>
+        <i className="fa fa-star"></i>
+        <i className="fa fa-star"></i>
+        <i className="fa fa-star"></i>
+        <i className="fa fa-star"></i>
+      </div>
+    );
+  }
+  else if (props.rating == "RatingFourAndHalf") {
+    return (
+      <div>
+        <i className="fa fa-star"></i>
+        <i className="fa fa-star"></i>
+        <i className="fa fa-star"></i>
+        <i className="fa fa-star"></i>
+        <i className="fa fa-star-half-o"></i>
+      </div>
+    );
+  }
+  else if (props.rating == "RatingFour") {
+    return (
+      <div>
+        <i className="fa fa-star"></i>
+        <i className="fa fa-star"></i>
+        <i className="fa fa-star"></i>
+        <i className="fa fa-star"></i>
+        <i className="fa fa-star-o"></i>
+      </div>
+    );
+  }
+  else if (props.rating == "RatingThreeAndHalf") {
+    return (
+      <div>
+        <i className="fa fa-star"></i>
+        <i className="fa fa-star"></i>
+        <i className="fa fa-star"></i>
+        <i className="fa fa-star-half-o"></i>
+        <i className="fa fa-star-o"></i>
+      </div>
+    );
+  }
+  else if (props.rating == "RatingThree") {
+    return (
+      <div>
+        <i className="fa fa-star"></i>
+        <i className="fa fa-star"></i>
+        <i className="fa fa-star"></i>
+        <i className="fa fa-star-o"></i>
+        <i className="fa fa-star-o"></i>
+      </div>
+    );
+  }
+  else if (props.rating == "RatingTwoAndHalf") {
+    return (
+      <div>
+        <i className="fa fa-star"></i>
+        <i className="fa fa-star"></i>
+        <i className="fa fa-star-half-o"></i>
+        <i className="fa fa-star-o"></i>
+        <i className="fa fa-star-o"></i>
+      </div>
+    );
+  }
+  else if (props.rating == "RatingTwo") {
+    return (
+      <div>
+        <i className="fa fa-star"></i>
+        <i className="fa fa-star"></i>
+        <i className="fa fa-star-o"></i>
+        <i className="fa fa-star-o"></i>
+        <i className="fa fa-star-o"></i>
+      </div>
+    );
+  }
+  else if (props.rating == "RatingOneAndHalf") {
+    return (
+      <div>
+        <i className="fa fa-star"></i>
+        <i className="fa fa-star-half-o"></i>
+        <i className="fa fa-star-o"></i>
+        <i className="fa fa-star-o"></i>
+        <i className="fa fa-star-o"></i>
+      </div>
+    );
+  }
+  else if (props.rating == "RatingOne") {
+    return (
+      <div>
+        <i className="fa fa-star"></i>
+        <i className="fa fa-star-o"></i>
+        <i className="fa fa-star-o"></i>
+        <i className="fa fa-star-o"></i>
+        <i className="fa fa-star-o"></i>
+      </div>
+    );
+  }
+  else if (props.rating == "RatingHalf") {
+    return (
+      <div>
+        <i className="fa fa-star-half-o"></i>
+        <i className="fa fa-star-o"></i>
+        <i className="fa fa-star-o"></i>
+        <i className="fa fa-star-o"></i>
+        <i className="fa fa-star-o"></i>
+      </div>
+    );
+  }
+  else if (props.rating == "RatingZero") {
+    return (
+      <div>
+        <i className="fa fa-star-o"></i>
+        <i className="fa fa-star-o"></i>
+        <i className="fa fa-star-o"></i>
+        <i className="fa fa-star-o"></i>
+        <i className="fa fa-star-o"></i>
+      </div>
+    );
+  }
 }
 
-export const RatingFourAndHalf = () => {
-  return (
-    <div>
-      <i className="fa fa-star"></i>
-      <i className="fa fa-star"></i>
-      <i className="fa fa-star"></i>
-      <i className="fa fa-star"></i>
-      <i className="fa fa-star-half-o"></i>
-    </div>
-  );
-}
-
-export const RatingFour = () => {
-  return (
-    <div>
-      <i className="fa fa-star"></i>
-      <i className="fa fa-star"></i>
-      <i className="fa fa-star"></i>
-      <i className="fa fa-star"></i>
-      <i className="fa fa-star-o"></i>
-    </div>
-  );
-}
-
-export const RatingThreeAndHalf = () => {
-  return (
-    <div>
-      <i className="fa fa-star"></i>
-      <i className="fa fa-star"></i>
-      <i className="fa fa-star"></i>
-      <i className="fa fa-star-half-o"></i>
-      <i className="fa fa-star-o"></i>
-    </div>
-  );
-}
-
-export const RatingThree = () => {
-  return (
-    <div>
-      <i className="fa fa-star"></i>
-      <i className="fa fa-star"></i>
-      <i className="fa fa-star"></i>
-      <i className="fa fa-star-o"></i>
-      <i className="fa fa-star-o"></i>
-    </div>
-  );
-}
-
-export const RatingTwoAndHalf = () => {
-  return (
-    <div>
-      <i className="fa fa-star"></i>
-      <i className="fa fa-star"></i>
-      <i className="fa fa-star-half-o"></i>
-      <i className="fa fa-star-o"></i>
-      <i className="fa fa-star-o"></i>
-    </div>
-  );
-}
-
-export const RatingTwo = () => {
-  return (
-    <div>
-      <i className="fa fa-star"></i>
-      <i className="fa fa-star"></i>
-      <i className="fa fa-star-o"></i>
-      <i className="fa fa-star-o"></i>
-      <i className="fa fa-star-o"></i>
-    </div>
-  );
-}
-
-export const RatingOneAndHalf = () => {
-  return (
-    <div>
-      <i className="fa fa-star"></i>
-      <i className="fa fa-star-half-o"></i>
-      <i className="fa fa-star-o"></i>
-      <i className="fa fa-star-o"></i>
-      <i className="fa fa-star-o"></i>
-    </div>
-  );
-}
-
-export const RatingOne = () => {
-  return (
-    <div>
-      <i className="fa fa-star"></i>
-      <i className="fa fa-star-o"></i>
-      <i className="fa fa-star-o"></i>
-      <i className="fa fa-star-o"></i>
-      <i className="fa fa-star-o"></i>
-    </div>
-  );
-}
-
-export const RatingHalf = () => {
-  return (
-    <div>
-      <i className="fa fa-star-half-o"></i>
-      <i className="fa fa-star-o"></i>
-      <i className="fa fa-star-o"></i>
-      <i className="fa fa-star-o"></i>
-      <i className="fa fa-star-o"></i>
-    </div>
-  );
-}
-
-export const RatingZero = () => {
-  return (
-    <div>
-      <i className="fa fa-star-o"></i>
-      <i className="fa fa-star-o"></i>
-      <i className="fa fa-star-o"></i>
-      <i className="fa fa-star-o"></i>
-      <i className="fa fa-star-o"></i>
-    </div>
-  );
-}
+export default Ratings;

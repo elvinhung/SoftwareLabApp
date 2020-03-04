@@ -1,30 +1,30 @@
 import React from 'react';
 import Header from "../components/Header";
-import * as rating from "../components/Ratings";
+import Ratings from "../components/Ratings";
 import 'font-awesome/css/font-awesome.min.css';
 import '../App.css'
-import roxie from "../roxie_food_center.jpg";
+import PhotoCarousel from "../components/PhotoCarousel";
 
 const Roxie = () => {
-  return(
+  const images = {
+    img1: "katz's_delicatessen.jpg",
+    img2: "attendant_fitzrovia.jpg",
+    img3: "roxie_food_center.jpg"
+  };
 
+  return(
     <div>
       <Header />
-      <h1>Roxie Food Center</h1>
 
-      <a href={"/restaurants/roxie_food_center"}>
-        <div className="instance">
-          <div>
-            <img className="instance_img" src={roxie} alt="Roxie Food Center"/>
-          </div>
-          <div className="instance_info">
-            <h2>Roxie Food Center</h2>
-            <rating.RatingFive/>
-            <p>Easygoing canteen with a welcoming atmosphere specializing in hearty deli sandwiches.</p>
-          </div>
+      <div class="instance_head">
+
+        <div><PhotoCarousel images={images}/></div>
+        <div class="instance_page_info">
+          <h2>Roxie Food Center</h2>
+          <Ratings rating={"RatingFive"}/>
+          <p>Easygoing canteen with a welcoming atmosphere specializing in hearty deli sandwiches.</p>
         </div>
-      </a>
-
+      </div>
     </div>
   );
 }

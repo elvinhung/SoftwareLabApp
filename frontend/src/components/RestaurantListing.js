@@ -1,8 +1,7 @@
 import React from 'react';
-import * as rating from "../components/Ratings";
 import 'font-awesome/css/font-awesome.min.css';
+import Ratings from "../components/Ratings";
 import '../App.css'
-import fitzrovia from "../attendant_fitzrovia.jpg";
 
 const RestaurantListing = (props) => {
   return(
@@ -15,7 +14,7 @@ const RestaurantListing = (props) => {
           </div>
           <div className="instance_page_info">
             <h2>{props.restaurant.name}</h2>
-            <rating.RatingFourAndHalf/>
+            <Ratings rating = {props.restaurant.rating}/>
             <p>{props.restaurant.description}</p>
           </div>
         </div>
