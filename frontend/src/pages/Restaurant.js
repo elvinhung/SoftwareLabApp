@@ -35,7 +35,7 @@ const Restaurant = () => {
   return(
     <div>
       <Header />
-      <h1>Restaurants</h1>
+      <h1 className="restaurant-header">Restaurants</h1>
 
       {allRestaurants.map(restaurant => {
         return <RestaurantListing restaurant={restaurant} key={restaurant.name}/>
