@@ -43,7 +43,7 @@ for p in nyc_json['data']:
 with open('nyc_hotel.json', 'w') as outfile:
     json.dump(nyc_dict, outfile)
 
-sfo = amadeus.shopping.hotel_offers.get(cityCode = 'SAN')
+sfo = amadeus.shopping.hotel_offers.get(cityCode = 'SFO')
 data2 = json.dumps(sfo.result)
 sfo_json = json.loads(data2)
 sfo_dict = {}
