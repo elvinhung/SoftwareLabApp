@@ -1,7 +1,7 @@
 import React from 'react';
 import 'font-awesome/css/font-awesome.min.css';
 import Ratings from "../components/Ratings";
-import '../styles/Restaurant.css';
+import '../styles/ModelPage.css';
 
 const RestaurantListing = (props) => {
   return(
@@ -14,7 +14,10 @@ const RestaurantListing = (props) => {
           </div>
           <div className="instance_page_info">
             <h2>{props.restaurant.name}</h2>
-            <Ratings rating = {props.restaurant.rating}/>
+
+            <div className="instance_location"><p>{props.restaurant.location}</p></div>
+            <div><Ratings rating = {props.restaurant.rating}/></div>
+
             <p>{props.restaurant.description}</p>
           </div>
         </div>

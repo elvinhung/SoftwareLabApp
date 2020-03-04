@@ -2,7 +2,7 @@ import React from 'react';
 import Header from "../components/Header";
 import 'font-awesome/css/font-awesome.min.css';
 import HotelListing from "../components/HotelListing";
-import '../styles/Restaurant.css';
+import '../styles/ModelPage.css';
 
 const Hotel = () => {
   const allHotels = [
@@ -38,7 +38,7 @@ const Hotel = () => {
   return(
     <div>
       <Header />
-      <h1>Hotels</h1>
+      <h1 className="model-header">Hotels</h1>
 
       {allHotels.map(hotel => {
         return <HotelListing hotel={hotel} key={hotel.name}/>

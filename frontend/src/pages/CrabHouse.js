@@ -2,7 +2,7 @@ import React from 'react';
 import Header from "../components/Header";
 import Ratings from "../components/Ratings";
 import 'font-awesome/css/font-awesome.min.css';
-import '../styles/RestaurantInstance.css';
+import '../styles/InstanceListing.css';
 import PhotoCarousel from "../components/PhotoCarousel";
 
 const CrabHouse = () => {
@@ -20,9 +20,12 @@ const CrabHouse = () => {
 
         <div><PhotoCarousel images={images}/></div>
         <div class="instance_page_info">
-          <h2>Attendant Fitzrovia</h2>
-          <Ratings rating={"RatingFour"}/>
-          <p>Tiny, quirky coffee bar in restored Victorian public convenience, serving breakfast and light lunch.</p>
+          <h2>Crab House</h2>
+
+          <div className="instance_location"><p>{"New York City, US"}</p></div>
+          <div><Ratings rating={"RatingFour"}/></div>
+
+          <p></p>
         </div>
       </div>
     </div>

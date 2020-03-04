@@ -2,7 +2,7 @@ import React from 'react';
 import Header from "../components/Header";
 import 'font-awesome/css/font-awesome.min.css';
 import RestaurantListing from "../components/RestaurantListing";
-import '../styles/Restaurant.css';
+import '../styles/ModelPage.css';
 
 const Restaurant = () => {
   const allRestaurants = [
@@ -38,7 +38,7 @@ const Restaurant = () => {
   return(
     <div>
       <Header />
-      <h1 className="restaurant-header">Restaurants</h1>
+      <h1 className="model-header">Restaurants</h1>
 
       {allRestaurants.map(restaurant => {
         return <RestaurantListing restaurant={restaurant} key={restaurant.name}/>

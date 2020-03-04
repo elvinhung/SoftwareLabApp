@@ -2,7 +2,7 @@ import React from 'react';
 import Header from "../components/Header";
 import Ratings from "../components/Ratings";
 import 'font-awesome/css/font-awesome.min.css';
-import '../styles/RestaurantInstance.css';
+import '../styles/InstanceListing.css';
 import PhotoCarousel from "../components/PhotoCarousel";
 
 const HoxtonHolborn = () => {
@@ -20,9 +20,12 @@ const HoxtonHolborn = () => {
 
         <div><PhotoCarousel images={images}/></div>
         <div class="instance_page_info">
-          <h2>Hoxton Holborn</h2>
-          <Ratings rating={"RatingFour"}/>
-          <p>No-frills deli with theatrically cranky service serving mile-high sandwiches since 1888.</p>
+          <h2>The Hoxton Holborn</h2>
+
+          <div className="instance_location"><p>{"London, UK"}</p></div>
+          <div><Ratings rating={"RatingFour"}/></div>
+
+          <p></p>
         </div>
       </div>
     </div>
