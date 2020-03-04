@@ -2,13 +2,25 @@ import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import MemberSection from '../components/MemberSection';
 import SectionHeader from "../components/SectionHeader";
+import githubPng from '../assets/github.png';
+import yelpPng from '../assets/yelp.png';
+import amadeusPng from '../assets/amadeus.png';
+import geocodeJpg from '../assets/geocode.jpg';
+import awsPng from '../assets/AWS.png';
+import reactPng from '../assets/react.png';
+import flaskJpg from '../assets/flask.jpg';
+import alex from '../assets/AlexKim.JPG';
+import manun from '../assets/ManunChopra.jpg';
+import elvin from '../assets/ElvinHung.jpg';
 import '../styles/About.css';
 
 const PURPOSE = " is a web application for travelers who want to make the most out of their trip. When travelling to an unfamiliar place, the amount of places to see and things to do can be overwhelming. _ provides users the ability to filter and sort through all the noise in order to find the experience they are looking for.";
 const FLASK_USAGE = "Our backend will be a RESTful API built with Flask. It will allow our front end to make HTTP Requests to our database.";
 const AWS_USAGE = "In order to host our website, we employed the use of AWS S3 for static website hosting."
 const REACT_USAGE = "We used React to implement the frontend of our application. It allows us to break up our website into different components and manage states of those components over time."
-
+const HOTEL_API = "https://developers.amadeus.com/self-service/category/hotel";
+const LOCATION_API = "https://developers.google.com/maps/documentation/geocoding/start";
+const RESTAURANT_API = "https://www.yelp.com/fusion";
 
 const GithubStat = (props) => {
   return (
@@ -19,12 +31,25 @@ const GithubStat = (props) => {
   );
 }
 
+const DataSection = (props) => {
+  return (
+    <a className="data-link" href={props.link} target="_blank">
+      <div className="data-section">
+        <div className="data-content">
+          <img src={props.img} alt={props.alt} />
+          <h4>{props.name}</h4>
+        </div>
+      </div>
+    </a>
+  );
+}
+
 const ToolCard = (props) => {
   return (
     <a className="tool-link" href={props.link} target="_blank">
       <div className="tool-card">
         <div className="center">
-          <img className="tool-img" src={require("../assets/" + props.img)}/>
+          <img className="tool-img" src={props.img}  alt={props.alt} />
         </div>
         <p>{props.usage}</p>
       </div>
@@ -42,7 +67,7 @@ const About = () => {
       issues: 0,
       tests: 0,
       githubUser: 'KimchiBean',
-      img: 'AlexKim.JPG',
+      img: alex,
     },
     {
       name: 'Manun Chopra',
@@ -52,7 +77,7 @@ const About = () => {
       issues: 0,
       tests: 0,
       githubUser: 'phenomanun',
-      img: 'ManunChopra.jpg',
+      img: manun,
     },
     {
       name: 'Elvin Hung',
@@ -62,7 +87,7 @@ const About = () => {
       issues: 0,
       tests: 0,
       githubUser: 'elvinhung',
-      img: 'ElvinHung.jpg',
+      img: elvin,
     },
     {
       name: 'Rishab Chander',
@@ -72,7 +97,7 @@ const About = () => {
       issues: 0,
       tests: 0,
       githubUser: 'rchand20',
-      img: 'ManunChopra.jpg',
+      img: manun,
     },
     {
       name: 'Nithanth Ram',
@@ -82,7 +107,7 @@ const About = () => {
       issues: 0,
       tests: 0,
       githubUser: 'Nithanth',
-      img: 'ManunChopra.jpg',
+      img: manun,
     }
   ];
 
@@ -172,27 +197,52 @@ const About = () => {
         <GithubStat type="unit tests" value={stats.tests} />
       </div>
       <SectionHeader name="Data" />
+      <div className="data-container">
+        <div className="data-section-container">
+          <DataSection
+            img={yelpPng}
+            alt="Yelp API"
+            name="Yelp Fusion API"
+            link={RESTAURANT_API}
+          />
+          <DataSection
+            img={amadeusPng}
+            alt="Amadeus API"
+            name="Amadeus Hotel API"
+            link={HOTEL_API}
+          />
+          <DataSection
+            img={geocodeJpg}
+            alt="Google Geocoding API"
+            name="Google Geocoding API"
+            link={LOCATION_API}
+          />
+        </div>
+      </div>
       <SectionHeader name="Tools" />
       <div className="centered-container wide">
         <ToolCard
           link="https://aws.amazon.com/"
           usage={AWS_USAGE}
-          img="AWS.png"
+          img={awsPng}
+          alt="aws"
         />
         <ToolCard
           link="https://reactjs.org/"
           usage={REACT_USAGE}
-          img="react.png"
+          img={reactPng}
+          alt="react"
         />
         <ToolCard
           link="https://www.fullstackpython.com/flask.html"
           usage={FLASK_USAGE}
-          img="flask.jpg"
+          img={flaskJpg}
+          alt="flask"
         />
       </div>
       <div className="github-logo">
         <a href="https://github.com/elvinhung/SoftwareLabApp" target="_blank">
-          <img width="200px" src={require("../assets/github.png")} alt="Github Repository" />
+          <img width="200px" src={githubPng} alt="Github Repository" />
         </a>
       </div>
     </div>
