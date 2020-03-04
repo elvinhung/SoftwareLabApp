@@ -5,11 +5,11 @@ import 'font-awesome/css/font-awesome.min.css';
 import '../styles/RestaurantInstance.css';
 import PhotoCarousel from "../components/PhotoCarousel";
 
-const Fitzrovia = () => {
+const LeonHotel = () => {
   const images = {
-    img1: "assets/katz's_delicatessen.jpg",
-    img2: "assets/attendant_fitzrovia.jpg",
-    img3: "assets/roxie_food_center.jpg"
+    img1: "assets/south_kensington.jpg",
+    img2: "assets/south_kensington.jpg",
+    img3: "assets/south_kensington.jpg"
   };
 
   return(
@@ -20,13 +20,13 @@ const Fitzrovia = () => {
 
         <div><PhotoCarousel images={images}/></div>
         <div class="instance_page_info">
-          <h2>Attendant Fitzrovia</h2>
-          <Ratings rating={"RatingFourAndHalf"}/>
-          <p>Tiny, quirky coffee bar in restored Victorian public convenience, serving breakfast and light lunch.</p>
+          <h2>The Leon Hotel</h2>
+          <Ratings rating={"RatingFour"}/>
+          <p>No-frills deli with theatrically cranky service serving mile-high sandwiches since 1888.</p>
         </div>
       </div>
     </div>
   );
 }
 
-export default Fitzrovia;
+export default LeonHotel;

@@ -5,11 +5,11 @@ import 'font-awesome/css/font-awesome.min.css';
 import '../styles/RestaurantInstance.css';
 import PhotoCarousel from "../components/PhotoCarousel";
 
-const Roxie = () => {
+const HoxtonHolborn = () => {
   const images = {
-    img1: "assets/katz's_delicatessen.jpg",
-    img2: "assets/attendant_fitzrovia.jpg",
-    img3: "assets/roxie_food_center.jpg"
+    img1: "assets/south_kensington.jpg",
+    img2: "assets/south_kensington.jpg",
+    img3: "assets/south_kensington.jpg"
   };
 
   return(
@@ -20,13 +20,13 @@ const Roxie = () => {
 
         <div><PhotoCarousel images={images}/></div>
         <div class="instance_page_info">
-          <h2>Roxie Food Center</h2>
-          <Ratings rating={"RatingFive"}/>
-          <p>Easygoing canteen with a welcoming atmosphere specializing in hearty deli sandwiches.</p>
+          <h2>Hoxton Holborn</h2>
+          <Ratings rating={"RatingFour"}/>
+          <p>No-frills deli with theatrically cranky service serving mile-high sandwiches since 1888.</p>
         </div>
       </div>
     </div>
   );
 }
 
-export default Roxie;
+export default HoxtonHolborn;

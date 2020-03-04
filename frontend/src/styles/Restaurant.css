@@ -12,11 +12,13 @@ h1 {
 .instance {
     color: black;
     padding: 20px;
+    padding-bottom: 50px;
 }
 
 .instance_img {
     float: left;
     width: 200px;
+    height: 125px;
     margin-right: 15px;
 }
 

@@ -7,28 +7,31 @@ import '../styles/Restaurant.css';
 const Restaurant = () => {
   const allRestaurants = [
     {
-      name: "Katz's Delicatessen",
-      URLname: "katz's_delicatessen",
+      name: "Wright Brothers - South Kensington",
+      location: "London, UK",
+      URLname: "south_kensington",
       address: "",
       rating: "RatingFourAndHalf",
-      description: "No-frills deli with theatrically cranky service serving mile-high sandwiches since 1888.",
-      imgURL: "assets/katz's_delicatessen.jpg"
+      description: "",
+      imgURL: "assets/south_kensington.jpg"
     },
     {
-      name: "Attendant Fitzrovia",
-      URLname: "attendant_fitzrovia",
+      name: "Crab House All You Can Eat Seafood",
+      location: "New York City, US",
+      URLname: "crab_house",
       address: "",
-      rating: "RatingFourAndHalf",
-      description: "Tiny, quirky coffee bar in restored Victorian public convenience, serving breakfast and light lunch.",
-      imgURL: "assets/attendant_fitzrovia.jpg"
+      rating: "RatingFour",
+      description: "",
+      imgURL: "assets/crab_house.jpg"
     },
     {
-      name: "Roxie Food Center",
-      URLname: "roxie_food_center",
+      name: "Fog Harbor Fish House",
+      location: "San Francisco, US",
+      URLname: "fish_house",
       address: "",
-      rating: "RatingFive",
-      description: "Easygoing canteen with a welcoming atmosphere specializing in hearty deli sandwiches.",
-      imgURL: "assets/roxie_food_center.jpg"
+      rating: "RatingFour",
+      description: "",
+      imgURL: "assets/fish_house.jpg"
     }
   ]
 

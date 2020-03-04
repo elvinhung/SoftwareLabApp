@@ -5,11 +5,11 @@ import 'font-awesome/css/font-awesome.min.css';
 import '../styles/RestaurantInstance.css';
 import PhotoCarousel from "../components/PhotoCarousel";
 
-const KatzDeli = () => {
+const SouthKensington = () => {
   const images = {
-    img1: "assets/katz's_delicatessen.jpg",
-    img2: "assets/attendant_fitzrovia.jpg",
-    img3: "assets/roxie_food_center.jpg"
+    img1: "assets/south_kensington.jpg",
+    img2: "assets/south_kensington.jpg",
+    img3: "assets/south_kensington.jpg"
   };
 
   return(
@@ -20,7 +20,7 @@ const KatzDeli = () => {
 
         <div><PhotoCarousel images={images}/></div>
         <div class="instance_page_info">
-          <h2>Katz's Delicatessen</h2>
+          <h2>South Kensington</h2>
           <Ratings rating={"RatingFourAndHalf"}/>
           <p>No-frills deli with theatrically cranky service serving mile-high sandwiches since 1888.</p>
         </div>
@@ -29,4 +29,4 @@ const KatzDeli = () => {
   );
 }
 
-export default KatzDeli;
+export default SouthKensington;
