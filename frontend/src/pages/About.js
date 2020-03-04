@@ -74,7 +74,7 @@ const About = () => {
     {
       name: 'Manun Chopra',
       major: 'ECE ᛫ Full Stack',
-      bio: 'Hi, I\'m Manun. I am a senior in the ECE department specializing in Software Engineering. Outside of class, I like to play tennis, going to the gym, play piano, and cook desi foods.',
+      bio: 'I am Manun. I am a senior in the ECE department specializing in Software Engineering. Outside of class, I like to play tennis, work out last year, sometimes play piano, and cook indian food once a month. I am excited to work with a great team this semester.',
       commits: 0,
       issues: 0,
       tests: 0,
@@ -84,7 +84,7 @@ const About = () => {
     {
       name: 'Elvin Hung',
       major: 'ECE ᛫ Frontend',
-      bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut tristique et egestas quis. Habitant morbi tristique senectus et netus. Faucibus scelerisque eleifend donec pretium vulputate sapien. Neque gravida in fermentum et sollicitudin ac orci phasellus egestas',
+      bio: 'Hi, my name is Elvin. I am a 4th year ECE student focusing on Software Engineering. In my free time I enjoy discovering new music and trying to cook recipes I find online. Lately, I have been getting more interested in UX design.',
       commits: 0,
       issues: 0,
       tests: 0,
@@ -94,7 +94,7 @@ const About = () => {
     {
       name: 'Rishab Chander',
       major: 'ECE ᛫ Backend',
-      bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut tristique et egestas quis. Habitant morbi tristique senectus et netus. Faucibus scelerisque eleifend donec pretium vulputate sapien. Neque gravida in fermentum et sollicitudin ac orci phasellus egestas',
+      bio: 'I’m Rishab! I am a senior in the ECE department with a focus in Software Engineering. Outside of class, I enjoy playing basketball, working out, and listening to music.',
       commits: 0,
       issues: 0,
       tests: 0,

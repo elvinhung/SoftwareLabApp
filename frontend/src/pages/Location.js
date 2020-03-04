@@ -6,15 +6,15 @@ import "../styles/Location.css";
 const locationData = [
   {
     name: 'New York City',
-    id: '',
+    id: 'nyc',
   },
   {
     name: 'London',
-    id: '',
+    id: 'ldn',
   },
   {
     name: 'San Francisco',
-    id: '',
+    id: 'sf',
   },
 ];
 
