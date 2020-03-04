@@ -1,0 +1,17 @@
+.instance_head {
+    background-color: #282c34;
+    height: 350px;
+    color: white;
+    padding: 25px;
+}
+
+.instance_page_info {
+    padding-left: 50px;
+}
+
+.carousel_img {
+    float: left;
+    width: 500px;
+    max-height: 300px;
+    margin-right: 25px;
+}

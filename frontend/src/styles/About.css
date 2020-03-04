@@ -1,0 +1,147 @@
+.section-body {
+    width: 700px;
+    margin: 0 auto;
+}
+
+.section-body > p {
+    margin: 0;
+}
+
+.member-container {
+    padding: 0px 0px 40px 0px;
+}
+
+.member-section-container {
+    border-radius: 5px;
+    width: 700px;
+    margin: 0 auto;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+}
+
+.centered-container {
+    display: flex;
+    justify-content: space-between;
+    width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.github-stat > p {
+    margin: 0;
+}
+
+.github-stat > h2 {
+    font-family: "Georgia", sans-serif;
+    margin: 0;
+}
+
+.data-container {
+    padding: 20px 0px;
+}
+
+.data-section-container {
+    margin: 0 auto;
+    width: 500px;
+}
+
+.data-link {
+    text-decoration: none;
+    color: black;
+}
+
+.data-link:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.data-section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    height: 100px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.data-section:hover {
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+}
+
+.data-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.data-content > img {
+    width: 100px;
+    margin-right: 20px;
+}
+
+.data-content > h4 {
+    font-weight: 400;
+}
+
+.tool-link {
+    text-decoration: none;
+    color: black;
+}
+
+.tool-link:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.tool-card {
+    border-radius: 5px;
+    width: 250px;
+    height: 300px;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+}
+
+.tool-img {
+    height: 70px;
+    margin: 0 auto;
+}
+
+.center {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.wide {
+    width: 900px;
+}
+
+.github-logo {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .section-body {
+        width: 90%;
+    }
+
+    .member-section-container {
+        width: 100%;
+    }
+    .centered-container {
+        display: block;
+        width: 100%;
+    }
+
+    .tool-card {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .wide {
+        width: 100%;
+    }
+}
