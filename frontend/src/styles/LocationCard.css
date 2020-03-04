@@ -1,0 +1,37 @@
+.location-card {
+    border-radius: 5px;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+    margin: 20px 10px 10px 10px;
+    width: 300px;
+    height: 350px;
+    flex: 0 0 33.333333%;
+}
+
+.location-img-container  {
+    width: 300px;
+    height: 150px;
+    border-radius: 5px 5px 0px 0px;
+    overflow: hidden;
+}
+
+.location-img {
+    width: 100%;
+}
+
+.location-link {
+    text-decoration: none;
+    color: black;
+}
+
+.location-link:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.location-card-content {
+    padding: 10px;
+}
+
+.location-name {
+    font-weight: 400;
+}
