@@ -1,7 +1,7 @@
 import React from 'react';
 import 'font-awesome/css/font-awesome.min.css';
 import Ratings from "../components/Ratings";
-import '../App.css'
+import '../styles/Restaurant.css';
 
 const RestaurantListing = (props) => {
   return(

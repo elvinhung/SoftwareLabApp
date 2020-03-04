@@ -2,14 +2,14 @@ import React from 'react';
 import Header from "../components/Header";
 import Ratings from "../components/Ratings";
 import 'font-awesome/css/font-awesome.min.css';
-import '../App.css'
+import '../styles/RestaurantInstance.css';
 import PhotoCarousel from "../components/PhotoCarousel";
 
 const Roxie = () => {
   const images = {
-    img1: "katz's_delicatessen.jpg",
-    img2: "attendant_fitzrovia.jpg",
-    img3: "roxie_food_center.jpg"
+    img1: "assets/katz's_delicatessen.jpg",
+    img2: "assets/attendant_fitzrovia.jpg",
+    img3: "assets/roxie_food_center.jpg"
   };
 
   return(
