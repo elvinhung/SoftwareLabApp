@@ -11,7 +11,7 @@ const Home = () => {
           <h1>Where to?</h1>
         </div>
         <div className="form-container">
-          <input className="search-bar" type="text" />
+          <input className="search-bar" placeholder="Anywhere" type="text" />
         </div>
       </div>
     </div>

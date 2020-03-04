@@ -35,7 +35,7 @@ const GithubStat = (props) => {
 
 const DataSection = (props) => {
   return (
-    <a className="data-link" href={props.link} target="_blank">
+    <a className="data-link" href={props.link} target="_blank" rel="noopener noreferrer">
       <div className="data-section">
         <div className="data-content">
           <img src={props.img} alt={props.alt} />
@@ -48,7 +48,7 @@ const DataSection = (props) => {
 
 const ToolCard = (props) => {
   return (
-    <a className="tool-link" href={props.link} target="_blank">
+    <a className="tool-link" href={props.link} target="_blank" rel="noopener noreferrer">
       <div className="tool-card">
         <div className="center">
           <img className="tool-img" src={props.img}  alt={props.alt} />
@@ -173,7 +173,7 @@ const About = () => {
   // runs upon initial render
   useEffect(() => {
     getStats();
-  }, []);
+  });
 
   return(
     <div className="page-container">
@@ -243,7 +243,7 @@ const About = () => {
         />
       </div>
       <div className="github-logo">
-        <a href="https://github.com/elvinhung/SoftwareLabApp" target="_blank">
+        <a href="https://github.com/elvinhung/SoftwareLabApp" target="_blank" rel="noopener noreferrer">
           <img width="200px" src={githubPng} alt="Github Repository" />
         </a>
       </div>
