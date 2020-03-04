@@ -13,3 +13,4 @@
 * `npm install react-router-dom`
 * `npm install bootstrap` to add bootstrap
 * `npm install font-awesome` to add Font Awesome 4.7.0 library (used for ratings and more)
+* `npm install mbdreact` for PhotoCarousel functionality
