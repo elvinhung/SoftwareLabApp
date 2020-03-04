@@ -36,6 +36,10 @@ const FishHouse = () => {
           <div><Ratings rating={"RatingFour"}/></div>
 
           <p></p>
+          <p>
+            <i className="fa fa-map-marker contact"></i> Pier 39, Ste A-202, San Francisco, CA 94133 <br></br>
+            <i className="fa fa-phone contact"></i> (415) 421-2442
+          </p>
         </div>
       </div>
 

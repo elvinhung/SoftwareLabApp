@@ -8,9 +8,9 @@ import RestaurantListing from "../components/RestaurantListing";
 
 const LeonHotel = () => {
   const images = {
-    img1: "assets/south_kensington.jpg",
-    img2: "assets/south_kensington.jpg",
-    img3: "assets/south_kensington.jpg"
+    img1: "assets/leon_hotel.jpg",
+    img2: "assets/leon_hotel.jpg",
+    img3: "assets/leon_hotel.jpg"
   };
   const allRestaurants = {
     name: "Crab House All You Can Eat Seafood",
@@ -36,6 +36,9 @@ const LeonHotel = () => {
           <div><Ratings rating={"RatingFour"}/></div>
 
           <p></p>
+          <p>
+            <i className="fa fa-map-marker contact"></i> 121 Canal Street, New York, NY 10002 <br></br>
+          </p>
         </div>
       </div>
 

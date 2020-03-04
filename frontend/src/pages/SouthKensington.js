@@ -36,6 +36,10 @@ const SouthKensington = () => {
           <div><Ratings rating={"RatingFourAndHalf"}/></div>
 
           <p></p>
+          <p>
+            <i className="fa fa-map-marker contact"></i> 56 Old Brompton Road, London SW7 3DY, United Kingdom <br></br>
+            <i className="fa fa-phone contact"></i> 44 20 7581 0131
+          </p>
         </div>
       </div>
 

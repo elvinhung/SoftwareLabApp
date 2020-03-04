@@ -36,6 +36,10 @@ const CrabHouse = () => {
           <div><Ratings rating={"RatingFour"}/></div>
 
           <p></p>
+          <p>
+            <i className="fa fa-map-marker contact"></i> 135 E 55th St, New York, NY 10022 <br></br>
+            <i className="fa fa-phone contact"></i> (212) 392-6400
+          </p>
         </div>
       </div>
 

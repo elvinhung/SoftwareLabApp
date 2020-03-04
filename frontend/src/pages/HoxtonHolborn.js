@@ -8,9 +8,9 @@ import RestaurantListing from "../components/RestaurantListing";
 
 const HoxtonHolborn = () => {
   const images = {
-    img1: "assets/south_kensington.jpg",
-    img2: "assets/south_kensington.jpg",
-    img3: "assets/south_kensington.jpg"
+    img1: "assets/hoxton_holborn.jpg",
+    img2: "assets/hoxton_holborn.jpg",
+    img3: "assets/hoxton_holborn.jpg"
   };
   const allRestaurants = {
     name: "Wright Brothers - South Kensington",
@@ -33,9 +33,12 @@ const HoxtonHolborn = () => {
           <h2>The Hoxton Holborn</h2>
 
           <div className="instance_location"><p>{"London, UK"}</p></div>
-          <div><Ratings rating={"RatingFour"}/></div>
+          <div><Ratings rating={"RatingTwo"}/></div>
 
           <p></p>
+          <p>
+            <i className="fa fa-map-marker contact"></i> 199-206 High Holborn, London WC1V 7BD, United Kingdom <br></br>
+          </p>
         </div>
       </div>
 

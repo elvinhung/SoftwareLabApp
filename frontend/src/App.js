@@ -9,7 +9,7 @@ import Location from './pages/Location';
 import Hotel from './pages/Hotel';
 import HoxtonHolborn from './pages/HoxtonHolborn';
 import LeonHotel from './pages/LeonHotel';
-import WestGate from "./pages/WestGate";
+import FairmontHeritage from "./pages/FairmontHeritage";
 import Restaurant from './pages/Restaurant';
 import SouthKensington from './pages/SouthKensington';
 import CrabHouse from './pages/CrabHouse';
@@ -26,7 +26,7 @@ function App() {
         <Route path="/locations" component={Location} />
         <Route path="/hotels/hoxton_holborn" component={HoxtonHolborn} />
         <Route path="/hotels/leon_hotel" component={LeonHotel} />
-        <Route path="/hotels/west_gate" component={WestGate} />
+        <Route path="/hotels/fairmont_heritage" component={FairmontHeritage} />
         <Route path="/hotels" component={Hotel} />
         <Route path="/restaurants/south_kensington" component={SouthKensington} />
         <Route path="/restaurants/crab_house" component={CrabHouse} />

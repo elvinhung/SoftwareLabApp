@@ -6,11 +6,11 @@ import '../styles/InstanceListing.css';
 import PhotoCarousel from "../components/PhotoCarousel";
 import RestaurantListing from "../components/RestaurantListing";
 
-const WestGate = () => {
+const FairmontHeritage = () => {
   const images = {
-    img1: "assets/south_kensington.jpg",
-    img2: "assets/south_kensington.jpg",
-    img3: "assets/south_kensington.jpg"
+    img1: "assets/fairmont_heritage.jpg",
+    img2: "assets/fairmont_heritage.jpg",
+    img3: "assets/fairmont_heritage.jpg"
   };
   const allRestaurants = {
     name: "Fog Harbor Fish House",
@@ -30,12 +30,15 @@ const WestGate = () => {
 
         <div><PhotoCarousel images={images}/></div>
         <div class="instance_head_info">
-          <h2>The Westgate Hotel</h2>
+          <h2>Fairmont Heritage Place - Ghirardelli Square</h2>
 
           <div className="instance_location"><p>{"San Francisco, US"}</p></div>
-          <div><Ratings rating={"RatingFour"}/></div>
+          <div><Ratings rating={"RatingFive"}/></div>
 
           <p></p>
+          <p>
+            <i className="fa fa-map-marker contact"></i> 900 North Point, San Francisco, CA 94109 <br></br>
+          </p>
         </div>
       </div>
 
@@ -47,4 +50,4 @@ const WestGate = () => {
   );
 }
 
-export default WestGate;
+export default FairmontHeritage;
