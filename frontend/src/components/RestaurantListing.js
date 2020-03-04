@@ -13,7 +13,7 @@ const RestaurantListing = (props) => {
             <img className="instance_img" src={require("../" + props.restaurant.imgURL)} alt={props.restaurant.name}/>
           </div>
           <div className="instance_page_info">
-            <h2>{props.restaurant.name}</h2>
+            <h2 className="instance_name">{props.restaurant.name}</h2>
 
             <div className="instance_location"><p>{props.restaurant.location}</p></div>
             <div><Ratings rating = {props.restaurant.rating}/></div>

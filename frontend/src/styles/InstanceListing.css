@@ -4,9 +4,10 @@
     color: white;
     padding: 25px;
     font-family: "Georgia", sans-serif;
+    white-space: nowrap;
 }
 
-.instance_page_info {
+.instance_head_info {
     padding-left: 50px;
 }
 
@@ -20,4 +21,10 @@
 .instance_location {
     float: left;
     margin-right: 15px;
+}
+
+.information {
+    font-family: "Georgia", sans-serif;
+    font-size: 30px;
+    padding: 25px;
 }
