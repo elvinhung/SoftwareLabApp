@@ -3,11 +3,33 @@ import Header from "../components/Header";
 import '../styles/Location.css';
 import '../styles/InstanceListing.css';
 import PhotoCarousel from "../components/PhotoCarousel";
+import RestaurantListing from "../components/RestaurantListing";
+import HotelListing from "../components/HotelListing";
 
 const images = {
   img1: 'assets/nyc.jpg',
   img2: 'assets/nyc.jpg',
   img3: 'assets/nyc.jpg',
+};
+
+const allRestaurants = {
+  name: "Crab House All You Can Eat Seafood",
+  location: "New York City, US",
+  URLname: "crab_house",
+  address: "",
+  rating: "RatingFour",
+  description: "",
+  imgURL: "assets/crab_house.jpg"
+};
+
+const allHotels = {
+  name: "The Leon Hotel",
+  location: "New York City, US",
+  URLname: "leon_hotel",
+  address: "",
+  rating: "RatingFour",
+  description: "",
+  imgURL: "assets/attendant_fitzrovia.jpg"
 };
 
 const NYC = () => {
@@ -20,6 +42,16 @@ const NYC = () => {
           <h1>New York</h1>
           <p>Lat. 40.7127753</p>
           <p>Long. -74.0059728</p>
+        </div>
+      </div>
+      <div className="instance-content-container">
+        <div className="listing-container">
+          <h3>Restaurants</h3>
+          <RestaurantListing restaurant={allRestaurants}/>
+        </div>
+        <div className="listing-container">
+          <h3>Hotels</h3>
+          <HotelListing hotel={allHotels}/>
         </div>
       </div>
     </div>
