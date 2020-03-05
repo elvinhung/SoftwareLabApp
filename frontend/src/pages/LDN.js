@@ -30,7 +30,7 @@ const allHotels = {
   address: "",
   rating: "RatingFour",
   description: "",
-  imgURL: "assets/katz's_delicatessen.jpg"
+  imgURL: "assets/hoxton_holborn.jpg"
 };
 
 const LDN = () => {

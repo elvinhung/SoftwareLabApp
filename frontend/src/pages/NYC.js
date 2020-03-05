@@ -29,7 +29,7 @@ const allHotels = {
   address: "",
   rating: "RatingFour",
   description: "",
-  imgURL: "assets/attendant_fitzrovia.jpg"
+  imgURL: "assets/leon_hotel.jpg"
 };
 
 const NYC = () => {

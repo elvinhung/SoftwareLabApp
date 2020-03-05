@@ -24,13 +24,13 @@ const allRestaurants = {
 };
 
 const allHotels = {
-  name: "The Westgate Hotel",
+  name: "Fairmont Heritage Place - Ghirardelli Square",
   location: "San Francisco, US",
-  URLname: "west_gate",
+  URLname: "fairmont_heritage",
   address: "",
-  rating: "RatingFour",
+  rating: "RatingFive",
   description: "",
-  imgURL: "assets/roxie_food_center.jpg"
+  imgURL: "assets/fairmont_heritage.jpg"
 };
 
 const SF = () => {
