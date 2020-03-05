@@ -4,22 +4,22 @@ import Ratings from "../components/Ratings";
 import 'font-awesome/css/font-awesome.min.css';
 import '../styles/InstanceListing.css';
 import PhotoCarousel from "../components/PhotoCarousel";
-import HotelListing from "../components/HotelListing";
+import RestaurantListing from "../components/RestaurantListing";
 
-const FishHouse = () => {
+const FairmontHeritage = () => {
   const images = {
-    img1: "assets/fish_house.jpg",
-    img2: "assets/fish_house.jpg",
-    img3: "assets/fish_house.jpg"
+    img1: "assets/fairmont_heritage.jpg",
+    img2: "assets/fairmont_heritage.jpg",
+    img3: "assets/fairmont_heritage.jpg"
   };
-  const allHotels = {
-    name: "The Westgate Hotel",
+  const allRestaurants = {
+    name: "Fog Harbor Fish House",
     location: "San Francisco, US",
-    URLname: "west_gate",
+    URLname: "fish_house",
     address: "",
     rating: "RatingFour",
     description: "",
-    imgURL: "assets/roxie_food_center.jpg"
+    imgURL: "assets/fish_house.jpg"
   };
 
   return(
@@ -30,25 +30,24 @@ const FishHouse = () => {
 
         <div><PhotoCarousel images={images}/></div>
         <div class="instance_head_info">
-          <h2>Fish House</h2>
+          <h2>Fairmont Heritage Place - Ghirardelli Square</h2>
 
           <div className="instance_location"><p>{"San Francisco, US"}</p></div>
-          <div><Ratings rating={"RatingFour"}/></div>
+          <div><Ratings rating={"RatingFive"}/></div>
 
           <p></p>
           <p>
-            <i className="fa fa-map-marker contact"></i> Pier 39, Ste A-202, San Francisco, CA 94133 <br></br>
-            <i className="fa fa-phone contact"></i> (415) 421-2442
+            <i className="fa fa-map-marker contact"></i> 900 North Point, San Francisco, CA 94109 <br></br>
           </p>
         </div>
       </div>
 
       <div className="information listing_container">
-        <p>Hotels nearby: </p>
-        <HotelListing hotel={allHotels}/>
+        <p>Restaurants nearby: </p>
+        <RestaurantListing restaurant={allRestaurants}/>
       </div>
     </div>
   );
 }
 
-export default FishHouse;
+export default FairmontHeritage;

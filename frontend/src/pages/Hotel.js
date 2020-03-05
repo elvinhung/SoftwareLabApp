@@ -2,7 +2,7 @@ import React from 'react';
 import Header from "../components/Header";
 import 'font-awesome/css/font-awesome.min.css';
 import HotelListing from "../components/HotelListing";
-import '../styles/Restaurant.css';
+import '../styles/ModelPage.css';
 
 const Hotel = () => {
   const allHotels = [
@@ -11,9 +11,9 @@ const Hotel = () => {
       location: "London, UK",
       URLname: "hoxton_holborn",
       address: "",
-      rating: "RatingFour",
+      rating: "RatingTwo",
       description: "",
-      imgURL: "assets/katz's_delicatessen.jpg"
+      imgURL: "assets/hoxton_holborn.jpg"
     },
     {
       name: "The Leon Hotel",
@@ -22,27 +22,29 @@ const Hotel = () => {
       address: "",
       rating: "RatingFour",
       description: "",
-      imgURL: "assets/attendant_fitzrovia.jpg"
+      imgURL: "assets/leon_hotel.jpg"
     },
     {
-      name: "The Westgate Hotel",
+      name: "Fairmont Heritage Place - Ghirardelli Square",
       location: "San Francisco, US",
-      URLname: "west_gate",
+      URLname: "fairmont_heritage",
       address: "",
-      rating: "RatingFour",
+      rating: "RatingFive",
       description: "",
-      imgURL: "assets/roxie_food_center.jpg"
+      imgURL: "assets/fairmont_heritage.jpg"
     }
   ]
 
   return(
     <div>
       <Header />
-      <h1>Hotels</h1>
+      <h1 className="model-header">Hotels</h1>
 
-      {allHotels.map(hotel => {
-        return <HotelListing hotel={hotel} key={hotel.name}/>
-      })}
+      <div className="listing_container">
+        {allHotels.map(hotel => {
+          return <HotelListing hotel={hotel} key={hotel.name}/>
+        })}
+      </div>
     </div>
   );
 }

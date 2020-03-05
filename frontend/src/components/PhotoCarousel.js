@@ -1,6 +1,6 @@
 import React from 'react';
 import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView, MDBContainer } from "mdbreact";
-import '../styles/RestaurantInstance.css';
+import '../styles/InstanceListing.css';
 
 const PhotoCarousel = (props) => {
   return (
