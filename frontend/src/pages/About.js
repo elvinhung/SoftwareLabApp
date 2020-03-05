@@ -173,7 +173,7 @@ const About = () => {
   // runs upon initial render
   useEffect(() => {
     getStats();
-  });
+  }, []);
 
   return(
     <div className="page-container">
@@ -187,7 +187,7 @@ const About = () => {
         <div className="member-section-container">
           {contributors.map(member => {
             return (
-              <MemberSection member={member} />
+              <MemberSection key={member.name} member={member} />
             );
           })}
         </div>

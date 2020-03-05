@@ -1,5 +1,9 @@
 .location-page-container {
-    padding: 40px;
+}
+
+.location-header {
+    font-family: "Georgia", sans-serif;
+    margin: 20px 0px 0px 0px;
 }
 
 .location-card-container {
@@ -7,5 +11,23 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    width: 1100px;
+    width: 700px;
+}
+
+.location-splash-img {
+    width: 100vw;
+    overflow: hidden;
+    height: 350px;
+}
+
+.location-splash-img img {
+    width: 100%;
+}
+
+.location-splash-content {
+}
+
+.location-splash-header {
+    font-family: "Georgia", sans-serif;
+    margin: 20px;
 }

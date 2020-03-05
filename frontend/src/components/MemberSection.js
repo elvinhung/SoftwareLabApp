@@ -20,7 +20,7 @@ const MemberSection = (props) => {
   return (
     <div className="member-section">
       <div className="member-section-header">
-        {img && <img className="member-img" src={img} />}
+        {img && <img className="member-img" src={img} alt={name} />}
         <div className="member-info">
           <h4 className="member-name">{name}</h4>
           <div className="github-info-container">

@@ -5,7 +5,7 @@ import "../styles/Location.css";
 
 const locationData = [
   {
-    name: 'New York City',
+    name: 'New York',
     id: 'nyc',
   },
   {
@@ -22,10 +22,11 @@ const Location = () => {
   return(
     <div>
       <Header />
+      <h1 align="center" className="location-header">Locations</h1>
       <div className="location-page-container">
         <div className="location-card-container">
           {locationData.map(location => (
-            <LocationCard location={location} />
+            <LocationCard key={location.id} location={location} />
           ))}
         </div>
       </div>
