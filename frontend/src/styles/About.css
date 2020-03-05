@@ -1,3 +1,11 @@
+.about_head {
+    background-color: #282c34;
+    height: 350px;
+    color: white;
+    padding: 25px;
+    font-family: "Georgia", sans-serif;
+}
+
 .section-body {
     width: 700px;
     margin: 0 auto;
