@@ -1,6 +1,22 @@
 .location-page-container {
 }
 
+.instance-content-container {
+    padding: 40px;
+}
+
+.listing-container {
+    margin-bottom: 20px;
+    width: 900px;
+}
+
+.listing-container > h3 {
+    font-weight: 400;
+    margin-left: 20px;
+}
+
+
+
 .location-header {
     font-family: "Georgia", sans-serif;
     margin: 20px 0px 0px 0px;
@@ -18,10 +34,12 @@
     width: 100vw;
     overflow: hidden;
     height: 350px;
+    position: relative;
 }
 
 .location-splash-img img {
     width: 100%;
+    transform: translateY(-25%);
 }
 
 .location-splash-content {
@@ -29,5 +47,5 @@
 
 .location-splash-header {
     font-family: "Georgia", sans-serif;
-    margin: 20px;
+    top: 50%;
 }
