@@ -2,7 +2,7 @@ import React from 'react';
 import 'font-awesome/css/font-awesome.min.css';
 
 const Ratings = (props) => {
-  if (props.rating == "RatingFive") {
+  if (props.rating === "RatingFive") {
     return (
       <div>
         <i className="fa fa-star"></i>
@@ -13,7 +13,7 @@ const Ratings = (props) => {
       </div>
     );
   }
-  else if (props.rating == "RatingFourAndHalf") {
+  else if (props.rating === "RatingFourAndHalf") {
     return (
       <div>
         <i className="fa fa-star"></i>
@@ -24,7 +24,7 @@ const Ratings = (props) => {
       </div>
     );
   }
-  else if (props.rating == "RatingFour") {
+  else if (props.rating === "RatingFour") {
     return (
       <div>
         <i className="fa fa-star"></i>
@@ -35,7 +35,7 @@ const Ratings = (props) => {
       </div>
     );
   }
-  else if (props.rating == "RatingThreeAndHalf") {
+  else if (props.rating === "RatingThreeAndHalf") {
     return (
       <div>
         <i className="fa fa-star"></i>
@@ -46,7 +46,7 @@ const Ratings = (props) => {
       </div>
     );
   }
-  else if (props.rating == "RatingThree") {
+  else if (props.rating === "RatingThree") {
     return (
       <div>
         <i className="fa fa-star"></i>
@@ -57,7 +57,7 @@ const Ratings = (props) => {
       </div>
     );
   }
-  else if (props.rating == "RatingTwoAndHalf") {
+  else if (props.rating === "RatingTwoAndHalf") {
     return (
       <div>
         <i className="fa fa-star"></i>
@@ -68,7 +68,7 @@ const Ratings = (props) => {
       </div>
     );
   }
-  else if (props.rating == "RatingTwo") {
+  else if (props.rating === "RatingTwo") {
     return (
       <div>
         <i className="fa fa-star"></i>
@@ -79,7 +79,7 @@ const Ratings = (props) => {
       </div>
     );
   }
-  else if (props.rating == "RatingOneAndHalf") {
+  else if (props.rating === "RatingOneAndHalf") {
     return (
       <div>
         <i className="fa fa-star"></i>
@@ -90,7 +90,7 @@ const Ratings = (props) => {
       </div>
     );
   }
-  else if (props.rating == "RatingOne") {
+  else if (props.rating === "RatingOne") {
     return (
       <div>
         <i className="fa fa-star"></i>
@@ -101,7 +101,7 @@ const Ratings = (props) => {
       </div>
     );
   }
-  else if (props.rating == "RatingHalf") {
+  else if (props.rating === "RatingHalf") {
     return (
       <div>
         <i className="fa fa-star-half-o"></i>
@@ -112,7 +112,7 @@ const Ratings = (props) => {
       </div>
     );
   }
-  else if (props.rating == "RatingZero") {
+  else if (props.rating === "RatingZero") {
     return (
       <div>
         <i className="fa fa-star-o"></i>

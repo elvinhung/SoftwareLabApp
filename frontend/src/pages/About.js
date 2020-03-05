@@ -12,10 +12,11 @@ import flaskJpg from '../assets/flask.jpg';
 import alex from '../assets/AlexKim.JPG';
 import manun from '../assets/ManunChopra.jpg';
 import elvin from '../assets/ElvinHung.jpg';
+import nithanth from '../assets/NithanthRam.jpg';
 import '../styles/About.css';
 import '../styles/GlobalStyles.css';
 
-const PURPOSE = " is a web application for travelers who want to make the most out of their trip. When travelling to an unfamiliar place, the amount of places to see and things to do can be overwhelming. _ provides users the ability to filter and sort through all the noise in order to find the experience they are looking for.";
+const PURPOSE = "Nomad is a web application for travelers who want to make the most out of their trip. When travelling to an unfamiliar place, the amount of places to see and things to do can be overwhelming. Nomad provides users the ability to filter and sort through all the noise in order to find the experience they are looking for.";
 const FLASK_USAGE = "Our backend will be a RESTful API built with Flask. It will allow our front end to make HTTP Requests to our database.";
 const AWS_USAGE = "In order to host our website, we employed the use of AWS S3 for static website hosting."
 const REACT_USAGE = "We used React to implement the frontend of our application. It allows us to break up our website into different components and manage states of those components over time."
@@ -34,7 +35,7 @@ const GithubStat = (props) => {
 
 const DataSection = (props) => {
   return (
-    <a className="data-link" href={props.link} target="_blank">
+    <a className="data-link" href={props.link} target="_blank" rel="noopener noreferrer">
       <div className="data-section">
         <div className="data-content">
           <img src={props.img} alt={props.alt} />
@@ -47,7 +48,7 @@ const DataSection = (props) => {
 
 const ToolCard = (props) => {
   return (
-    <a className="tool-link" href={props.link} target="_blank">
+    <a className="tool-link" href={props.link} target="_blank" rel="noopener noreferrer">
       <div className="tool-card">
         <div className="center">
           <img className="tool-img" src={props.img}  alt={props.alt} />
@@ -63,7 +64,7 @@ const About = () => {
     {
       name: 'Alex Kim',
       major: 'ECE ᛫ Frontend',
-      bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut tristique et egestas quis. Habitant morbi tristique senectus et netus. Faucibus scelerisque eleifend donec pretium vulputate sapien. Neque gravida in fermentum et sollicitudin ac orci phasellus egestas',
+      bio: 'I’m Alex! I am currently a junior ECE major at UT Austin with a focus in Software Engineering. Outside of class, I like to make music, work out, and volunteer with UT Lions Club.',
       commits: 0,
       issues: 0,
       tests: 0,
@@ -73,7 +74,7 @@ const About = () => {
     {
       name: 'Manun Chopra',
       major: 'ECE ᛫ Full Stack',
-      bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut tristique et egestas quis. Habitant morbi tristique senectus et netus. Faucibus scelerisque eleifend donec pretium vulputate sapien. Neque gravida in fermentum et sollicitudin ac orci phasellus egestas',
+      bio: 'I am Manun. I am a senior in the ECE department specializing in Software Engineering. Outside of class, I like to play tennis, work out last year, sometimes play piano, and cook indian food once a month. I am excited to work with a great team this semester.',
       commits: 0,
       issues: 0,
       tests: 0,
@@ -83,7 +84,7 @@ const About = () => {
     {
       name: 'Elvin Hung',
       major: 'ECE ᛫ Frontend',
-      bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut tristique et egestas quis. Habitant morbi tristique senectus et netus. Faucibus scelerisque eleifend donec pretium vulputate sapien. Neque gravida in fermentum et sollicitudin ac orci phasellus egestas',
+      bio: 'Hi, my name is Elvin. I am a 4th year ECE student focusing on Software Engineering. In my free time I enjoy discovering new music and trying to cook recipes I find online. Lately, I have been getting more interested in UX design.',
       commits: 0,
       issues: 0,
       tests: 0,
@@ -93,7 +94,7 @@ const About = () => {
     {
       name: 'Rishab Chander',
       major: 'ECE ᛫ Backend',
-      bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut tristique et egestas quis. Habitant morbi tristique senectus et netus. Faucibus scelerisque eleifend donec pretium vulputate sapien. Neque gravida in fermentum et sollicitudin ac orci phasellus egestas',
+      bio: 'I’m Rishab! I am a senior in the ECE department with a focus in Software Engineering. Outside of class, I enjoy playing basketball, working out, and listening to music.',
       commits: 0,
       issues: 0,
       tests: 0,
@@ -103,12 +104,12 @@ const About = () => {
     {
       name: 'Nithanth Ram',
       major: 'ECE ᛫ Backend',
-      bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut tristique et egestas quis. Habitant morbi tristique senectus et netus. Faucibus scelerisque eleifend donec pretium vulputate sapien. Neque gravida in fermentum et sollicitudin ac orci phasellus egestas',
+      bio: 'I’m Nithanth! I am a senior in the ECE department at UT Austin with a focus in Software Engineering. Outside of class, I like to play tennis, workout, play drums, and cook good food.',
       commits: 0,
       issues: 0,
       tests: 0,
       githubUser: 'Nithanth',
-      img: manun,
+      img: nithanth,
     }
   ];
 
@@ -125,11 +126,11 @@ const About = () => {
   function updateStats(data, type) {
     if (type === 'commits') {
       let commits = 0;
-      data.forEach(developer => {
+      data.forEach(commit => {
         contributors.forEach(contributor => {
-          if (contributor.githubUser === developer.author.login) {
-            contributor.commits = developer.total;
-            commits += developer.total;
+          if (contributor.githubUser === commit.commit.author.name || contributor.name === commit.commit.author.name) {
+            contributor.commits += 1;
+            commits += 1;
           }
         });
       });
@@ -140,7 +141,7 @@ const About = () => {
         contributors.forEach(contributor => {
           if (contributor.githubUser === issue.user.login) {
             contributor.issues += 1;
-            issues++;
+            issues += 1;
           }
         });
       });
@@ -151,7 +152,7 @@ const About = () => {
 
   // github api calls for commits and issues
   function getStats() {
-    fetch("https://api.github.com/repos/elvinhung/SoftwareLabApp/stats/contributors")
+    fetch("https://api.github.com/repos/elvinhung/SoftwareLabApp/commits")
       .then((res) => res.json())
       .then((data) => {
         updateStats(data, 'commits');
@@ -188,7 +189,7 @@ const About = () => {
         <div className="member-section-container">
           {contributors.map(member => {
             return (
-              <MemberSection member={member} />
+              <MemberSection key={member.name} member={member} />
             );
           })}
         </div>
@@ -244,7 +245,7 @@ const About = () => {
         />
       </div>
       <div className="github-logo">
-        <a href="https://github.com/elvinhung/SoftwareLabApp" target="_blank">
+        <a href="https://github.com/elvinhung/SoftwareLabApp" target="_blank" rel="noopener noreferrer">
           <img width="200px" src={githubPng} alt="Github Repository" />
         </a>
       </div>

@@ -11,6 +11,12 @@ import HoxtonHolborn from './pages/HoxtonHolborn';
 import LeonHotel from './pages/LeonHotel';
 import FairmontHeritage from "./pages/FairmontHeritage";
 import Restaurant from './pages/Restaurant';
+import KatzDeli from './pages/KatzDeli';
+import Fitzrovia from './pages/Fitzrovia';
+import Roxie from './pages/Roxie'
+import SF from './pages/SF';
+import NYC from './pages/NYC';
+import LDN from './pages/LDN';
 import SouthKensington from './pages/SouthKensington';
 import CrabHouse from './pages/CrabHouse';
 import FishHouse from './pages/FishHouse'
@@ -23,6 +29,10 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/locations" component={Location} />
+        <Route path="/locations/sf" component={SF} />
+        <Route path="/locations/nyc" component={NYC} />
+        <Route path="/locations/ldn" component={LDN} />
         <Route path="/locations" component={Location} />
         <Route path="/hotels/hoxton_holborn" component={HoxtonHolborn} />
         <Route path="/hotels/leon_hotel" component={LeonHotel} />
