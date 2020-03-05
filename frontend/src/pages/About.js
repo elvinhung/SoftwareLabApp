@@ -13,6 +13,7 @@ import alex from '../assets/AlexKim.JPG';
 import manun from '../assets/ManunChopra.jpg';
 import elvin from '../assets/ElvinHung.jpg';
 import nithanth from '../assets/NithanthRam.jpg';
+import rishab from '../assets/RishabChander.JPG';
 import '../styles/About.css';
 import '../styles/GlobalStyles.css';
 
@@ -99,7 +100,7 @@ const About = () => {
       issues: 0,
       tests: 0,
       githubUser: 'rchand20',
-      img: manun,
+      img: rishab,
     },
     {
       name: 'Nithanth Ram',
@@ -152,7 +153,7 @@ const About = () => {
 
   // github api calls for commits and issues
   function getStats() {
-    fetch("https://api.github.com/repos/elvinhung/SoftwareLabApp/commits")
+    fetch("https://api.github.com/repos/elvinhung/SoftwareLabApp/commits?per_page=1000")
       .then((res) => res.json())
       .then((data) => {
         updateStats(data, 'commits');

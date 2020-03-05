@@ -11,9 +11,6 @@ import HoxtonHolborn from './pages/HoxtonHolborn';
 import LeonHotel from './pages/LeonHotel';
 import FairmontHeritage from "./pages/FairmontHeritage";
 import Restaurant from './pages/Restaurant';
-import KatzDeli from './pages/KatzDeli';
-import Fitzrovia from './pages/Fitzrovia';
-import Roxie from './pages/Roxie'
 import SF from './pages/SF';
 import NYC from './pages/NYC';
 import LDN from './pages/LDN';
