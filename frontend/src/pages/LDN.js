@@ -1,16 +1,27 @@
 import React from 'react';
 import Header from "../components/Header";
 import '../styles/Location.css';
+import '../styles/InstanceListing.css';
+import PhotoCarousel from "../components/PhotoCarousel";
+
+
+const images = {
+  img1: 'assets/ldn.jpg',
+  img2: 'assets/ldn.jpg',
+  img3: 'assets/ldn.jpg',
+};
 
 const LDN = () => {
   return (
     <div>
       <Header />
-      <div className="location-splash-img">
-        <img src="https://res.cloudinary.com/css-tricks/image/upload/c_scale,f_auto,q_auto,w_250/v1582947101/MC_CSS_aw9xgq.png" alt="sf" />
-      </div>
-      <div className="location-splash-content">
-        <h1 className="location-splash-header">London</h1>
+      <div className="instance_head">
+        <div><PhotoCarousel images={images}/></div>
+        <div className="instance_head_info">
+          <h1>London</h1>
+          <p>Lat. 51.5073509</p>
+          <p>Long. -0.1277583</p>
+        </div>
       </div>
     </div>
   );
