@@ -40,9 +40,11 @@ const Restaurant = () => {
       <Header />
       <h1 className="model-header">Restaurants</h1>
 
-      {allRestaurants.map(restaurant => {
-        return <RestaurantListing restaurant={restaurant} key={restaurant.name}/>
-      })}
+      <div className="listing_container">
+        {allRestaurants.map(restaurant => {
+          return <RestaurantListing restaurant={restaurant} key={restaurant.name}/>
+        })}
+      </div>
     </div>
   );
 }

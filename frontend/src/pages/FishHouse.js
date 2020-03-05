@@ -43,7 +43,7 @@ const FishHouse = () => {
         </div>
       </div>
 
-      <div className="information">
+      <div className="information listing_container">
         <p>Hotels nearby: </p>
         <HotelListing hotel={allHotels}/>
       </div>

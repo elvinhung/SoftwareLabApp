@@ -7,7 +7,7 @@ const HotelListing = (props) => {
   return(
     <div>
 
-      <a href={"/hotels/" + props.hotel.URLname}>
+      <a className="listing" href={"/hotels/" + props.hotel.URLname}>
         <div className="instance">
           <div>
             <img className="instance_img" src={require("../" + props.hotel.imgURL)} alt={props.hotel.name}/>

@@ -42,7 +42,7 @@ const LeonHotel = () => {
         </div>
       </div>
 
-      <div className="information">
+      <div className="information listing_container">
         <p>Restaurants nearby: </p>
         <RestaurantListing restaurant={allRestaurants}/>
       </div>

@@ -177,9 +177,11 @@ const About = () => {
   return(
     <div className="page-container">
       <Header />
-      <SectionHeader name="About" />
-      <div className="section-body">
-        <p>{PURPOSE}</p>
+      <div className="about_head">
+        <SectionHeader name="About" />
+        <div className="section-body">
+          <p>{PURPOSE}</p>
+        </div>
       </div>
       <SectionHeader name="The Team" />
       <div className="member-container">
