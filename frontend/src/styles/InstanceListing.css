@@ -23,6 +23,15 @@
     margin-right: 15px;
 }
 
+.location_link {
+    text-decoration: none;
+    color: white;
+}
+
+.location_link:hover {
+    color: white;
+}
+
 .contact {
     padding-right: 5px;
 }

@@ -19,7 +19,7 @@ const CrabHouse = () => {
     address: "",
     rating: "RatingFour",
     description: "",
-    imgURL: "assets/attendant_fitzrovia.jpg"
+    imgURL: "assets/leon_hotel.jpg"
   };
 
   return(
@@ -32,7 +32,9 @@ const CrabHouse = () => {
         <div class="instance_head_info">
           <h2>Crab House All You Can Eat Seafood</h2>
 
-          <div className="instance_location"><p>{"New York City, US"}</p></div>
+          <div className="instance_location">
+            <a className="location_link" href={"/locations/nyc"}>{"New York City, US"}</a>
+          </div>
           <div><Ratings rating={"RatingFour"}/></div>
 
           <p></p>

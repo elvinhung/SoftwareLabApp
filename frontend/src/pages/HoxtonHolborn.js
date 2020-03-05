@@ -32,7 +32,9 @@ const HoxtonHolborn = () => {
         <div class="instance_head_info">
           <h2>The Hoxton Holborn</h2>
 
-          <div className="instance_location"><p>{"London, UK"}</p></div>
+          <div className="instance_location">
+            <a className="location_link" href={"/locations/ldn"}>{"London, UK"}</a>
+          </div>
           <div><Ratings rating={"RatingTwo"}/></div>
 
           <p></p>

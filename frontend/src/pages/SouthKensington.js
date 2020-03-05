@@ -19,7 +19,7 @@ const SouthKensington = () => {
     address: "",
     rating: "RatingFour",
     description: "",
-    imgURL: "assets/katz's_delicatessen.jpg"
+    imgURL: "assets/hoxton_holborn.jpg"
   };
 
   return(
@@ -32,7 +32,9 @@ const SouthKensington = () => {
         <div class="instance_head_info">
           <h2>Wright Brothers - South Kensington</h2>
 
-          <div className="instance_location"><p>{"London, UK"}</p></div>
+          <div className="instance_location">
+            <a className="location_link" href={"/locations/ldn"}>{"London, UK"}</a>
+          </div>
           <div><Ratings rating={"RatingFourAndHalf"}/></div>
 
           <p></p>

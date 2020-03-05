@@ -32,7 +32,9 @@ const FairmontHeritage = () => {
         <div class="instance_head_info">
           <h2>Fairmont Heritage Place - Ghirardelli Square</h2>
 
-          <div className="instance_location"><p>{"San Francisco, US"}</p></div>
+          <div className="instance_location">
+            <a className="location_link" href={"/locations/sf"}>{"San Francisco, US"}</a>
+          </div>
           <div><Ratings rating={"RatingFive"}/></div>
 
           <p></p>

@@ -13,13 +13,13 @@ const FishHouse = () => {
     img3: "assets/fish_house.jpg"
   };
   const allHotels = {
-    name: "The Westgate Hotel",
+    name: "Fairmont Heritage Place - Ghirardelli Square",
     location: "San Francisco, US",
-    URLname: "west_gate",
+    URLname: "fairmont_heritage",
     address: "",
-    rating: "RatingFour",
+    rating: "RatingFive",
     description: "",
-    imgURL: "assets/roxie_food_center.jpg"
+    imgURL: "assets/fairmont_heritage.jpg"
   };
 
   return(
@@ -32,7 +32,9 @@ const FishHouse = () => {
         <div class="instance_head_info">
           <h2>Fish House</h2>
 
-          <div className="instance_location"><p>{"San Francisco, US"}</p></div>
+          <div className="instance_location">
+            <a className="location_link" href={"/locations/sf"}>{"San Francisco, US"}</a>
+          </div>
           <div><Ratings rating={"RatingFour"}/></div>
 
           <p></p>
