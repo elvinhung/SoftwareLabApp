@@ -140,7 +140,7 @@ const About = () => {
       let issues = 0;
       data.forEach(issue => {
         contributors.forEach(contributor => {
-          if (contributor.githubUser === issue.user.login) {
+          if (issue.assignee && contributor.githubUser === issue.assignee.login) {
             contributor.issues += 1;
             issues += 1;
           }
