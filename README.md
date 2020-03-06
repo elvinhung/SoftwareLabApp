@@ -1,6 +1,6 @@
 # Software Lab App
 ## Website Link
-software-lab-travel-app.s3-website.us-east-2.amazonaws.com
+http://software-lab-travel-app.s3-website.us-east-2.amazonaws.com
 
 ## Team Description Table
 | Name           | EID     | Github ID  | Estimated Time Completion | Actual Time Completion |
