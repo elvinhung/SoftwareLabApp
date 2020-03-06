@@ -1,0 +1,34 @@
+{
+   "candidates" : [
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 40.7127753,
+               "lng" : -74.0059728
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 40.9175771,
+                  "lng" : -73.70027209999999
+               },
+               "southwest" : {
+                  "lat" : 40.4773991,
+                  "lng" : -74.25908989999999
+               }
+            }
+         },
+         "name" : "New York",
+         "photos" : [
+            {
+               "height" : 4032,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/116753943490625105712\"\u003eLysiane Lenain\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAQbjRLPwMBQZ8owjYTBZ4ZCfeq483aoDuyU2fFaqjXAC5VLkfzd1l_YXzOXPthp6XIK1WCqb0oJtY0OCn42mC3ao38WXWT0CWMunmkqGQl3ClhFC0m05DlhbcuJvB5YdsEhAayMnmc3z3fE_9DrxBF8_dGhRyk7d2c_jskKazzxfyBcXCKESYiw",
+               "width" : 3024
+            }
+         ]
+      }
+   ],
+   "status" : "OK"
+}

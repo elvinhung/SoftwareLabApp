@@ -1,0 +1,34 @@
+{
+   "candidates" : [
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 51.5073509,
+               "lng" : -0.1277583
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 51.6723432,
+                  "lng" : 0.148271
+               },
+               "southwest" : {
+                  "lat" : 51.38494009999999,
+                  "lng" : -0.3514683
+               }
+            }
+         },
+         "name" : "London",
+         "photos" : [
+            {
+               "height" : 720,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/116096016533668430038\"\u003eBakeel Obyan\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAc6fEJmxrYcK6Ss7iCJ6zPB4yAdwWyXINnPp2jjBbsje7XeCyYLIo08e-SS-X2tjHeu23Og1ihNxwjx8IBzexajU5Sc-ilh8z_ldooyestANz9oRBEyyWmEEqeGY1bUuZEhCy_9NnlxpGD1OoIZEoqa5VGhTSHZX6FOefODIB_caUmk2HN_OUPg",
+               "width" : 1064
+            }
+         ]
+      }
+   ],
+   "status" : "OK"
+}

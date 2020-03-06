@@ -1,0 +1,34 @@
+{
+   "candidates" : [
+      {
+         "geometry" : {
+            "location" : {
+               "lat" : 37.7749295,
+               "lng" : -122.4194155
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 37.812,
+                  "lng" : -122.3482
+               },
+               "southwest" : {
+                  "lat" : 37.70339999999999,
+                  "lng" : -122.527
+               }
+            }
+         },
+         "name" : "San Francisco",
+         "photos" : [
+            {
+               "height" : 2578,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/105303505373661530610\"\u003eHauser Quaid Zzyzx\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAgpR7-oivID9PXIHp-2Y2fIPoHBZ5gCeMdfZ9Oc5yyyGpdsUxtQRlrd8vgMo7VvhAMAjk7qZRuNKe073QSRjpkmmYb7wRtA93qwMRYMYIszTcv8k1AAyYlFpdjSsUD_g8EhBjOENPmmOUBGusSh1uvimYGhTbeLuMx8lRLqXpua4LIpWpXshLhA",
+               "width" : 4000
+            }
+         ]
+      }
+   ],
+   "status" : "OK"
+}
