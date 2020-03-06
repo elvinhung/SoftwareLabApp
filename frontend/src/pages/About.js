@@ -22,7 +22,7 @@ const FLASK_USAGE = "Our backend will be a RESTful API built with Flask. It will
 const AWS_USAGE = "In order to host our website, we employed the use of AWS S3 for static website hosting."
 const REACT_USAGE = "We used React to implement the frontend of our application. It allows us to break up our website into different components and manage states of those components over time."
 const HOTEL_API = "https://developers.amadeus.com/self-service/category/hotel";
-const LOCATION_API = "https://developers.google.com/maps/documentation/geocoding/start";
+const LOCATION_API = "https://developers.google.com/places/web-service/intro";
 const RESTAURANT_API = "https://www.yelp.com/fusion";
 
 const GithubStat = (props) => {
@@ -218,8 +218,8 @@ const About = () => {
           />
           <DataSection
             img={geocodeJpg}
-            alt="Google Geocoding API"
-            name="Google Geocoding API"
+            alt="Google Places API"
+            name="Google Places API"
             link={LOCATION_API}
           />
         </div>
