@@ -1,4 +1,15 @@
 # Software Lab App
+## Website Link
+software-lab-travel-app.s3-website.us-east-2.amazonaws.com
+
+## Team Description Table
+| Name           | EID     | Github ID  | Estimated Time Completion | Actual Time Completion |
+|----------------|---------|------------|---------------------------|------------------------|
+| Alex Kim       | atk595  | kimchibean | 6 hours                   | 7 hours                |
+| Elvin Hung     | eh26557 | elvinhung  | 5 hours                   | 8 hours                |
+| Manun Chopra   | mc58749 | phenomanun | 2 hours                   | 3 hours                |
+| Nithanth Ram   | nr22492 | nithanth   | 2 hours                   | 3 hours                |
+| Rishab Chander | rc44693 | rchand20   | 2 hours                   | 2.5 hours              |
 
 ## How to run frontend locally
 
