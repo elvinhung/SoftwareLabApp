@@ -18,6 +18,7 @@ import SouthKensington from './pages/SouthKensington';
 import CrabHouse from './pages/CrabHouse';
 import FishHouse from './pages/FishHouse'
 import About from './pages/About';
+import LocationInstance from "./pages/LocationInstance";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -30,6 +31,7 @@ function App() {
         <Route path="/locations/sf" component={SF} />
         <Route path="/locations/nyc" component={NYC} />
         <Route path="/locations/ldn" component={LDN} />
+        <Route path="/locations/:id" component={LocationInstance} />
         <Route path="/locations" component={Location} />
         <Route path="/hotels/hoxton_holborn" component={HoxtonHolborn} />
         <Route path="/hotels/leon_hotel" component={LeonHotel} />
