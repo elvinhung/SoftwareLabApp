@@ -7,7 +7,7 @@ import RestaurantListing from "../components/RestaurantListing";
 import HotelListing from "../components/HotelListing";
 
 
-const defaultLocation = {
+const locationInterface = {
   name: '',
   images: {
     img1: '',
@@ -49,7 +49,7 @@ const allHotels = {
 const LocationDetail = (props) => {
   const id = props.match.params.id;
 
-  const [location, setLocation] = useState(defaultLocation);
+  const [location, setLocation] = useState({});
 
   // flask api calls for location information
   function getLocation() {
@@ -57,7 +57,7 @@ const LocationDetail = (props) => {
     fetch("https://api.github.com/repos/elvinhung/SoftwareLabApp/commits?per_page=1000")
       .then((res) => res.json())
       .then((data) => {
-        //setLocation(data);
+        //setLocation(data[0]);
       })
       .catch((err) => {
         console.log(err);
