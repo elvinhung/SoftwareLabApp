@@ -22,18 +22,30 @@ f = open("hotel_locations.txt")
 for city_code in f:
     city_code = city_code.strip('\n')
     print(city_code)
-    response = yelp.search_query(term='seafood', location=city_code, sort_by='rating', limit=3)
+    response = yelp.search_query(term='food', location=city_code, sort_by='best_match', limit=3)
     data = json.dumps(response)
     restaurants_json = json.loads(data)
     restaurants_dict = {}
     restaurants_dict['businesses'] = []
     for p in restaurants_json['businesses']:
+        review = yelp.reviews_query(id=p['id'], sort_by='rating', limit=3)
+        data = json.dumps(review)
+        reviews_json = json.loads(data)
+        reviews_dict = {}
+        reviews_dict['reviews'] = []
+        for q in reviews_json['reviews']:
+            reviews_dict['reviews'].append({
+            'user name' : q['user']['name'],
+            'text' : q['text'],
+            'stars' : q['rating']
+            })
         restaurants_dict['businesses'].append({
         'name' : p['name'],
         'address' : p['location']['display_address'],
-        'stars' : p['rating']
+        'stars' : p['rating'],
+        'reviews' : reviews_dict
         })
-    
+
     restaurants.insert_many(restaurants_dict['businesses'])
 
 # for business in businesses:
