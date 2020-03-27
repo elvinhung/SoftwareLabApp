@@ -26,7 +26,6 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route exact path="/locations" component={Location} />
         <Route path="/locations/:id" component={LocationDetail} />
-        <Route path="/locations" component={Location} />
         <Route path="/hotels/hoxton_holborn" component={HoxtonHolborn} />
         <Route path="/hotels/leon_hotel" component={LeonHotel} />
         <Route path="/hotels/fairmont_heritage" component={FairmontHeritage} />
