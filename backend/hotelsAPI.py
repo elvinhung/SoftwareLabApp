@@ -6,14 +6,20 @@ import os
 import requests
 import json
 
+#   import responses
+import googlemaps
+
+
+maps = googlemaps.Client('AIzaSyAV1O_tgq4HCmfC4yT7-a8gMKz0v2xSOqw')
+
 amadeus = Client(
     hostname='production',
-    client_id='client_id',
-    client_secret='client_secret',
+    client_id='D3dGGqI9fiGNXBAbGmCGhLMYeeue1YGg',
+    client_secret='H8M5btnJmg7Dke7g',
 )
 
 mongo = MongoClient()
-mongo_client = MongoClient('connection_string')
+mongo_client = MongoClient('mongodb+srv://dbUser:adDJJ0ZG6O7VDdMz@softwarelabapp-hbwi6.mongodb.net/test?retryWrites=true&w=majority')
 db = mongo_client.models
 hotels = db.hotels
 
@@ -23,11 +29,12 @@ f = open("hotel_locations.txt")
 for city_code in f:
     city_code = city_code.strip('\n')
     print(city_code)
-    city = amadeus.shopping.hotel_offers.get(cityCode = city_code)
+    city = amadeus.shopping.hotel_offers.get(cityCode = city_code, radius = '10', radiusUnit = 'MILE', ratings = '5,4')
     data = json.dumps(city.result)
     city_json = json.loads(data)
     city_dict = {}
     city_dict['hotels'] = []
+    print(len(city_json['data']))
     for p in city_json['data']:
         if('rating' in p['hotel']):
             city_dict['hotels'].append({
