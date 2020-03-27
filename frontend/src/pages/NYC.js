@@ -46,11 +46,11 @@ const NYC = () => {
       </div>
       <div className="instance-content-container">
         <div className="listing-container">
-          <h3>Restaurants</h3>
+          <h3>Nearby Restaurants</h3>
           <RestaurantListing restaurant={allRestaurants}/>
         </div>
         <div className="listing-container">
-          <h3>Hotels</h3>
+          <h3>Nearby Hotels</h3>
           <HotelListing hotel={allHotels}/>
         </div>
       </div>
