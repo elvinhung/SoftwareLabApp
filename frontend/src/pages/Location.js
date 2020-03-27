@@ -3,12 +3,13 @@ import Header from "../components/Header";
 import LocationCard from "../components/LocationCard";
 import "../styles/Location.css";
 
+
 const Location = () => {
   const [locations, setLocations] = useState([]);
 
   function getLocations() {
     // replace url with our backend API + id
-    fetch("https://api.github.com/repos/elvinhung/SoftwareLabApp/commits?per_page=1000")
+    fetch("")
       .then((res) => res.json())
       .then((data) => {
         //setLocations(data);
@@ -19,7 +20,7 @@ const Location = () => {
   }
 
   useEffect(() => {
-    getLocations();
+    //getLocations();
   },[]);
 
   return(

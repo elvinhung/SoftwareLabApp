@@ -54,7 +54,7 @@ const LocationDetail = (props) => {
   // flask api calls for location information
   function getLocation() {
     // replace url with our backend API + id
-    fetch("https://api.github.com/repos/elvinhung/SoftwareLabApp/commits?per_page=1000")
+    fetch("")
       .then((res) => res.json())
       .then((data) => {
         //setLocation(data[0]);
@@ -66,38 +66,47 @@ const LocationDetail = (props) => {
 
   // runs upon initial render
   useEffect(() => {
-    getLocation();
+    //getLocation();
   }, []);
 
   return (
     <div>
       <Header />
-      <div className="instance_head">
-        <div><PhotoCarousel images={location.images}/></div>
-        <div className="instance_head_info">
-          <h1>{location.name}</h1>
-          <p>Lat. {location.lat}</p>
-          <p>Long. {location.long}</p>
+      {Object.keys(location).length !== 0 &&
+        <div>
+          <div className="instance_head">
+              <div><PhotoCarousel images={location.images}/></div>
+              <div className="instance_head_info">
+                <h1>{location.name}</h1>
+                <p>Lat. {location.lat}</p>
+                <p>Long. {location.long}</p>
+              </div>
+            </div>
+            <div className="instance-content-container">
+              <div className="listing-container">
+                <h3>Nearby Restaurants</h3>
+                {location.restaurants.map(restaurant => {
+                  return (
+                    <RestaurantListing restaurant={restaurant}/>
+                  );
+                })}
+              </div>
+              <div className="listing-container">
+                <h3>Nearby Hotels</h3>
+                {location.hotels.map(hotel => {
+                  return (
+                    <HotelListing hotel={hotel} />
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        }
+      {Object.keys(location).length === 0 &&
+        <div className="instance-content-container">
+          <h3>Location not found</h3>
         </div>
-      </div>
-      <div className="instance-content-container">
-        <div className="listing-container">
-          <h3>Nearby Restaurants</h3>
-          {location.restaurants.map(restaurant => {
-            return (
-              <RestaurantListing restaurant={restaurant}/>
-            );
-          })}
-        </div>
-        <div className="listing-container">
-          <h3>Nearby Hotels</h3>
-          {location.hotels.map(hotel => {
-            return (
-              <HotelListing hotel={hotel} />
-            );
-          })}
-        </div>
-      </div>
+      }
     </div>
   );
 }
