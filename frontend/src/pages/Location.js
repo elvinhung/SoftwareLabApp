@@ -8,11 +8,11 @@ const Location = () => {
   const [locations, setLocations] = useState([]);
 
   function getLocations() {
-    // replace url with our backend API + id
-    fetch("")
+    const apiUrl = 'http://nomad.eba-23hxbapp.us-east-2.elasticbeanstalk.com/locations';
+    fetch(apiUrl)
       .then((res) => res.json())
       .then((data) => {
-        //setLocations(data);
+        setLocations(data);
       })
       .catch((err) => {
         console.log(err);
@@ -20,7 +20,7 @@ const Location = () => {
   }
 
   useEffect(() => {
-    //getLocations();
+    getLocations();
   },[]);
 
   return(
@@ -29,8 +29,8 @@ const Location = () => {
       <h1 className="model-header">Locations</h1>
       <div className="location-page-container">
         <div className="location-card-container">
-          {locations.map(location => (
-            <LocationCard key={location.id} location={location} />
+          {locations.slice(0,3).map(location => (
+            <LocationCard key={location.location_id} location={location} />
           ))}
           {locations.length === 0 &&
             <div>
