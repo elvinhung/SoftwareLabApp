@@ -1,0 +1,11 @@
+.navbar-nomad-dark {
+    background-color: #282c34;
+}
+
+.navbar-nomad-dark .navbar-brand {
+    color: #f2f2f2;
+}
+
+.navbar-nomad-dark .navbar-nav a {
+    color: #c2c2c2;
+}
