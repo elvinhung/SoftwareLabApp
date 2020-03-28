@@ -3,7 +3,7 @@ import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView, MDBContainer }
 import '../styles/InstanceListing.css';
 
 const PhotoCarousel = (props) => {
-  const src = props.images[0];
+  const src = props.image;
   return (
     <MDBContainer>
       <MDBCarousel

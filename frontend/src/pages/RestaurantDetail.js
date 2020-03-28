@@ -5,10 +5,10 @@ import 'font-awesome/css/font-awesome.min.css';
 import '../styles/InstanceListing.css';
 import PhotoCarousel from "../components/PhotoCarousel";
 import HotelListing from "../components/HotelListing";
+import Spinner from "react-bootstrap/Spinner";
 
 const RestaurantDetail = (props) => {
   const id = props.match.params.id;
-
   const [restaurant, setRestaurant] = useState([]);
 
   function getRestaurant() {
@@ -34,7 +34,7 @@ const RestaurantDetail = (props) => {
       {restaurant.length !== 0 &&
         <div>
           <div className="instance_head">
-            <div><PhotoCarousel images={restaurant[0].image}/></div>
+            <div><PhotoCarousel image={restaurant[0].image[0]}/></div>
             <div className="instance_head_info">
               <h2>{restaurant[0].name}</h2>
               <div className="instance_location">
@@ -49,10 +49,16 @@ const RestaurantDetail = (props) => {
               </p>
             </div>
           </div>
-
           <div className="information">
             <p>Nearby Hotels </p>
           </div>
+        </div>
+      }
+      {restaurant.length === 0 &&
+        <div align="center">
+          <Spinner animation="border" role="status">
+            <span className="sr-only">Loading...</span>
+          </Spinner>
         </div>
       }
     </div>
