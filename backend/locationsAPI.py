@@ -22,7 +22,7 @@ if "locations" in dblist:
     print("DB check complete")
 
 
-gmaps = googlemaps.Client(key = 'API_KEY_HERE')
+gmaps = googlemaps.Client(key = "API_KEY_HERE")
 
 db_array = []
 for key in city_dict:
@@ -31,7 +31,7 @@ for key in city_dict:
     temp = {}
     temp['name'] = location['candidates'][0]['name']
     temp['photos'] = location['candidates'][0]['photos']
-    temp['location_id'] = city_dict[key]
+    temp['_id'] = city_dict[key]
     db_array.append(temp)
 
 x = locations.insert_many(db_array)
