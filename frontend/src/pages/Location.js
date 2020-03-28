@@ -26,7 +26,7 @@ const Location = () => {
   return(
     <div>
       <Header />
-      <h1 align="center" className="location-header">Locations</h1>
+      <h1 className="model-header">Locations</h1>
       <div className="location-page-container">
         <div className="location-card-container">
           {locations.map(location => (

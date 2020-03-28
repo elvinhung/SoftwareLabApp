@@ -3,6 +3,7 @@ import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView, MDBContainer }
 import '../styles/InstanceListing.css';
 
 const PhotoCarousel = (props) => {
+  const src = props.image;
   return (
     <MDBContainer>
       <MDBCarousel
@@ -20,8 +21,8 @@ const PhotoCarousel = (props) => {
               <img
                 className="d-block w-100"
                 className="carousel_img"
-                src={require("../" + props.images.img1)}
-                alt="First slide"
+                src={src}
+                alt="1"
               />
             </MDBView>
           </MDBCarouselItem>
@@ -30,21 +31,21 @@ const PhotoCarousel = (props) => {
               <img
                 className="d-block w-100"
                 className="carousel_img"
-                src={require("../" + props.images.img2)}
-                alt="Second slide"
+                src={src}
+                alt="2"
               />
             </MDBView>
-          </MDBCarouselItem>
-          <MDBCarouselItem itemId="3">
-            <MDBView>
-              <img
-                className="d-block w-100"
-                className="carousel_img"
-                src={require("../" + props.images.img3)}
-                alt="Third slide"
-              />
-            </MDBView>
-          </MDBCarouselItem>
+          </MDBCarouselItem><MDBCarouselItem itemId="3">
+          <MDBView>
+            <img
+              className="d-block w-100"
+              className="carousel_img"
+              src={src}
+              alt="3"
+            />
+          </MDBView>
+        </MDBCarouselItem>
+
         </MDBCarouselInner>
       </MDBCarousel>
     </MDBContainer>
