@@ -27,7 +27,7 @@ const RestaurantDetail = (props) => {
   useEffect(() => {
     getRestaurant();
   }, []);
-  
+
   return(
     <div>
       <Header />
