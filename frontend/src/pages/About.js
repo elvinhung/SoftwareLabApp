@@ -161,7 +161,7 @@ const About = () => {
       .catch((err) => {
         console.log(err);
       });
-    fetch("https://api.github.com/repos/elvinhung/SoftwareLabApp/issues?state=all")
+    fetch("https://api.github.com/repos/elvinhung/SoftwareLabApp/issues?state=all&per_page=1000")
       .then((res) => res.json())
       .then((data) => {
         updateStats(data, 'issues');
