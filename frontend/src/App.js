@@ -11,13 +11,11 @@ import HoxtonHolborn from './pages/HoxtonHolborn';
 import LeonHotel from './pages/LeonHotel';
 import FairmontHeritage from "./pages/FairmontHeritage";
 import Restaurant from './pages/Restaurant';
-import SouthKensington from './pages/SouthKensington';
-import CrabHouse from './pages/CrabHouse';
-import FishHouse from './pages/FishHouse'
 import About from './pages/About';
 import LocationDetail from "./pages/LocationDetail";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import RestaurantDetail from "./pages/RestaurantDetail";
 
 function App() {
   return (
@@ -30,10 +28,8 @@ function App() {
         <Route path="/hotels/leon_hotel" component={LeonHotel} />
         <Route path="/hotels/fairmont_heritage" component={FairmontHeritage} />
         <Route path="/hotels" component={Hotel} />
-        <Route path="/restaurants/south_kensington" component={SouthKensington} />
-        <Route path="/restaurants/crab_house" component={CrabHouse} />
-        <Route path="/restaurants/fish_house" component={FishHouse} />
-        <Route path="/restaurants" component={Restaurant} />
+        <Route exact path="/restaurants" component={Restaurant} />
+        <Route path="/restaurants/:id" component={RestaurantDetail} />
         <Route path="/about" component={About} />
       </Switch>
     </Router>
