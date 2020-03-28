@@ -7,13 +7,13 @@
     justify-content: center;
     font-size: 50px;
     color: white;
-    font-family: "Georgia", sans-serif;
+    font-weight: 200;
 }
 
 .instance {
     color: black;
-    padding: 20px 20px 50px 20px;
-    font-family: "Georgia", sans-serif;
+    padding: 15px;
+    height: 155px;
     font-size: calc(8px + .7vw);
     border-bottom: 1px solid #f2f2f2;
     transition: .15s box-shadow;
@@ -36,7 +36,7 @@
 }
 
 .instance_name {
-    font-size: calc(8px + 1.5vw);
+    font-weight: 400;
 }
 
 .instance_img {
