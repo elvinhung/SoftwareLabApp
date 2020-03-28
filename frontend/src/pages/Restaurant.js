@@ -10,9 +10,8 @@ const Restaurant = () => {
   const [restaurants, setRestaurants] = useState([]);
 
   function getRestaurants() {
-    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
     const apiUrl = 'http://nomad.eba-23hxbapp.us-east-2.elasticbeanstalk.com/restaurants';
-    fetch(proxyUrl + apiUrl)
+    fetch(apiUrl)
       .then((res) => res.json())
       .then((data) => {
         setRestaurants(data);
