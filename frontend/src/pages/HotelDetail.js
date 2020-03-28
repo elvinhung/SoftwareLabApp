@@ -6,6 +6,12 @@ import '../styles/InstanceListing.css';
 import PhotoCarousel from "../components/PhotoCarousel";
 import RestaurantListing from "../components/RestaurantListing";
 import Spinner from "react-bootstrap/Spinner";
+import {Map, Marker, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
+
+const mapStyle = {
+  width: '25vw',
+  height: '25vh'
+}
 
 const HotelDetail = (props) => {
   const id = props.match.params.id;
@@ -53,10 +59,20 @@ const HotelDetail = (props) => {
                 <br/>
                 <i className="fa fa-phone contact"></i>{hotel.contact.phone}
               </p>
-              <p>{hotel.description}</p>
             </div>
           </div>
           <div className="information">
+            <div className="left_info">
+              <iframe width='600' height='400' frameBorder='0'
+                      scrolling='no' marginHeight='0' marginWidth='0'
+                      src={'https://maps.google.com/maps/embed/v1/place?q='+address+'&key=AIzaSyAY1pilCxM5qWgNJQCeiTPvqz5m2qiHE94'}>
+              </iframe>
+            </div>
+            <div className="right_info">
+              <p>{hotel.description}</p>
+            </div>
+          </div>
+          <div className="nearby">
             <p>Nearby Restaurants</p>
           </div>
         </div>

@@ -49,7 +49,18 @@ const RestaurantDetail = (props) => {
             </div>
           </div>
           <div className="information">
-            <p>Nearby Hotels </p>
+            <div className="left_info">
+              <iframe width='600' height='400' frameBorder='0'
+                      scrolling='no' marginHeight='0' marginWidth='0'
+                      src={'https://maps.google.com/maps/embed/v1/place?q='+restaurant.address[0].join('+')+'&key=AIzaSyAY1pilCxM5qWgNJQCeiTPvqz5m2qiHE94'}>
+              </iframe>
+            </div>
+            <div className="right_info">
+              <p>{restaurant.description}</p>
+            </div>
+          </div>
+          <div className="nearby">
+            <p>Nearby Hotels</p>
           </div>
         </div>
       }
