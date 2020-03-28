@@ -9,9 +9,8 @@ const Hotel = () => {
   const [hotels, setHotels] = useState([]);
 
   function getHotels() {
-      const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
       const apiUrl = 'http://nomad.eba-23hxbapp.us-east-2.elasticbeanstalk.com/hotels';
-      fetch(proxyUrl + apiUrl)
+      fetch(apiUrl)
         .then((res) => res.json())
         .then((data) => {
           setHotels(data);
