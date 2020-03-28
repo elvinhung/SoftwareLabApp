@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4fd15fea-01a1-4f0c-85c2-567fbe05bbaa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/locationsAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/locationsAPI.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +43,7 @@
         <counts>
           <entry key="json" value="2" />
           <entry key="md" value="54" />
-          <entry key="py" value="84" />
+          <entry key="py" value="94" />
           <entry key="txt" value="250" />
         </counts>
       </usages-collector>
@@ -52,7 +52,7 @@
           <entry key="JSON" value="2" />
           <entry key="Markdown" value="54" />
           <entry key="PLAIN_TEXT" value="250" />
-          <entry key="Python" value="84" />
+          <entry key="Python" value="94" />
         </counts>
       </usages-collector>
     </session>
@@ -100,8 +100,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/locationsAPI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="405">
+              <caret line="27" column="21" lean-forward="true" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -134,13 +134,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/backend/locationsAPI.py" />
         <option value="$PROJECT_DIR$/backend/nyc_location.json" />
         <option value="$PROJECT_DIR$/backend/sf_location.json" />
         <option value="$PROJECT_DIR$/backend/london_location.json" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/backend/city_locations.txt" />
         <option value="$PROJECT_DIR$/backend/hotel_locations.txt" />
+        <option value="$PROJECT_DIR$/backend/locationsAPI.py" />
       </list>
     </option>
   </component>
@@ -262,8 +262,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/locationsAPI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="405">
+          <caret line="27" column="21" lean-forward="true" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
