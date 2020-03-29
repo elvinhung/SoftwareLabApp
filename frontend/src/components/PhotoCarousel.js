@@ -11,16 +11,14 @@ const PhotoCarousel = (props) => {
         length={3}
         showControls={true}
         showIndicators={true}
-        className="z-depth-1"
-        className="carousel_img"
+        className="z-depth-1 carousel_img"
         slide
       >
         <MDBCarouselInner>
           <MDBCarouselItem itemId="1">
             <MDBView>
               <img
-                className="d-block w-100"
-                className="carousel_img"
+                className="d-block w-100 carousel_img"
                 src={src}
                 alt="1"
               />
@@ -29,23 +27,21 @@ const PhotoCarousel = (props) => {
           <MDBCarouselItem itemId="2">
             <MDBView>
               <img
-                className="d-block w-100"
-                className="carousel_img"
+                className="d-block w-100 carousel_img"
                 src={src}
                 alt="2"
               />
             </MDBView>
-          </MDBCarouselItem><MDBCarouselItem itemId="3">
-          <MDBView>
-            <img
-              className="d-block w-100"
-              className="carousel_img"
-              src={src}
-              alt="3"
-            />
-          </MDBView>
-        </MDBCarouselItem>
-
+          </MDBCarouselItem>
+          <MDBCarouselItem itemId="3">
+            <MDBView>
+              <img
+                className="d-block w-100 carousel_img"
+                src={src}
+                alt="3"
+              />
+            </MDBView>
+          </MDBCarouselItem>
         </MDBCarouselInner>
       </MDBCarousel>
     </MDBContainer>

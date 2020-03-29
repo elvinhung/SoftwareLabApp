@@ -8,13 +8,10 @@ const RestaurantListing = (props) => {
     restaurant: {
       name,
       image,
-      reviews,
-      contact,
       stars,
       price,
       address,
       _id,
-      location_id,
     }
   } = props;
 
