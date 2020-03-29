@@ -27,8 +27,7 @@ const Hotel = () => {
   }, []);
 
   var hotelsPage = []
-  var i;
-  for (i = 0; i < 60; i+=10) {
+  for (let i = 0; i < 60; i+=10) {
     hotelsPage.push(hotels.slice(i, i + 10));
   }
 
