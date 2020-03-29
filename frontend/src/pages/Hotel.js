@@ -1,50 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from "../components/Header";
 import 'font-awesome/css/font-awesome.min.css';
 import HotelListing from "../components/HotelListing";
 import '../styles/ModelPage.css';
+import Spinner from "react-bootstrap/Spinner";
 
 const Hotel = () => {
-  const allHotels = [
-    {
-      name: "The Hoxton Holborn",
-      location: "London, UK",
-      URLname: "hoxton_holborn",
-      address: "",
-      rating: "RatingTwo",
-      description: "",
-      imgURL: "assets/hoxton_holborn.jpg"
-    },
-    {
-      name: "The Leon Hotel",
-      location: "New York City, US",
-      URLname: "leon_hotel",
-      address: "",
-      rating: "RatingFour",
-      description: "",
-      imgURL: "assets/leon_hotel.jpg"
-    },
-    {
-      name: "Fairmont Heritage Place - Ghirardelli Square",
-      location: "San Francisco, US",
-      URLname: "fairmont_heritage",
-      address: "",
-      rating: "RatingFive",
-      description: "",
-      imgURL: "assets/fairmont_heritage.jpg"
-    }
-  ]
+  const [hotels, setHotels] = useState([]);
+
+  function getHotels() {
+      const apiUrl = 'http://nomad.eba-23hxbapp.us-east-2.elasticbeanstalk.com/hotels';
+      fetch(apiUrl)
+        .then((res) => res.json())
+        .then((data) => {
+          setHotels(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+  }
+
+  useEffect(() => {
+    getHotels();
+  }, []);
 
   return(
     <div>
       <Header />
       <h1 className="model-header">Hotels</h1>
-
       <div className="listing_container">
-        {allHotels.map(hotel => {
-          return <HotelListing hotel={hotel} key={hotel.name}/>
+        {hotels.map((hotel, index) => {
+          return <HotelListing hotel={hotel} key={index}/>
         })}
       </div>
+      {hotels.length === 0 &&
+        <div align="center">
+          <Spinner animation="border" role="status">
+            <span className="sr-only">Loading...</span>
+          </Spinner>
+        </div>
+      }
     </div>
   );
 }

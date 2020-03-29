@@ -1,40 +1,44 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from "../components/Header";
 import LocationCard from "../components/LocationCard";
 import "../styles/Location.css";
-import nyc from '../assets/nyc.jpg';
-import sf from '../assets/sf.jpg';
-import ldn from '../assets/ldn.jpg';
 
-const locationData = [
-  {
-    name: 'New York',
-    id: 'nyc',
-    img: nyc,
-  },
-  {
-    name: 'London',
-    id: 'ldn',
-    img: ldn,
-  },
-  {
-    name: 'San Francisco',
-    id: 'sf',
-    img: sf,
-  },
-];
 
 const Location = () => {
+  const [locations, setLocations] = useState([]);
+
+  function getLocations() {
+    // replace url with our backend API + id
+    fetch("")
+      .then((res) => res.json())
+      .then((data) => {
+        //setLocations(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  useEffect(() => {
+    //getLocations();
+  },[]);
+
   return(
     <div>
       <Header />
-      <h1 align="center" className="location-header">Locations</h1>
+      <h1 className="model-header">Locations</h1>
       <div className="location-page-container">
         <div className="location-card-container">
-          {locationData.map(location => (
+          {locations.map(location => (
             <LocationCard key={location.id} location={location} />
           ))}
+          {locations.length === 0 &&
+            <div>
+              No locations found
+            </div>
+          }
         </div>
+
       </div>
     </div>
   );
