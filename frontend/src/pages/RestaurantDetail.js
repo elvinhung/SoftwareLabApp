@@ -6,13 +6,15 @@ import '../styles/InstanceListing.css';
 import PhotoCarousel from "../components/PhotoCarousel";
 import HotelListing from "../components/HotelListing";
 import Spinner from "react-bootstrap/Spinner";
+import Review from "../components/Review";
+import RestaurantListing from "../components/RestaurantListing";
 
 const RestaurantDetail = (props) => {
   const id = props.match.params.id;
   const [restaurant, setRestaurant] = useState({});
 
   function getRestaurant() {
-    const apiUrl = 'http://nomad.eba-23hxbapp.us-east-2.elasticbeanstalk.com/restaurants/' + id;
+    const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/restaurants/' + id;
     fetch(apiUrl)
       .then((res) => res.json())
       .then((data) => {
@@ -40,6 +42,7 @@ const RestaurantDetail = (props) => {
                 <a className="location_link" href={"/locations/" + restaurant.location_id}>{restaurant.location_id}</a>
               </div>
               <div><Ratings rating={restaurant.stars[0]}/></div>
+              <div><p>{restaurant.price}</p></div>
               <p>
                 <i className="fa fa-map-marker contact"></i>
                 {restaurant.address[0].join(', ')}
@@ -49,7 +52,20 @@ const RestaurantDetail = (props) => {
             </div>
           </div>
           <div className="information">
-            <p>Nearby Hotels </p>
+            <div className="left_info">
+              <iframe width='600' height='400' frameBorder='0'
+                      scrolling='no' marginHeight='0' marginWidth='0'
+                      src={'https://maps.google.com/maps/embed/v1/place?q='+restaurant.address[0].join('+')+'&key=AIzaSyAY1pilCxM5qWgNJQCeiTPvqz5m2qiHE94'}>
+              </iframe>
+            </div>
+            <div className="right_info">
+              <Review review={restaurant.reviews.reviews[0]}/>
+              <Review review={restaurant.reviews.reviews[1]}/>
+              <Review review={restaurant.reviews.reviews[2]}/>
+            </div>
+          </div>
+          <div className="nearby">
+            <p>Nearby Hotels</p>
           </div>
         </div>
       }
