@@ -33,7 +33,8 @@ const RestaurantDetail = (props) => {
   return(
     <div>
       <Header />
-      {Object.keys(restaurant).length !== 0 &&
+      {Object.keys(restaurant).length !== 0 && restaurant.hotels.sort(function(a, b){ return parseFloat(a.distance) - parseFloat(b.distance)}) &&
+
         <div>
           <div className="instance_head">
             <div><PhotoCarousel image={restaurant.image[0]}/></div>

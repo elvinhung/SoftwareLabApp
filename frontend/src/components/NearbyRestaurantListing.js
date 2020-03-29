@@ -24,8 +24,6 @@ const NearbyRestaurantListing = (props) => {
     getRestaurant();
   }, []);
 
-  console.log(restaurant);
-
   return(
     <div>
       {Object.keys(restaurant).length !== 0 &&
