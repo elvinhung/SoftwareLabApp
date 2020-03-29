@@ -14,7 +14,7 @@ const RestaurantDetail = (props) => {
   const [restaurant, setRestaurant] = useState({});
 
   function getRestaurant() {
-    const apiUrl = 'http://nomad.eba-23hxbapp.us-east-2.elasticbeanstalk.com/restaurants/' + id;
+    const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/restaurants/' + id;
     fetch(apiUrl)
       .then((res) => res.json())
       .then((data) => {

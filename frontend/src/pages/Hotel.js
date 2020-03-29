@@ -9,7 +9,7 @@ const Hotel = () => {
   const [hotels, setHotels] = useState([]);
 
   function getHotels() {
-      const apiUrl = 'http://nomad.eba-23hxbapp.us-east-2.elasticbeanstalk.com/hotels';
+      const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/hotels';
       fetch(apiUrl)
         .then((res) => res.json())
         .then((data) => {
@@ -24,12 +24,18 @@ const Hotel = () => {
     getHotels();
   }, []);
 
+  var hotelsPage = []
+  var i;
+  for (i = 0; i < 60; i+=10) {
+    hotelsPage.push(hotels.slice(i, i + 10));
+  }
+
   return(
     <div>
       <Header />
       <h1 className="model-header">Hotels</h1>
       <div className="listing_container">
-        {hotels.map((hotel, index) => {
+        {hotelsPage[5].map((hotel, index) => {
           return <HotelListing hotel={hotel} key={index}/>
         })}
       </div>
