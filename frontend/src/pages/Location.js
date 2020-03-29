@@ -3,12 +3,11 @@ import Header from "../components/Header";
 import LocationCard from "../components/LocationCard";
 import "../styles/Location.css";
 
-
 const Location = () => {
   const [locations, setLocations] = useState([]);
 
   function getLocations() {
-    const apiUrl = 'http://nomad.eba-23hxbapp.us-east-2.elasticbeanstalk.com/locations';
+    const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/locations';
     fetch(apiUrl)
       .then((res) => res.json())
       .then((data) => {
@@ -38,7 +37,6 @@ const Location = () => {
             </div>
           }
         </div>
-
       </div>
     </div>
   );

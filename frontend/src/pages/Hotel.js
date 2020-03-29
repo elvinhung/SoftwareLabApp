@@ -9,7 +9,7 @@ const Hotel = () => {
   const [hotels, setHotels] = useState([]);
 
   function getHotels() {
-      const apiUrl = 'http://nomad.eba-23hxbapp.us-east-2.elasticbeanstalk.com/hotels';
+      const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/hotels';
       fetch(apiUrl)
         .then((res) => res.json())
         .then((data) => {
