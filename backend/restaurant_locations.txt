@@ -1,0 +1,20 @@
+HOU,Houston
+MIA,Miami 
+STL,St. Louis
+SFO,San Francisco
+HNL,Honolulu
+PDX,Portland
+DEN,Denver
+MSP,Minneapolis
+SAN,San Diego
+SAT,San Antonio
+SEA,Seattle
+LAS,Las Vegas
+PHL,Philadelphia
+DFW,Dallas
+LAX,Los Angeles
+ATL,Atlanta
+CHI,Chicago
+NYC,New York City
+ORL,Orlando
+AUS,Austin
