@@ -13,7 +13,7 @@ const LocationCard = (props) => {
   } = props.location;
 
   return (
-    <a className="location-link" href={"/locations/" + _id.$oid}>
+    <a className="location-link" href={"/locations/" + _id}>
       <div className="location-card">
         <div className="location-img-container">
           <img

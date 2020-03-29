@@ -29,7 +29,7 @@ const Location = () => {
       <div className="location-page-container">
         <div className="location-card-container">
           {locations.slice(0,3).map(location => (
-            <LocationCard key={location.location_id} location={location} />
+            <LocationCard key={location._id} location={location} />
           ))}
           {locations.length === 0 &&
             <div>
