@@ -24,7 +24,7 @@ const HotelListing = (props) => {
             <img className="instance_img" src={image} alt={name}/>
           </div>
           <div className="instance_page_info">
-            <h2 className="instance_name">{name}</h2>
+            <h3 className="instance_name">{name}</h3>
             <div className="instance_location"><p>{address.cityName + ', ' + address.stateCode}</p></div>
             <div><Ratings rating={stars}/></div>
           </div>

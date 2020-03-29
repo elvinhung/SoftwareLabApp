@@ -36,35 +36,28 @@
 }
 
 .information {
-    font-family: "Georgia", sans-serif;
-    font-size: 30px;
+    background-color: white;
     padding: 25px;
-}
-
-.left_info:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    padding-bottom: 0px;
 }
 
 .left_info {
+    #background-color: #282c34;
     font-family: "Georgia", sans-serif;
     font-size: 30px;
     padding: 25px;
-    position: absolute;
-    left: 0px;
-    width: 50%;
 }
 
 .right_info {
+    background-color: white;
     font-family: "Georgia", sans-serif;
     font-size: 20px;
     padding: 25px;
-    position: absolute;
-    right: 0px;
-    width: 50%;
 }
 
 .review {
@@ -76,5 +69,20 @@
     font-family: "Georgia", sans-serif;
     font-size: 30px;
     padding: 25px;
+    padding-top: 0px;
 }
 
+.listing:hover {
+    text-decoration: none;
+}
+
+.listing_container {
+    border-radius: 5px;
+    width: 1200px;
+    margin: 30px auto 0;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+}
+
+.distance {
+    float: right;
+}

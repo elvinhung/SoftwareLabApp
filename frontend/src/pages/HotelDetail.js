@@ -7,6 +7,8 @@ import PhotoCarousel from "../components/PhotoCarousel";
 import RestaurantListing from "../components/RestaurantListing";
 import Spinner from "react-bootstrap/Spinner";
 import {Map, Marker, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
+import HotelListing from "../components/HotelListing";
+import NearbyRestaurantListing from "../components/NearbyRestaurantListing";
 
 const mapStyle = {
   width: '25vw',
@@ -73,7 +75,12 @@ const HotelDetail = (props) => {
             </div>
           </div>
           <div className="nearby">
-            <p>Nearby Restaurants</p>
+            <p align="center">Nearby Restaurants</p>
+            <div className="listing_container">
+              {hotel.restaurants.map((restaurant, index) => {
+                return <NearbyRestaurantListing restaurant={restaurant} key={index}/>
+              })}
+            </div>
           </div>
         </div>
       }
