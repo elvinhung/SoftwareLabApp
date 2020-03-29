@@ -6,6 +6,8 @@ import '../styles/InstanceListing.css';
 import PhotoCarousel from "../components/PhotoCarousel";
 import HotelListing from "../components/HotelListing";
 import Spinner from "react-bootstrap/Spinner";
+import Review from "../components/Review";
+import RestaurantListing from "../components/RestaurantListing";
 
 const RestaurantDetail = (props) => {
   const id = props.match.params.id;
@@ -40,6 +42,7 @@ const RestaurantDetail = (props) => {
                 <a className="location_link" href={"/locations/" + restaurant.location_id}>{restaurant.location_id}</a>
               </div>
               <div><Ratings rating={restaurant.stars[0]}/></div>
+              <div><p>{restaurant.price}</p></div>
               <p>
                 <i className="fa fa-map-marker contact"></i>
                 {restaurant.address[0].join(', ')}
@@ -56,7 +59,9 @@ const RestaurantDetail = (props) => {
               </iframe>
             </div>
             <div className="right_info">
-              <p>{restaurant.description}</p>
+              <Review review={restaurant.reviews.reviews[0]}/>
+              <Review review={restaurant.reviews.reviews[1]}/>
+              <Review review={restaurant.reviews.reviews[2]}/>
             </div>
           </div>
           <div className="nearby">
