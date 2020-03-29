@@ -11,6 +11,7 @@ const RestaurantListing = (props) => {
       reviews,
       contact,
       stars,
+      price,
       address,
       _id,
       location_id,
@@ -25,9 +26,9 @@ const RestaurantListing = (props) => {
             <img className="instance_img" src={image[0]} alt={name[0]}/>
           </div>
           <div className="instance_page_info">
-            <h3 className="instance_name">{name[0]}</h3>
+            <h3 className="instance_name">{name[0] + " (" + price + ")"}</h3>
 
-            <div className="instance_location"><p>{address[0][address[0].length - 1]}</p></div>
+            <div className="instance_location"><p>{(address[0][address[0].length - 1]).substring(0, (address[0][address[0].length - 1]).length - 6)}</p></div>
             <div><Ratings rating = {stars[0]}/></div>
           </div>
         </div>
