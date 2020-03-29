@@ -5,8 +5,6 @@ import os
 from pymongo.errors import BulkWriteError
 
 url = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json'
-API_KEY = 'AIzaSyBJ2lOAHkcMp6O6SpyeRNcQ0jtjLqGpZnE'
-connection_string = 'mongodb+srv://dbUser:adDJJ0ZG6O7VDdMz@softwarelabapp-hbwi6.mongodb.net/test?retryWrites=true&w=majority'
 
 os.chdir(r'/Users/Nithanth/SoftwareLabApp/backend')
 city_dict = {}
@@ -17,13 +15,13 @@ with open("city_locations.txt") as txt1, open("hotel_locations.txt") as txt2:
         city_dict[city_name] = city_code
 
 mongo = MongoClient()
-mongo_client = MongoClient(connection_string)
+mongo_client = MongoClient('connection_string')
 db = mongo_client.models
 locations = db.locations
 hotels = db.hotels
 restaurants = db.restaurants
 
-gmaps = googlemaps.Client(key = API_KEY)
+gmaps = googlemaps.Client(key = 'API_KEY_HERE')
 locations.delete_many({})
 db_array = []
 for key in city_dict:
