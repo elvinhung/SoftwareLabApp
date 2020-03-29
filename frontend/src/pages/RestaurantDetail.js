@@ -8,6 +8,7 @@ import HotelListing from "../components/HotelListing";
 import Spinner from "react-bootstrap/Spinner";
 import Review from "../components/Review";
 import RestaurantListing from "../components/RestaurantListing";
+import NearbyHotelListing from "../components/NearbyHotelListing";
 
 const RestaurantDetail = (props) => {
   const id = props.match.params.id;
@@ -32,7 +33,8 @@ const RestaurantDetail = (props) => {
   return(
     <div>
       <Header />
-      {Object.keys(restaurant).length !== 0 &&
+      {Object.keys(restaurant).length !== 0 && restaurant.hotels.sort(function(a, b){ return parseFloat(a.distance) - parseFloat(b.distance)}) &&
+
         <div>
           <div className="instance_head">
             <div><PhotoCarousel image={restaurant.image[0]}/></div>
@@ -65,7 +67,12 @@ const RestaurantDetail = (props) => {
             </div>
           </div>
           <div className="nearby">
-            <p>Nearby Hotels</p>
+            <p align="center">Nearby Hotels</p>
+            <div className="listing_container">
+              {restaurant.hotels.map((hotel, index) => {
+                return <NearbyHotelListing hotel={hotel} key={index}/>
+              })}
+            </div>
           </div>
         </div>
       }
