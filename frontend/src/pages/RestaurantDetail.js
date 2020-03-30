@@ -76,7 +76,7 @@ const RestaurantDetail = (props) => {
           </div>
         </div>
       }
-      {restaurant.length === 0 &&
+      {Object.keys(restaurant).length === 0 &&
         <div align="center">
           <Spinner animation="border" role="status">
             <span className="sr-only">Loading...</span>

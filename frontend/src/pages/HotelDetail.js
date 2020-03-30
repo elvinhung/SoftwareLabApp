@@ -6,6 +6,7 @@ import '../styles/InstanceListing.css';
 import PhotoCarousel from "../components/PhotoCarousel";
 import RestaurantListing from "../components/RestaurantListing";
 import Spinner from "react-bootstrap/Spinner";
+import { title } from '../Utils';
 import {Map, Marker, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
 import HotelListing from "../components/HotelListing";
 import NearbyRestaurantListing from "../components/NearbyRestaurantListing";
@@ -35,7 +36,7 @@ const HotelDetail = (props) => {
   useEffect(() => {
     if (Object.keys(hotel).length !== 0) {
       const { address } = hotel;
-      setAddress(address.lines[0] + ', ' + address.cityName + ', ' + address.stateCode + ' ' + address.postalCode);
+      setAddress(title(address.lines[0]) + ', ' + title(address.cityName) + ', ' + address.stateCode + ' ' + address.postalCode);
     }
   }, [hotel]);
 
@@ -48,9 +49,9 @@ const HotelDetail = (props) => {
       <Header />
       {Object.keys(hotel).length !== 0 && hotel.restaurants.sort(function(a, b){ return parseFloat(a.distance) - parseFloat(b.distance)}) &&
         <div>
-          <div class="instance_head">
+          <div className="instance_head">
             <div><PhotoCarousel image={hotel.image}/></div>
-            <div class="instance_head_info">
+            <div className="instance_head_info">
               <h2>{hotel.name}</h2>
               <div className="instance_location">
                 <a className="location_link" href={"/locations/" + hotel.location_id}>{hotel.location_id}</a>

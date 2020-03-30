@@ -2,18 +2,16 @@ import React from 'react';
 import 'font-awesome/css/font-awesome.min.css';
 import Ratings from "../components/Ratings";
 import '../styles/ModelPage.css';
+import { title } from '../Utils';
 
 const HotelListing = (props) => {
   const {
     hotel: {
       name,
       image,
-      contact,
       stars,
       address,
       _id,
-      location_id,
-      description,
     }
   } = props;
   return(
@@ -24,8 +22,8 @@ const HotelListing = (props) => {
             <img className="instance_img" src={image} alt={name}/>
           </div>
           <div className="instance_page_info">
-            <h3 className="instance_name">{name}</h3>
-            <div className="instance_location"><p>{address.cityName + ', ' + address.stateCode}</p></div>
+            <h2 className="instance_name">{name}</h2>
+            <div className="instance_location"><p>{title(address.cityName) + ', ' + address.stateCode}</p></div>
             <div><Ratings rating={stars}/></div>
           </div>
         </div>

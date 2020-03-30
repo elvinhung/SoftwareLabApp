@@ -36,6 +36,16 @@
 }
 
 .information {
+    font-family: "Georgia", sans-serif;
+    font-size: 30px;
+}
+
+.left_info:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
     background-color: white;
     padding: 25px;
     display: flex;
