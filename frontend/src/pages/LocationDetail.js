@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Header from "../components/Header";
-import '../styles/Location.css';
-import '../styles/HotelDetail.css';
+import '../styles/InstanceStyles.css';
 import PhotoCarousel from "../components/PhotoCarousel";
 import RestaurantListing from "../components/RestaurantListing";
 import HotelListing from "../components/HotelListing";
 import Spinner from "react-bootstrap/Spinner";
 import Loader from "../components/Loader";
+import NearbyHotelListing from "../components/NearbyHotelListing";
 
 const imgUrl = "https://maps.googleapis.com/maps/api/place/photo?";
 const api_key = "AIzaSyBJ2lOAHkcMp6O6SpyeRNcQ0jtjLqGpZnE";
@@ -55,17 +55,17 @@ const LocationDetail = (props) => {
                 <p>Long. {location[0].longitude}</p>
               </div>
             </div>
-            <div className="instance-content-container">
-              <div className="listing-container">
-                <div className="information"><p>Nearby Restaurants</p></div>
+            <div className="nearby">
+              <p align="center"><br></br>Restaurants</p>
+              <div className="listing_container">
                 {location[0].restaurants.map((restaurant, i) => {
                   return (
                     <RestaurantListing key={i} restaurant={restaurant}/>
                   );
                 })}
               </div>
-              <div className="listing-container">
-                <div className="information"><p>Nearby Hotels</p></div>
+              <p align="center"><br></br>Hotels</p>
+              <div className="listing_container">
                 {location[0].hotels.map((hotel, i) => {
                   return (
                     <HotelListing key={i} hotel={hotel} />

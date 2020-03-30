@@ -46,10 +46,12 @@ const Restaurant = () => {
       {restaurants.length !== 0 &&
         <div>
           <h1 className="model-header">Restaurants</h1>
-          <div className="listing_container">
-            {restaurantsPage[curPage - 1].map((restaurant, index) => {
-              return <RestaurantListing restaurant={restaurant} key={index}/>
-            })}
+          <div className="listing_padding">
+            <div className="listing_container">
+              {restaurantsPage[curPage - 1].map((restaurant, index) => {
+                return <RestaurantListing restaurant={restaurant} key={index}/>
+              })}
+            </div>
           </div>
           {restaurants.length === 0 &&
           <div align="center">

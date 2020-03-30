@@ -82,6 +82,10 @@
 		font-size: 10px;
 	}
 
+	h1 {
+		font-size: 30px !important;
+	}
+
 	h2 {
 		font-size: 20px !important;
 	}
@@ -113,6 +117,10 @@
 
 	.instance_head {
 		font-size: 8px;
+	}
+
+	h1 {
+		font-size: 25px !important;
 	}
 
 	h2 {

@@ -1,5 +1,6 @@
 .model-header {
     background-color: #282c34;
+    font-family: "Georgia", sans-serif;
     height: 100px;
     display: flex;
     flex-direction: column;
@@ -12,6 +13,13 @@
 
 .listing:hover {
     text-decoration: none;
+}
+
+.listing_padding {
+    font-family: "Georgia", sans-serif;
+    font-size: 30px;
+    padding: 25px;
+    padding-top: 0px;
 }
 
 .listing_container {
