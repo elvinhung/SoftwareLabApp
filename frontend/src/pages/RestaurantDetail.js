@@ -4,24 +4,27 @@ import Ratings from "../components/Ratings";
 import 'font-awesome/css/font-awesome.min.css';
 import '../styles/InstanceListing.css';
 import PhotoCarousel from "../components/PhotoCarousel";
-import HotelListing from "../components/HotelListing";
-import Spinner from "react-bootstrap/Spinner";
 import Review from "../components/Review";
-import RestaurantListing from "../components/RestaurantListing";
 import NearbyHotelListing from "../components/NearbyHotelListing";
+import Loader from "../components/Loader";
 
 const RestaurantDetail = (props) => {
   const id = props.match.params.id;
   const [restaurant, setRestaurant] = useState({});
+  const [isLoading, setLoading] = useState(true);
 
   function getRestaurant() {
     const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/restaurants/' + id;
     fetch(apiUrl)
       .then((res) => res.json())
       .then((data) => {
-        setRestaurant(data);
+        setRestaurant((prevData) => {
+          setLoading(false);
+          return data;
+        });
       })
       .catch((err) => {
+        setLoading(false);
         console.log(err);
       });
   }
@@ -76,11 +79,10 @@ const RestaurantDetail = (props) => {
           </div>
         </div>
       }
-      {Object.keys(restaurant).length === 0 &&
-        <div align="center">
-          <Spinner animation="border" role="status">
-            <span className="sr-only">Loading...</span>
-          </Spinner>
+      {isLoading && <Loader />}
+      {!isLoading && Object.keys(restaurant).length === 0 &&
+        <div className="center" align="center">
+          <h1>Restaurant not found</h1>
         </div>
       }
     </div>

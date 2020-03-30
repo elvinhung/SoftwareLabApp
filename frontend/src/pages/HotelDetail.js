@@ -10,6 +10,7 @@ import { title } from '../Utils';
 import {Map, Marker, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
 import HotelListing from "../components/HotelListing";
 import NearbyRestaurantListing from "../components/NearbyRestaurantListing";
+import Loader from "../components/Loader";
 
 const mapStyle = {
   width: '25vw',
@@ -20,15 +21,20 @@ const HotelDetail = (props) => {
   const id = props.match.params.id;
   const [hotel, setHotel] = useState({});
   const [address, setAddress] = useState("");
+  const [isLoading, setLoading] = useState(true);
 
   function getHotel() {
     const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/hotels/' + id;
     fetch(apiUrl)
       .then((res) => res.json())
       .then((data) => {
-        setHotel(data);
+        setHotel((prevData) => {
+          setLoading(false);
+          return data;
+        });
       })
       .catch((err) => {
+        setLoading(false);
         console.log(err);
       });
   }
@@ -85,14 +91,12 @@ const HotelDetail = (props) => {
           </div>
         </div>
       }
-      {Object.keys(hotel).length === 0 &&
-        <div align="center">
-          <Spinner animation="border" role="status">
-            <span className="sr-only">Loading...</span>
-          </Spinner>
-        </div>
+      {isLoading && <Loader />}
+      {!isLoading && Object.keys(hotel).length === 0 &&
+      <div className="center" align="center">
+        <h1>Hotel not found</h1>
+      </div>
       }
-
     </div>
   );
 }

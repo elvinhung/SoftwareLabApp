@@ -5,19 +5,25 @@ import HotelListing from "../components/HotelListing";
 import '../styles/ModelPage.css';
 import Spinner from "react-bootstrap/Spinner";
 import Pagination from "../components/Pagination";
+import Loader from "../components/Loader";
 
 const Hotel = () => {
   const [hotels, setHotels] = useState([]);
   const [curPage, setCurrentPage] = useState(1);
+  const [isLoading, setLoading] = useState(true);
 
   function getHotels() {
       const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/hotels';
       fetch(apiUrl)
         .then((res) => res.json())
         .then((data) => {
-          setHotels(data);
+          setHotels((prevData) => {
+            setLoading(false);
+            return data;
+          });
         })
         .catch((err) => {
+          setLoading(false);
           console.log(err);
         });
   }
@@ -36,21 +42,32 @@ const Hotel = () => {
   return(
     <div>
       <Header />
-      <h1 className="model-header">Hotels</h1>
-      <div className="listing_container">
-        {hotelsPage[curPage - 1].map((hotel, index) => {
-          return <HotelListing hotel={hotel} key={index}/>
-        })}
-      </div>
-      {hotels.length === 0 &&
-        <div align="center">
-          <Spinner animation="border" role="status">
-            <span className="sr-only">Loading...</span>
-          </Spinner>
+      {hotels.length !== 0 &&
+        <div>
+          <h1 className="model-header">Hotels</h1>
+          <div className="listing_container">
+            {hotelsPage[curPage - 1].map((hotel, index) => {
+              return <HotelListing hotel={hotel} key={index}/>
+            })}
+          </div>
+          {hotels.length === 0 &&
+          <div align="center">
+            <Spinner animation="border" role="status">
+              <span className="sr-only">Loading...</span>
+            </Spinner>
+          </div>
+          }
+          <Pagination postsPerPage={10} totalPosts={60} paginate={paginate}/>
+          <p align="center"> Page {curPage}</p>
         </div>
       }
-      <Pagination postsPerPage={10} totalPosts={60} paginate={paginate}/>
-      <p align="center"> Page {curPage}</p>
+      {isLoading && <Loader />}
+      {!isLoading && hotels.length === 0 &&
+        <div className="center" align="center">
+          <h1>No hotels found</h1>
+        </div>
+      }
+
     </div>
   );
 }

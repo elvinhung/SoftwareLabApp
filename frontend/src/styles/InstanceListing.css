@@ -38,6 +38,7 @@
 .information {
     font-family: "Georgia", sans-serif;
     font-size: 30px;
+    display: flex;
 }
 
 .left_info:after {
@@ -95,4 +96,12 @@
 
 .distance {
     float: right;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 90vh;
 }

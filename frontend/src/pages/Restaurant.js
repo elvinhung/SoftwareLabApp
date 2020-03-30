@@ -5,20 +5,26 @@ import RestaurantListing from "../components/RestaurantListing";
 import '../styles/ModelPage.css';
 import Spinner from "react-bootstrap/Spinner"
 import Pagination from "../components/Pagination";
+import Loader from "../components/Loader";
 
 
 const Restaurant = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [curPage, setCurrentPage] = useState(1);
+  const [isLoading, setLoading] = useState(true);
 
   function getRestaurants() {
     const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/restaurants';
     fetch(apiUrl)
       .then((res) => res.json())
       .then((data) => {
-        setRestaurants(data);
+        setRestaurants((prevData) => {
+          setLoading(false);
+          return data;
+        });
       })
       .catch((err) => {
+        setLoading(false);
         console.log(err);
       });
   }
@@ -37,21 +43,31 @@ const Restaurant = () => {
   return(
     <div>
       <Header />
-      <h1 className="model-header">Restaurants</h1>
-      <div className="listing_container">
-        {restaurantsPage[curPage - 1].map((restaurant, index) => {
-          return <RestaurantListing restaurant={restaurant} key={index}/>
-        })}
-      </div>
-      {restaurants.length === 0 &&
-        <div align="center">
-          <Spinner animation="border" role="status">
-            <span className="sr-only">Loading...</span>
-          </Spinner>
+      {restaurants.length !== 0 &&
+        <div>
+          <h1 className="model-header">Restaurants</h1>
+          <div className="listing_container">
+            {restaurantsPage[curPage - 1].map((restaurant, index) => {
+              return <RestaurantListing restaurant={restaurant} key={index}/>
+            })}
+          </div>
+          {restaurants.length === 0 &&
+          <div align="center">
+            <Spinner animation="border" role="status">
+              <span className="sr-only">Loading...</span>
+            </Spinner>
+          </div>
+          }
+          <Pagination postsPerPage={10} totalPosts={60} paginate={paginate}/>
+          <p align="center"> Page {curPage}</p>
         </div>
       }
-      <Pagination postsPerPage={10} totalPosts={60} paginate={paginate}/>
-      <p align="center"> Page {curPage}</p>
+      {isLoading && <Loader />}
+      {!isLoading && restaurants.length === 0 &&
+      <div className="center" align="center">
+        <h1>No restaurants found</h1>
+      </div>
+      }
     </div>
   );
 }

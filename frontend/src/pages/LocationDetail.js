@@ -6,6 +6,7 @@ import PhotoCarousel from "../components/PhotoCarousel";
 import RestaurantListing from "../components/RestaurantListing";
 import HotelListing from "../components/HotelListing";
 import Spinner from "react-bootstrap/Spinner";
+import Loader from "../components/Loader";
 
 const imgUrl = "https://maps.googleapis.com/maps/api/place/photo?";
 const api_key = "AIzaSyBJ2lOAHkcMp6O6SpyeRNcQ0jtjLqGpZnE";
@@ -13,6 +14,7 @@ const api_key = "AIzaSyBJ2lOAHkcMp6O6SpyeRNcQ0jtjLqGpZnE";
 const LocationDetail = (props) => {
   const id = props.match.params.id;
   const [location, setLocation] = useState([]);
+  const [isLoading, setLoading] = useState(true);
 
   // api call for location information
   function getLocation() {
@@ -20,9 +22,13 @@ const LocationDetail = (props) => {
     fetch(apiUrl)
       .then((res) => res.json())
       .then((data) => {
-        setLocation(data);
+        setLocation((prevData) => {
+          setLoading(false);
+          return data;
+        });
       })
       .catch((err) => {
+        setLoading(false);
         console.log(err);
       });
   }
@@ -69,12 +75,11 @@ const LocationDetail = (props) => {
             </div>
           </div>
         }
-      {location.length === 0 &&
-        <div align="center">
-          <Spinner animation="border" role="status">
-            <span className="sr-only">Loading...</span>
-          </Spinner>
-        </div>
+      {isLoading && <Loader />}
+      {!isLoading && location.length === 0 &&
+      <div className="center" align="center">
+        <h1>Location not found</h1>
+      </div>
       }
     </div>
   );

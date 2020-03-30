@@ -3,20 +3,24 @@ import Header from "../components/Header";
 import LocationCard from "../components/LocationCard";
 import "../styles/Location.css";
 import Pagination from "../components/Pagination";
-import Spinner from "react-bootstrap/Spinner";
+import Loader from "../components/Loader";
 
 const PAGE_SIZE = 3;
 
 const Location = () => {
   const [locations, setLocations] = useState([]);
   const [currPage, setCurrPage] = useState(1);
+  const [isLoading, setLoading] = useState(true);
 
   function getLocations() {
     const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/locations';
     fetch(apiUrl)
       .then((res) => res.json())
       .then((data) => {
-        setLocations(data);
+        setLocations((prevData) => {
+          setLoading(false);
+          return data;
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -37,24 +41,25 @@ const Location = () => {
   return(
     <div>
       <Header />
-      <h1 className="model-header">Locations</h1>
       {locations.length !== 0 &&
         <div>
-          <div className="location-page-container">
-            <div className="location-card-container">
-              {locationPages[currPage - 1].slice(0,3).map(location => (
-                <LocationCard key={location._id} location={location} />
-              ))}
+          <h1 className="model-header">Locations</h1>
+          <div>
+            <div className="location-page-container">
+              <div className="location-card-container">
+                {locationPages[currPage - 1].slice(0,3).map(location => (
+                  <LocationCard key={location._id} location={location} />
+                ))}
+              </div>
             </div>
+            <Pagination postsPerPage={PAGE_SIZE} totalPosts={locations.length} paginate={paginate} />
           </div>
-          <Pagination postsPerPage={PAGE_SIZE} totalPosts={locations.length} paginate={paginate} />
         </div>
       }
-      {locations.length === 0 &&
-        <div align="center">
-          <Spinner animation="border" role="status">
-            <span className="sr-only">Loading...</span>
-          </Spinner>
+      {isLoading && <Loader />}
+      {!isLoading && locations.length === 0 &&
+        <div className="center" align="center">
+          <h1>No locations found</h1>
         </div>
       }
     </div>
