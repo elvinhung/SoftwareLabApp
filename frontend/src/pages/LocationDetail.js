@@ -77,7 +77,7 @@ const LocationDetail = (props) => {
         }
       {isLoading && <Loader />}
       {!isLoading && location.length === 0 &&
-      <div className="center" align="center">
+      <div className="error" align="center">
         <h1>Location not found</h1>
       </div>
       }

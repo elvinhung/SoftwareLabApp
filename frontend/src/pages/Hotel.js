@@ -63,7 +63,7 @@ const Hotel = () => {
       }
       {isLoading && <Loader />}
       {!isLoading && hotels.length === 0 &&
-        <div className="center" align="center">
+        <div className="error" align="center">
           <h1>No hotels found</h1>
         </div>
       }

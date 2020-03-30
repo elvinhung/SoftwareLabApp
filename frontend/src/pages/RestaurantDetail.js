@@ -81,7 +81,7 @@ const RestaurantDetail = (props) => {
       }
       {isLoading && <Loader />}
       {!isLoading && Object.keys(restaurant).length === 0 &&
-        <div className="center" align="center">
+        <div className="error" align="center">
           <h1>Restaurant not found</h1>
         </div>
       }

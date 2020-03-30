@@ -58,7 +58,7 @@ const Location = () => {
       }
       {isLoading && <Loader />}
       {!isLoading && locations.length === 0 &&
-        <div className="center" align="center">
+        <div className="error" align="center">
           <h1>No locations found</h1>
         </div>
       }
