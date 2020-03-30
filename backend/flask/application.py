@@ -82,7 +82,7 @@ def all_locations():
 @application.route('/locations/<oid>', methods=['GET'])
 def locations_by_id(oid):
     locations = mongo.db.locations
-    result = list(locations.find({"_id": ObjectId(oid)}))
+    result = list(locations.find({"_id": oid}))
     return dumps(result)
 
 if __name__ == '__main__':

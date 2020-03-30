@@ -1,5 +1,7 @@
 software_project.code-workspace
 backend/hk.code-workspace
 backend/flask/requirements.txt
+backend/flask/requirements.txt~
 backend/flask/flask
+backend/flask/flask-new
 backend/flask/flask-aws
