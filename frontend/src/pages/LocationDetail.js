@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Header from "../components/Header";
 import '../styles/Location.css';
-import '../styles/InstanceListing.css';
+import '../styles/HotelDetail.css';
 import PhotoCarousel from "../components/PhotoCarousel";
 import RestaurantListing from "../components/RestaurantListing";
 import HotelListing from "../components/HotelListing";

@@ -1,0 +1,84 @@
+.res_info {
+	font-family: "Georgia", sans-serif;
+	font-size: 30px;
+	width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	padding: 20px;
+	padding-bottom: 0px;
+	overflow: hidden;
+}
+
+.res_left_info {
+	font-family: "Georgia", sans-serif;
+	font-size: 30px;
+	padding: 25px;
+}
+
+.res_right_info {
+	font-family: "Georgia", sans-serif;
+	font-size: 20px;
+	padding: 25px;
+}
+
+.review {
+	font-size: 15px;
+	float: left;
+}
+
+@media only screen and (max-width: 1200px) {
+	.res_info {
+		font-family: "Georgia", sans-serif;
+		font-size: 30px;
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		margin: 0 auto;
+		padding: 20px;
+		padding-bottom: 0px;
+		overflow: hidden;
+	}
+}
+
+@media only screen and (max-width: 900px) {
+
+	.res_info {
+		display: block;
+		padding: 20px;
+		padding-bottom: 0px;
+		overflow: hidden;
+	}
+
+	.res_left_info {
+		padding: 10px;
+		text-align: center;
+	}
+
+	.res_right_info {
+		margin: auto;
+		width: 525px;
+		padding: 10px;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+
+	.res_info {
+		display: block;
+		padding: 20px;
+		padding-bottom: 0px;
+		overflow: hidden;
+	}
+
+	.res_left_info {
+		padding: 10px;
+		text-align: center;
+	}
+
+	.res_right_info {
+		margin: auto;
+		width: 100%;
+		padding: 10px;
+	}
+}

@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Header from "../components/Header";
 import Ratings from "../components/Ratings";
 import 'font-awesome/css/font-awesome.min.css';
-import '../styles/InstanceListing.css';
+import '../styles/RestaurantDetail.css';
+import '../styles/InstanceStyles.css';
 import PhotoCarousel from "../components/PhotoCarousel";
 import Review from "../components/Review";
 import NearbyHotelListing from "../components/NearbyHotelListing";
@@ -40,7 +41,7 @@ const RestaurantDetail = (props) => {
 
         <div>
           <div className="instance_head">
-            <div><PhotoCarousel image={restaurant.image[0]}/></div>
+            <div classname="header_image"><PhotoCarousel image={restaurant.image[0]}/></div>
             <div className="instance_head_info">
               <h2>{restaurant.name}</h2>
               <div className="instance_location">
@@ -56,14 +57,14 @@ const RestaurantDetail = (props) => {
               </p>
             </div>
           </div>
-          <div className="information">
-            <div className="left_info">
-              <iframe width='600' height='400' frameBorder='0'
+          <div className="res_info">
+            <div className="res_left_info">
+              <iframe className="map" frameBorder='0'
                       scrolling='no' marginHeight='0' marginWidth='0'
                       src={'https://maps.google.com/maps/embed/v1/place?q='+restaurant.address[0].join('+')+'&key=AIzaSyAY1pilCxM5qWgNJQCeiTPvqz5m2qiHE94'}>
               </iframe>
             </div>
-            <div className="right_info">
+            <div className="res_right_info">
               <Review review={restaurant.reviews.reviews[0]}/>
               <Review review={restaurant.reviews.reviews[1]}/>
               <Review review={restaurant.reviews.reviews[2]}/>

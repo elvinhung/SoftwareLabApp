@@ -2,7 +2,8 @@ import React, {useEffect, useState} from 'react';
 import Header from "../components/Header";
 import Ratings from "../components/Ratings";
 import 'font-awesome/css/font-awesome.min.css';
-import '../styles/InstanceListing.css';
+import '../styles/HotelDetail.css';
+import '../styles/InstanceStyles.css';
 import PhotoCarousel from "../components/PhotoCarousel";
 import RestaurantListing from "../components/RestaurantListing";
 import Spinner from "react-bootstrap/Spinner";
@@ -70,14 +71,14 @@ const HotelDetail = (props) => {
               </p>
             </div>
           </div>
-          <div className="information">
-            <div className="left_info">
-              <iframe width='600' height='400' frameBorder='0'
+          <div className="hotel_info">
+            <div className="hotel_left_info">
+              <iframe className="map" frameBorder='0'
                       scrolling='no' marginHeight='0' marginWidth='0'
                       src={'https://maps.google.com/maps/embed/v1/place?q='+address+'&key=AIzaSyAY1pilCxM5qWgNJQCeiTPvqz5m2qiHE94'}>
               </iframe>
             </div>
-            <div className="right_info">
+            <div className="hotel_right_info">
               <p>{hotel.description}</p>
             </div>
           </div>

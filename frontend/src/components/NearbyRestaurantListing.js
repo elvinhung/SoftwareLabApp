@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Ratings from "../components/Ratings";
 import 'font-awesome/css/font-awesome.min.css';
-import '../styles/InstanceListing.css';
+import '../styles/HotelDetail.css';
 import Spinner from "react-bootstrap/Spinner";
 
 const NearbyRestaurantListing = (props) => {
