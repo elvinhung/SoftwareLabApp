@@ -4,9 +4,7 @@ import '../styles/InstanceStyles.css';
 import PhotoCarousel from "../components/PhotoCarousel";
 import RestaurantListing from "../components/RestaurantListing";
 import HotelListing from "../components/HotelListing";
-import Spinner from "react-bootstrap/Spinner";
 import Loader from "../components/Loader";
-import NearbyHotelListing from "../components/NearbyHotelListing";
 
 const imgUrl = "https://maps.googleapis.com/maps/api/place/photo?";
 const api_key = "AIzaSyBJ2lOAHkcMp6O6SpyeRNcQ0jtjLqGpZnE";
@@ -77,7 +75,7 @@ const LocationDetail = (props) => {
         }
       {isLoading && <Loader />}
       {!isLoading && location.length === 0 &&
-      <div className="center" align="center">
+      <div className="error" align="center">
         <h1>Location not found</h1>
       </div>
       }

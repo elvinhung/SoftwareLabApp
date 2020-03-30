@@ -5,11 +5,7 @@ import 'font-awesome/css/font-awesome.min.css';
 import '../styles/HotelDetail.css';
 import '../styles/InstanceStyles.css';
 import PhotoCarousel from "../components/PhotoCarousel";
-import RestaurantListing from "../components/RestaurantListing";
-import Spinner from "react-bootstrap/Spinner";
 import { title } from '../Utils';
-import {Map, Marker, InfoWindow, GoogleApiWrapper} from 'google-maps-react';
-import HotelListing from "../components/HotelListing";
 import NearbyRestaurantListing from "../components/NearbyRestaurantListing";
 import Loader from "../components/Loader";
 
@@ -94,7 +90,7 @@ const HotelDetail = (props) => {
       }
       {isLoading && <Loader />}
       {!isLoading && Object.keys(hotel).length === 0 &&
-      <div className="center" align="center">
+      <div className="error" align="center">
         <h1>Hotel not found</h1>
       </div>
       }

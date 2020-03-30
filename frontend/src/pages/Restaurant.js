@@ -66,7 +66,7 @@ const Restaurant = () => {
       }
       {isLoading && <Loader />}
       {!isLoading && restaurants.length === 0 &&
-      <div className="center" align="center">
+      <div className="error" align="center">
         <h1>No restaurants found</h1>
       </div>
       }
