@@ -60,7 +60,7 @@ const HotelDetail = (props) => {
             <div><PhotoCarousel image={hotel.image}/></div>
             <div className="instance_head_info">
               <h2>{hotel.name}</h2>
-              <div className="instance_location">
+              <div className="location">
                 <a className="location_link" href={"/locations/" + hotel.location_id}>{hotel.location_id}</a>
               </div>
               <div><Ratings rating={hotel.stars}/></div>

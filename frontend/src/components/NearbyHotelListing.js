@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Ratings from "../components/Ratings";
 import 'font-awesome/css/font-awesome.min.css';
-import '../styles/HotelDetail.css';
+import '../styles/Listings.css';
 import Spinner from "react-bootstrap/Spinner";
 
 const NearbyHotelListing = (props) => {
@@ -24,8 +24,6 @@ const NearbyHotelListing = (props) => {
     getHotel();
   }, []);
 
-  console.log(hotel);
-
   return(
     <div>
       {Object.keys(hotel).length !== 0 &&
@@ -35,8 +33,8 @@ const NearbyHotelListing = (props) => {
             <img className="instance_img" src={hotel.image} alt={hotel.name}/>
           </div>
           <div className="instance_page_info">
-            <h3 className="instance_name">{hotel.name}</h3>
-            <h3 className="distance">{props.hotel.distance + " away"}</h3>
+            <div className="instance_name"><h3>{hotel.name}</h3></div>
+            <div className="distance"><h3>{props.hotel.distance + " away"}</h3></div>
             <div className="instance_location"><p>{hotel.address.cityName + ', ' + hotel.address.stateCode}</p></div>
             <div><Ratings rating={hotel.stars}/></div>
           </div>
