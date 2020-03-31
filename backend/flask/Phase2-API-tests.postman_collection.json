@@ -1,0 +1,442 @@
+{
+	"info": {
+		"_postman_id": "f639e7b8-e38f-4468-a607-f35314825011",
+		"name": "Phase2-API-tests",
+		"description": "Tests for Flask API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "LocationsAll",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5e4ef5f8-007c-45e9-9a2b-07e2b5b473e8",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Number of locations\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length).to.equal(20);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/locations",
+					"protocol": "http",
+					"host": [
+						"nomad",
+						"eba-xuhumcdw",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"locations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Location_One",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6f766dfc-81b7-4f56-a0c9-7e41a01341c5",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Number of locations\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length).to.equal(1);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/locations/{{location_id}}",
+					"protocol": "http",
+					"host": [
+						"nomad",
+						"eba-xuhumcdw",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"locations",
+						"{{location_id}}"
+					]
+				},
+				"description": "Request a specific location by id"
+			},
+			"response": []
+		},
+		{
+			"name": "Restaurants_All",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "118b40b9-3ab0-4eb2-9dd2-15a1758fd781",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Number of locations\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length).to.equal(60);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/restaurants",
+					"protocol": "http",
+					"host": [
+						"nomad",
+						"eba-xuhumcdw",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"restaurants"
+					]
+				},
+				"description": "query all restaurants"
+			},
+			"response": []
+		},
+		{
+			"name": "Restaurants_One",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "23c24bfe-6207-4dde-a8f6-adb5c59a560a",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response is not empty\", function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).not.eq(undefined);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "384795b8-7f97-4ac5-b574-ff093864c6ac",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/restaurants/{{restaurant_id}}",
+					"protocol": "http",
+					"host": [
+						"nomad",
+						"eba-xuhumcdw",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"restaurants",
+						"{{restaurant_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hotels_All",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bf4dd1bd-d81b-4f40-ae89-2d3f737f3a02",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Number of locations\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length).to.equal(60);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/hotels",
+					"protocol": "http",
+					"host": [
+						"nomad",
+						"eba-xuhumcdw",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"hotels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hotels_One",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8bbf9dac-cc57-438f-8dc4-3669e222b0e8",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response is not empty\", function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).not.eq(undefined);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/hotels/{{hotel_id}}",
+					"protocol": "http",
+					"host": [
+						"nomad",
+						"eba-xuhumcdw",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"hotels",
+						"{{hotel_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hotel_Invalid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6b8a548d-0d55-4eb5-a5d5-9632ae73527d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/hotels/invalid_id",
+					"protocol": "http",
+					"host": [
+						"nomad",
+						"eba-xuhumcdw",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"hotels",
+						"invalid_id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Restaurant_invalid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "59d4dc38-a75e-450d-8a61-c8fa3b486da2",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/restaurants/invalid",
+					"protocol": "http",
+					"host": [
+						"nomad",
+						"eba-xuhumcdw",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"restaurants",
+						"invalid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Location_Invalid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7cc79090-6328-46c3-8f31-38fb7473af94",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Number of locations\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length).to.equal(0);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/locations/invalid",
+					"protocol": "http",
+					"host": [
+						"nomad",
+						"eba-xuhumcdw",
+						"us-east-2",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"locations",
+						"invalid"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e5b6d286-da8a-430e-83ce-a0dc310fc072",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "d2735bcf-58cd-4432-95b7-6ebc50733a3d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "521b691f-c763-4e2a-96d7-4f5c72da9d4b",
+			"key": "restaurant_id",
+			"value": "5e7fe613e36744f8cc254636",
+			"type": "string"
+		},
+		{
+			"id": "f8896a00-ba6f-423c-b9c5-5e197a86565e",
+			"key": "location_id",
+			"value": "MIA",
+			"type": "string"
+		},
+		{
+			"id": "e763bc08-773c-4586-b727-409852f4bca0",
+			"key": "hotel_id",
+			"value": "5e7e8ea593a16d5d9278b736",
+			"type": "string"
+		},
+		{
+			"id": "3b2fd917-0f38-4209-83c8-0efa2f0e5db5",
+			"key": "invalid",
+			"value": "true",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
