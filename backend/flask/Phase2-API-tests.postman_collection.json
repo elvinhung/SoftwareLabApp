@@ -60,9 +60,9 @@
 							"    pm.response.to.have.status(200);",
 							"});",
 							"",
-							"pm.test(\"Number of locations\", function () {",
+							"pm.test(\"location_id matches\", function () {",
 							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.length).to.equal(1);",
+							"    pm.expect(jsonData[0]._id).to.equal(pm.collectionVariables.get('location_id'));",
 							"});",
 							""
 						],
@@ -104,7 +104,7 @@
 							"    pm.response.to.have.status(200);",
 							"});",
 							"",
-							"pm.test(\"Number of locations\", function () {",
+							"pm.test(\"Number of restaurantss\", function () {",
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(jsonData.length).to.equal(60);",
 							"});",
@@ -148,9 +148,9 @@
 							"    pm.response.to.have.status(200);",
 							"});",
 							"",
-							"pm.test(\"Response is not empty\", function() {",
+							"pm.test(\"restaurant_id matches\", function() {",
 							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData).not.eq(undefined);",
+							"    pm.expect(jsonData._id.$oid).to.eq(pm.collectionVariables.get('restaurant_id'))",
 							"});"
 						],
 						"type": "text/javascript"
@@ -200,7 +200,7 @@
 							"    pm.response.to.have.status(200);",
 							"});",
 							"",
-							"pm.test(\"Number of locations\", function () {",
+							"pm.test(\"Number of hotels\", function () {",
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(jsonData.length).to.equal(60);",
 							"});",
@@ -243,9 +243,9 @@
 							"    pm.response.to.have.status(200);",
 							"});",
 							"",
-							"pm.test(\"Response is not empty\", function() {",
+							"pm.test(\"hotel_id matches\", function() {",
 							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData).not.eq(undefined);",
+							"    pm.expect(jsonData._id.$oid).to.eq(pm.collectionVariables.get('hotel_id'));",
 							"});"
 						],
 						"type": "text/javascript"
@@ -281,7 +281,7 @@
 					"script": {
 						"id": "6b8a548d-0d55-4eb5-a5d5-9632ae73527d",
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
+							"pm.test(\"Status code is 404\", function () {",
 							"    pm.response.to.have.status(404);",
 							"});"
 						],
@@ -414,25 +414,25 @@
 	],
 	"variable": [
 		{
-			"id": "521b691f-c763-4e2a-96d7-4f5c72da9d4b",
+			"id": "190f4006-488c-4b95-a147-b4f978f4996d",
 			"key": "restaurant_id",
 			"value": "5e7fe613e36744f8cc254636",
 			"type": "string"
 		},
 		{
-			"id": "f8896a00-ba6f-423c-b9c5-5e197a86565e",
+			"id": "360e7d95-ef23-4236-93a8-3810946c59eb",
 			"key": "location_id",
 			"value": "MIA",
 			"type": "string"
 		},
 		{
-			"id": "e763bc08-773c-4586-b727-409852f4bca0",
+			"id": "c4cb394f-2aa3-4e43-b00b-777fe2e59872",
 			"key": "hotel_id",
 			"value": "5e7e8ea593a16d5d9278b736",
 			"type": "string"
 		},
 		{
-			"id": "3b2fd917-0f38-4209-83c8-0efa2f0e5db5",
+			"id": "6b18f68e-09b2-4856-979d-122d07a02ed4",
 			"key": "invalid",
 			"value": "true",
 			"type": "string"
