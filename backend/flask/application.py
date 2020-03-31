@@ -31,12 +31,12 @@ def all_restaurants():
 
     return dumps(result)
 
-@application.route('/restaurants/<oid>', methods=['GET'])
+@application.route('/restaurants/<ObjectId:oid>', methods=['GET'])
 def restaurant_by_id(oid):
     restaurants = mongo.db.restaurants
-    result = restaurants.find_one({"_id": ObjectId(oid)})
+    result = restaurants.find_one_or_404({"_id": oid})
     distances_collection = mongo.db.distances
-    distances = distances_collection.find({"restaurant": ObjectId(oid)})
+    distances = distances_collection.find({"restaurant": oid})
     hotels = []
     for distance in distances: 
         tempDistance = {}
@@ -54,12 +54,12 @@ def all_hotels():
 
     return dumps(result)
 
-@application.route('/hotels/<oid>', methods=['GET'])
+@application.route('/hotels/<ObjectId:oid>', methods=['GET'])
 def hotel_by_id(oid):
     hotels = mongo.db.hotels
-    result = hotels.find_one({"_id": ObjectId(oid)})
+    result = hotels.find_one({"_id": oid})
     distances_collection = mongo.db.distances
-    distances = distances_collection.find({"hotel": ObjectId(oid)})
+    distances = distances_collection.find({"hotel": oid})
     restaurants = []
     for distance in distances: 
         tempDistance = {}
