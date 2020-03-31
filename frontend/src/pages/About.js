@@ -24,6 +24,7 @@ const REACT_USAGE = "We used React to implement the frontend of our application.
 const HOTEL_API = "https://developers.amadeus.com/self-service/category/hotel";
 const LOCATION_API = "https://developers.google.com/places/web-service/intro";
 const RESTAURANT_API = "https://www.yelp.com/fusion";
+const testRegex = /^\[TEST-(.*)\]/;
 
 const GithubStat = (props) => {
   return (
@@ -127,15 +128,25 @@ const About = () => {
   function updateStats(data, type) {
     if (type === 'commits') {
       let commits = 0;
+      let tests = 0;
       data.forEach(commit => {
         contributors.forEach(contributor => {
           if (contributor.githubUser === commit.commit.author.name || contributor.name === commit.commit.author.name) {
             contributor.commits += 1;
             commits += 1;
+            const message = commit.commit.message;
+            const match = message.match(testRegex);
+            if (match) {
+              const numTests = parseInt(match[1]);
+              if (!isNaN(numTests)) {
+                contributor.tests += numTests;
+                tests += numTests;
+              }
+            }
           }
         });
       });
-      setStats((prevState) => ({...prevState, commits}));
+      setStats((prevState) => ({...prevState, commits, tests}));
     } else {
       let issues = 0;
       data.forEach(issue => {
