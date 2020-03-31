@@ -10,11 +10,12 @@ const GithubInfo = (props) => {
 const MemberSection = (props) => {
   const {
     img,
-    commits,
     name,
     bio,
     major,
+    commits,
     issues,
+    tests,
   } = props.member;
 
   return (
@@ -26,7 +27,7 @@ const MemberSection = (props) => {
           <div className="github-info-container">
             <GithubInfo type="commits" value={commits}/>
             <GithubInfo type="issues" value={issues}/>
-            <GithubInfo type="unit tests" value={0}/>
+            <GithubInfo type="unit tests" value={tests}/>
           </div>
           <p className="member-major">{major}</p>
         </div>

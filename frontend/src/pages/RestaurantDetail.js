@@ -41,7 +41,7 @@ const RestaurantDetail = (props) => {
 
         <div>
           <div className="instance_head">
-            <div classname="header_image"><PhotoCarousel image={restaurant.image[0]}/></div>
+            <div className="header_image"><PhotoCarousel image={restaurant.image[0]}/></div>
             <div className="instance_head_info">
               <h2>{restaurant.name}</h2>
               <div className="location">

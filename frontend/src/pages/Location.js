@@ -47,7 +47,7 @@ const Location = () => {
           <div>
             <div className="location-page-container">
               <div className="location-card-container">
-                {locationPages[currPage - 1].slice(0,3).map(location => (
+                {locationPages[currPage - 1].map(location => (
                   <LocationCard key={location._id} location={location} />
                 ))}
               </div>
