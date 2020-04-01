@@ -45,6 +45,7 @@ const Hotel = () => {
     <div>
       <Header />
       {hotels.length !== 0 &&
+      hotels.sort(function(a, b){ if (a.name < b.name) return -1; else return 1;}) &&
         <div>
           <h1 className="model-header">Hotels</h1>
           <div className="listing_padding">
