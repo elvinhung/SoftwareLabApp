@@ -1,21 +1,21 @@
 import React from 'react';
 
-const Pagination = ({postsPerPage, totalPosts, paginate, curPage}) => {
+const Pagination = ({postsPerPage, totalPosts, paginate, curPage, pagesAtTime}) => {
   const pageNumbers = [];
   const totalPages = Math.ceil(totalPosts / postsPerPage);
 
-  if (curPage <= 3) {
-    for (let i = 1; i <= 5; i++) {
+  if (curPage <= Math.ceil(pagesAtTime / 2)) {
+    for (let i = 1; i <= pagesAtTime; i++) {
       pageNumbers.push(i);
     }
   }
-  else if (curPage <= totalPages - 3) {
-    for (let i = curPage - 2; i <= curPage + 2; i++) {
+  else if (curPage <= totalPages - Math.ceil(pagesAtTime / 2)) {
+    for (let i = curPage - Math.floor(pagesAtTime / 2); i <= curPage + Math.floor(pagesAtTime / 2); i++) {
       pageNumbers.push(i);
     }
   }
   else {
-    for (let i = totalPages - 4; i <= totalPages; i++) {
+    for (let i = totalPages - (pagesAtTime - 1); i <= totalPages; i++) {
       pageNumbers.push(i);
     }
   }

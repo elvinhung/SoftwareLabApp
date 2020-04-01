@@ -62,8 +62,8 @@ const Hotel = () => {
             </Spinner>
           </div>
           }
-          <Pagination postsPerPage={PAGE_SIZE} totalPosts={hotels.length} paginate={paginate} curPage={curPage}/>
-          <p align="center"> Page {curPage}</p>
+          <Pagination postsPerPage={PAGE_SIZE} totalPosts={hotels.length} paginate={paginate} curPage={curPage} pagesAtTime={7}/>
+          <p align="center"> Page {curPage} / {Math.ceil(hotels.length / PAGE_SIZE)}</p>
         </div>
       }
       {isLoading && <Loader />}

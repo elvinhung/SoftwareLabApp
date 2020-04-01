@@ -5,7 +5,7 @@ import "../styles/Location.css";
 import Pagination from "../components/Pagination";
 import Loader from "../components/Loader";
 
-const PAGE_SIZE = 6;
+const PAGE_SIZE = 9;
 
 const Location = () => {
   const [locations, setLocations] = useState([]);
@@ -53,8 +53,8 @@ const Location = () => {
                 ))}
               </div>
             </div>
-            <Pagination postsPerPage={PAGE_SIZE} totalPosts={locations.length} paginate={paginate} curPage={currPage} />
-            <p align="center"> Page {currPage}</p>
+            <Pagination postsPerPage={PAGE_SIZE} totalPosts={locations.length} paginate={paginate} curPage={currPage} pagesAtTime={5}/>
+            <p align="center"> Page {currPage} / {Math.ceil(locations.length / PAGE_SIZE)}</p>
           </div>
         </div>
       }
