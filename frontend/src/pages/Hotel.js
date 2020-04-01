@@ -7,6 +7,8 @@ import Spinner from "react-bootstrap/Spinner";
 import Pagination from "../components/Pagination";
 import Loader from "../components/Loader";
 
+const PAGE_SIZE = 10;
+
 const Hotel = () => {
   const [hotels, setHotels] = useState([]);
   const [curPage, setCurrentPage] = useState(1);
@@ -32,9 +34,9 @@ const Hotel = () => {
     getHotels();
   }, []);
 
-  var hotelsPage = []
-  for (let i = 0; i < 60; i+=10) {
-    hotelsPage.push(hotels.slice(i, i + 10));
+  let hotelsPage = [];
+  for (let i = 0; i < hotels.length; i += PAGE_SIZE) {
+    hotelsPage.push(hotels.slice(i, i + PAGE_SIZE));
   }
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -59,7 +61,7 @@ const Hotel = () => {
             </Spinner>
           </div>
           }
-          <Pagination postsPerPage={10} totalPosts={60} paginate={paginate}/>
+          <Pagination postsPerPage={PAGE_SIZE} totalPosts={hotels.length} paginate={paginate} curPage={curPage}/>
           <p align="center"> Page {curPage}</p>
         </div>
       }

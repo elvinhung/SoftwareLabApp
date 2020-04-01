@@ -7,6 +7,7 @@ import Spinner from "react-bootstrap/Spinner"
 import Pagination from "../components/Pagination";
 import Loader from "../components/Loader";
 
+const PAGE_SIZE = 10;
 
 const Restaurant = () => {
   const [restaurants, setRestaurants] = useState([]);
@@ -33,9 +34,9 @@ const Restaurant = () => {
     getRestaurants();
   }, []);
 
-  var restaurantsPage = []
-  for (let i = 0; i < 60; i+=10) {
-    restaurantsPage.push(restaurants.slice(i, i + 10));
+  let restaurantsPage = [];
+  for (let i = 0; i < restaurants.length; i += PAGE_SIZE) {
+    restaurantsPage.push(restaurants.slice(i, i + PAGE_SIZE));
   }
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -60,7 +61,7 @@ const Restaurant = () => {
             </Spinner>
           </div>
           }
-          <Pagination postsPerPage={10} totalPosts={60} paginate={paginate}/>
+          <Pagination postsPerPage={PAGE_SIZE} totalPosts={restaurants.length} paginate={paginate} curPage={curPage}/>
           <p align="center"> Page {curPage}</p>
         </div>
       }
