@@ -25,6 +25,7 @@ const HOTEL_API = "https://developers.amadeus.com/self-service/category/hotel";
 const LOCATION_API = "https://developers.google.com/places/web-service/intro";
 const RESTAURANT_API = "https://www.yelp.com/fusion";
 const testRegex = /^\[TEST-(.*)\]/;
+const commitUrl = "https://api.github.com/repos/elvinhung/SoftwareLabApp/commits?per_page=1000";
 
 const GithubStat = (props) => {
   return (
@@ -115,38 +116,51 @@ const About = () => {
     }
   ];
 
-  const teamStats = {
+  const [contributors, setContributors] = useState(teamMembers);
+  const [stats, setStats] = useState({
     commits: 0,
     issues: 0,
     tests: 0,
-  };
-
-  const [contributors, setContributors] = useState(teamMembers);
-  const [stats, setStats] = useState(teamStats);
+  });
+  const [lastCommit, setLastCommit] = useState('');
 
   // updates state for team member stats and team stats
   function updateStats(data, type) {
     if (type === 'commits') {
       let commits = 0;
       let tests = 0;
-      data.forEach(commit => {
-        contributors.forEach(contributor => {
-          if (contributor.githubUser === commit.commit.author.name || contributor.name === commit.commit.author.name) {
-            contributor.commits += 1;
-            commits += 1;
-            const message = commit.commit.message;
-            const match = message.match(testRegex);
-            if (match) {
-              const numTests = parseInt(match[1]);
-              if (!isNaN(numTests)) {
-                contributor.tests += numTests;
-                tests += numTests;
+      data.forEach((commit, index) => {
+        if (commit.sha !== lastCommit) {
+          contributors.forEach((contributor) => {
+            if (contributor.githubUser === commit.commit.author.name || contributor.name === commit.commit.author.name) {
+              contributor.commits += 1;
+              commits += 1;
+              const message = commit.commit.message;
+              const match = message.match(testRegex);
+              if (match) {
+                const numTests = parseInt(match[1]);
+                if (!isNaN(numTests)) {
+                  contributor.tests += numTests;
+                  tests += numTests;
+                }
               }
             }
-          }
-        });
+          });
+        }
       });
-      setStats((prevState) => ({...prevState, commits, tests}));
+      setStats((prevState) => {
+        const newCommits = prevState.commits + commits;
+        const newTests = prevState.tests + tests;
+        return {...prevState,
+          commits: newCommits,
+          tests: newTests,
+        }
+      });
+      if (data.length === 100) {
+        setLastCommit(data[data.length - 1].sha);
+      } else {
+        setLastCommit('DONE');
+      }
     } else {
       let issues = 0;
       data.forEach(issue => {
@@ -162,9 +176,10 @@ const About = () => {
     setContributors((prevState) => [...contributors]);
   }
 
-  // github api calls for commits and issues
-  function getStats() {
-    fetch("https://api.github.com/repos/elvinhung/SoftwareLabApp/commits?per_page=1000")
+  // github api call for commits
+  function getCommits() {
+    const commitApiUrl = lastCommit === '' ? commitUrl : commitUrl + '&sha=' + lastCommit;
+    fetch(commitApiUrl)
       .then((res) => res.json())
       .then((data) => {
         updateStats(data, 'commits');
@@ -172,6 +187,11 @@ const About = () => {
       .catch((err) => {
         console.log(err);
       });
+
+  }
+
+  // github api call for issues
+  function getIssues() {
     fetch("https://api.github.com/repos/elvinhung/SoftwareLabApp/issues?state=all&per_page=1000")
       .then((res) => res.json())
       .then((data) => {
@@ -184,8 +204,12 @@ const About = () => {
 
   // runs upon initial render
   useEffect(() => {
-    getStats();
+    getIssues();
   }, []);
+
+  useEffect(() => {
+    if (lastCommit !== 'DONE') getCommits();
+  }, [lastCommit]);
 
   return(
     <div className="page-container">
