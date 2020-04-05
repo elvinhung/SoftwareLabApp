@@ -7,6 +7,7 @@ import Spinner from "react-bootstrap/Spinner"
 import Pagination from "../components/Pagination";
 import Loader from "../components/Loader";
 
+const PAGE_SIZE = 10;
 
 const Restaurant = () => {
   const [restaurants, setRestaurants] = useState([]);
@@ -33,9 +34,9 @@ const Restaurant = () => {
     getRestaurants();
   }, []);
 
-  var restaurantsPage = []
-  for (let i = 0; i < 60; i+=10) {
-    restaurantsPage.push(restaurants.slice(i, i + 10));
+  let restaurantsPage = [];
+  for (let i = 0; i < restaurants.length; i += PAGE_SIZE) {
+    restaurantsPage.push(restaurants.slice(i, i + PAGE_SIZE));
   }
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -44,6 +45,7 @@ const Restaurant = () => {
     <div>
       <Header />
       {restaurants.length !== 0 &&
+      restaurants.sort(function(a, b){ if (a.name[0] < b.name[0]) return -1; else return 1;}) &&
         <div>
           <h1 className="model-header">Restaurants</h1>
           <div className="listing_padding">
@@ -60,8 +62,8 @@ const Restaurant = () => {
             </Spinner>
           </div>
           }
-          <Pagination postsPerPage={10} totalPosts={60} paginate={paginate}/>
-          <p align="center"> Page {curPage}</p>
+          <Pagination postsPerPage={PAGE_SIZE} totalPosts={restaurants.length} paginate={paginate} curPage={curPage} pagesAtTime={7}/>
+          <p align="center"> Page {curPage} / {Math.ceil(restaurants.length / PAGE_SIZE)}</p>
         </div>
       }
       {isLoading && <Loader />}

@@ -5,7 +5,7 @@ import "../styles/Location.css";
 import Pagination from "../components/Pagination";
 import Loader from "../components/Loader";
 
-const PAGE_SIZE = 3;
+const PAGE_SIZE = 9;
 
 const Location = () => {
   const [locations, setLocations] = useState([]);
@@ -42,17 +42,19 @@ const Location = () => {
     <div>
       <Header />
       {locations.length !== 0 &&
+      locations.sort(function(a, b){ if (a.name[0] < b.name[0]) return -1; else return 1;}) &&
         <div>
           <h1 className="model-header">Locations</h1>
           <div>
             <div className="location-page-container">
               <div className="location-card-container">
-                {locationPages[currPage - 1].slice(0,3).map(location => (
+                {locationPages[currPage - 1].map(location => (
                   <LocationCard key={location._id} location={location} />
                 ))}
               </div>
             </div>
-            <Pagination postsPerPage={PAGE_SIZE} totalPosts={locations.length} paginate={paginate} />
+            <Pagination postsPerPage={PAGE_SIZE} totalPosts={locations.length} paginate={paginate} curPage={currPage} pagesAtTime={5}/>
+            <p align="center"> Page {currPage} / {Math.ceil(locations.length / PAGE_SIZE)}</p>
           </div>
         </div>
       }

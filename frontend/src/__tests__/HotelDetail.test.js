@@ -59,7 +59,7 @@ describe("<HotelDetail />",() => {
     await act(async () => {
       render(<HotelDetail match={{params: {id: 1}}} />, container);
     });
-    expect(container.getElementsByClassName("right_info")[0].children[0].textContent).toEqual(hotel.description);
+    expect(container.getElementsByClassName("hotel_right_info")[0].children[0].textContent).toEqual(hotel.description);
   });
 
   it("renders link to location", async () => {
