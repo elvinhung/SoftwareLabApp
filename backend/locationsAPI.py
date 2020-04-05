@@ -6,7 +6,7 @@ import os
 from pymongo.errors import BulkWriteError
 
 url = "https://maps.googleapis.com/maps/api/place/textsearch/json?"
-API_KEY = 'PLACE_API_KEY_HERE'
+API_KEY = 'API KEY HERE'
 os.chdir(r'/Users/Nithanth/SoftwareLabApp/backend')
 city_dict = {}
 with open("city_locations.txt") as txt1, open("hotel_locations.txt") as txt2:
@@ -27,10 +27,11 @@ locations.delete_many({})
 db_array = []
 for key in city_dict:
     city_name = key.strip('\n')
-    location = gmaps.find_place(input = city_name, input_type = 'textquery', fields = ['photos', 'name', 'geometry'])
-    #city_name_formatted = city_name.replace(" ", "+")
+    location = gmaps.find_place(input = city_name , input_type = 'textquery', fields = ['photos', 'name', 'geometry'])
+    # city_name_formatted = city_name.replace(" ", "+")
     POI = requests.get(url + 'query=' + city_name + ' point of interest' + '&key=' + API_KEY).json()
     POI_results = POI['results']
+    print(city_name)
     temp = {}
     temp['name'] = location['candidates'][0]['name']
     temp['photos'] = location['candidates'][0]['photos']
@@ -41,8 +42,8 @@ for key in city_dict:
     restaurant_matches = restaurants.find({"location_id" : city_dict[key]})
     temp['restaurants'] = list(restaurant_matches)
     temp['points of interest'] = []
-    for i in range(5):
-        temp['points of interest'].append(POI_results[i])
+    # for i in range(5):
+    #     temp['points of interest'].append(POI_results[i])
     temp['_id'] = city_dict[key]
     db_array.append(temp)
 
