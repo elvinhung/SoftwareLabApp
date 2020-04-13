@@ -1,14 +1,20 @@
 .model-header {
-    background-color: #282c34;
-    font-family: "Georgia", sans-serif;
-    height: 100px;
+    background-color: #fff;
+    height: 80px;
     display: flex;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 36px;
     flex-direction: column;
-    align-items: center;
+    margin: 0;
+    padding: 0px 10px;
     justify-content: center;
-    font-size: 50px;
-    color: white;
-    font-weight: 200;
+}
+
+.model-container {
+    margin: 0 auto;
+    width: 1250px;
 }
 
 .listing:hover {

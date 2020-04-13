@@ -43,10 +43,9 @@ const Restaurant = () => {
 
   return(
     <div>
-      <Header />
       {restaurants.length !== 0 &&
       restaurants.sort(function(a, b){ if (a.name[0] < b.name[0]) return -1; else return 1;}) &&
-        <div>
+        <div className="model-container">
           <h1 className="model-header">Restaurants</h1>
           <div className="listing_padding">
             <div className="listing_container">

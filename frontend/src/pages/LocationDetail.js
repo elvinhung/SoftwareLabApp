@@ -38,7 +38,6 @@ const LocationDetail = (props) => {
 
   return (
     <div>
-      <Header />
       {location.length !== 0 &&
       location[0].restaurants.sort(function(a, b){ if (a.name[0] < b.name[0]) return -1; else return 1;}) &&
       location[0].hotels.sort(function(a, b){ if (a.name[0] < b.name[0]) return -1; else return 1;}) &&
