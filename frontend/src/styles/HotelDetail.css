@@ -1,5 +1,5 @@
 .hotel_info {
-    font-family: "Georgia", sans-serif;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
     font-size: 30px;
     width: 1200px;
     margin: 0 auto;
@@ -10,20 +10,17 @@
 
 .hotel_left_info {
     float: left;
-    font-family: "Georgia", sans-serif;
     font-size: 30px;
     padding: 25px;
 }
 
 .hotel_right_info {
-    font-family: "Georgia", sans-serif;
     font-size: 20px;
     padding: 25px;
 }
 
 @media only screen and (max-width: 1200px) {
     .hotel_info {
-        font-family: "Georgia", sans-serif;
         font-size: 30px;
         width: 100%;
         margin: 0 auto;

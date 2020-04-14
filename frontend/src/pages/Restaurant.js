@@ -7,7 +7,7 @@ import Spinner from "react-bootstrap/Spinner"
 import Pagination from "../components/Pagination";
 import Loader from "../components/Loader";
 
-const PAGE_SIZE = 10;
+const PAGE_SIZE = 12;
 
 const Restaurant = () => {
   const [restaurants, setRestaurants] = useState([]);

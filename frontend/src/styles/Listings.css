@@ -1,34 +1,57 @@
 .instance {
-	color: black;
-	padding: 15px;
-	font-size: 15px;
-	border-bottom: 1px solid #f2f2f2;
-	transition: .15s box-shadow;
+	margin: 0px 0px 30px 0px;
+	border-radius: 5px;
+	width: 300px;
+	flex: 0 0 25%;
+	box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
 	overflow: hidden;
 }
 
-.instance:hover {
-	box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+.img_container  {
+	height: 225px;
+	width: 300px;
+	overflow: hidden;
+}
+
+.instance_img {
+	width: 100%;
+	height: 225px;
+	border-radius: 5px 5px 0px 0px;
+	transition: .5s transform;
+	object-fit: cover;
+}
+
+.listing {
 	text-decoration: none;
+	color: black;
 }
 
 .listing:hover {
 	text-decoration: none;
+	color: black;
+}
+
+.instance:hover img {
+	transform: scale(1.1);
 }
 
 .instance_name {
-	font-weight: 400;
+	padding: 10px;
+	padding-bottom: 0px;
 }
 
-.instance_img {
-	float: left;
-	width: 200px;
-	height: 125px;
-	margin-right: 15px;
+.location-name > h4 {
+	font-weight: 300;
+	margin: 0;
 }
 
 .instance_info {
 	margin-left: 220px;
+}
+
+.instance_page_info {
+	padding-left: 10px;
+	font-size: 15px;
 }
 
 .instance_location {
@@ -42,11 +65,7 @@
 }
 
 .distance {
-	float: right;
-}
-
-.distance span {
-	align-self: flex-end;
+	clear: both;
 }
 
 @media only screen and (max-width: 900px) {

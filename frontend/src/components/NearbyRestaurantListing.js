@@ -29,15 +29,17 @@ const NearbyRestaurantListing = (props) => {
       {Object.keys(restaurant).length !== 0 &&
         <a className="listing" href={"/restaurants/" + id}>
           <div className="instance">
-            <div>
+            <div className="img_container">
               <img className="instance_img" src={restaurant.image[0]} alt={restaurant.name[0]}/>
             </div>
-            <div className="instance_page_info">
-              <h3 className="instance_name">{restaurant.name[0] + " (" + restaurant.price + ")"}</h3>
-              <h3 className="distance">{props.restaurant.distance + " away"}</h3>
 
+            <div className="instance_name">
+              <h4>{restaurant.name[0] + " (" + restaurant.price + ")"}</h4>
+            </div>
+            <div className="instance_page_info">
               <div className="instance_location"><p>{(restaurant.address[0][restaurant.address[0].length - 1]).substring(0, (restaurant.address[0][restaurant.address[0].length - 1]).length - 6)}</p></div>
               <div><Ratings rating={restaurant.stars[0]}/></div>
+              <div className="distance"><p>{props.restaurant.distance + " away"}</p></div>
             </div>
           </div>
         </a>

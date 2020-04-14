@@ -17,6 +17,7 @@
     height: 225px;
     border-radius: 5px 5px 0px 0px;
     transition: .5s transform;
+    object-fit: cover;
 }
 
 .location-link {

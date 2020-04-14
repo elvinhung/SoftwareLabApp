@@ -22,8 +22,9 @@
 
 .carousel_img {
 	width: 500px;
-	max-height: 300px;
+	max-height: 350px;
 	margin-right: 25px;
+	object-fit: cover;
 }
 
 .location {
@@ -33,11 +34,11 @@
 
 .location_link {
 	text-decoration: none;
-	color: white;
+	color: black;
 }
 
 .location_link:hover {
-	color: white;
+	color: black;
 }
 
 .contact {
@@ -50,18 +51,12 @@
 }
 
 .nearby {
-	font-family: "Georgia", sans-serif;
+	font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
 	font-size: 30px;
 	padding: 25px;
 	padding-top: 0px;
 }
 
-.listing_container {
-	border-radius: 5px;
-	width: 1200px;
-	margin: 30px auto 0;
-	box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
-}
 
 .error {
 	display: flex;
