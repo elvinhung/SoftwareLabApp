@@ -213,7 +213,6 @@ const About = () => {
 
   return(
     <div className="page-container">
-      <Header />
       <div className="about_head">
         <SectionHeader name="About" />
         <div className="section-body">

@@ -12,7 +12,10 @@
 }
 
 .member-section {
-    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: rgb(34, 34, 34);
     padding: 10px 20px 20px 20px;
     border-bottom: 1px solid #f2f2f2;
     transition: .15s box-shadow;
@@ -36,6 +39,7 @@
 }
 
 .member-name {
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
     margin: 0px 0px 3px 0px;
     font-weight: 400;
 }

@@ -5,7 +5,7 @@ import '../styles/Header.css';
 
 const Header = () => {
   return (
-    <Navbar sticky="top" variant="nomad-dark">
+    <Navbar bg="custom" sticky="top">
       <Navbar.Brand href="/">Nomad</Navbar.Brand>
       <Nav className="mr-auto">
         <Nav.Link href="/locations">Locations</Nav.Link>

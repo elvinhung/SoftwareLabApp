@@ -4,8 +4,9 @@ import LocationCard from "../components/LocationCard";
 import "../styles/Location.css";
 import Pagination from "../components/Pagination";
 import Loader from "../components/Loader";
+import Search from "../components/Search";
 
-const PAGE_SIZE = 9;
+const PAGE_SIZE = 12;
 
 const Location = () => {
   const [locations, setLocations] = useState([]);
@@ -40,10 +41,10 @@ const Location = () => {
 
   return(
     <div>
-      <Header />
+      <Search type="Location" />
       {locations.length !== 0 &&
       locations.sort(function(a, b){ if (a.name[0] < b.name[0]) return -1; else return 1;}) &&
-        <div>
+        <div className="model-container">
           <h1 className="model-header">Locations</h1>
           <div>
             <div className="location-page-container">

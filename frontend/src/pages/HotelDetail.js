@@ -49,14 +49,13 @@ const HotelDetail = (props) => {
 
   return(
     <div>
-      <Header />
       {Object.keys(hotel).length !== 0 &&
       hotel.restaurants.sort(function(a, b){ return parseFloat(a.distance) - parseFloat(b.distance)}) &&
         <div>
           <div className="instance_head">
             <div><PhotoCarousel image={hotel.image}/></div>
             <div className="instance_head_info">
-              <h2>{hotel.name}</h2>
+              <h1>{hotel.name}</h1>
               <div className="location">
                 <a className="location_link" href={"/locations/" + hotel.location_id}>{hotel.location_id}</a>
               </div>

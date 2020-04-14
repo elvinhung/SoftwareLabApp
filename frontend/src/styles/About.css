@@ -1,12 +1,15 @@
 .about_head {
-    background-color: #282c34;
-    height: 350px;
+    background-color: #1c1c1c;
     color: white;
+    height: 350px;
     padding: 25px;
     font-family: "Georgia", sans-serif;
 }
 
 .section-body {
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    font-size: 18px;
+    line-height: 28px;
     width: 700px;
     margin: 0 auto;
 }
