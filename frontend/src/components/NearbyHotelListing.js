@@ -3,6 +3,7 @@ import Ratings from "../components/Ratings";
 import 'font-awesome/css/font-awesome.min.css';
 import '../styles/Listings.css';
 import Spinner from "react-bootstrap/Spinner";
+import {title} from "../Utils";
 
 const NearbyHotelListing = (props) => {
   const id = props.hotel.id.$oid;
@@ -29,14 +30,17 @@ const NearbyHotelListing = (props) => {
       {Object.keys(hotel).length !== 0 &&
       <a className="listing" href={"/hotels/" + id}>
         <div className="instance">
-          <div>
+          <div className="img_container">
             <img className="instance_img" src={hotel.image} alt={hotel.name}/>
           </div>
+
+          <div className="instance_name">
+            <h4>{hotel.name}</h4>
+          </div>
           <div className="instance_page_info">
-            <div className="instance_name"><h3>{hotel.name}</h3></div>
-            <div className="distance"><h3>{props.hotel.distance + " away"}</h3></div>
             <div className="instance_location"><p>{hotel.address.cityName + ', ' + hotel.address.stateCode}</p></div>
             <div><Ratings rating={hotel.stars}/></div>
+            <div className="distance"><p>{props.hotel.distance + " away"}</p></div>
           </div>
         </div>
       </a>

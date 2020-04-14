@@ -3,7 +3,7 @@
     color: white;
     height: 350px;
     padding: 25px;
-    font-family: "Georgia", sans-serif;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
 }
 
 .section-body {
@@ -42,7 +42,7 @@
 }
 
 .github-stat > h2 {
-    font-family: "Georgia", sans-serif;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
     margin: 0;
 }
 

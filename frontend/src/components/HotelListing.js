@@ -18,11 +18,13 @@ const HotelListing = (props) => {
     <div>
       <a className="listing" href={"/hotels/" + _id.$oid}>
         <div className="instance">
-          <div>
+          <div className="img_container">
             <img className="instance_img" src={image} alt={name}/>
           </div>
+          <div className="instance_name">
+            <h4>{name}</h4>
+          </div>
           <div className="instance_page_info">
-            <h2 className="instance_name">{name}</h2>
             <div className="instance_location"><p>{title(address.cityName) + ', ' + address.stateCode}</p></div>
             <div><Ratings rating={stars}/></div>
           </div>
