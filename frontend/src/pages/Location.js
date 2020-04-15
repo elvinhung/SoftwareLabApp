@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Header from "../components/Header";
+import { useLocation } from 'react-router-dom';
 import LocationCard from "../components/LocationCard";
 import "../styles/Location.css";
 import Pagination from "../components/Pagination";
@@ -12,6 +12,8 @@ const Location = () => {
   const [locations, setLocations] = useState([]);
   const [currPage, setCurrPage] = useState(1);
   const [isLoading, setLoading] = useState(true);
+
+  const query = new URLSearchParams(useLocation().search);
 
   function getLocations() {
     const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/locations';

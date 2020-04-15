@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import Dropdown from "react-bootstrap/Dropdown";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
@@ -12,24 +13,40 @@ const searchTypes = [
 ];
 
 const SearchFilterModal = (props) => {
-
   const {
+    searchType,
     showFilter,
     handleFilterClose,
+    handleFilterSave
   } = props;
+
+  const Filters = () => {
+    switch (searchType) {
+      case 'Location':
+        return <h1>Location</h1>
+      case 'Restaurant':
+        return <h1>rest</h1>
+      case 'Hotel':
+        return <h1>Hotel</h1>
+      default:
+        return <p>No additional filters</p>
+    }
+  }
 
   return (
     <Modal show={showFilter} onHide={handleFilterClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Modal heading</Modal.Title>
+        <Modal.Title>More Filters</Modal.Title>
       </Modal.Header>
-      <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+      <Modal.Body>
+        <Filters />
+      </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={handleFilterClose}>
-          Close
+        <Button id="filter-cancel-btn" className="search-filter-btn" onClick={handleFilterClose}>
+          Cancel
         </Button>
-        <Button variant="primary" onClick={handleFilterClose}>
-          Save Changes
+        <Button id="filter-save-btn" onClick={handleFilterSave}>
+          Apply
         </Button>
       </Modal.Footer>
     </Modal>
@@ -63,15 +80,48 @@ const SearchTypeDropdown = (props) => {
 const Search = (props) => {
   const [searchType, setSearchType] = useState(props.type);
   const [showFilter, setShowFilter] = useState(false);
+  const [isSearching, setSearching] = useState(false);
+  const [redirect, setRedirect] = useState({});
 
+  useEffect(() => {
+    switch (searchType) {
+      case 'Location':
+        setRedirect({
+          pathname: '/locations',
+          search: 'sort-by=pop'
+        });
+        break;
+      case 'Restaurant':
+        setRedirect({
+          pathname: '/restaurants',
+          search: 'rest'
+        });
+        break;
+      default:
+        setRedirect({
+          pathname: '/restaurants',
+          search: 'res'
+        });
+    }
+  }, [])
+
+  const handleSubmit = () => setSearching(true);
+  const handleFilterSave = () => {
+    handleFilterClose();
+  }
   const handleFilterClose = () => setShowFilter(false);
   const handleFilterShow = () => setShowFilter(true);
 
   return (
     <div>
+      {isSearching &&
+        <Redirect
+          to={redirect}
+        />
+      }
       <div className="form-container">
         <input className="search-bar" placeholder="Anywhere" type="text" />
-        <button className="search-btn"><i className="fa fa-search"></i></button>
+        <button onClick={handleSubmit} className="search-btn"><i className="fa fa-search"></i></button>
       </div>
       <div className="filter-container">
         <SearchTypeDropdown
@@ -81,8 +131,10 @@ const Search = (props) => {
         <Button id="filter-btn" onClick={handleFilterShow}>More Filters</Button>
       </div>
       <SearchFilterModal
+        searchType={searchType}
         showFilter={showFilter}
         handleFilterClose={handleFilterClose}
+        handleFilterSave={handleFilterSave}
       />
     </div>
   );
