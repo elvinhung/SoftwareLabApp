@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import LocationCard from "../components/LocationCard";
 import "../styles/Location.css";
+import "../styles/ModelPage.css";
 import Pagination from "../components/Pagination";
 import Loader from "../components/Loader";
 import Search from "../components/Search";
@@ -16,7 +17,7 @@ const SearchPage = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
-  const query = new URLSearchParams(useLocation().search);
+  const query = new URLSearchParams(window.location.search).get('q');
 
   function getLocations() {
     const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/locations';
@@ -80,14 +81,17 @@ const SearchPage = () => {
     <div>
       <div className="form-container">
         <form className="search-form" action="/search?">
-          <input name="q" id="textSearch" className="search-bar" defaultValue={new URLSearchParams(window.location.search).get('q')} type="text"/>
+          <input name="q" id="textSearch" className="search-bar" defaultValue={query} type="text"/>
           <button type="submit" className="search-btn"><i className="fa fa-search"></i></button>
         </form>
       </div>
       {locations.length !== 0 &&
       locations.sort(function(a, b){ if (a.name[0] < b.name[0]) return -1; else return 1;}) &&
       <div className="model-container">
-        <h1 className="model-header">Locations</h1>
+        <div className="header-info">
+          <h1 className="search-header">Locations</h1>
+          <a className="see_more" href={"/locations?q=" + query}>More Locations <i className="fa fa-angle-double-right"></i></a>
+        </div>
         <div>
           <div className="location-page-container">
             <div className="location-card-container">
@@ -97,7 +101,10 @@ const SearchPage = () => {
             </div>
           </div>
         </div>
-        <h1 className="model-header">Hotels</h1>
+        <div className="header-info">
+          <h1 className="search-header">Hotels</h1>
+          <a className="see_more" href={"/hotels?q=" + query}>More Hotels <i className="fa fa-angle-double-right"></i></a>
+        </div>
         <div className="listing_padding">
           <div className="listing_container">
             {topResults[1].map((hotel, index) => {
@@ -105,7 +112,10 @@ const SearchPage = () => {
             })}
           </div>
         </div>
-        <h1 className="model-header">Restaurants</h1>
+        <div className="header-info">
+          <h1 className="search-header">Restaurants</h1>
+          <a className="see_more" href={"/restaurants?q=" + query}>More Restaurants <i className="fa fa-angle-double-right"></i></a>
+        </div>
         <div className="listing_padding">
           <div className="listing_container">
             {topResults[2].map((restaurant, index) => {
@@ -118,7 +128,7 @@ const SearchPage = () => {
       {isLoading && <Loader />}
       {!isLoading && locations.length === 0 &&
       <div className="error" align="center">
-        <h1>No locations found</h1>
+        <h1>No results found</h1>
       </div>
       }
     </div>
