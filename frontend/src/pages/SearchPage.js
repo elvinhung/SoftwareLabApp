@@ -5,12 +5,15 @@ import "../styles/Location.css";
 import Pagination from "../components/Pagination";
 import Loader from "../components/Loader";
 import Search from "../components/Search";
+import HotelListing from "../components/HotelListing";
+import RestaurantListing from "../components/RestaurantListing";
 
-const PAGE_SIZE = 12;
+const MAX_RESULTS = 4;
 
-const Location = () => {
+const SearchPage = () => {
   const [locations, setLocations] = useState([]);
-  const [currPage, setCurrPage] = useState(1);
+  const [hotels, setHotels] = useState([]);
+  const [restaurants, setRestaurants] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
   const query = new URLSearchParams(useLocation().search);
@@ -30,20 +33,57 @@ const Location = () => {
       });
   }
 
-  useEffect(() => {
-    getLocations();
-  },[]);
-
-  let locationPages = [];
-  for (let i = 0; i < locations.length; i += PAGE_SIZE) {
-    locationPages.push(locations.slice(i, i + PAGE_SIZE));
+  function getHotels() {
+    const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/hotels';
+    fetch(apiUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        setHotels((prevData) => {
+          setLoading(false);
+          return data;
+        });
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.log(err);
+      });
   }
 
-  const paginate = (pageNumber) => setCurrPage(pageNumber);
+  function getRestaurants() {
+    const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/restaurants';
+    fetch(apiUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        setRestaurants((prevData) => {
+          setLoading(false);
+          return data;
+        });
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.log(err);
+      });
+  }
+
+  useEffect(() => {
+    getLocations();
+    getHotels();
+    getRestaurants();
+  },[]);
+
+  let topResults = [];
+  topResults.push(locations.slice(0, MAX_RESULTS));
+  topResults.push(hotels.slice(0, MAX_RESULTS));
+  topResults.push(restaurants.slice(0, MAX_RESULTS));
 
   return(
     <div>
-      <Search type="Location" />
+      <div className="form-container">
+        <form className="search-form" action="/search?">
+          <input name="q" id="textSearch" className="search-bar" defaultValue={new URLSearchParams(window.location.search).get('q')} type="text"/>
+          <button type="submit" className="search-btn"><i className="fa fa-search"></i></button>
+        </form>
+      </div>
       {locations.length !== 0 &&
       locations.sort(function(a, b){ if (a.name[0] < b.name[0]) return -1; else return 1;}) &&
       <div className="model-container">
@@ -51,13 +91,27 @@ const Location = () => {
         <div>
           <div className="location-page-container">
             <div className="location-card-container">
-              {locationPages[currPage - 1].map(location => (
+              {topResults[0].map(location => (
                 <LocationCard key={location._id} location={location} />
               ))}
             </div>
           </div>
-          <Pagination postsPerPage={PAGE_SIZE} totalPosts={locations.length} paginate={paginate} curPage={currPage} pagesAtTime={5}/>
-          <p align="center"> Page {currPage} / {Math.ceil(locations.length / PAGE_SIZE)}</p>
+        </div>
+        <h1 className="model-header">Hotels</h1>
+        <div className="listing_padding">
+          <div className="listing_container">
+            {topResults[1].map((hotel, index) => {
+              return <HotelListing hotel={hotel} key={index}/>
+            })}
+          </div>
+        </div>
+        <h1 className="model-header">Restaurants</h1>
+        <div className="listing_padding">
+          <div className="listing_container">
+            {topResults[2].map((restaurant, index) => {
+              return <RestaurantListing restaurant={restaurant} key={index}/>
+            })}
+          </div>
         </div>
       </div>
       }
@@ -71,4 +125,4 @@ const Location = () => {
   );
 }
 
-export default Location;
+export default SearchPage;
