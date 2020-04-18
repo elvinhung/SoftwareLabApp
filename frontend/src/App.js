@@ -5,6 +5,7 @@ import {
   Switch,
 } from 'react-router-dom';
 import Home from './pages/Home';
+import SearchPage from './pages/SearchPage';
 import Location from './pages/Location';
 import Hotel from './pages/Hotel';
 import Restaurant from './pages/Restaurant';
@@ -24,6 +25,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route path="/search" component={SearchPage} />
           <Route exact path="/locations" component={Location} />
           <Route path="/locations/:id" component={LocationDetail} />
           <Route exact path="/hotels" component={Hotel} />
