@@ -3,6 +3,8 @@ import { Redirect } from 'react-router-dom';
 import Dropdown from "react-bootstrap/Dropdown";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import LocationFilters from "./LocationFilters";
+import "../styles/Filters.css";
 import "../styles/Search.css";
 
 const searchTypes = [
@@ -23,7 +25,7 @@ const SearchFilterModal = (props) => {
   const Filters = () => {
     switch (searchType) {
       case 'Location':
-        return <h1>Location</h1>
+        return <LocationFilters />
       case 'Restaurant':
         return <h1>rest</h1>
       case 'Hotel':
@@ -34,7 +36,7 @@ const SearchFilterModal = (props) => {
   }
 
   return (
-    <Modal show={showFilter} onHide={handleFilterClose}>
+    <Modal id="filter-modal" show={showFilter} onHide={handleFilterClose}>
       <Modal.Header closeButton>
         <Modal.Title>More Filters</Modal.Title>
       </Modal.Header>
@@ -88,13 +90,19 @@ const Search = (props) => {
       case 'Location':
         setRedirect({
           pathname: '/locations',
-          search: 'sort-by=pop'
+          search: 'population=greater_than_10000&country=US'
         });
         break;
       case 'Restaurant':
         setRedirect({
           pathname: '/restaurants',
           search: 'rest'
+        });
+        break;
+      case 'Hotel':
+        setRedirect({
+          pathname: '/hotels',
+          search: 'hotel'
         });
         break;
       default:
@@ -120,10 +128,10 @@ const Search = (props) => {
         />
       }
       <div className="form-container">
-        <input className="search-bar" placeholder="Anywhere" type="text" />
+        <input className="search-bar" placeholder="Search" type="text" />
         <button onClick={handleSubmit} className="search-btn"><i className="fa fa-search"></i></button>
       </div>
-      <div className="filter-container">
+      <div className="filter-btn-container">
         <SearchTypeDropdown
           searchType={searchType}
           setSearchType={setSearchType}
