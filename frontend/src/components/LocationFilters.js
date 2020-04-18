@@ -16,56 +16,33 @@ const locationOptions = [
 const locationOptions1 = [
   {
     name: 'United States',
-    value: 'USA'
+    value: 'USAA'
   },
   {
     name: 'Canada',
-    value: 'CAN'
-  },
-  {
-    name: 'United States',
-    value: 'U'
-  },
-  {
-    name: 'Canada',
-    value: 'CN'
-  },
-  {
-    name: 'United States',
-    value: 'A'
-  },
-  {
-    name: 'Canada',
-    value: 'AN'
-  },
-  {
-    name: 'Canada',
-    value: 'CN'
-  },
-  {
-    name: 'United States',
-    value: 'A'
-  },
-  {
-    name: 'Canada',
-    value: 'AN'
-  },
+    value: 'CANA'
+  }
 ];
 
-const LocationFilters = () => {
+const test = {
+  Country: null,
+  Country1: null,
+}
 
-  const handleChange = (event) => {
-    console.log(event.target.value);
+const LocationFilters = (props) => {
+  const {
+    setFilters
+  } = props;
+
+  const onChange = (name, value) => {
+    test[name] = value;
+    setFilters(test);
   }
 
   return (
-    <div className="filter-container" onChange={handleChange}>
-      <Filter type="Country" options={locationOptions} />
-      <Filter type="Country" options={locationOptions} />
-      <Filter type="Country" options={locationOptions} />
-      <Filter type="Country" options={locationOptions} />
-      <Filter type="Country" options={locationOptions} />
-      <Filter type="Country" options={locationOptions1} />
+    <div className="filter-container">
+      <Filter type="Country" onChange={onChange} options={locationOptions} />
+      <Filter type="Country1" onChange={onChange} options={locationOptions1} />
     </div>
   );
 }

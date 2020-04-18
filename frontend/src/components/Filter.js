@@ -6,11 +6,16 @@ const Filter = (props) => {
   const {
     type,
     options,
+    onChange,
   } = props;
+
+  const handleChange = (event) => {
+    onChange(type, event.target.value);
+  }
 
   return (
     <div className="filter">
-      <form>
+      <form onChange={handleChange}>
         <h6>{type}</h6>
         <ul className="filter-list">
           {options.map(option => (

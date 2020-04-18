@@ -18,6 +18,7 @@ const SearchFilterModal = (props) => {
   const {
     searchType,
     showFilter,
+    setFilters,
     handleFilterClose,
     handleFilterSave
   } = props;
@@ -25,7 +26,7 @@ const SearchFilterModal = (props) => {
   const Filters = () => {
     switch (searchType) {
       case 'Location':
-        return <LocationFilters />
+        return <LocationFilters setFilters={setFilters}/>
       case 'Restaurant':
         return <h1>rest</h1>
       case 'Hotel':
@@ -82,12 +83,15 @@ const SearchTypeDropdown = (props) => {
 const Search = (props) => {
   const [searchType, setSearchType] = useState(props.type);
   const [showFilter, setShowFilter] = useState(false);
+  const [tempFilters, setTempFilters] = useState({});
+  const [filters, setFilters] = useState({});
   const [isSearching, setSearching] = useState(false);
   const [redirect, setRedirect] = useState({});
 
   useEffect(() => {
     switch (searchType) {
       case 'Location':
+        console.log(filters);
         setRedirect({
           pathname: '/locations',
           search: 'population=greater_than_10000&country=US'
@@ -111,10 +115,11 @@ const Search = (props) => {
           search: 'res'
         });
     }
-  }, [])
+  }, [filters]);
 
   const handleSubmit = () => setSearching(true);
   const handleFilterSave = () => {
+    setFilters(tempFilters);
     handleFilterClose();
   }
   const handleFilterClose = () => setShowFilter(false);
@@ -141,6 +146,7 @@ const Search = (props) => {
       <SearchFilterModal
         searchType={searchType}
         showFilter={showFilter}
+        setFilters={setTempFilters}
         handleFilterClose={handleFilterClose}
         handleFilterSave={handleFilterSave}
       />
