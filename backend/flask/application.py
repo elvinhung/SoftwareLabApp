@@ -26,8 +26,12 @@ def index():
 @application.route('/restaurants', methods=['GET'])
 def all_restaurants():
     restaurants = mongo.db.restaurants
-
-    result = list(restaurants.find())
+    args = request.args.get('name')
+    result = {}
+    if args is None:
+        result = list(restaurants.find())
+    else:
+        result = list(restaurants.find({"$text": {"$search": args}}))
 
     return dumps(result)
 
@@ -50,7 +54,12 @@ def restaurant_by_id(oid):
 @application.route('/hotels', methods=['GET'])
 def all_hotels():
     hotels = mongo.db.hotels
-    result = list(hotels.find())
+    args = request.args.get('name')
+    result = {}
+    if args is None:
+        result = list(hotels.find())
+    else:
+        result = list(hotels.find({"$text": {"$search": args}}))
 
     return dumps(result)
 
@@ -75,7 +84,12 @@ def hotel_by_id(oid):
 @application.route('/locations', methods=['GET'])
 def all_locations():
     locations = mongo.db.locations
-    result = list(locations.find())
+    args = request.args.get('name')
+    result = {}
+    if args is None:
+        result = list(locations.find())
+    else:
+        result = list(locations.find({"$text": {"$search": args}}))
 
     return dumps(result)
 
