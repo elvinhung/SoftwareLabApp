@@ -8,6 +8,7 @@ import PhotoCarousel from "../components/PhotoCarousel";
 import Review from "../components/Review";
 import NearbyHotelListing from "../components/NearbyHotelListing";
 import Loader from "../components/Loader";
+import TagList from "../components/TagList";
 
 const RestaurantDetail = (props) => {
   const id = props.match.params.id;
@@ -34,6 +35,8 @@ const RestaurantDetail = (props) => {
     getRestaurant();
   }, []);
 
+  const tags = [restaurant.price];
+
   return(
     <div>
       {Object.keys(restaurant).length !== 0 &&
@@ -45,10 +48,10 @@ const RestaurantDetail = (props) => {
             <div className="instance_head_info">
               <h1>{restaurant.name}</h1>
               <div className="location">
-                <a className="location_link" href={"/locations/" + restaurant.location_id}>{restaurant.location_id}</a>
+                <a className="location_link" href={"/locations/" + restaurant.location_id}>{(restaurant.address[0][restaurant.address[0].length - 1]).substring(0, (restaurant.address[0][restaurant.address[0].length - 1]).length - 6)}</a>
               </div>
-              <div><Ratings rating={restaurant.stars[0]}/></div>
-              <div><p>{restaurant.price}</p></div>
+              <Ratings rating={restaurant.stars[0]}/>
+              <TagList className="tag_list_container" tags={tags}/>
               <p>
                 <i className="fa fa-map-marker contact"></i>
                 {restaurant.address[0].join(', ')}

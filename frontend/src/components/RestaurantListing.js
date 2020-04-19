@@ -16,7 +16,11 @@ const RestaurantListing = (props) => {
     }
   } = props;
 
-  const tags = [price];
+  let priceDollars = "";
+  for (let i = 0; i < price[0].length; i++) {
+    priceDollars += "$";
+  }
+  const tags = [priceDollars];
 
   return(
     <div>
