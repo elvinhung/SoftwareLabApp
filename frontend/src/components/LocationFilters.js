@@ -24,25 +24,25 @@ const locationOptions1 = [
   }
 ];
 
-const test = {
-  Country: null,
-  Country1: null,
-}
 
 const LocationFilters = (props) => {
   const {
-    setFilters
+    setFilters,
+    filters,
   } = props;
 
   const onChange = (name, value) => {
-    test[name] = value;
-    setFilters(test);
+    setFilters((prevFilters) => {
+      prevFilters[name] = value;
+      console.log(prevFilters);
+      return prevFilters;
+    });
   }
 
   return (
     <div className="filter-container">
-      <Filter type="Country" onChange={onChange} options={locationOptions} />
-      <Filter type="Country1" onChange={onChange} options={locationOptions1} />
+      <Filter type="Country" filters={filters} onChange={onChange} options={locationOptions} />
+      <Filter type="Country1" filters={filters} onChange={onChange} options={locationOptions1} />
     </div>
   );
 }

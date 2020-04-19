@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import Header from "../components/Header";
 import 'font-awesome/css/font-awesome.min.css';
 import RestaurantListing from "../components/RestaurantListing";
 import '../styles/ModelPage.css';
 import Spinner from "react-bootstrap/Spinner"
 import Pagination from "../components/Pagination";
 import Loader from "../components/Loader";
+import Search from "../components/Search";
+import queryString from "query-string";
 
 const PAGE_SIZE = 12;
 
-const Restaurant = () => {
+const Restaurant = (props) => {
   const [restaurants, setRestaurants] = useState([]);
   const [curPage, setCurrentPage] = useState(1);
   const [isLoading, setLoading] = useState(true);
+  const filters = queryString.parse(props.location.search);
+
 
   function getRestaurants() {
     const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/restaurants';
@@ -43,6 +46,7 @@ const Restaurant = () => {
 
   return(
     <div>
+      <Search type="Restaurant" filters={filters}/>
       {restaurants.length !== 0 &&
       restaurants.sort(function(a, b){ if (a.name[0] < b.name[0]) return -1; else return 1;}) &&
         <div className="model-container">

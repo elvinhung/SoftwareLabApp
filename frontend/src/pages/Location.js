@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import queryString from 'query-string';
 import LocationCard from "../components/LocationCard";
 import "../styles/Location.css";
 import Pagination from "../components/Pagination";
@@ -8,12 +8,11 @@ import Search from "../components/Search";
 
 const PAGE_SIZE = 12;
 
-const Location = () => {
+const Location = (props) => {
   const [locations, setLocations] = useState([]);
   const [currPage, setCurrPage] = useState(1);
   const [isLoading, setLoading] = useState(true);
-
-  const query = new URLSearchParams(useLocation().search);
+  const filters = queryString.parse(props.location.search);
 
   function getLocations() {
     const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/locations';
@@ -43,7 +42,7 @@ const Location = () => {
 
   return(
     <div>
-      <Search type="Location" />
+      <Search type="Location" filters={filters} />
       {locations.length !== 0 &&
       locations.sort(function(a, b){ if (a.name[0] < b.name[0]) return -1; else return 1;}) &&
         <div className="model-container">

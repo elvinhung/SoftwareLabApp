@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import Header from "../components/Header";
 import 'font-awesome/css/font-awesome.min.css';
 import HotelListing from "../components/HotelListing";
 import '../styles/ModelPage.css';
 import Spinner from "react-bootstrap/Spinner";
 import Pagination from "../components/Pagination";
 import Loader from "../components/Loader";
+import Search from "../components/Search";
+import queryString from "query-string";
 
 const PAGE_SIZE = 12;
 
-const Hotel = () => {
+const Hotel = (props) => {
   const [hotels, setHotels] = useState([]);
   const [curPage, setCurrentPage] = useState(1);
   const [isLoading, setLoading] = useState(true);
+  const filters = queryString.parse(props.location.search);
 
   function getHotels() {
       const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/hotels';
@@ -43,6 +45,7 @@ const Hotel = () => {
 
   return(
     <div>
+      <Search type="Hotel" filters={filters} />
       {hotels.length !== 0 &&
       hotels.sort(function(a, b){ if (a.name < b.name) return -1; else return 1;}) &&
         <div className="model-container">

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import queryString from 'query-string';
 import { Redirect } from 'react-router-dom';
 import Dropdown from "react-bootstrap/Dropdown";
 import Modal from "react-bootstrap/Modal";
@@ -18,6 +19,7 @@ const SearchFilterModal = (props) => {
   const {
     searchType,
     showFilter,
+    filters,
     setFilters,
     handleFilterClose,
     handleFilterSave
@@ -26,7 +28,7 @@ const SearchFilterModal = (props) => {
   const Filters = () => {
     switch (searchType) {
       case 'Location':
-        return <LocationFilters setFilters={setFilters}/>
+        return <LocationFilters filters={filters} setFilters={setFilters}/>
       case 'Restaurant':
         return <h1>rest</h1>
       case 'Hotel':
@@ -81,43 +83,61 @@ const SearchTypeDropdown = (props) => {
 }
 
 const Search = (props) => {
+  const defaultQuery = props.filters["q"] ? props.filters["q"] : "";
+  const [query, setQuery] = useState(defaultQuery);
   const [searchType, setSearchType] = useState(props.type);
   const [showFilter, setShowFilter] = useState(false);
   const [tempFilters, setTempFilters] = useState({});
-  const [filters, setFilters] = useState({});
+  const [filters, setFilters] = useState(props.filters);
   const [isSearching, setSearching] = useState(false);
   const [redirect, setRedirect] = useState({});
 
   useEffect(() => {
+    const stringifiedQuery = queryString.stringify(filters);
     switch (searchType) {
       case 'Location':
-        console.log(filters);
         setRedirect({
           pathname: '/locations',
-          search: 'population=greater_than_10000&country=US'
+          search: stringifiedQuery,
         });
         break;
       case 'Restaurant':
         setRedirect({
           pathname: '/restaurants',
-          search: 'rest'
+          search: stringifiedQuery,
         });
         break;
       case 'Hotel':
         setRedirect({
           pathname: '/hotels',
-          search: 'hotel'
+          search: stringifiedQuery,
         });
         break;
       default:
         setRedirect({
           pathname: '/restaurants',
-          search: 'res'
+          search: stringifiedQuery,
         });
     }
-  }, [filters]);
+  }, [searchType, filters]);
 
-  const handleSubmit = () => setSearching(true);
+
+  const handleQueryChange = (event) => {
+    setQuery(event.target.value);
+  }
+  const handleSubmit = () => {
+    setFilters((prevFilters) => {
+      if (query === "") {
+        delete prevFilters.q;
+        return { ...prevFilters };
+      }
+      return {
+        ...prevFilters,
+        q: query,
+      }
+    });
+    setSearching(true);
+  }
   const handleFilterSave = () => {
     setFilters(tempFilters);
     handleFilterClose();
@@ -133,7 +153,7 @@ const Search = (props) => {
         />
       }
       <div className="form-container">
-        <input className="search-bar" placeholder="Search" type="text" />
+        <input className="search-bar" onChange={handleQueryChange} value={query} placeholder="Search" type="text" />
         <button onClick={handleSubmit} className="search-btn"><i className="fa fa-search"></i></button>
       </div>
       <div className="filter-btn-container">
@@ -146,6 +166,7 @@ const Search = (props) => {
       <SearchFilterModal
         searchType={searchType}
         showFilter={showFilter}
+        filters={filters}
         setFilters={setTempFilters}
         handleFilterClose={handleFilterClose}
         handleFilterSave={handleFilterSave}

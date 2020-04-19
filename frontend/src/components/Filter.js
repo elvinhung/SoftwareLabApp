@@ -7,6 +7,7 @@ const Filter = (props) => {
     type,
     options,
     onChange,
+    filters,
   } = props;
 
   const handleChange = (event) => {
@@ -21,7 +22,8 @@ const Filter = (props) => {
           {options.map(option => (
             <li key={option.value}>
               <div className="pretty p-default p-curve">
-                <input type="radio" name="color" value={option.value} />
+                {filters[type] === option.value && <input type="radio" defaultChecked name="color" value={option.value} />}
+                {filters[type] !== option.value && <input type="radio" name="color" value={option.value} />}
                 <div className="state p-primary-o">
                   <label>{option.name}</label>
                 </div>
