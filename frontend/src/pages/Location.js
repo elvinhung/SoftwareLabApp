@@ -31,7 +31,7 @@ const Location = (props) => {
 
   useEffect(() => {
     getLocations();
-  },[]);
+  },[props.location.search]);
 
   let locationPages = [];
   for (let i = 0; i < locations.length; i += PAGE_SIZE) {

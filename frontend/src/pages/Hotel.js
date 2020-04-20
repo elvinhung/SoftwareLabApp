@@ -18,7 +18,7 @@ const Hotel = (props) => {
 
   function getHotels() {
       const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/hotels';
-      fetch(apiUrl)
+      fetch(apiUrl + props.location.search)
         .then((res) => res.json())
         .then((data) => {
           setHotels((prevData) => {
@@ -34,7 +34,7 @@ const Hotel = (props) => {
 
   useEffect(() => {
     getHotels();
-  }, []);
+  }, [props.location.search]);
 
   let hotelsPage = [];
   for (let i = 0; i < hotels.length; i += PAGE_SIZE) {

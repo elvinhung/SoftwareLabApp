@@ -10,10 +10,11 @@ const SearchFilters = (props) => {
   } = props;
 
   const onChange = (name, value) => {
-    setFilters((prevFilters) => {
-      prevFilters[name] = value;
-      return prevFilters;
-    });
+    // setFilters((prevFilters) => {
+    //   prevFilters[name] = value;
+    //   return prevFilters;
+    // });
+    setFilters(name, value);
   }
 
   return (

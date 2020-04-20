@@ -127,7 +127,7 @@ const SearchFilterModal = (props) => {
 const SearchTypeDropdown = (props) => {
   const {
     searchType,
-    setSearchType
+    handleSearchTypeChange
   } = props;
 
   return (
@@ -137,7 +137,7 @@ const SearchTypeDropdown = (props) => {
         {searchTypes.map((type) => (
           <Dropdown.Item
             key={type}
-            onClick={() => setSearchType(type)}
+            onClick={() => handleSearchTypeChange(type)}
           >
             {type}
           </Dropdown.Item>
@@ -147,21 +147,33 @@ const SearchTypeDropdown = (props) => {
   );
 }
 
+let tempFilters = {};
+let filters = {};
+
 const Search = (props) => {
   const defaultQuery = props.filters["name"] ? props.filters["name"] : "";
   const [query, setQuery] = useState(defaultQuery);
   const [searchType, setSearchType] = useState(props.type);
   const [showFilter, setShowFilter] = useState(false);
-  const [tempFilters, setTempFilters] = useState(props.filters);
-  const [filters, setFilters] = useState(props.filters);
   const [isSearching, setSearching] = useState(false);
   const [redirect, setRedirect] = useState({});
 
-  useEffect(() => {
-    setSearching(false);
-  }, [props]);
 
   useEffect(() => {
+    setSearching(false);
+    tempFilters = { ...props.filters };
+    filters = { ...props.filters };
+  }, [props]);
+
+  const handleQueryChange = (event) => {
+    setQuery(event.target.value);
+  }
+  const handleSubmit = () => {
+    if (query.trim() === "") {
+      delete filters.name;
+    } else {
+      filters.name = query.trim();
+    }
     const stringifiedQuery = queryString.stringify(filters);
     switch (searchType) {
       case 'Location':
@@ -185,37 +197,37 @@ const Search = (props) => {
       default:
         setRedirect({
           pathname: '/search',
+          search: '?name=' + query.trim(),
         });
         break;
     }
-  }, [searchType, filters]);
-
-  const handleQueryChange = (event) => {
-    setQuery(event.target.value);
-  }
-  const handleSubmit = () => {
-    setFilters((prevFilters) => {
-      if (query.trim() === "") {
-        delete prevFilters.name;
-        return { ...prevFilters };
-      }
-      return {
-        ...prevFilters,
-        name: query.trim(),
-      }
-    });
     setSearching(true);
   }
   const handleKeyDown = e => {
     if (e.key === 'Enter') handleSubmit();
   }
+  const setTempFilters = (name, value) => {
+    tempFilters[name] = value;
+  }
   const handleFilterSave = () => {
-    setFilters(tempFilters);
+    filters = { ...tempFilters };
     handleFilterClose();
     handleSubmit();
   }
   const handleFilterClose = () => setShowFilter(false);
   const handleFilterShow = () => setShowFilter(true);
+  const handleSearchTypeChange = (type) => {
+    setSearchType((prevSearchType) => {
+      if (type !== prevSearchType) {
+        console.log("setting new filters");
+        filters = {
+          name: query,
+        }
+        console.log(filters);
+      }
+      return type;
+    });
+  }
 
   return (
     <div>
@@ -231,7 +243,7 @@ const Search = (props) => {
       <div className="filter-btn-container">
         <SearchTypeDropdown
           searchType={searchType}
-          setSearchType={setSearchType}
+          handleSearchTypeChange={handleSearchTypeChange}
         />
         <Button id="filter-btn" onClick={handleFilterShow}>More Filters</Button>
       </div>

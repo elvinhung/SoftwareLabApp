@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Header from '../components/Header';
 import MemberSection from '../components/MemberSection';
 import SectionHeader from "../components/SectionHeader";
 import githubPng from '../assets/github.png';

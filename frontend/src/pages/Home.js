@@ -10,7 +10,7 @@ const Home = () => {
       </div>
       <div className="form-container">
         <form classname="search-form" action="/search?">
-          <input name="q" id="textSearch" className="search-bar" placeholder="Anywhere" type="text"/>
+          <input name="name" id="textSearch" className="search-bar" placeholder="Anywhere" type="text"/>
           <button type="submit" className="search-btn"><i className="fa fa-search"></i></button>
         </form>
       </div>
