@@ -43,7 +43,7 @@ const Location = (props) => {
 
   return(
     <div>
-      <Search type="Location" filters={filters} />
+      <Search type="Location" filters={filters} paginate={paginate}/>
       {locations.length !== 0 &&
       locations.sort(function(a, b){ if (a.name[0] < b.name[0]) return -1; else return 1;}) &&
         <div className="model-container">

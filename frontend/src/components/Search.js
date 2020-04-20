@@ -169,6 +169,7 @@ const Search = (props) => {
     setQuery(event.target.value);
   }
   const handleSubmit = () => {
+    props.paginate(1);
     if (query.trim() === "") {
       delete filters.name;
     } else {
