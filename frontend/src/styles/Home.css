@@ -1,6 +1,9 @@
 .home-page-container {
     height: 100vh;
     background-color: #fff;
+    background-image: url('../assets/luggage.png');
+    background-repeat: no-repeat;
+    background-position: 10% 50%;
 }
 
 .title-container {
@@ -59,4 +62,22 @@
     outline: none;
     border: 2px solid #3da1ff;
     box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.08);
+}
+
+@media only screen and (max-width: 600px) {
+    .title-container {
+        padding: 70px 0px 0px 0px;
+    }
+
+    .home-page-container {
+        background-size: 200px;
+    }
+
+    .form-container {
+        padding: 10px;
+    }
+
+    .search-bar {
+        width: 300px;
+    }
 }

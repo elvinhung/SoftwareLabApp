@@ -55,11 +55,21 @@
     box-shadow: none;
     border: none;
     border-radius: 5px;
-    background-color: #b256e8 !important;
+    background-color: #3da1ff !important;
     color: white;
 }
 
-.filter-container {
+#filter-save-btn:hover {
+    background-color: #148dff !important;
+}
+
+#filter-modal {
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    max-width: 800px;
+    min-width: 300px;
+}
+
+.filter-btn-container {
     padding: 10px;
     margin: auto;
     display: flex;
