@@ -5,7 +5,7 @@ import os
 from pymongo.errors import BulkWriteError
 
 url = "https://maps.googleapis.com/maps/api/place/textsearch/json?"
-API_KEY = 'AIzaSyBJ2lOAHkcMp6O6SpyeRNcQ0jtjLqGpZnE'
+API_KEY = 'API_KEY_HERE'
 os.chdir(r'/Users/Nithanth/SoftwareLabApp/backend')
 # city_dict = {}
 # with open("city_locations.txt") as txt1, open("hotel_locations.txt") as txt2:
@@ -15,7 +15,7 @@ os.chdir(r'/Users/Nithanth/SoftwareLabApp/backend')
 #         city_dict[city_name] = city_code
 city_list = open("city_locations.txt")
 mongo = MongoClient()
-mongo_client = MongoClient('mongodb+srv://dbUser:adDJJ0ZG6O7VDdMz@softwarelabapp-hbwi6.mongodb.net/test?retryWrites=true&w=majority')
+mongo_client = MongoClient('connection_string')
 db = mongo_client.models
 locations = db.locations
 hotels = db.hotels
