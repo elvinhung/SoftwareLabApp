@@ -8,6 +8,7 @@ import PhotoCarousel from "../components/PhotoCarousel";
 import { title } from '../Utils';
 import NearbyRestaurantListing from "../components/NearbyRestaurantListing";
 import Loader from "../components/Loader";
+import TagList from "../components/TagList";
 
 const mapStyle = {
   width: '25vw',
@@ -47,6 +48,8 @@ const HotelDetail = (props) => {
     getHotel();
   }, []);
 
+  const tags = [hotel.stars + " stars (placeholder)"];
+
   return(
     <div>
       {Object.keys(hotel).length !== 0 &&
@@ -57,9 +60,10 @@ const HotelDetail = (props) => {
             <div className="instance_head_info">
               <h1>{hotel.name}</h1>
               <div className="location">
-                <a className="location_link" href={"/locations/" + hotel.location_id}>{hotel.location_id}</a>
+                <a className="location_link" href={"/locations/" + hotel.location_id}>{title(hotel.address.cityName) + ', ' + hotel.address.stateCode}</a>
               </div>
-              <div><Ratings rating={hotel.stars}/></div>
+              <Ratings rating={hotel.stars}/>
+              <TagList className="tag_list_container" tags={tags}/>
               <p>
                 <i className="fa fa-map-marker contact"></i>{address}
                 <br/>
