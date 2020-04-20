@@ -5,11 +5,11 @@ import os
 from pymongo.errors import BulkWriteError
 
 url = "https://maps.googleapis.com/maps/api/place/textsearch/json?"
-API_KEY = 'AIzaSyBJ2lOAHkcMp6O6SpyeRNcQ0jtjLqGpZnE'
+API_KEY = 'API_KEY_HERE'
 os.chdir(r'/Users/Nithanth/SoftwareLabApp/backend')
 
 mongo = MongoClient()
-mongo_client = MongoClient('mongodb+srv://dbUser:adDJJ0ZG6O7VDdMz@softwarelabapp-hbwi6.mongodb.net/test?retryWrites=true&w=majority')
+mongo_client = MongoClient('connection_string')
 db = mongo_client.models
 
 # city_dict = {}
