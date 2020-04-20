@@ -1,20 +1,100 @@
-Houston
-Miami
-Saint Louis
-San Francisco
-Honolulu
-Portland
-Denver
-Minneapolis
-San Diego
-San Antonio
-Seattle
-Las Vegas
-Philadelphia
-Dallas
-Los Angeles
-Atlanta
-Chicago
-New York City
-Orlando
-Austin
+HOU,Houston
+MIA,Miami
+STL,St. Louis
+SFO,San Francisco
+HNL,Honolulu
+PDX,Portland
+DEN,Denver
+MSP,Minneapolis
+SAN,San Diego
+SAT,San Antonio
+SEA,Seattle
+LAS,Las Vegas
+PHL,Philadelphia
+DFW,Dallas
+LAX,Los Angeles
+ATL,Atlanta
+CHI,Chicago
+NYC,New York City
+SAV,Savannah
+SDF,Louisville
+ORL,Orlando
+AUS,Austin
+BWI,Baltimore
+COS,Colorado Springs
+BOI,Boise
+DTT,Detroit
+BOS,Boston
+HVN,New Haven
+MSY,New Orleans
+PHX,Phoenix
+SLC,Salt Lake City
+WAS,Washington DC
+OAK,Oakland
+TPA,Tampa Bay
+PIT,Pittsburgh
+MKC,Kansas City, MO
+MKE,Milwaukee
+CLE,Cleveland
+LUK,Cincinnati
+BNA,Nashville
+MEM,Memphis
+ANC,Anchorage, AL
+OKC,Oklahoma City
+SJC,San Jose
+JAX,Jacksonville
+CLT,Charlotte
+YTO,Toronto
+YVR,Vancouver
+YMQ,Montreal
+YOW,Ottawa, CA
+YYC,Calgary
+YEG,Edmonton
+YHZ,Halifax
+SAC,Sacramento
+RIC,Richmond
+ABQ,Albuquerque
+SAF,Santa Fe
+ELP,El Paso
+OMA,Omaha
+EWR,Newark
+PCT,Princeton
+FLL,Fort Lauderdale
+RNO,Reno
+BUF,Buffalo
+IND,Indianapolis
+BMI,Bloomington
+JHM,Lahaina
+LIT,Little Rock
+MSN,Madison
+FAT,Fresno
+RDU,Raleigh
+LHR,London
+BFS,Belfast
+BRI,Brighton
+BRS,Bristol
+CWL,Cardiff
+EDI,Edinburgh
+GLA,Glasgow
+LBA,Leeds, UK
+LPL,Liverpool, UK
+MAN,Manchester
+CDG,Paris
+MRS,Marseille
+TXL,Berlin
+FRA,Frankfurt
+HAM,Hamburg
+DUB,Dublin
+MAD,Madrid
+BCN,Barcelona
+AMS,Amsterdam
+VCE,Venice
+ARN,Stockholm
+ZRH,Zurich
+SDU,Rio de Janeiro
+GRU,São Paulo
+OSL,Oslo
+MXP,Milano
+FCO,Roma
+SJU,San Juan
+SIN,Singapore
