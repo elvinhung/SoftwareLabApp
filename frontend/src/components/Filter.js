@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "../styles/Filters.css";
 
 const Filter = (props) => {
-
+  // filters with more than 10 options will display a filter search input
+  const [filterQuery, setFilterQuery] = useState("");
   const {
     type,
     options,
@@ -14,12 +15,19 @@ const Filter = (props) => {
     onChange(type, event.target.value);
   }
 
+  const handleFilterQueryChange = event => {
+    setFilterQuery(event.target.value);
+  }
+
   return (
     <div className="filter">
       <form onChange={handleChange}>
         <h6>{type}</h6>
+        {options.length > 7 &&
+          <input type="text" id="filter-input" value={filterQuery} placeholder="Filter" onChange={handleFilterQueryChange} />
+        }
         <ul className="filter-list">
-          {options.map(option => (
+          {options.filter((option) => option.name.toLowerCase().startsWith(filterQuery.toLowerCase())).map(option => (
             <li key={option.value}>
               <div className="pretty p-default p-curve">
                 {filters[type] === option.value && <input type="radio" defaultChecked name="color" value={option.value} />}

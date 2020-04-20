@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import Dropdown from "react-bootstrap/Dropdown";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import LocationFilters from "./LocationFilters";
+import SearchFilters from "./SearchFilters";
 import "../styles/Filters.css";
 import "../styles/Search.css";
 
@@ -14,6 +14,71 @@ const searchTypes = [
   'Restaurant',
   'Hotel'
 ];
+
+const filterOptions = {
+  location: [
+    {
+      type: "Population",
+      options: [
+        {
+          name: "5 million+",
+          value: "5mil"
+        },
+        {
+          name: "2.5 - 5 million",
+          value: "2.5mil"
+        },
+        {
+          name: "1 - 2.5 million",
+          value: "1mil"
+        },
+        {
+          name: "0 - 1 million",
+          value: "0mil",
+        }
+      ]
+    },
+    {
+      type: "Country",
+      options: [
+        {
+          name: "United States",
+          value: "USA",
+        },
+        {
+          name: "United Kingdom",
+          value: "UK",
+        },
+        {
+          name: "Canada",
+          value: "CAN"
+        }
+      ],
+    }
+  ],
+  restaurant: [
+    {
+      type: "Price",
+      options: [
+        {
+          name: "$",
+          value: 1
+        },
+        {
+          name: "$$",
+          value: 2
+        },
+        {
+          name: "$$$",
+          value: 3
+        }
+      ]
+    }
+  ],
+  hotel: [
+
+  ],
+};
 
 const SearchFilterModal = (props) => {
   const {
@@ -28,11 +93,11 @@ const SearchFilterModal = (props) => {
   const Filters = () => {
     switch (searchType) {
       case 'Location':
-        return <LocationFilters filters={filters} setFilters={setFilters}/>
+        return <SearchFilters filterOptions={filterOptions.location} filters={filters} setFilters={setFilters}/>
       case 'Restaurant':
-        return <h1>rest</h1>
+        return <SearchFilters filterOptions={filterOptions.restaurant} filters={filters} setFilters={setFilters}/>
       case 'Hotel':
-        return <h1>Hotel</h1>
+        return <SearchFilters filterOptions={filterOptions.hotel} filters={filters} setFilters={setFilters}/>
       default:
         return <p>No additional filters</p>
     }
@@ -83,14 +148,18 @@ const SearchTypeDropdown = (props) => {
 }
 
 const Search = (props) => {
-  const defaultQuery = props.filters["q"] ? props.filters["q"] : "";
+  const defaultQuery = props.filters["name"] ? props.filters["name"] : "";
   const [query, setQuery] = useState(defaultQuery);
   const [searchType, setSearchType] = useState(props.type);
   const [showFilter, setShowFilter] = useState(false);
-  const [tempFilters, setTempFilters] = useState({});
+  const [tempFilters, setTempFilters] = useState(props.filters);
   const [filters, setFilters] = useState(props.filters);
   const [isSearching, setSearching] = useState(false);
   const [redirect, setRedirect] = useState({});
+
+  useEffect(() => {
+    setSearching(false);
+  }, [props]);
 
   useEffect(() => {
     const stringifiedQuery = queryString.stringify(filters);
@@ -115,32 +184,35 @@ const Search = (props) => {
         break;
       default:
         setRedirect({
-          pathname: '/restaurants',
-          search: stringifiedQuery,
+          pathname: '/search',
         });
+        break;
     }
   }, [searchType, filters]);
-
 
   const handleQueryChange = (event) => {
     setQuery(event.target.value);
   }
   const handleSubmit = () => {
     setFilters((prevFilters) => {
-      if (query === "") {
-        delete prevFilters.q;
+      if (query.trim() === "") {
+        delete prevFilters.name;
         return { ...prevFilters };
       }
       return {
         ...prevFilters,
-        q: query,
+        name: query.trim(),
       }
     });
     setSearching(true);
   }
+  const handleKeyDown = e => {
+    if (e.key === 'Enter') handleSubmit();
+  }
   const handleFilterSave = () => {
     setFilters(tempFilters);
     handleFilterClose();
+    handleSubmit();
   }
   const handleFilterClose = () => setShowFilter(false);
   const handleFilterShow = () => setShowFilter(true);
@@ -153,7 +225,7 @@ const Search = (props) => {
         />
       }
       <div className="form-container">
-        <input className="search-bar" onChange={handleQueryChange} value={query} placeholder="Search" type="text" />
+        <input className="search-bar" onChange={handleQueryChange} value={query} placeholder="Search" type="text" onKeyDown={handleKeyDown}/>
         <button onClick={handleSubmit} className="search-btn"><i className="fa fa-search"></i></button>
       </div>
       <div className="filter-btn-container">

@@ -55,12 +55,12 @@
     box-shadow: none;
     border: none;
     border-radius: 5px;
-    background-color: #b46dde !important;
+    background-color: #3da1ff !important;
     color: white;
 }
 
 #filter-save-btn:hover {
-    background-color: #b256e8 !important;
+    background-color: #148dff !important;
 }
 
 #filter-modal {

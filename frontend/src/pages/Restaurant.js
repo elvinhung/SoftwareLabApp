@@ -19,7 +19,7 @@ const Restaurant = (props) => {
 
   function getRestaurants() {
     const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/restaurants';
-    fetch(apiUrl)
+    fetch(apiUrl + props.location.search)
       .then((res) => res.json())
       .then((data) => {
         setRestaurants((prevData) => {
@@ -35,7 +35,7 @@ const Restaurant = (props) => {
 
   useEffect(() => {
     getRestaurants();
-  }, []);
+  }, [props.location.search]);
 
   let restaurantsPage = [];
   for (let i = 0; i < restaurants.length; i += PAGE_SIZE) {
@@ -71,7 +71,7 @@ const Restaurant = (props) => {
       }
       {isLoading && <Loader />}
       {!isLoading && restaurants.length === 0 &&
-      <div className="error" align="center">
+      <div className="error">
         <h1>No restaurants found</h1>
       </div>
       }

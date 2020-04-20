@@ -3,7 +3,33 @@
     color: #4e555b;
     padding: 0;
     overflow-y: auto;
-    max-height: 200px;
+    overflow-x: hidden;
+    max-height: 180px;
+}
+
+.filter-list::-webkit-scrollbar {
+    width: 10px;
+}
+
+.filter-list::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+}
+
+#filter-input {
+    display: block;
+    border-radius: 5px;
+    width: 150px;
+    margin: 5px 0px;
+    padding: 2px 4px;
+    border: 1px solid #f2f2f2;
+    background-color: #f2f2f2;
+}
+
+#filter-input:focus {
+    outline: none;
+    border: 1px solid #3da1ff;
+    background-color: white;
 }
 
 .filter-container {
@@ -12,6 +38,6 @@
 }
 
 .filter {
-    width: 180px;
+    width: 190px;
     padding: 10px;
 }
