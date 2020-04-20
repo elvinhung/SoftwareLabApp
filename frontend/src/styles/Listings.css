@@ -40,6 +40,11 @@
 	max-height: 150px;
 }
 
+.instance:hover .tag_list_container{
+	white-space: normal;
+	max-height: 150px;
+}
+
 .instance_name {
 	padding: 10px 10px 0px 10px;
 	margin: 0;
@@ -80,7 +85,10 @@
 }
 
 .tag_list_container {
-	margin: 0px 10px 5px 10px;
+	margin: 0px 10px 5px 0px;
+	max-height: 44px;
+
+	transition: max-height 500ms;
 }
 
 .tag {

@@ -28,7 +28,9 @@ const LocationCard = (props) => {
         <div className="instance_name">
           <h4>{name}</h4>
         </div>
-        <TagList className="tag_list_container" tags={tags}/>
+        <div className="instance_page_info">
+          <TagList className="tag_list_container" tags={tags}/>
+        </div>
       </div>
     </a>
   );

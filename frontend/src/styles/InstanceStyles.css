@@ -22,7 +22,7 @@
 
 .carousel_img {
 	width: 500px;
-	max-height: 350px;
+	height: 350px;
 	margin-right: 25px;
 	object-fit: cover;
 }
@@ -30,7 +30,6 @@
 .location {
 	float: left;
 	margin-right: 15px;
-	margin-left: 10px;
 }
 
 .location_link {
@@ -44,7 +43,6 @@
 
 .contact {
 	padding-right: 5px;
-	margin-left: 10px;
 }
 
 .map {

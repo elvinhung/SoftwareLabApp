@@ -35,7 +35,19 @@ const RestaurantDetail = (props) => {
     getRestaurant();
   }, []);
 
-  const tags = [restaurant.price];
+  const cuisine = restaurant.tags;
+  let tags = [];
+
+  if (Object.keys(restaurant).length !== 0) {
+    let priceDollars = "";
+    for (let i = 0; i < restaurant.price[0].length; i++) {
+      priceDollars += "$";
+    }
+    tags.push(priceDollars);
+    for (let i = 0; i < cuisine[0].length; i++) {
+      tags.push(cuisine[0][i].title);
+    }
+  }
 
   return(
     <div>
@@ -44,7 +56,7 @@ const RestaurantDetail = (props) => {
 
         <div>
           <div className="instance_head">
-            <div className="header_image"><PhotoCarousel image={restaurant.image[0]}/></div>
+            <div className="header_image"><PhotoCarousel image1={restaurant.images[0][0]} image2={restaurant.images[0][1]} image3={restaurant.images[0][2]}/></div>
             <div className="instance_head_info">
               <h1>{restaurant.name}</h1>
               <div className="location">

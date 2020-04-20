@@ -3,6 +3,7 @@ import Ratings from "../components/Ratings";
 import 'font-awesome/css/font-awesome.min.css';
 import '../styles/Listings.css';
 import Spinner from "react-bootstrap/Spinner";
+import TagList from "./TagList";
 
 const NearbyRestaurantListing = (props) => {
   const id = props.restaurant.id.$oid;
@@ -24,11 +25,7 @@ const NearbyRestaurantListing = (props) => {
     getRestaurant();
   }, []);
 
-  let priceDollars = "";
-  for (let i = 0; i < restaurant.price[0].length; i++) {
-    priceDollars += "$";
-  }
-  const tags = [priceDollars];
+  const tags = [restaurant.price, props.restaurant.distance + " away"];
 
   return(
     <div>
@@ -38,14 +35,13 @@ const NearbyRestaurantListing = (props) => {
             <div className="img_container">
               <img className="instance_img" src={restaurant.image[0]} alt={restaurant.name[0]}/>
             </div>
-
-            <div className="instance_name">
-              <h4>{restaurant.name[0]}</h4>
+            <div >
+              <h4 className="instance_name">{restaurant.name[0]}</h4>
             </div>
             <div className="instance_page_info">
-              <div className="instance_location"><p>{(restaurant.address[0][restaurant.address[0].length - 1]).substring(0, (restaurant.address[0][restaurant.address[0].length - 1]).length - 6)}</p></div>
+              <p className="instance_location">{(restaurant.address[0][restaurant.address[0].length - 1]).substring(0, (restaurant.address[0][restaurant.address[0].length - 1]).length - 6)}</p>
               <Ratings rating={restaurant.stars[0]}/>
-              <p className="distance">{props.restaurant.distance + " away"}</p>
+              <TagList className="tag_list_container" tags={tags}/>
             </div>
           </div>
         </a>

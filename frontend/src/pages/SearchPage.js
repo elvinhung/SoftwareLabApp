@@ -81,9 +81,11 @@ const SearchPage = (props) => {
   topResults.push(hotels.slice(0, MAX_RESULTS));
   topResults.push(restaurants.slice(0, MAX_RESULTS));
 
+  const paginate = (pageNumber) => (pageNumber);
+
   return(
     <div>
-      <Search type="All" filters={filters} />
+      <Search type="All" filters={filters} paginate={paginate}/>
       <div className="model-container">
       {locations.length !== 0 && locations.sort(function(a, b){ if (a.name[0] < b.name[0]) return -1; else return 1;}) &&
         <div>

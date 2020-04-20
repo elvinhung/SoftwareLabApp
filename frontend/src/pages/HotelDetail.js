@@ -58,7 +58,7 @@ const HotelDetail = (props) => {
       hotel.restaurants.sort(function(a, b){ return parseFloat(a.distance) - parseFloat(b.distance)}) &&
         <div>
           <div className="instance_head">
-            <div><PhotoCarousel image={hotel.image}/></div>
+            <div><PhotoCarousel image1={hotel.image} image2={hotel.image} image3={hotel.image}/></div>
             <div className="instance_head_info">
               <h1>{hotel.name}</h1>
               <div className="location">
