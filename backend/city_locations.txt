@@ -50,7 +50,7 @@ YMQ,Montreal
 YOW,Ottawa, CA
 YYC,Calgary
 YEG,Edmonton
-YHZ,Halifax
+YHZ,Halifax, CA
 SAC,Sacramento
 RIC,Richmond
 ABQ,Albuquerque
@@ -94,7 +94,7 @@ ZRH,Zurich
 SDU,Rio de Janeiro
 GRU,São Paulo
 OSL,Oslo
-MXP,Milano
-FCO,Roma
+MXP,Milan
+FCO,Rome
 SJU,San Juan
 SIN,Singapore
