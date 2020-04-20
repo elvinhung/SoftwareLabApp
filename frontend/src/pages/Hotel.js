@@ -42,6 +42,7 @@ const Hotel = (props) => {
   }
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const totalPages = Math.ceil(hotels.length / PAGE_SIZE);
 
   return(
     <div>
@@ -64,8 +65,8 @@ const Hotel = (props) => {
             </Spinner>
           </div>
           }
-          <Pagination postsPerPage={PAGE_SIZE} totalPosts={hotels.length} paginate={paginate} curPage={curPage} pagesAtTime={7}/>
-          <p align="center"> Page {curPage} / {Math.ceil(hotels.length / PAGE_SIZE)}</p>
+          <Pagination postsPerPage={PAGE_SIZE} totalPosts={hotels.length} paginate={paginate} curPage={curPage} pagesAtTime={(totalPages >= 10 ? 10 : totalPages)}/>
+          <p align="center"> Page {curPage} / {totalPages}</p>
         </div>
       }
       {isLoading && <Loader />}

@@ -43,6 +43,7 @@ const Restaurant = (props) => {
   }
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const totalPages = Math.ceil(restaurants.length / PAGE_SIZE);
 
   return(
     <div>
@@ -65,8 +66,8 @@ const Restaurant = (props) => {
             </Spinner>
           </div>
           }
-          <Pagination postsPerPage={PAGE_SIZE} totalPosts={restaurants.length} paginate={paginate} curPage={curPage} pagesAtTime={7}/>
-          <p align="center"> Page {curPage} / {Math.ceil(restaurants.length / PAGE_SIZE)}</p>
+          <Pagination postsPerPage={PAGE_SIZE} totalPosts={restaurants.length} paginate={paginate} curPage={curPage} pagesAtTime={(totalPages >= 10 ? 10 : totalPages)}/>
+          <p align="center"> Page {curPage} / {totalPages}</p>
         </div>
       }
       {isLoading && <Loader />}

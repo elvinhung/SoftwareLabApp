@@ -39,6 +39,7 @@ const Location = (props) => {
   }
 
   const paginate = (pageNumber) => setCurrPage(pageNumber);
+  const totalPages = Math.ceil(locations.length / PAGE_SIZE);
 
   return(
     <div>
@@ -55,8 +56,8 @@ const Location = (props) => {
                 ))}
               </div>
             </div>
-            <Pagination postsPerPage={PAGE_SIZE} totalPosts={locations.length} paginate={paginate} curPage={currPage} pagesAtTime={5}/>
-            <p align="center"> Page {currPage} / {Math.ceil(locations.length / PAGE_SIZE)}</p>
+            <Pagination postsPerPage={PAGE_SIZE} totalPosts={locations.length} paginate={paginate} curPage={currPage} pagesAtTime={(totalPages >= 7 ? 7 : totalPages)}/>
+            <p align="center"> Page {currPage} / {totalPages}</p>
           </div>
         </div>
       }
