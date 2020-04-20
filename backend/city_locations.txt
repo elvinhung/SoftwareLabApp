@@ -61,7 +61,7 @@ EWR,Newark
 PCT,Princeton
 FLL,Fort Lauderdale
 RNO,Reno
-BUF,Buffalo
+BUF,Buffalo, NY
 IND,Indianapolis
 BMI,Bloomington
 JHM,Lahaina
