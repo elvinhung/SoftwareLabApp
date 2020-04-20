@@ -48,7 +48,9 @@ const HotelDetail = (props) => {
     getHotel();
   }, []);
 
-  const tags = [hotel.stars + " stars (placeholder)"];
+  let tags = [hotel.stars + " Stars"];
+  if (hotel.swimming_pool)
+    tags.push("Pool");
 
   return(
     <div>

@@ -12,11 +12,14 @@ const HotelListing = (props) => {
       image,
       stars,
       address,
+      swimming_pool,
       _id,
     }
   } = props;
 
-  const tags = [stars + " stars (placeholder)"];
+  let tags = [stars + " Stars"];
+  if (swimming_pool)
+    tags.push("Pool");
 
   return(
     <div>

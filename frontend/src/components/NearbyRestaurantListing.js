@@ -24,6 +24,12 @@ const NearbyRestaurantListing = (props) => {
     getRestaurant();
   }, []);
 
+  let priceDollars = "";
+  for (let i = 0; i < restaurant.price[0].length; i++) {
+    priceDollars += "$";
+  }
+  const tags = [priceDollars];
+
   return(
     <div>
       {Object.keys(restaurant).length !== 0 &&
@@ -34,12 +40,12 @@ const NearbyRestaurantListing = (props) => {
             </div>
 
             <div className="instance_name">
-              <h4>{restaurant.name[0] + " (" + restaurant.price + ")"}</h4>
+              <h4>{restaurant.name[0]}</h4>
             </div>
             <div className="instance_page_info">
               <div className="instance_location"><p>{(restaurant.address[0][restaurant.address[0].length - 1]).substring(0, (restaurant.address[0][restaurant.address[0].length - 1]).length - 6)}</p></div>
-              <div><Ratings rating={restaurant.stars[0]}/></div>
-              <div className="distance"><p>{props.restaurant.distance + " away"}</p></div>
+              <Ratings rating={restaurant.stars[0]}/>
+              <p className="distance">{props.restaurant.distance + " away"}</p>
             </div>
           </div>
         </a>
