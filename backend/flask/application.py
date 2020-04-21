@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_pymongo import PyMongo
+from pymongo import MongoClient
 from bson.json_util import dumps
 from bson import ObjectId
 import os
@@ -7,9 +8,11 @@ import os
 
 application = Flask(__name__)
 
-application.config['MONGO_URI'] = os.environ['CONNECTION_STRING']
+application.config['MONGO_URI'] = "mongodb+srv://dbUser:adDJJ0ZG6O7VDdMz@softwarelabapp-hbwi6.mongodb.net/models?retryWrites=true&w=majority"
+
 
 mongo = PyMongo(application)
+mongo_client = MongoClient("mongodb+srv://dbUser:adDJJ0ZG6O7VDdMz@softwarelabapp-hbwi6.mongodb.net/models?retryWrites=true&w=majority")
 
 @application.after_request
 def after_request(response):
@@ -27,11 +30,27 @@ def index():
 def all_restaurants():
     restaurants = mongo.db.restaurants
     args = request.args.get('name')
+    filters = request.args.copy()
+    if 'stars' in filters.keys():
+        stars = filters.get('stars')
+        filters['stars'] = {'$gte': stars}
+    if 'price' in filters.keys():
+        price = filters.get('price')
+        filters['price'] = {'$gte': price}
+    
+    print(filters)
     result = {}
+    
     if args is None:
         result = list(restaurants.find())
     else:
-        result = list(restaurants.find({"$text": {"$search": args}}))
+        filters = request.args.copy()
+        del filters['name']
+
+        restaurants.aggregate([{"$match": {"$text": {"$search": args}}}, {"$out": "temp"}])
+        results = mongo.db.temp.find(filters)
+        #mongo.db.temp.drop()
+        return dumps(results)
 
     return dumps(result)
 
@@ -50,16 +69,30 @@ def restaurant_by_id(oid):
 
     result['hotels'] = hotels
     return dumps(result)
-
+    
 @application.route('/hotels', methods=['GET'])
 def all_hotels():
     hotels = mongo.db.hotels
     args = request.args.get('name')
+    filters = request.args.copy()
+    if 'stars' in filters.keys():
+        stars = filters.get('stars')
+        filters['stars'] = {'$gte': stars}
+    if 'price' in filters.keys():
+        price = filters.get('price')
+        filters['price'] = {'$gte': price}
+    
+    print(filters)
+
     result = {}
     if args is None:
-        result = list(hotels.find())
+        result = list(hotels.find(filters))
     else:
-        result = list(hotels.find({"$text": {"$search": args}}))
+        del filters['name']
+        print(filters)
+        hotels.aggregate([{"$match": {"$text": {"$search": args}}}, {"$out": "temp"}])
+        results = mongo.db.temp.find(filters)
+        return dumps(results)
 
     return dumps(result)
 
@@ -87,9 +120,15 @@ def all_locations():
     args = request.args.get('name')
     result = {}
     if args is None:
-        result = list(locations.find())
-    else:
-        result = list(locations.find({"$text": {"$search": args}}))
+            result = list(locations.find(request.args))
+    else:   
+        filters = request.args.copy()
+        del filters['name']
+
+        locations.aggregate([{"$match": {"$text": {"$search": args}}}, {"$out": "temp"}])
+        results = mongo.db.temp.find({"$in": filters})
+        #mongo.db.temp.drop()
+        return dumps(results)
 
     return dumps(result)
 
