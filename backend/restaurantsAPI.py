@@ -55,6 +55,7 @@ for city_code in f:
             price = len(p['price'])
             doc_dict['price'] = price
             doc_dict['priceStr'] = p['price']
+            doc_dict['link'] = p['url']
             doc_dict['transactions'] = details_json['transactions']
             doc_dict['images'] = details_json['photos'],
             doc_dict['contact'] = p['display_phone']
