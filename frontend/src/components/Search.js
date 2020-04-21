@@ -87,17 +87,19 @@ const SearchFilterModal = (props) => {
     filters,
     setFilters,
     handleFilterClose,
-    handleFilterSave
+    handleFilterClear,
+    handleFilterSave,
+    cleared,
   } = props;
 
   const Filters = () => {
     switch (searchType) {
       case 'Location':
-        return <SearchFilters filterOptions={filterOptions.location} filters={filters} setFilters={setFilters}/>
+        return <SearchFilters cleared={cleared} filterOptions={filterOptions.location} filters={filters} setFilters={setFilters}/>
       case 'Restaurant':
-        return <SearchFilters filterOptions={filterOptions.restaurant} filters={filters} setFilters={setFilters}/>
+        return <SearchFilters cleared={cleared} filterOptions={filterOptions.restaurant} filters={filters} setFilters={setFilters}/>
       case 'Hotel':
-        return <SearchFilters filterOptions={filterOptions.hotel} filters={filters} setFilters={setFilters}/>
+        return <SearchFilters cleared={cleared} filterOptions={filterOptions.hotel} filters={filters} setFilters={setFilters}/>
       default:
         return <p>No additional filters</p>
     }
@@ -112,12 +114,9 @@ const SearchFilterModal = (props) => {
         <Filters />
       </Modal.Body>
       <Modal.Footer>
-        <Button id="filter-cancel-btn" className="search-filter-btn" onClick={handleFilterClose}>
-          Cancel
-        </Button>
-        <Button id="filter-save-btn" onClick={handleFilterSave}>
-          Apply
-        </Button>
+        <Button id="filter-clear-btn" onClick={handleFilterClear}>Clear</Button>
+        <Button id="filter-cancel-btn" className="search-filter-btn" onClick={handleFilterClose}>Cancel</Button>
+        <Button id="filter-save-btn" onClick={handleFilterSave}>Apply</Button>
       </Modal.Footer>
     </Modal>
   );
@@ -157,6 +156,7 @@ const Search = (props) => {
   const [showFilter, setShowFilter] = useState(false);
   const [isSearching, setSearching] = useState(false);
   const [redirect, setRedirect] = useState({});
+  const [cleared, setCleared] = useState(false);
 
 
   useEffect(() => {
@@ -210,12 +210,19 @@ const Search = (props) => {
   const setTempFilters = (name, value) => {
     tempFilters[name] = value;
   }
+  const handleFilterClear = () => {
+    tempFilters = {};
+    setCleared(true);
+  }
   const handleFilterSave = () => {
     filters = { ...tempFilters };
     handleFilterClose();
     handleSubmit();
   }
-  const handleFilterClose = () => setShowFilter(false);
+  const handleFilterClose = () => {
+    setShowFilter(false);
+    setCleared(false);
+  }
   const handleFilterShow = () => setShowFilter(true);
   const handleSearchTypeChange = (type) => {
     setSearchType((prevSearchType) => {
@@ -249,10 +256,12 @@ const Search = (props) => {
         <Button id="filter-btn" onClick={handleFilterShow}>More Filters</Button>
       </div>
       <SearchFilterModal
+        cleared={cleared}
         searchType={searchType}
         showFilter={showFilter}
         filters={filters}
         setFilters={setTempFilters}
+        handleFilterClear={handleFilterClear}
         handleFilterClose={handleFilterClose}
         handleFilterSave={handleFilterSave}
       />

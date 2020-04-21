@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import "../styles/Filters.css";
 
 const Filter = (props) => {
-  // filters with more than 10 options will display a filter search input
+  // filters with more than 7 options will display a filter search input
   const [filterQuery, setFilterQuery] = useState("");
   const {
     type,
     options,
     onChange,
     filters,
+    cleared,
   } = props;
 
   const handleChange = (event) => {
@@ -30,7 +31,7 @@ const Filter = (props) => {
           {options.filter((option) => option.name.toLowerCase().startsWith(filterQuery.toLowerCase())).map(option => (
             <li key={option.value}>
               <div className="pretty p-default p-curve">
-                {filters[type] === option.value && <input type="radio" defaultChecked name="color" value={option.value} />}
+                {filters[type] === option.value && !cleared && <input type="radio" defaultChecked name="color" value={option.value} />}
                 {filters[type] !== option.value && <input type="radio" name="color" value={option.value} />}
                 <div className="state p-primary-o">
                   <label>{option.name}</label>

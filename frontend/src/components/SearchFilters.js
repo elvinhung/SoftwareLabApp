@@ -7,6 +7,7 @@ const SearchFilters = (props) => {
     setFilters,
     filters,
     filterOptions,
+    cleared,
   } = props;
 
   const onChange = (name, value) => {
@@ -24,6 +25,7 @@ const SearchFilters = (props) => {
           key={filterOption.type}
           type={filterOption.type}
           filters={filters}
+          cleared={cleared}
           onChange={onChange}
           options={filterOption.options}
         />
