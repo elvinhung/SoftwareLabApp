@@ -25,7 +25,21 @@ const NearbyRestaurantListing = (props) => {
     getRestaurant();
   }, []);
 
-  const tags = [restaurant.price, props.restaurant.distance + " away"];
+
+  const cuisine = restaurant.tags;
+  let tags = [];
+
+  tags.push(props.restaurant.distance + " away")
+  if (Object.keys(restaurant).length !== 0) {
+    let priceDollars = "";
+    for (let i = 0; i < restaurant.price[0].length; i++) {
+      priceDollars += "$";
+    }
+    tags.push(priceDollars);
+    for (let i = 0; i < cuisine[0].length; i++) {
+      tags.push(cuisine[0][i].title);
+    }
+  }
 
   return(
     <div>
@@ -33,7 +47,7 @@ const NearbyRestaurantListing = (props) => {
         <a className="listing" href={"/restaurants/" + id}>
           <div className="instance">
             <div className="img_container">
-              <img className="instance_img" src={restaurant.image[0]} alt={restaurant.name[0]}/>
+              <img className="instance_img" src={restaurant.images[0][0]} alt={restaurant.name[0]}/>
             </div>
             <div >
               <h4 className="instance_name">{restaurant.name[0]}</h4>
