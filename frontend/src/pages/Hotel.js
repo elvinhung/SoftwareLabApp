@@ -51,12 +51,10 @@ const Hotel = (props) => {
       hotels.sort(function(a, b){ if (a.name < b.name) return -1; else return 1;}) &&
         <div className="model-container">
           <h1 className="model-header">Hotels</h1>
-          <div className="listing_padding">
-            <div className="listing_container">
-              {hotelsPage[curPage - 1].map((hotel, index) => {
-                return <HotelListing hotel={hotel} key={index}/>
-              })}
-            </div>
+          <div className="listing_container">
+            {hotelsPage[curPage - 1].map((hotel, index) => {
+              return <HotelListing hotel={hotel} key={index}/>
+            })}
           </div>
           {hotels.length === 0 &&
           <div align="center">

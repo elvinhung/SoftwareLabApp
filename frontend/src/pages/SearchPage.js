@@ -108,12 +108,10 @@ const SearchPage = (props) => {
             <h1 className="search-header">Hotels</h1>
             <a className="see_more" href={"/hotels" + query}>More Hotels <i className="fa fa-angle-double-right"></i></a>
           </div>
-          <div className="listing_padding">
-            <div className="listing_container">
-              {topResults[1].map((hotel, index) => {
-                return <HotelListing hotel={hotel} key={index}/>
-              })}
-            </div>
+          <div className="listing_container">
+            {topResults[1].map((hotel, index) => {
+              return <HotelListing hotel={hotel} key={index}/>
+            })}
           </div>
         </div>
       }
@@ -123,18 +121,19 @@ const SearchPage = (props) => {
             <h1 className="search-header">Restaurants</h1>
             <a className="see_more" href={"/restaurants" + query}>More Restaurants <i className="fa fa-angle-double-right"></i></a>
           </div>
-          <div className="listing_padding">
-            <div className="listing_container">
-              {topResults[2].map((restaurant, index) => {
-                return <RestaurantListing restaurant={restaurant} key={index}/>
-              })}
-            </div>
+          <div className="listing_container">
+            {topResults[2].map((restaurant, index) => {
+              return <RestaurantListing restaurant={restaurant} key={index}/>
+            })}
           </div>
         </div>
       }
       </div>
       {isLoading && <Loader />}
-      {!isLoading && locations.length === 0 &&
+      {!isLoading &&
+        locations.length === 0 &&
+        restaurants.length === 0 &&
+        hotels.length === 0 &&
         <div className="error">
           <h1>No results found</h1>
         </div>

@@ -68,6 +68,7 @@ const RestaurantDetail = (props) => {
                 <i className="fa fa-map-marker contact"></i>
                 {restaurant.address[0].join(', ')}
                 <br />
+                <br />
                 <i className="fa fa-phone contact"></i>{restaurant.contact}
               </p>
             </div>
@@ -86,7 +87,7 @@ const RestaurantDetail = (props) => {
             </div>
           </div>
           <div className="nearby">
-            <p align="center">Nearby Hotels</p>
+            <h3>Nearby Hotels</h3>
             <div className="listing_container">
               {restaurant.hotels.map((hotel, index) => {
                 return <NearbyHotelListing hotel={hotel} key={index}/>
