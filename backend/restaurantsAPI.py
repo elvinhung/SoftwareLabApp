@@ -33,11 +33,11 @@ for city_code in f:
     for p in restaurants_json['businesses']:
         if ('price' in p):
             review = yelp.reviews_query(id=p['id'], sort_by='rating', limit=3)
-            photos = yelp.business_query(name=p['name'], id=p['id'], address1=p['location']['address1'], city=p['location']['city'], state=p['location']['state'], country=p['location']['country'], limit=1)
+            details = yelp.business_query(name=p['name'], id=p['id'], address1=p['location']['address1'], city=p['location']['city'], state=p['location']['state'], country=p['location']['country'], limit=1)
             data = json.dumps(review)
-            photodata = json.dumps(photos)
+            detaildata = json.dumps(details)
             reviews_json = json.loads(data)
-            photos_json = json.loads(photodata)
+            details_json = json.loads(detaildata)
             reviews_dict = {}
             reviews_dict['reviews'] = []
             for q in reviews_json['reviews']:
@@ -51,15 +51,17 @@ for city_code in f:
             doc_dict['address'] = p['location']['display_address'],
             doc_dict['stars'] = p['rating'],
             doc_dict['tags'] = p['categories'],
-            doc_dict['attributes'] = p['attributes']
             doc_dict['review_count'] = p['review_count']
-            doc_dict['price'] = p['price'],
-            doc_dict['transactions'] = p['transactions']
-            print(photos_json)
-            doc_dict['images'] = photos_json['photos'],
+            price = len(p['price'])
+            doc_dict['price'] = price
+            doc_dict['priceStr'] = p['price']
+            doc_dict['link'] = p['url']
+            doc_dict['transactions'] = details_json['transactions']
+            doc_dict['images'] = details_json['photos'],
             doc_dict['contact'] = p['display_phone']
             doc_dict['reviews'] = reviews_dict
             doc_dict['location_id'] = city_code
+            
             restaurants.create_index([
                 ('name', 'text')
                 ],

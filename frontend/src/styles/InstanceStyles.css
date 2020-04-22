@@ -63,6 +63,7 @@
 .nearby {
 	font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
 	font-size: 30px;
+	margin-left: 50px;
 	padding: 25px;
 	padding-top: 0px;
 }
@@ -71,9 +72,8 @@
 .error {
 	display: flex;
 	justify-content: center;
-	align-items: center;
-	width: 100%;
-	min-height: 90vh;
+	padding-top: 50px;
+	font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
 }
 
 @media only screen and (max-width: 1250px) {
