@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import queryString from 'query-string';
 import LocationCard from "../components/LocationCard";
 import "../styles/Location.css";
@@ -71,4 +72,4 @@ const Location = (props) => {
   );
 }
 
-export default Location;
+export default withRouter(Location);

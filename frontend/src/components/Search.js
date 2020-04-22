@@ -18,6 +18,27 @@ const searchTypes = [
 const filterOptions = {
   location: [
     {
+      type: "Sort By",
+      options: [
+        {
+          name: "Alphabetical (A to Z)",
+          value: "alpha_ASC"
+        },
+        {
+          name: "Alphabetical (Z to A)",
+          value: "alpha_DESC"
+        },
+        {
+          name: "Population (High to Low)",
+          value: "pop_DESC"
+        },
+        {
+          name: "Population (Low to High)",
+          value: "pop_ASC"
+        },
+      ],
+    },
+    {
       type: "Population",
       options: [
         {

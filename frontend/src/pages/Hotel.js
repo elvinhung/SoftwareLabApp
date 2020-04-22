@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
 import 'font-awesome/css/font-awesome.min.css';
 import HotelListing from "../components/HotelListing";
 import '../styles/ModelPage.css';
@@ -78,4 +79,4 @@ const Hotel = (props) => {
   );
 }
 
-export default Hotel;
+export default withRouter(Hotel);

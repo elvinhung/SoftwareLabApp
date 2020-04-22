@@ -4,7 +4,6 @@ import 'font-awesome/css/font-awesome.min.css';
 import denver from "../assets/denver.jpg";
 import london from "../assets/london.jpg";
 import nyc from "../assets/nyc.jpg";
-import PhotoCarousel from "../components/PhotoCarousel";
 import {MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBContainer, MDBView} from "mdbreact";
 
 const images = [
@@ -14,7 +13,7 @@ const images = [
   },
   {
     img: london,
-    id: 'LON'
+    id: 'LHR'
   },
   {
     img: nyc,
@@ -37,11 +36,13 @@ const HomePageCarousel = (props) => {
           {props.images.map((image, index) => (
             <MDBCarouselItem itemId={index + 1} className="fill">
               <MDBView className="fill">
-                <img
-                  className="d-block home-page-carousel-img"
-                  src={image.img}
-                  alt={image.id}
-                />
+                <a href={"/locations/" + image.id}>
+                  <img
+                    className="d-block home-page-carousel-img"
+                    src={image.img}
+                    alt={image.id}
+                  />
+                </a>
               </MDBView>
             </MDBCarouselItem>
           ))}

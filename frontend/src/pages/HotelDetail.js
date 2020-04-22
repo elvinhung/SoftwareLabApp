@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import Header from "../components/Header";
+import { withRouter } from 'react-router-dom';
 import Ratings from "../components/Ratings";
 import 'font-awesome/css/font-awesome.min.css';
 import '../styles/HotelDetail.css';
@@ -104,4 +104,4 @@ const HotelDetail = (props) => {
   );
 }
 
-export default HotelDetail;
+export default withRouter(HotelDetail);

@@ -62,7 +62,7 @@
 .error {
 	display: flex;
 	justify-content: center;
-	padding-top: 50px;
+	padding-top: 100px;
 	font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
 }
 

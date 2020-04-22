@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Header from "../components/Header";
+import { withRouter } from 'react-router-dom';
 import '../styles/InstanceStyles.css';
 import PhotoCarousel from "../components/PhotoCarousel";
 import RestaurantListing from "../components/RestaurantListing";
@@ -84,4 +84,4 @@ const LocationDetail = (props) => {
   );
 }
 
-export default LocationDetail;
+export default withRouter(LocationDetail);

@@ -38,6 +38,7 @@
 }
 
 .filter {
-    width: 190px;
+    min-width: 190px;
+    max-width: 220px;
     padding: 10px;
 }
