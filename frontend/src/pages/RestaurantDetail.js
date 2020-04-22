@@ -9,6 +9,7 @@ import Review from "../components/Review";
 import NearbyHotelListing from "../components/NearbyHotelListing";
 import Loader from "../components/Loader";
 import TagList from "../components/TagList";
+import { title } from '../Utils';
 
 const RestaurantDetail = (props) => {
   const id = props.match.params.id;
@@ -37,16 +38,23 @@ const RestaurantDetail = (props) => {
 
   const cuisine = restaurant.tags;
   let tags = [];
+  let services = [];
 
   if (Object.keys(restaurant).length !== 0) {
     let priceDollars = "";
-    for (let i = 0; i < restaurant.price[0].length; i++) {
+    for (let i = 0; i < restaurant.priceStr.length; i++)
       priceDollars += "$";
-    }
     tags.push(priceDollars);
-    for (let i = 0; i < cuisine[0].length; i++) {
+    for (let i = 0; i < cuisine[0].length; i++)
       tags.push(cuisine[0][i].title);
-    }
+    for (let i = 0; i < restaurant.transactions.length; i++)
+      services.push(title(restaurant.transactions[i]));
+    if (restaurant.address.length === 0)
+      restaurant.contact = "N/A";
+    if (restaurant.contact.length === 0)
+      restaurant.contact = "N/A";
+    if (services.length === 0)
+      services.push("N/A");
   }
 
   return(
@@ -65,11 +73,13 @@ const RestaurantDetail = (props) => {
               <Ratings rating={restaurant.stars[0]}/>
               <TagList className="tag_list_container" tags={tags}/>
               <p>
-                <i className="fa fa-map-marker contact"></i>
-                {restaurant.address[0].join(', ')}
+                <i className="fa fa-map-marker contact"></i> {restaurant.address[0].join(', ')}
                 <br />
-                <i className="fa fa-phone contact"></i>{restaurant.contact}
+                <i className="fa fa-phone contact"></i> {restaurant.contact}
+                <br />
+                <i className="fa fa-external-link"></i> <a className="weblink" href={restaurant.link}> Website </a>
               </p>
+              <p classname="transactions_offered"> Services Offered: <TagList classname="tag_list_container" tags={services}/></p>
             </div>
           </div>
           <div className="res_info">

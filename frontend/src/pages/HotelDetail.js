@@ -49,8 +49,14 @@ const HotelDetail = (props) => {
   }, []);
 
   let tags = [hotel.stars + " Stars"];
-  if (hotel.swimming_pool)
-    tags.push("Pool");
+
+  if (Object.keys(hotel).length !== 0) {
+    if (hotel.swimming_pool)
+      tags.push("Pool");
+    if (hotel.description == null) {
+      hotel.description = "No description available.";
+    }
+  }
 
   return(
     <div>
