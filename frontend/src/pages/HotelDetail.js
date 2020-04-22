@@ -90,7 +90,7 @@ const HotelDetail = (props) => {
               <p>{hotel.description}</p>
             </div>
           </div>
-          <div className="nearby">
+          <div className="model-container">
             <h3>Nearby Restaurants</h3>
             <div className="listing_container">
               {hotel.restaurants.map((restaurant, index) => {

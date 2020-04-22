@@ -95,7 +95,7 @@ const RestaurantDetail = (props) => {
               <Review review={restaurant.reviews.reviews[2]}/>
             </div>
           </div>
-          <div className="nearby">
+          <div className="model-container">
             <h3>Nearby Hotels</h3>
             <div className="listing_container">
               {restaurant.hotels.map((hotel, index) => {
