@@ -59,7 +59,7 @@ const HotelDetail = (props) => {
   }
 
   return(
-    <div>
+    <div className="top-padding">
       {Object.keys(hotel).length !== 0 &&
       hotel.restaurants.sort(function(a, b){ return parseFloat(a.distance) - parseFloat(b.distance)}) &&
         <div>
@@ -74,6 +74,7 @@ const HotelDetail = (props) => {
               <TagList className="tag_list_container" tags={tags}/>
               <p>
                 <i className="fa fa-map-marker contact"></i>{address}
+                <br/>
                 <br/>
                 <i className="fa fa-phone contact"></i>{hotel.contact.phone}
               </p>
