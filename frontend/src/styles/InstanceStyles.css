@@ -10,6 +10,7 @@
 	justify-content: center;
 	margin: 0 auto;
 	overflow: hidden;
+	width: 1200px;
 }
 
 .header_image {
@@ -43,6 +44,15 @@
 
 .contact {
 	padding-right: 5px;
+}
+
+.weblink {
+	text-decoration: none;
+	color: black;
+}
+
+.weblink:hover {
+	color: black;
 }
 
 .map {

@@ -49,8 +49,14 @@ const HotelDetail = (props) => {
   }, []);
 
   let tags = [hotel.stars + " Stars"];
-  if (hotel.swimming_pool)
-    tags.push("Pool");
+
+  if (Object.keys(hotel).length !== 0) {
+    if (hotel.swimming_pool)
+      tags.push("Pool");
+    if (hotel.description == null) {
+      hotel.description = "No description available.";
+    }
+  }
 
   return(
     <div>
@@ -84,7 +90,7 @@ const HotelDetail = (props) => {
               <p>{hotel.description}</p>
             </div>
           </div>
-          <div className="nearby">
+          <div className="model-container">
             <h3>Nearby Restaurants</h3>
             <div className="listing_container">
               {hotel.restaurants.map((restaurant, index) => {

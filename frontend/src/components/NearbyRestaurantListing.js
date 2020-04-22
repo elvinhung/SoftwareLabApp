@@ -32,7 +32,7 @@ const NearbyRestaurantListing = (props) => {
   tags.push(props.restaurant.distance + " away")
   if (Object.keys(restaurant).length !== 0) {
     let priceDollars = "";
-    for (let i = 0; i < restaurant.price[0].length; i++) {
+    for (let i = 0; i < restaurant.priceStr.length; i++) {
       priceDollars += "$";
     }
     tags.push(priceDollars);
