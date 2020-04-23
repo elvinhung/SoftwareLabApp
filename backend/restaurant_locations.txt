@@ -63,7 +63,7 @@ FLL,Fort Lauderdale
 RNO,Reno
 BUF,Buffalo
 IND,Indianapolis
-BMI,Bloomington
+BMG,Bloomington
 JHM,Lahaina
 LIT,Little Rock
 MSN, Madison
@@ -71,7 +71,7 @@ FAT,Fresno
 RDU,Raleigh
 LHR,London
 BFS,Belfast
-BRI,Brighton
+ESH,Brighton
 BRS,Bristol
 CWL,Cardiff
 EDI,Edinburgh
