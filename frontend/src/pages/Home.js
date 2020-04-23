@@ -9,15 +9,15 @@ import {MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBContainer, MDBView} f
 const images = [
   {
     img: denver,
-    id: 'DEN'
+    id: 'den'
   },
   {
     img: london,
-    id: 'LHR'
+    id: 'lhr'
   },
   {
     img: nyc,
-    id: 'NYC'
+    id: 'nyc'
   }
 ];
 
@@ -62,7 +62,7 @@ const Home = () => {
             <p>Search from locations, restaurants, and hotels</p>
           </div>
           <form className="home-page-form-container fill" action="/search?">
-            <input name="name" id="textSearch" className="home-search-bar" placeholder="Anywhere" type="text"/>
+            <input name="q" id="textSearch" className="home-search-bar" placeholder="Anywhere" type="text"/>
             <button type="submit" className="home-search-btn">Search</button>
           </form>
         </div>

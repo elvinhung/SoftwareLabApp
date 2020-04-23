@@ -9,7 +9,7 @@ const TagList = (props) => {
       <div className="tag_list_padding">
         <div className="tag_list_container">
           {props.tags.map((tag) => {
-            return <p className="tag"> {tag} </p>
+            return <p key={tag} className="tag"> {tag} </p>
           })}
         </div>
       </div>
