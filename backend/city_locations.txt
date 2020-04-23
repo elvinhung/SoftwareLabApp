@@ -1,100 +1,100 @@
-HOU,Houston
-MIA,Miami
-STL,St. Louis
-SFO,San Francisco
-HNL,Honolulu
-PDX,Portland
-DEN,Denver
-MSP,Minneapolis
-SAN,San Diego
-SAT,San Antonio
-SEA,Seattle
-LAS,Las Vegas
-PHL,Philadelphia
-DFW,Dallas
-LAX,Los Angeles
-ATL,Atlanta
-CHI,Chicago
-NYC,New York City
-SAV,Savannah
-SDF,Louisville
-ORL,Orlando
-AUS,Austin
-BWI,Baltimore
-COS,Colorado Springs
-BOI,Boise
-DTT,Detroit
-BOS,Boston
-HVN,New Haven
-MSY,New Orleans
-PHX,Phoenix
-SLC,Salt Lake City
-WAS,Washington DC
-OAK,Oakland
-TPA,Tampa Bay
-PIT,Pittsburgh
-MKC,Kansas City, MO
-MKE,Milwaukee
-CLE,Cleveland
-LUK,Cincinnati
-BNA,Nashville
-MEM,Memphis
-ANC,Anchorage, AL
-OKC,Oklahoma City
-SJC,San Jose
-JAX,Jacksonville
-CLT,Charlotte
-YTO,Toronto
-YVR,Vancouver
-YMQ,Montreal
-YOW,Ottawa, CA
-YYC,Calgary
-YEG,Edmonton
-YHZ,Halifax, CA
-SAC,Sacramento
-RIC,Richmond
-ABQ,Albuquerque
-SAF,Santa Fe
-ELP,El Paso
-OMA,Omaha
-EWR,Newark
-PCT,Princeton
-FLL,Fort Lauderdale
-RNO,Reno
-BUF,Buffalo, NY
-IND,Indianapolis
-BMI,Bloomington
-JHM,Lahaina
-LIT,Little Rock
-MSN,Madison
-FAT,Fresno
-RDU,Raleigh
-LHR,London
-BFS,Belfast
-BRI,Brighton
-BRS,Bristol
-CWL,Cardiff
-EDI,Edinburgh
-GLA,Glasgow
-LBA,Leeds, UK
-LPL,Liverpool, UK
-MAN,Manchester
-CDG,Paris
-MRS,Marseille
-TXL,Berlin
-FRA,Frankfurt
-HAM,Hamburg
-DUB,Dublin
-MAD,Madrid
-BCN,Barcelona
-AMS,Amsterdam
-VCE,Venice
-ARN,Stockholm
-ZRH,Zurich
-SDU,Rio de Janeiro
-GRU,São Paulo
-OSL,Oslo
-MXP,Milan
-FCO,Rome
-SJU,San Juan
-SIN,Singapore
+HOU,Houston, TX,US
+MIA,Miami, FL,US
+STL,St. Louis, MO,US
+SFO,San Francisco, CA,US
+HNL,Honolulu, HI,US
+PDX,Portland, OR,US
+DEN,Denver, CO,US
+MSP,Minneapolis, MN,US
+SAN,San Diego, CA,US
+SAT,San Antonio, TX,US
+SEA,Seattle, WA,US
+LAS,Las Vegas, NV,US
+PHL,Philadelphia, PA,US
+DFW,Dallas, TX,US
+LAX,Los Angeles, CA,US
+ATL,Atlanta, GA,US
+CHI,Chicago, IL,US
+NYC,New York City, NY,US
+SAV,Savannah, GA,US
+SDF,Louisville, KY,US
+ORL,Orlando, FL,US
+AUS,Austin, TX,US
+BWI,Baltimore, MD,US
+COS,Colorado Springs, CO,US
+BOI,Boise, ID,US
+DTT,Detroit, MI,US
+BOS,Boston, MA,US
+HVN,New Haven, CT,US
+MSY,New Orleans, LA,US
+PHX,Phoenix, AZ,US
+SLC,Salt Lake City, UT,US
+WAS,Washington DC, US,US
+OAK,Oakland, CA,US
+TPA,Tampa Bay, FL,US
+PIT,Pittsburgh, PA,US
+MKC,Kansas City, MO,US
+MKE,Milwaukee, WI,US
+CLE,Cleveland, OH,US
+LUK,Cincinnati, OH,US
+BNA,Nashville, TN,US
+MEM,Memphis, TN,US
+ANC,Anchorage, AL,US
+OKC,Oklahoma City, OK,US
+SJC,San Jose, CA,US
+JAX,Jacksonville, FL,US
+CLT,Charlotte, NC,US
+YTO,Toronto, CA,CA
+YVR,Vancouver, CA,CA
+YMQ,Montreal, CA,CA
+YOW,Ottawa, CA,CA
+YYC,Calgary, CA,CA
+YEG,Edmonton, CA,CA
+YHZ,Halifax, CA,CA
+SAC,Sacramento, CA,US
+RIC,Richmond, VA,US
+ABQ,Albuquerque, NM,US
+SAF,Santa Fe, NM,US
+ELP,El Paso, TX,US
+OMA,Omaha, NE,US
+EWR,Newark, NJ,US
+PCT,Princeton, NJ,US
+FLL,Fort Lauderdale, FL,US
+RNO,Reno, NV,US
+BUF,Buffalo, NY,US
+IND,Indianapolis, IN,US
+BMG,Bloomington, IN,US
+JHM,Lahaina, HI,US
+LIT,Little Rock, AR,US
+MSN,Madison, WI,US
+FAT,Fresno, CA,US
+RDU,Raleigh, NC,US
+LHR,London, ENG,ENG
+BFS,Belfast, IRE,IRE
+ESH,Brighton, ENG,ENG
+BRS,Bristol, ENG,ENG
+CWL,Cardiff, WLS,WLS
+EDI,Edinburgh, SCT,SCT
+GLA,Glasgow, SCT,SCT
+LBA,Leeds, ENG,ENG
+LPL,Liverpool, ENG,ENG
+MAN,Manchester, ENG,ENG
+CDG,Paris, FRA,FRA
+MRS,Marseille, FRA,FRA
+TXL,Berlin, DEU,DEU
+FRA,Frankfurt, DEU,DEU
+HAM,Hamburg, DEU,DEU
+DUB,Dublin, IRE,IRE
+MAD,Madrid, ESP,ESP
+BCN,Barcelona, ESP,ESP
+AMS,Amsterdam, NLD,NLD
+VCE,Venice, ITA,ITA
+ARN,Stockholm, SWE,SWE
+ZRH,Zurich, CHE,CHE
+SDU,Rio de Janeiro, BRA,BRA
+GRU,São Paulo, BRA,BRA
+OSL,Oslo, NOR,NOR
+MXP,Milan, ITA,ITA
+FCO,Rome, ITA,ITA
+SJU,San Juan, PRI,PRI
+SIN,Singapore, SGP,SGP
