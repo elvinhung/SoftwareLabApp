@@ -1,22 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import Header from "../components/Header";
+import { withRouter } from 'react-router-dom';
 import 'font-awesome/css/font-awesome.min.css';
 import HotelListing from "../components/HotelListing";
 import '../styles/ModelPage.css';
 import Spinner from "react-bootstrap/Spinner";
 import Pagination from "../components/Pagination";
 import Loader from "../components/Loader";
+import Search from "../components/Search";
+import queryString from "query-string";
 
 const PAGE_SIZE = 12;
 
-const Hotel = () => {
+const Hotel = (props) => {
   const [hotels, setHotels] = useState([]);
   const [curPage, setCurrentPage] = useState(1);
   const [isLoading, setLoading] = useState(true);
+  const filters = queryString.parse(props.location.search);
 
   function getHotels() {
       const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/hotels';
-      fetch(apiUrl)
+      fetch(apiUrl + props.location.search)
         .then((res) => res.json())
         .then((data) => {
           setHotels((prevData) => {
@@ -32,7 +35,7 @@ const Hotel = () => {
 
   useEffect(() => {
     getHotels();
-  }, []);
+  }, [props.location.search]);
 
   let hotelsPage = [];
   for (let i = 0; i < hotels.length; i += PAGE_SIZE) {
@@ -40,19 +43,19 @@ const Hotel = () => {
   }
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const totalPages = Math.ceil(hotels.length / PAGE_SIZE);
 
   return(
     <div>
+      <Search type="Hotel" filters={filters} paginate={paginate} />
       {hotels.length !== 0 &&
       hotels.sort(function(a, b){ if (a.name < b.name) return -1; else return 1;}) &&
         <div className="model-container">
           <h1 className="model-header">Hotels</h1>
-          <div className="listing_padding">
-            <div className="listing_container">
-              {hotelsPage[curPage - 1].map((hotel, index) => {
-                return <HotelListing hotel={hotel} key={index}/>
-              })}
-            </div>
+          <div className="listing_container">
+            {hotelsPage[curPage - 1].map((hotel, index) => {
+              return <HotelListing hotel={hotel} key={index}/>
+            })}
           </div>
           {hotels.length === 0 &&
           <div align="center">
@@ -61,8 +64,8 @@ const Hotel = () => {
             </Spinner>
           </div>
           }
-          <Pagination postsPerPage={PAGE_SIZE} totalPosts={hotels.length} paginate={paginate} curPage={curPage} pagesAtTime={7}/>
-          <p align="center"> Page {curPage} / {Math.ceil(hotels.length / PAGE_SIZE)}</p>
+          <Pagination postsPerPage={PAGE_SIZE} totalPosts={hotels.length} paginate={paginate} curPage={curPage} pagesAtTime={(totalPages >= 10 ? 10 : totalPages)}/>
+          <p align="center"> Page {curPage} / {totalPages}</p>
         </div>
       }
       {isLoading && <Loader />}
@@ -76,4 +79,4 @@ const Hotel = () => {
   );
 }
 
-export default Hotel;
+export default withRouter(Hotel);

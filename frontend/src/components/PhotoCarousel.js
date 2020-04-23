@@ -3,7 +3,12 @@ import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView, MDBContainer }
 import '../styles/HotelDetail.css';
 
 const PhotoCarousel = (props) => {
-  const src = props.image;
+  const {
+    image1,
+    image2,
+    image3
+  } = props;
+
   return (
     <MDBContainer>
       <MDBCarousel
@@ -19,7 +24,7 @@ const PhotoCarousel = (props) => {
             <MDBView>
               <img
                 className="d-block w-100 carousel_img"
-                src={src}
+                src={image1}
                 alt="1"
               />
             </MDBView>
@@ -28,7 +33,7 @@ const PhotoCarousel = (props) => {
             <MDBView>
               <img
                 className="d-block w-100 carousel_img"
-                src={src}
+                src={image2}
                 alt="2"
               />
             </MDBView>
@@ -37,7 +42,7 @@ const PhotoCarousel = (props) => {
             <MDBView>
               <img
                 className="d-block w-100 carousel_img"
-                src={src}
+                src={image3}
                 alt="3"
               />
             </MDBView>

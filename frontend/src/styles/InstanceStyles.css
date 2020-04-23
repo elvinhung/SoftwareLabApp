@@ -10,6 +10,7 @@
 	justify-content: center;
 	margin: 0 auto;
 	overflow: hidden;
+	width: 1200px;
 }
 
 .header_image {
@@ -22,7 +23,7 @@
 
 .carousel_img {
 	width: 500px;
-	max-height: 350px;
+	height: 350px;
 	margin-right: 25px;
 	object-fit: cover;
 }
@@ -45,6 +46,15 @@
 	padding-right: 5px;
 }
 
+.weblink {
+	text-decoration: none;
+	color: black;
+}
+
+.weblink:hover {
+	color: black;
+}
+
 .map {
 	width: 525px;
 	height: 400px;
@@ -53,6 +63,7 @@
 .nearby {
 	font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
 	font-size: 30px;
+	margin-left: 50px;
 	padding: 25px;
 	padding-top: 0px;
 }
@@ -61,9 +72,8 @@
 .error {
 	display: flex;
 	justify-content: center;
-	align-items: center;
-	width: 100%;
-	min-height: 90vh;
+	padding-top: 100px;
+	font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
 }
 
 @media only screen and (max-width: 1250px) {

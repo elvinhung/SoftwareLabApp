@@ -33,7 +33,7 @@ WAS,Washington DC
 OAK,Oakland
 TPA,Tampa Bay
 PIT,Pittsburgh
-MKC,Kansas City, MO
+MKC,Kansas City MO
 MKE,Milwaukee
 CLE,Cleveland
 LUK,Cincinnati
@@ -63,28 +63,28 @@ FLL,Fort Lauderdale
 RNO,Reno
 BUF,Buffalo
 IND,Indianapolis
-BMI,Bloomington
+BMG,Bloomington
 JHM,Lahaina
 LIT,Little Rock
 MSN, Madison
 FAT,Fresno
 RDU,Raleigh
 LHR,London
-BFS,Belfast
-BRI,Brighton
-BRS,Bristol
-CWL,Cardiff
-EDI,Edinburgh
-GLA,Glasgow
-LBA,Leeds
-LPL,Liverpool
-MAN,Manchester
-CDG,Paris
-MRS,Marseille
-TXL,Berlin
-FRA,Frankfurt
-HAM,Hamburg
-DUB,Dublin
+BFS,Belfast Ireland
+ESH,Brighton UK
+BRS,Bristol UK
+CWL,Cardiff UK
+EDI,Edinburgh Scotland
+GLA,Glasgow Scotland
+LBA,Leeds UK
+LPL,Liverpool UK
+MAN,Manchester UK
+CDG,Paris France
+MRS,Marseille France
+TXL,Berlin Germany
+FRA,Frankfurt Germany
+HAM,Hamburg Germany
+DUB,Dublin Ireland
 MAD,Madrid
 BCN,Barcelona
 AMS,Amsterdam
@@ -94,7 +94,7 @@ ZRH,Zurich
 SDU,Rio de Janeiro
 GRU,São Paulo
 OSL,Oslo
-MXP,Milano
-FCO,Roma
+MXP,Milan Italy
+FCO,Rome Italy
 SJU,San Juan
 SIN,Singapore

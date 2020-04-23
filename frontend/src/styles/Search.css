@@ -35,18 +35,33 @@
     border-radius: 5px;
 }
 
+#filter-clear-btn {
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    text-transform: none;
+    box-shadow: none;
+    border: none;
+    border-radius: 5px;
+    background-color: #f2f2f2 !important;
+    color: #4f4f4f;
+}
+
+#filter-clear-btn:hover {
+    background-color: #b3b3b3 !important;
+    color: white;
+}
+
 #filter-cancel-btn {
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
     text-transform: none;
     box-shadow: none;
     border: none;
     border-radius: 5px;
-    background-color: white !important;
-    color: #d61a1a;
+    background-color: #e61a1a !important;
+    color: white;
 }
 
 #filter-cancel-btn:hover {
-    background-color: #f2f2f2 !important;
+    background-color: #d61a1a !important;
 }
 
 #filter-save-btn {
@@ -55,11 +70,21 @@
     box-shadow: none;
     border: none;
     border-radius: 5px;
-    background-color: #b256e8 !important;
+    background-color: #3da1ff !important;
     color: white;
 }
 
-.filter-container {
+#filter-save-btn:hover {
+    background-color: #148dff !important;
+}
+
+#filter-modal {
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    max-width: 800px;
+    min-width: 300px;
+}
+
+.filter-btn-container {
     padding: 10px;
     margin: auto;
     display: flex;

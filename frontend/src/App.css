@@ -23,4 +23,6 @@
 
 .navbar {
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    position: fixed;
+    width: 100%;
 }

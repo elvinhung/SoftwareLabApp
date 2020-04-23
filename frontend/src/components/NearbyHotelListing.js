@@ -4,6 +4,7 @@ import 'font-awesome/css/font-awesome.min.css';
 import '../styles/Listings.css';
 import Spinner from "react-bootstrap/Spinner";
 import {title} from "../Utils";
+import TagList from "./TagList";
 
 const NearbyHotelListing = (props) => {
   const id = props.hotel.id.$oid;
@@ -25,6 +26,11 @@ const NearbyHotelListing = (props) => {
     getHotel();
   }, []);
 
+  let tags = [];
+  tags.push(props.hotel.distance + " away", hotel.stars + " Stars")
+  if (hotel.swimming_pool)
+    tags.push("Pool");
+
   return(
     <div>
       {Object.keys(hotel).length !== 0 &&
@@ -34,13 +40,13 @@ const NearbyHotelListing = (props) => {
             <img className="instance_img" src={hotel.image} alt={hotel.name}/>
           </div>
 
-          <div className="instance_name">
-            <h4>{hotel.name}</h4>
+          <div>
+            <h4 className="instance_name">{hotel.name}</h4>
           </div>
           <div className="instance_page_info">
-            <div className="instance_location"><p>{hotel.address.cityName + ', ' + hotel.address.stateCode}</p></div>
-            <div><Ratings rating={hotel.stars}/></div>
-            <div className="distance"><p>{props.hotel.distance + " away"}</p></div>
+            <p className="instance_location">{hotel.address.cityName + ', ' + hotel.address.stateCode}</p>
+            <Ratings rating={hotel.stars}/>
+            <TagList className="tag_list_container" tags={tags}/>
           </div>
         </div>
       </a>
