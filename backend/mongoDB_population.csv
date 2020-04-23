@@ -1,4 +1,4 @@
-_id,City,State/Country,Country,Population
+location_id,city,state/country,country,Population
 HOU,Houston, TX,US,2027712.0
 MIA,Miami, FL,US,382894.0
 STL,St. Louis, MO,US,320916.0
