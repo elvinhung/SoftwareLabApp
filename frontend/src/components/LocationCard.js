@@ -9,14 +9,14 @@ const api_key = "AIzaSyBJ2lOAHkcMp6O6SpyeRNcQ0jtjLqGpZnE";
 const LocationCard = (props) => {
   const {
     name,
-    _id,
+    location_id,
     photos,
   } = props.location;
 
   const tags = ["Population (placeholder)"];
 
   return (
-    <a className="location-link" href={"/locations/" + _id}>
+    <a className="location-link" href={"/locations/" + location_id.toLowerCase()}>
       <div className="location-card">
         <div className="location-img-container">
           <img

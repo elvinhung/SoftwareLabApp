@@ -17,7 +17,7 @@ const LocationDetail = (props) => {
 
   // api call for location information
   function getLocation() {
-    const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/locations/' + id;
+    const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/locations/' + id.toUpperCase();
     fetch(apiUrl)
       .then((res) => res.json())
       .then((data) => {

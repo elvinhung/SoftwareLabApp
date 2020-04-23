@@ -14,10 +14,11 @@ const Location = (props) => {
   const [currPage, setCurrPage] = useState(1);
   const [isLoading, setLoading] = useState(true);
   const filters = queryString.parse(props.location.search);
+  const query = props.location.search;
 
   function getLocations() {
     const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/locations';
-    fetch(apiUrl)
+    fetch(apiUrl + query)
       .then((res) => res.json())
       .then((data) => {
         setLocations((prevData) => {
@@ -26,6 +27,7 @@ const Location = (props) => {
         });
       })
       .catch((err) => {
+        setLoading(false);
         console.log(err);
       });
   }
@@ -53,7 +55,7 @@ const Location = (props) => {
             <div className="location-page-container">
               <div className="location-card-container">
                 {locationPages[currPage - 1].map(location => (
-                  <LocationCard key={location._id} location={location} />
+                  <LocationCard key={location.location_id} location={location} />
                 ))}
               </div>
             </div>

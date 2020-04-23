@@ -11,10 +11,6 @@ const SearchFilters = (props) => {
   } = props;
 
   const onChange = (name, value) => {
-    // setFilters((prevFilters) => {
-    //   prevFilters[name] = value;
-    //   return prevFilters;
-    // });
     setFilters(name, value);
   }
 
@@ -22,8 +18,9 @@ const SearchFilters = (props) => {
     <div className="filter-container">
       {filterOptions.map(filterOption => (
         <Filter
-          key={filterOption.type}
-          type={filterOption.type}
+          key={filterOption.value}
+          name={filterOption.name}
+          value={filterOption.value}
           filters={filters}
           cleared={cleared}
           onChange={onChange}
