@@ -17,7 +17,7 @@ import rishab from '../assets/RishabChander.JPG';
 import '../styles/About.css';
 import '../styles/GlobalStyles.css';
 
-const PURPOSE = "Nomad is a web application for travelers who want to make the most out of their trip. When travelling to an unfamiliar place, the amount of places to see and things to do can be overwhelming. Nomad provides users the ability to filter and sort through all the noise in order to find the experience they are looking for.";
+const PURPOSE = "Nomad is a web application for travelers who want to make the most out of their trip. When travelling to an unfamiliar place, the amount of places to see and things to do can be overwhelming. Nomad provides users the ability to filter and sort through all the noise to find the experience they are looking for.";
 const FLASK_USAGE = "Our backend is a RESTful API built with Flask. It allows our front end to make HTTP Requests to query the data from our MongoDB database.";
 const AWS_USAGE = "In order to host our website, we employed the use of AWS S3 for static website hosting."
 const REACT_USAGE = "We used React to implement the frontend of our application. It allows us to break up our website into different components and manage states of those components over time."
@@ -177,7 +177,7 @@ const About = () => {
   }
 
   // github api call for commits
-  function getCommits() {
+  const getCommits = () => {
     const commitApiUrl = lastCommit === '' ? commitUrl : commitUrl + '&sha=' + lastCommit;
     fetch(commitApiUrl)
       .then((res) => res.json())
@@ -191,7 +191,7 @@ const About = () => {
   }
 
   // github api call for issues
-  function getIssues() {
+  const getIssues = () => {
     fetch("https://api.github.com/repos/elvinhung/SoftwareLabApp/issues?state=all&per_page=1000")
       .then((res) => res.json())
       .then((data) => {

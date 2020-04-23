@@ -68,7 +68,7 @@ const RestaurantDetail = (props) => {
             <div className="instance_head_info">
               <h1>{restaurant.name}</h1>
               <div className="location">
-                <a className="location_link" href={"/locations/" + restaurant.location_id}>{(restaurant.address[0][restaurant.address[0].length - 1]).substring(0, (restaurant.address[0][restaurant.address[0].length - 1]).length - 6)}</a>
+                <a className="location_link" href={"/locations/" + restaurant.location_id.toLowerCase()}>{(restaurant.address[0][restaurant.address[0].length - 1]).substring(0, (restaurant.address[0][restaurant.address[0].length - 1]).length - 6)}</a>
               </div>
               <Ratings rating={restaurant.stars[0]}/>
               <TagList className="tag_list_container" tags={tags}/>

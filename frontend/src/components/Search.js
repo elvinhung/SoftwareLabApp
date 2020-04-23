@@ -18,68 +18,38 @@ const searchTypes = [
 const filterOptions = {
   location: [
     {
-      type: "Sort By",
+      name: 'Sort By',
+      value: 'sortBy',
       options: [
         {
-          name: "Alphabetical (A to Z)",
-          value: "alpha_ASC"
+          name: "Name (A to Z)",
+          value: "name"
         },
         {
-          name: "Alphabetical (Z to A)",
-          value: "alpha_DESC"
-        },
-        {
-          name: "Population (High to Low)",
-          value: "pop_DESC"
-        },
-        {
-          name: "Population (Low to High)",
-          value: "pop_ASC"
+          name: "Name (Z to A)",
+          value: "name"
         },
       ],
     },
-    {
-      type: "Population",
-      options: [
-        {
-          name: "5 million+",
-          value: "5mil"
-        },
-        {
-          name: "2.5 - 5 million",
-          value: "2.5mil"
-        },
-        {
-          name: "1 - 2.5 million",
-          value: "1mil"
-        },
-        {
-          name: "0 - 1 million",
-          value: "0mil",
-        }
-      ]
-    },
-    {
-      type: "Country",
-      options: [
-        {
-          name: "United States",
-          value: "USA",
-        },
-        {
-          name: "United Kingdom",
-          value: "UK",
-        },
-        {
-          name: "Canada",
-          value: "CAN"
-        }
-      ],
-    }
   ],
   restaurant: [
     {
-      type: "Price",
+      name: "Sort By",
+      value: "sortBy",
+      options: [
+        {
+          name: "Name (A to Z)",
+          value: "name",
+        },
+        {
+          name: "Name (Z to A)",
+          value: "name",
+        }
+      ],
+    },
+    {
+      name: "Price",
+      value: "price",
       options: [
         {
           name: "$",
@@ -94,10 +64,71 @@ const filterOptions = {
           value: 3
         }
       ]
-    }
+    },
+    {
+      name: "Rating",
+      value: "rating",
+      options: [
+        {
+          name: "5 stars & up",
+          value: 5,
+        },
+        {
+          name: "4 stars & up",
+          value: 4,
+        },
+        {
+          name: "3 stars & up",
+          value: 3,
+        },
+        {
+          name: "2 stars & up",
+          value: 2,
+        },
+        {
+          name: "1 star & up",
+          value: 1,
+        }
+      ],
+    },
   ],
   hotel: [
-
+    {
+      name: "Rating",
+      value: "rating",
+      options: [
+        {
+          name: "5 stars & up",
+          value: 5,
+        },
+        {
+          name: "4 stars & up",
+          value: 4,
+        },
+        {
+          name: "3 stars & up",
+          value: 3,
+        },
+        {
+          name: "2 stars & up",
+          value: 2,
+        },
+        {
+          name: "1 star & up",
+          value: 1,
+        }
+      ],
+    },
+    {
+      name: "Amenities",
+      value: "swimming_pool",
+      options: [
+        {
+          name: "Swimming Pool",
+          value: "true",
+        }
+      ],
+    }
   ],
 };
 
@@ -112,6 +143,48 @@ const SearchFilterModal = (props) => {
     handleFilterSave,
     cleared,
   } = props;
+
+  const parseLocationData = (locations) => {
+    locations.sort(function(a, b){ if (a.name[0] < b.name[0]) return -1; else return 1;})
+    let cityFilter = {
+      name: "City",
+      value: "location_id",
+      options: [],
+    };
+    let countryFilter = {
+      name: "Country",
+      value: "country",
+      options: [],
+    };
+    let countryOptions = [];
+    let cityOptions = [];
+    locations.forEach(location => {
+      const city = {
+        name: location.name,
+        value: location.location_id,
+      };
+      cityOptions.push(city);
+    });
+    cityFilter.options = cityOptions;
+    filterOptions.restaurant.push(cityFilter);
+    filterOptions.hotel.push(cityFilter);
+  }
+
+  const getLocationFilters = () => {
+    const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/locations';
+    fetch(apiUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        parseLocationData(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  useEffect(() => {
+    getLocationFilters();
+  }, []);
 
   const Filters = () => {
     switch (searchType) {
@@ -171,7 +244,7 @@ let tempFilters = {};
 let filters = {};
 
 const Search = (props) => {
-  const defaultQuery = props.filters["name"] ? props.filters["name"] : "";
+  const defaultQuery = props.filters["q"] ? props.filters["q"] : "";
   const [query, setQuery] = useState(defaultQuery);
   const [searchType, setSearchType] = useState(props.type);
   const [showFilter, setShowFilter] = useState(false);
@@ -192,9 +265,9 @@ const Search = (props) => {
   const handleSubmit = () => {
     props.paginate(1);
     if (query.trim() === "") {
-      delete filters.name;
+      delete filters.q;
     } else {
-      filters.name = query.trim();
+      filters.q = query.trim();
     }
     const stringifiedQuery = queryString.stringify(filters);
     switch (searchType) {
@@ -219,7 +292,7 @@ const Search = (props) => {
       default:
         setRedirect({
           pathname: '/search',
-          search: '?name=' + query.trim(),
+          search: '?q=' + query.trim(),
         });
         break;
     }
@@ -248,11 +321,9 @@ const Search = (props) => {
   const handleSearchTypeChange = (type) => {
     setSearchType((prevSearchType) => {
       if (type !== prevSearchType) {
-        console.log("setting new filters");
         filters = {
-          name: query,
+          q: query,
         }
-        console.log(filters);
       }
       return type;
     });
