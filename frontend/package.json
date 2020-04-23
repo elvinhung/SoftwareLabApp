@@ -6,18 +6,29 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.1",
     "@testing-library/user-event": "^7.2.1",
+    "@types/googlemaps": "^3.39.3",
     "bootstrap": "^4.4.1",
+    "classnames": "^2.2.6",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
+    "eslint-plugin-flowtype": "^3.13.0",
     "font-awesome": "^4.7.0",
+    "google-map-react": "^1.1.7",
+    "google-maps-react": "^2.0.6",
+    "immutable": "^4.0.0-rc.12",
+    "jquery": "^1.9.1",
     "mdbreact": "^4.25.3",
     "pretty-checkbox": "^3.0.3",
+    "prop-types": "^15.7.2",
     "query-string": "^6.12.1",
-    "react": "^16.12.0",
+    "react": "^16.13.1",
+    "react-addons": "^0.9.1-deprecated",
     "react-bootstrap": "^1.0.0-beta.16",
+    "react-controllables": "^0.6.0",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.4.0"
+    "react-scripts": "^3.4.0",
+    "typescript": "^3.8.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -40,5 +51,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-pure-render": "^1.0.2"
   }
 }

@@ -6,6 +6,8 @@ import PointOfInterest from "../components/PointOfInterest";
 import RestaurantListing from "../components/RestaurantListing";
 import HotelListing from "../components/HotelListing";
 import Loader from "../components/Loader";
+import Review from "../components/Review";
+import POIMap from "../components/POIMap";
 
 const imgUrl = "https://maps.googleapis.com/maps/api/place/photo?";
 const api_key = "AIzaSyBJ2lOAHkcMp6O6SpyeRNcQ0jtjLqGpZnE";
@@ -17,7 +19,7 @@ const LocationDetail = (props) => {
 
   // api call for location information
   function getLocation() {
-    const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/locations/' + id;
+    const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/locations/' + id.toUpperCase();
     fetch(apiUrl)
       .then((res) => res.json())
       .then((data) => {
@@ -44,46 +46,51 @@ const LocationDetail = (props) => {
       location[0].hotels.sort(function(a, b){ if (a.name[0] < b.name[0]) return -1; else return 1;}) &&
         <div>
           <div className="instance_head">
-              <div>
-                <PhotoCarousel
-                  image1={imgUrl + 'maxwidth=' + location[0].photos[0].width + '&photoreference=' + location[0].photos[0].photo_reference + '&key=' + api_key}
-                  image2={imgUrl + 'maxwidth=' + location[0].photos[0].width + '&photoreference=' + location[0].photos[0].photo_reference + '&key=' + api_key}
-                  image3={imgUrl + 'maxwidth=' + location[0].photos[0].width + '&photoreference=' + location[0].photos[0].photo_reference + '&key=' + api_key}
-                />
-              </div>
-              <div className="instance_head_info">
-                <h1>{location[0].name}</h1>
-                <p>Lat. {location[0].latitude}</p>
-                <p>Long. {location[0].longitude}</p>
-              </div>
+            <div>
+              <PhotoCarousel
+                image1={imgUrl + 'maxwidth=' + location[0].photos[0].width + '&photoreference=' + location[0].photos[0].photo_reference + '&key=' + api_key}
+                image2={imgUrl + 'maxwidth=' + location[0].photos[0].width + '&photoreference=' + location[0].photos[0].photo_reference + '&key=' + api_key}
+                image3={imgUrl + 'maxwidth=' + location[0].photos[0].width + '&photoreference=' + location[0].photos[0].photo_reference + '&key=' + api_key}
+              />
             </div>
-            <div className="model-container">
-              <h3>Points of Interest</h3>
-              <div className="listing_container">
+            <div className="instance_head_info">
+              <h1>{location[0].name}</h1>
+              <p>Lat. {location[0].latitude}</p>
+              <p>Long. {location[0].longitude}</p>
+            </div>
+          </div>
+          <div className="model-container">
+            <h3>Points of Interest</h3>
+            <div className="res_info">
+              <div className="res_left_info">
+                <POIMap coords={[location[0].latitude, location[0].longitude]} poiList={location[0]["points of interest"][0]["points of interest"]}/>
+              </div>
+              <div className="listing_container res_right_info">
                 {location[0]["points of interest"][0]["points of interest"].map((poi, i) => {
                   return <PointOfInterest key={i} poi={poi}/>
                 })}
               </div>
-              <br></br>
-              <h3>Restaurants</h3>
-              <div className="listing_container">
-                {location[0].restaurants.map((restaurant, i) => {
-                  return (
-                    <RestaurantListing key={i} restaurant={restaurant}/>
-                  );
-                })}
-              </div>
-              <br></br>
-              <h3>Hotels</h3>
-              <div className="listing_container">
-                {location[0].hotels.map((hotel, i) => {
-                  return (
-                    <HotelListing key={i} hotel={hotel} />
-                  );
-                })}
-              </div>
+            </div>
+            <br></br>
+            <h3>Restaurants</h3>
+            <div className="listing_container">
+              {location[0].restaurants.map((restaurant, i) => {
+                return (
+                  <RestaurantListing key={i} restaurant={restaurant}/>
+                );
+              })}
+            </div>
+            <br></br>
+            <h3>Hotels</h3>
+            <div className="listing_container">
+              {location[0].hotels.map((hotel, i) => {
+                return (
+                  <HotelListing key={i} hotel={hotel} />
+                );
+              })}
             </div>
           </div>
+        </div>
         }
       {isLoading && <Loader />}
       {!isLoading && location.length === 0 &&
