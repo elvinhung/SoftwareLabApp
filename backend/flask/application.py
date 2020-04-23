@@ -1,18 +1,13 @@
 from flask import Flask, jsonify, request
 from flask_pymongo import PyMongo
-from pymongo import MongoClient
 from bson.json_util import dumps
 from bson import ObjectId
 import os
 
 
 application = Flask(__name__)
-
-application.config['MONGO_URI'] = "mongodb+srv://dbUser:adDJJ0ZG6O7VDdMz@softwarelabapp-hbwi6.mongodb.net/models?retryWrites=true&w=majority"
-
-
+application.config['MONGO_URI'] = os.environ["CONNECTION_STRING"]
 mongo = PyMongo(application)
-mongo_client = MongoClient("mongodb+srv://dbUser:adDJJ0ZG6O7VDdMz@softwarelabapp-hbwi6.mongodb.net/models?retryWrites=true&w=majority")
 
 @application.after_request
 def after_request(response):
@@ -29,30 +24,32 @@ def index():
 @application.route('/restaurants', methods=['GET'])
 def all_restaurants():
     restaurants = mongo.db.restaurants
-    args = request.args.get('name')
+    args = request.args.get('q')
+    sort = request.args.get('sort')
+    sortBy = request.args.get('sortBy')
     filters = request.args.copy()
     if 'stars' in filters.keys():
         stars = filters.get('stars')
-        filters['stars'] = {'$gte': stars}
+        filters['stars'] = {'$gte': int(stars)}
     if 'price' in filters.keys():
         price = filters.get('price')
-        filters['price'] = {'$gte': price}
+        filters['price'] = {'$gte': int(price)}
     
-    print(filters)
-    result = {}
-    
-    if args is None:
-        result = list(restaurants.find())
-    else:
-        filters = request.args.copy()
-        del filters['name']
+    sort_dict = {}
+    if sort != None:
+        del filters['sort']
+        del filters['sortBy']
+        sort_dict = [(sortBy, int(sort))]
 
-        restaurants.aggregate([{"$match": {"$text": {"$search": args}}}, {"$out": "temp"}])
-        results = mongo.db.temp.find(filters)
-        #mongo.db.temp.drop()
+    if args is None:
+        results = list(restaurants.find(filters))
+        return dumps(results)
+    else:
+        del filters['q']
+        restaurants.aggregate([{"$match": {"$text": {"$search": args}}},{ "$sort": { "score": { "$meta": "textScore" } } }, {"$match" : filters}, {"$out": "temp"}])
+        results = mongo.db.temp.find().sort(sort_dict)
         return dumps(results)
 
-    return dumps(result)
 
 @application.route('/restaurants/<ObjectId:oid>', methods=['GET'])
 def restaurant_by_id(oid):
@@ -73,7 +70,9 @@ def restaurant_by_id(oid):
 @application.route('/hotels', methods=['GET'])
 def all_hotels():
     hotels = mongo.db.hotels
-    args = request.args.get('name')
+    args = request.args.get('q')
+    sort = request.args.get('sort')
+    sortBy = request.args.get('sortBy')
     filters = request.args.copy()
     if 'stars' in filters.keys():
         stars = filters.get('stars')
@@ -81,20 +80,27 @@ def all_hotels():
     if 'price' in filters.keys():
         price = filters.get('price')
         filters['price'] = {'$gte': price}
-    
-    print(filters)
+    if 'swimming_pool' in filters.keys():
+        if filters['swimming_pool'] == 'true':
+            filters['swimming_pool'] = True
+        else:
+            filters['swimming_pool'] = False
 
-    result = {}
+    sort_dict = {}
+    if sort != None:
+        del filters['sort']
+        del filters['sortBy']
+        sort_dict = [(sortBy, int(sort))]
+
+
     if args is None:
-        result = list(hotels.find(filters))
-    else:
-        del filters['name']
-        print(filters)
-        hotels.aggregate([{"$match": {"$text": {"$search": args}}}, {"$out": "temp"}])
-        results = mongo.db.temp.find(filters)
+        results = list(hotels.find(filters))
         return dumps(results)
-
-    return dumps(result)
+    else:
+        del filters['q']
+        hotels.aggregate([{"$match": {"$text": {"$search": args}}},{ "$sort": { "score": { "$meta": "textScore" } } }, {"$match" : filters}, {"$out": "temp"}])
+        results = mongo.db.temp.find(filters).sort(sort_dict)
+        return dumps(results)
 
 @application.route('/hotels/<ObjectId:oid>', methods=['GET'])
 def hotel_by_id(oid):
@@ -117,20 +123,27 @@ def hotel_by_id(oid):
 @application.route('/locations', methods=['GET'])
 def all_locations():
     locations = mongo.db.locations
-    args = request.args.get('name')
-    result = {}
+    filters = request.args.copy()
+    args = request.args.get('q')
+    sort = request.args.get('sort')
+    sortBy = request.args.get('sortBy')
+    sort_dict = {}
+    
+    if sort != None:
+        del filters['sort']
+        del filters['sortBy']
+        sort_dict = [(sortBy, int(sort))]
+        print(sort_dict)
+    
     if args is None:
-            result = list(locations.find(request.args))
-    else:   
-        filters = request.args.copy()
-        del filters['name']
-
-        locations.aggregate([{"$match": {"$text": {"$search": args}}}, {"$out": "temp"}])
-        results = mongo.db.temp.find({"$in": filters})
-        #mongo.db.temp.drop()
+        results = list(locations.find(request.args))
         return dumps(results)
-
-    return dumps(result)
+    
+    else:   
+        del filters['q']
+        locations.aggregate([{"$match": {"$text": {"$search": args}}},{ "$sort": { "score": { "$meta": "textScore" } } }, {"$match" : filters}, {"$out": "temp"}])
+        results = mongo.db.temp.find(filters).sort(sort_dict)
+        return dumps(results)
 
 @application.route('/locations/<oid>', methods=['GET'])
 def locations_by_id(oid):
