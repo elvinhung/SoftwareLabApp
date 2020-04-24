@@ -8,20 +8,20 @@ import json
 
 amadeus = Client(
     hostname='production',
-    client_id='D3dGGqI9fiGNXBAbGmCGhLMYeeue1YGg',
-    client_secret='H8M5btnJmg7Dke7g',
+    client_id='client_id',
+    client_secret='client_secret',
 )
 
 mongo = MongoClient()
-mongo_client = MongoClient('mongodb+srv://dbUser:adDJJ0ZG6O7VDdMz@softwarelabapp-hbwi6.mongodb.net/models?retryWrites=true&w=majority')
+mongo_client = MongoClient('connection_string')
 db = mongo_client.models
 hotels = db.hotels
 
-db.hotels.create_index([
-      ("$**", 'text')
-  ],
-  name="search_index"
-)
+# db.hotels.create_index([
+#       ("$**", 'text')
+#   ],
+#   name="search_index"
+# )
 
 
 os.chdir(r"C:\Users\risha\Documents\Spring 20\SoftwareLabApp\backend")
