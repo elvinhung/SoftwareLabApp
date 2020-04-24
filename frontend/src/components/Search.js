@@ -224,10 +224,8 @@ const SearchFilterModal = (props) => {
   }
 
   const hasLocationFilters = () => {
-    filterOptions.location.forEach(locationFilter => {
-      if (locationFilter.name === "Country") return true;
-    });
-    return false;
+    let filterArr = filterOptions.location.filter(locationFilter => locationFilter.name === "Country");
+    return filterArr.length !== 0;
   }
 
   const getLocationFilters = () => {
@@ -399,6 +397,9 @@ const Search = (props) => {
   const handleSearchTypeChange = (type) => {
     setSearchType((prevSearchType) => {
       if (type !== prevSearchType) {
+        tempFilters = {
+          q: query,
+        }
         filters = {
           q: query,
         }

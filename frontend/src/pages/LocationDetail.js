@@ -56,9 +56,9 @@ const LocationDetail = (props) => {
             </div>
             <div className="instance_head_info">
               <h1>{location.name}</h1>
-              <p>Country: {location.weather.country}</p>
-              <p>Population: {location.population}</p>
-              <p>Coordinates: ({location.latitude}, {location.longitude})</p>
+              <p><span className="bold">Country:</span> {location.weather.country}</p>
+              <p><span className="bold">Population:</span> {location.population}</p>
+              <p><span className="bold">Coordinates:</span> ({location.latitude}, {location.longitude})</p>
               <div className="forecast-card-container">
                 <h4 className="forecast-title">Forecast</h4>
                 <ForecastCard day={"Today"} temp={location.weather.week_forecast[0]}/>
