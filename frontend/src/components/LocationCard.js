@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/LocationCard.css';
 import TagList from "./TagList";
+import Ratings from "./Ratings";
 
 const imgUrl = "https://maps.googleapis.com/maps/api/place/photo?";
 const api_key = "AIzaSyBJ2lOAHkcMp6O6SpyeRNcQ0jtjLqGpZnE";
@@ -9,9 +10,11 @@ const api_key = "AIzaSyBJ2lOAHkcMp6O6SpyeRNcQ0jtjLqGpZnE";
 const LocationCard = (props) => {
   const {
     name,
+    country,
     location_id,
     photos,
-    population
+    population,
+    weather
   } = props.location;
 
   const tags = ["Population: " + population[0]];
@@ -27,9 +30,11 @@ const LocationCard = (props) => {
           />
         </div>
         <div className="instance_name">
-          <h4>{name}</h4>
+          <h4>{name + ", " + country}</h4>
         </div>
         <div className="instance_page_info">
+          <p className="instance_location">{"Current Temperature: " + weather[0].current["current temp"]}</p>
+          <br></br>
           <TagList className="tag_list_container" tags={tags}/>
         </div>
       </div>

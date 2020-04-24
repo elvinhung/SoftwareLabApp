@@ -55,7 +55,6 @@ const Location = (props) => {
             <div className="location-page-container">
               <div className="location-card-container">
                 {locationPages[currPage - 1].map(location => (
-                  console.log(location.population),
                   <LocationCard key={location.location_id} location={location} />
                 ))}
               </div>
