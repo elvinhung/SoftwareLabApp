@@ -71,10 +71,10 @@ const LocationDetail = (props) => {
             <h3>Points of Interest</h3>
             <div className="poi-info-container">
               <div className="poi-left-info">
-                <POIMap coords={[location.latitude, location.longitude]} poiList={location["points of interest"][0]["points of interest"]}/>
+                <POIMap coords={[location.latitude, location.longitude]} poiList={location["points of interest"]}/>
               </div>
               <div className="listing_container poi-right-info">
-                {location["points of interest"][0]["points of interest"].map((poi, i) => {
+                {location["points of interest"].map((poi, i) => {
                   return <PointOfInterest key={i} poi={poi}/>
                 })}
               </div>
