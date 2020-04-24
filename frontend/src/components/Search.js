@@ -95,7 +95,7 @@ const filterOptions = {
   hotel: [
     {
       name: "Rating",
-      value: "rating",
+      value: "stars",
       options: [
         {
           name: "5 stars & up",
@@ -163,9 +163,16 @@ const SearchFilterModal = (props) => {
         name: location.name,
         value: location.location_id,
       };
+      const country = {
+        name: location.country,
+        value: location.country,
+      }
+      countryOptions.push(country);
       cityOptions.push(city);
     });
     cityFilter.options = cityOptions;
+    countryFilter.options = countryOptions;
+    filterOptions.location.push(countryFilter);
     filterOptions.restaurant.push(cityFilter);
     filterOptions.hotel.push(cityFilter);
   }
