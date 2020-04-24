@@ -10,7 +10,6 @@
 }
 
 .poi-container:hover {
-	box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
 	text-decoration: none;
 	max-height: 150px;
 }
@@ -120,7 +119,7 @@
 .poi-right-info {
 	font-size: 20px;
 	width: 685px;
-	box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.08);
 	border-radius: 5px;
 	margin: 0px 0px 10px 20px;
 }
