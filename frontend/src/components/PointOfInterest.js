@@ -22,7 +22,7 @@ const PointOfInterest = (props) => {
 
   for (let i = 0; i < types.length; i++)
     types[i] = title(types[i].replace(/_/g, ' '));
-  while (types.length >= 5)
+  while (types.length >= 4)
     types.pop();
 
   return(

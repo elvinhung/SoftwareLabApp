@@ -18,6 +18,7 @@ const mapStyle = {
 const HotelDetail = (props) => {
   const id = props.match.params.id;
   const [hotel, setHotel] = useState({});
+  const [location, setLocation] = useState([]);
   const [address, setAddress] = useState("");
   const [isLoading, setLoading] = useState(true);
 
@@ -37,11 +38,26 @@ const HotelDetail = (props) => {
       });
   }
 
+  function getLocation() {
+    const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/locations/' + hotel.location_id;
+    fetch(apiUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        setLocation((prevData) => {
+          return data;
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   useEffect(() => {
     if (Object.keys(hotel).length !== 0) {
       const { address } = hotel;
       setAddress(title(address.lines[0]) + ', ' + title(address.cityName) + ', ' + address.stateCode + ' ' + address.postalCode);
     }
+    getLocation();
   }, [hotel]);
 
   useEffect(() => {
@@ -68,7 +84,7 @@ const HotelDetail = (props) => {
             <div className="instance_head_info">
               <h1>{hotel.name}</h1>
               <div className="location">
-                <a className="location_link" href={"/locations/" + hotel.location_id.toLowerCase()}>{title(hotel.address.cityName) + ', ' + hotel.address.stateCode}</a>
+                <a className="location_link" href={"/locations/" + hotel.location_id.toLowerCase()}>{location.name + ", " + location.country}</a>
               </div>
               <Ratings rating={hotel.stars}/>
               <TagList className="tag_list_container" tags={tags}/>
@@ -95,7 +111,7 @@ const HotelDetail = (props) => {
             <h3>Nearby Restaurants</h3>
             <div className="listing_container">
               {hotel.restaurants.map((restaurant, index) => {
-                return <NearbyRestaurantListing restaurant={restaurant} key={index}/>
+                return <NearbyRestaurantListing restaurant={restaurant} location={location.name + ", " + location.country} key={index}/>
               })}
             </div>
           </div>

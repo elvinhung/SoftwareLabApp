@@ -11,9 +11,10 @@ const LocationCard = (props) => {
     name,
     location_id,
     photos,
+    population
   } = props.location;
 
-  const tags = ["Population (placeholder)"];
+  const tags = ["Population: " + population[0]];
 
   return (
     <a className="location-link" href={"/locations/" + location_id.toLowerCase()}>

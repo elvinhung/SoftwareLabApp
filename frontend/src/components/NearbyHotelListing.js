@@ -44,7 +44,7 @@ const NearbyHotelListing = (props) => {
             <h4 className="instance_name">{hotel.name}</h4>
           </div>
           <div className="instance_page_info">
-            <p className="instance_location">{hotel.address.cityName + ', ' + hotel.address.stateCode}</p>
+            <p className="instance_location">{props.location}</p>
             <Ratings rating={hotel.stars}/>
             <TagList className="tag_list_container" tags={tags}/>
           </div>
