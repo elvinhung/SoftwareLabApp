@@ -68,7 +68,7 @@ const LocationDetail = (props) => {
                 <POIMap coords={[location.latitude, location.longitude]} poiList={location["points of interest"][0]["points of interest"]}/>
               </div>
               <div className="listing_container poi-right-info">
-                {location['points of interest'][0]['points of interest'].map((poi, i) => {
+                {location["points of interest"][0]["points of interest"].map((poi, i) => {
                   return <PointOfInterest key={i} poi={poi}/>
                 })}
               </div>
