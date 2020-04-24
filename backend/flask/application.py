@@ -194,7 +194,7 @@ def all_locations():
 @application.route('/locations/<oid>', methods=['GET'])
 def locations_by_id(oid):
     locations = mongo.db.locations
-    result = locations.find_one({"location_id": oid})
+    result = locations.find_one_or_404({"location_id": oid})
 
     hotels = list(mongo.db.hotels.find({"location_id": oid}))
     restaurants = list(mongo.db.restaurants.find({"location_id": oid}))
