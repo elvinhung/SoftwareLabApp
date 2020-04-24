@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import queryString from 'query-string';
 import LocationCard from "../components/LocationCard";
 import "../styles/Location.css";
 import Pagination from "../components/Pagination";
@@ -8,16 +9,16 @@ import Search from "../components/Search";
 
 const PAGE_SIZE = 12;
 
-const Location = () => {
+const Location = (props) => {
   const [locations, setLocations] = useState([]);
   const [currPage, setCurrPage] = useState(1);
   const [isLoading, setLoading] = useState(true);
-
-  const query = new URLSearchParams(useLocation().search);
+  const filters = queryString.parse(props.location.search);
+  const query = props.location.search;
 
   function getLocations() {
     const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/locations';
-    fetch(apiUrl)
+    fetch(apiUrl + query)
       .then((res) => res.json())
       .then((data) => {
         setLocations((prevData) => {
@@ -26,13 +27,14 @@ const Location = () => {
         });
       })
       .catch((err) => {
+        setLoading(false);
         console.log(err);
       });
   }
 
   useEffect(() => {
     getLocations();
-  },[]);
+  },[props.location.search]);
 
   let locationPages = [];
   for (let i = 0; i < locations.length; i += PAGE_SIZE) {
@@ -40,10 +42,11 @@ const Location = () => {
   }
 
   const paginate = (pageNumber) => setCurrPage(pageNumber);
+  const totalPages = Math.ceil(locations.length / PAGE_SIZE);
 
   return(
     <div>
-      <Search type="Location" />
+      <Search type="Location" filters={filters} paginate={paginate}/>
       {locations.length !== 0 &&
       locations.sort(function(a, b){ if (a.name[0] < b.name[0]) return -1; else return 1;}) &&
         <div className="model-container">
@@ -52,12 +55,12 @@ const Location = () => {
             <div className="location-page-container">
               <div className="location-card-container">
                 {locationPages[currPage - 1].map(location => (
-                  <LocationCard key={location._id} location={location} />
+                  <LocationCard key={location.location_id} location={location} />
                 ))}
               </div>
             </div>
-            <Pagination postsPerPage={PAGE_SIZE} totalPosts={locations.length} paginate={paginate} curPage={currPage} pagesAtTime={5}/>
-            <p align="center"> Page {currPage} / {Math.ceil(locations.length / PAGE_SIZE)}</p>
+            <Pagination postsPerPage={PAGE_SIZE} totalPosts={locations.length} paginate={paginate} curPage={currPage} pagesAtTime={(totalPages >= 7 ? 7 : totalPages)}/>
+            <p align="center"> Page {currPage} / {totalPages}</p>
           </div>
         </div>
       }
@@ -71,4 +74,4 @@ const Location = () => {
   );
 }
 
-export default Location;
+export default withRouter(Location);

@@ -13,6 +13,7 @@ import About from './pages/About';
 import LocationDetail from "./pages/LocationDetail";
 import "mdbreact/dist/css/mdb.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "pretty-checkbox/dist/pretty-checkbox.min.css";
 import './App.css';
 import RestaurantDetail from "./pages/RestaurantDetail";
 import HotelDetail from "./pages/HotelDetail";
