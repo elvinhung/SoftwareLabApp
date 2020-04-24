@@ -14,6 +14,7 @@ import { title } from '../Utils';
 const RestaurantDetail = (props) => {
   const id = props.match.params.id;
   const [restaurant, setRestaurant] = useState({});
+  const [location, setLocation] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
   function getRestaurant() {
@@ -32,9 +33,27 @@ const RestaurantDetail = (props) => {
       });
   }
 
+  function getLocation() {
+    const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/locations/' + restaurant.location_id;
+    fetch(apiUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        setLocation((prevData) => {
+          return data;
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   useEffect(() => {
     getRestaurant();
   }, []);
+
+  useEffect(() => {
+    getLocation();
+  },[restaurant]);
 
   const cuisine = restaurant.tags;
   let tags = [];
@@ -68,7 +87,7 @@ const RestaurantDetail = (props) => {
             <div className="instance_head_info">
               <h1>{restaurant.name}</h1>
               <div className="location">
-                <a className="location_link" href={"/locations/" + restaurant.location_id.toLowerCase()}>{(restaurant.address[0][restaurant.address[0].length - 1]).substring(0, (restaurant.address[0][restaurant.address[0].length - 1]).length - 6)}</a>
+                <a className="location_link" href={"/locations/" + restaurant.location_id.toLowerCase()}>{location.name + ", " + location.country}</a>
               </div>
               <Ratings rating={restaurant.stars[0]}/>
               <TagList className="tag_list_container" tags={tags}/>
@@ -101,7 +120,7 @@ const RestaurantDetail = (props) => {
             <h3>Nearby Hotels</h3>
             <div className="listing_container">
               {restaurant.hotels.map((hotel, index) => {
-                return <NearbyHotelListing hotel={hotel} key={index}/>
+                return <NearbyHotelListing hotel={hotel} location={location.name + ", " + location.country} key={index}/>
               })}
             </div>
           </div>

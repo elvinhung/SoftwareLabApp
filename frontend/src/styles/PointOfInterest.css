@@ -1,0 +1,126 @@
+.poi-container {
+	color: black;
+	padding: 10px;
+	font-size: 15px;
+	border-bottom: 1px solid #f2f2f2;
+	transition: .15s box-shadow, .5s max-height;
+	overflow: hidden;
+	width: 685px;
+	max-height: 65px;
+}
+
+.poi-container:hover {
+	box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+	text-decoration: none;
+	max-height: 150px;
+}
+
+.poi-img-container  {
+	height: 125px;
+	width: 0px;
+	overflow: hidden;
+	float: left;
+	opacity: 0;
+	transition: .5s opacity, .5s width;
+}
+
+.poi-img {
+	width: 100%;
+	height: 125px;
+	margin-right: 15px;
+	object-fit: cover;
+}
+
+.poi-container:hover .poi-img-container {
+	opacity: 1;
+	width: 175px;
+}
+
+.poi-container:hover h4 {
+	white-space: normal;
+	max-height: 150px;
+}
+
+.poi-container:hover .tag_list_container {
+	white-space: normal;
+	max-height: 150px;
+}
+
+.poi-info {
+	padding-left: 10px;
+	transition: 0.5s padding-left, 0.5s opacity;
+	font-size: 15px;
+	opacity: 0;
+}
+
+.poi-container:hover .poi-info {
+	padding-left: 185px;
+	opacity: 1;
+}
+
+.poi-name {
+	padding: 10px 0px 10px 10px;
+	margin: 0;
+	overflow: hidden;
+	max-height: 40px;
+
+	transition: max-height 500ms, padding .5s;
+}
+
+.poi-container:hover .poi-name {
+	padding: 5px 0px 0px 10px;
+}
+
+.poi-location {
+	float: left;
+	margin-right: 10px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+.tag_list_container {
+	margin: 0px 10px 5px 0px;
+	max-height: 44px;
+
+	transition: max-height 500ms;
+}
+
+.tag {
+	font-size: 12px;
+	background-color: #ddd;
+	border: none;
+	color: black;
+	padding: 5px 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	margin: 8px 2px;
+	border-radius: 16px;
+}
+
+.float-clear {
+	clear: both;
+}
+
+.poi-info-container {
+	font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+	font-size: 30px;
+	width: 100%;
+	margin: 0 auto;
+	justify-content: space-between;
+	padding: 15px 10px 0px 10px;
+	overflow: hidden;
+	height: 430px;
+}
+
+.poi-left-info {
+	float: left;
+}
+
+.poi-right-info {
+	font-size: 20px;
+	width: 685px;
+	box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+	border-radius: 5px;
+	margin: 0px 0px 10px 20px;
+}

@@ -1,100 +1,20 @@
-HOU,Houston
-MIA,Miami
-STL,St. Louis
-SFO,San Francisco
-HNL,Honolulu
-PDX,Portland
-DEN,Denver
-MSP,Minneapolis
-SAN,San Diego
-SAT,San Antonio
-SEA,Seattle
-LAS,Las Vegas
-PHL,Philadelphia
-DFW,Dallas
-LAX,Los Angeles
-ATL,Atlanta
-CHI,Chicago
-NYC,New York City
-SAV,Savannah
-SDF,Louisville
-ORL,Orlando
-AUS,Austin
-BWI, Baltimore
-COS,Colorado Springs
-BOI, Boise
-DTT,Detroit
-BOS,Boston
-HVN,New Haven
-MSY,New Orleans
-PHX,Phoenix
-SLC,Salt Lake City
-WAS,Washington DC
-OAK,Oakland
-TPA,Tampa Bay
-PIT,Pittsburgh
-MKC,Kansas City MO
-MKE,Milwaukee
-CLE,Cleveland
-LUK,Cincinnati
-BNA,Nashville
-MEM,Memphis
-ANC,Anchorage
-OKC,Oklahoma City
-SJC,San Jose
-JAX,Jacksonville
-CLT,Charlotte
-YTO,Toronto
-YVR,Vancouver
-YMQ,Montreal
-YOW,Ottawa
-YYC,Calgary
-YEG,Edmonton
-YHZ,Halifax
-SAC,Sacramento
-RIC,Richmond
-ABQ,Albuquerque
-SAF,Santa Fe
-ELP,El Paso
-OMA,Omaha
-EWR,Newark
-PCT,Princeton
-FLL,Fort Lauderdale
-RNO,Reno
-BUF,Buffalo
-IND,Indianapolis
-BMG,Bloomington
-JHM,Lahaina
-LIT,Little Rock
-MSN, Madison
-FAT,Fresno
-RDU,Raleigh
-LHR,London
-BFS,Belfast Ireland
-ESH,Brighton UK
-BRS,Bristol UK
-CWL,Cardiff UK
-EDI,Edinburgh Scotland
-GLA,Glasgow Scotland
-LBA,Leeds UK
-LPL,Liverpool UK
-MAN,Manchester UK
-CDG,Paris France
-MRS,Marseille France
-TXL,Berlin Germany
-FRA,Frankfurt Germany
-HAM,Hamburg Germany
-DUB,Dublin Ireland
-MAD,Madrid
-BCN,Barcelona
-AMS,Amsterdam
-VCE,Venice
-ARN,Stockholm
-ZRH,Zurich
-SDU,Rio de Janeiro
-GRU,São Paulo
-OSL,Oslo
-MXP,Milan Italy
-FCO,Rome Italy
-SJU,San Juan
-SIN,Singapore
+AGQ,Malaga Spain
+GOT,Gothenburg Sweden
+MMX,Malmo Sweden
+LYS,Lyon France
+TLS,Toulouse France
+SXB,Strasbourg France
+BOD,Bordeaux France
+NTE,Nantes France
+LIL,Lille France
+RNS,Rennes France
+BSB,Brasilia Brazil
+VLC,Valencia Spain
+CGN,Cologne Germany
+NUE,Nuremberg Germany
+DTM,Dortmund Germany
+STR,Stuttgart Germany
+DUS,Dusseldorf Germany
+BRE,Bremen Germany
+GVA,Geneva Switzerland
+BRN,Bern Switzerland

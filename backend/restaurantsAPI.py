@@ -62,11 +62,6 @@ for city_code in f:
             doc_dict['reviews'] = reviews_dict
             doc_dict['location_id'] = city_code
             
-            restaurants.create_index([
-                ('name', 'text')
-                ],
-                name="search_index"
-            )
             city_dict['businesses'].append(doc_dict)
 
     restaurants.insert_many(city_dict['businesses'][0:3])
