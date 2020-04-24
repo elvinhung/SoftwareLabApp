@@ -63,7 +63,7 @@
 	margin: 0;
 	overflow: hidden;
 	max-height: 40px;
-
+	font-weight: 400;
 	transition: max-height 500ms, padding .5s;
 }
 

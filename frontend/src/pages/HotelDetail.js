@@ -56,8 +56,8 @@ const HotelDetail = (props) => {
     if (Object.keys(hotel).length !== 0) {
       const { address } = hotel;
       setAddress(title(address.lines[0]) + ', ' + title(address.cityName) + ', ' + address.stateCode + ' ' + address.postalCode);
+      getLocation();
     }
-    getLocation();
   }, [hotel]);
 
   useEffect(() => {

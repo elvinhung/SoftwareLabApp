@@ -35,22 +35,23 @@
 	transform: scale(1.1);
 }
 
-.instance:hover h4 {
-	white-space: normal;
-	max-height: 150px;
-}
+/*.instance:hover h4 {*/
+/*	white-space: normal;*/
+/*	max-height: 150px;*/
+/*}*/
 
-.instance:hover .tag_list_container {
-	white-space: normal;
-	max-height: 150px;
-}
+/*.instance:hover .tag_list_container {*/
+/*	white-space: normal;*/
+/*	max-height: 150px;*/
+/*}*/
 
 .instance_name {
 	padding: 10px 10px 0px 10px;
 	margin: 0;
 	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 	max-height: 40px;
-
 	transition: max-height 500ms;
 }
 

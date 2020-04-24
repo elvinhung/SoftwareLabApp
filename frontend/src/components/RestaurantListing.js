@@ -50,7 +50,7 @@ const RestaurantListing = (props) => {
 
   return(
     <div>
-      <a className="listing" href={"/restaurants/" + _id.$oid}>
+      <a className="listing" title={name[0]} href={"/restaurants/" + _id.$oid}>
         <div className="instance">
           <div className="img_container">
             <img className="instance_img" src={images[0][0]} alt={name[0]}/>

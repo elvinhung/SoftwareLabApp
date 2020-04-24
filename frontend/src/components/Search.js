@@ -378,6 +378,7 @@ const Search = (props) => {
     if (e.key === 'Enter') handleSubmit();
   }
   const setTempFilters = (name, value) => {
+    setCleared(false);
     tempFilters[name] = value;
   }
   const handleFilterClear = () => {
@@ -390,6 +391,7 @@ const Search = (props) => {
     handleSubmit();
   }
   const handleFilterClose = () => {
+    tempFilters = { ...filters };
     setShowFilter(false);
     setCleared(false);
   }
@@ -430,7 +432,7 @@ const Search = (props) => {
         cleared={cleared}
         searchType={searchType}
         showFilter={showFilter}
-        filters={filters}
+        filters={tempFilters}
         setFilters={setTempFilters}
         handleFilterClear={handleFilterClear}
         handleFilterClose={handleFilterClose}

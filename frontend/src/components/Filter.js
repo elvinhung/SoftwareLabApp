@@ -44,7 +44,7 @@ const Filter = (props) => {
                       !cleared &&
                       <input type="radio" data-dir={option.dir} defaultChecked name="color" value={option.value} />
                     }
-                    {(filters[value] !== option.value || filters["sort"] !== option.dir) &&
+                    {(filters[value] !== option.value || filters["sort"] !== option.dir || cleared) &&
                       <input type="radio" data-dir={option.dir} name="color" value={option.value} />
                     }
                   </>
@@ -52,7 +52,7 @@ const Filter = (props) => {
                 {value !== "sortBy" &&
                   <>
                     {filters[value] === option.value && !cleared && <input type="radio" defaultChecked name="color" value={option.value} />}
-                    {filters[value] !== option.value && <input type="radio" name="color" value={option.value} />}
+                    {(filters[value] !== option.value || cleared) && <input type="radio" name="color" value={option.value} />}
                   </>
                 }
                 <div className="state p-primary-o">

@@ -43,7 +43,7 @@ const HotelListing = (props) => {
 
   return(
     <div>
-      <a className="listing" href={"/hotels/" + _id.$oid}>
+      <a className="listing" title={name} href={"/hotels/" + _id.$oid}>
         <div className="instance">
           <div className="img_container">
             <img className="instance_img" src={image} alt={name}/>
