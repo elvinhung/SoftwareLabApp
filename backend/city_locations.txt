@@ -98,3 +98,54 @@ MXP,Milan, ITA,ITA
 FCO,Rome, ITA,ITA
 SJU,San Juan, PRI,PRI
 SIN,Singapore, SGP,SGP
+PVD,Providence, RI,US
+HLN,Helena, MT,US
+ILG,Dover, DE,US
+CHS,Charleston, SC,US
+BTV,Burlington, VT,US
+CYS,Cheyenne, WY,US
+MKE,Milwaukee, WI,US
+BDL,Hartford, CT,US
+BHM,Birmingham, AL,US
+FAR,Fargo, ND,US
+CMH,Columbus, OH,US
+APC,Napa, CA,US
+IOW,Iowa City, IA,US
+NCE,Nice, FRA,FRA
+LTT,Saint-Tropez, FRA,FRA
+MPL,Montpellier, FRA,FRA
+MUC,Munich, DEU,DEU
+TRN,Turin, ITA,ITA
+FLR,Florence, ITA,ITA
+NAP,Naples, ITA,ITA
+PMO,Palermo, ITA,ITA
+GOA,Genoa, ITA,ITA
+BLQ,Bologna, ITA,ITA
+BRI,Bari, ITA,ITA
+CTA,Catania, ITA,ITA
+ORK,Cork, IRE,IRE
+SVQ,Seville, ESP,ESP
+ZAZ,Zaragoza, ESP,ESP
+LPA,Las Palmas, ESP,ESP
+BIO,Bilbao, ESP,ESP
+NCL,Newcastle, ENG,ENG
+GOT,Gothenburg, SWE,SWE
+EIN,Eindhoven, NLD,NLD
+LYS,Lyon, FRA,FRA
+TLS,Toulouse, FRA,FRA
+SXB,Strasbourg, FRA,FRA
+BOD,Bordeaux, FRA,FRA
+NTE,Nantes, FRA,FRA
+LIL,Lille, FRA,FRA
+RNS,Rennes, FRA,FRA
+BSB,Brasília, BRA,BRA
+VLC,Valencia, ESP,ESP
+CGN,Cologne, DEU,DEU
+NUE,Nuremberg, DEU,DEU
+DTM,Dortmund, DEU,DEU
+STR,Stuttgart, DEU,DEU
+DUS,Düsseldorf, DEU,DEU
+BRE,Bremen, DEU,DEU
+GVA,Geneva, CHE,CHE
+BRN,Bern, CHE,CHE
+
