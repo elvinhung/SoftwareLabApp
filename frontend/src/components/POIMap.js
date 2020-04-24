@@ -28,14 +28,14 @@ export class POIMap extends Component {
     let bounds = new this.props.google.maps.LatLngBounds();
     let points = [];
     for (let i = 0; i < this.props.poiList.length; i++)
-      points.push(new this.props.google.maps.LatLng(50, 50));
+      points.push(new this.props.google.maps.LatLng(this.props.poiList[i].geometry.location.lat, this.props.poiList[i].geometry.location.lng));
     for (let i = 0; i < points.length; i++)
       bounds.extend(points[i]);
 
     return (
       <div className="map">
         <Map onClick={this.onMapClick} google={this.props.google} initialCenter={{lat: this.props.coords[0], lng: this.props.coords[1]}}
-             ref={map => map && map.fitBounds(bounds)} bounds={bounds} containerStyle={{position: 'relative', width: "525px", height: "400px"}}>
+             bounds={bounds} containerStyle={{position: 'relative', width: "525px", height: "410px"}}>
 
           {this.props.poiList.map((poi, i) => {
             return (
