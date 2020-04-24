@@ -33,7 +33,7 @@ const LocationCard = (props) => {
           <h4>{name + ", " + country}</h4>
         </div>
         <div className="instance_page_info">
-          <p className="instance_location">{"Current Temperature: " + weather[0].current["current temp"]}</p>
+          <p className="instance_location">{"Today's Temperature: " + weather[0].current["current temp"]}</p>
           <br></br>
           <TagList className="tag_list_container" tags={tags}/>
         </div>

@@ -1,0 +1,45 @@
+.forecast-container {
+	float: left;
+	color: black;
+	padding: 10px;
+	font-size: 15px;
+	border: 1px solid #f2f2f2;
+	overflow: hidden;
+	width: 140px;
+}
+
+.forecast-info {
+	padding-left: 10px;
+	font-size: 15px;
+}
+
+.forecast-day {
+	padding: 10px 0px;
+	text-align: center;
+	margin: 0;
+	overflow: hidden;
+}
+
+.forecast-temp {
+	text-align: center;
+}
+
+.tag_list_container {
+	margin: 0px 10px 5px 0px;
+	max-height: 44px;
+}
+
+.forecast-title {
+	text-align: center;
+	padding-top: 10px;
+}
+
+.forecast-card-container {
+	font-size: 20px;
+	box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+	width: 420px;
+	height: 144px;
+	border-radius: 5px;
+	margin: 30px 0px 10px 0px;
+	justify-content: center;
+}

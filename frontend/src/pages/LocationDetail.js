@@ -8,6 +8,7 @@ import HotelListing from "../components/HotelListing";
 import Loader from "../components/Loader";
 import Review from "../components/Review";
 import POIMap from "../components/POIMap";
+import ForecastCard from "../components/ForecastCard";
 
 const imgUrl = "https://maps.googleapis.com/maps/api/place/photo?";
 const api_key = "AIzaSyBJ2lOAHkcMp6O6SpyeRNcQ0jtjLqGpZnE";
@@ -55,10 +56,15 @@ const LocationDetail = (props) => {
             </div>
             <div className="instance_head_info">
               <h1>{location.name}</h1>
-              {<p>Country: {location.weather.country}</p>}
+              <p>Country: {location.weather.country}</p>
               <p>Population: {location.population}</p>
               <p>Coordinates: ({location.latitude}, {location.longitude})</p>
-              {<p>Actual: {location.weather.current["current temp"]}, Feels Like: {location.weather.current["current feel"]}</p>}
+              <div className="forecast-card-container">
+                <h4 className="forecast-title">Forecast</h4>
+                <ForecastCard day={"Today"} temp={location.weather.week_forecast[0]}/>
+                <ForecastCard day={"Tomorrow"} temp={location.weather.week_forecast[1]}/>
+                <ForecastCard day={"2 Days"} temp={location.weather.week_forecast[2]}/>
+              </div>
             </div>
           </div>
           <div className="model-container">
@@ -69,7 +75,6 @@ const LocationDetail = (props) => {
               </div>
               <div className="listing_container poi-right-info">
                 {location["points of interest"][0]["points of interest"].map((poi, i) => {
-                  console.log(poi);
                   return <PointOfInterest key={i} poi={poi}/>
                 })}
               </div>
