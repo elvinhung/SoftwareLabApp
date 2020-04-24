@@ -55,21 +55,20 @@ const LocationDetail = (props) => {
             </div>
             <div className="instance_head_info">
               <h1>{location.name}</h1>
-              {<p>Country: {location.weather.country}</p>}
-              <p>Population: {location.population}</p>
-              <p>Coordinates: ({location.latitude}, {location.longitude})</p>
-              {<p>Actual: {location.weather.current["current temp"]}, Feels Like: {location.weather.current["current feel"]}</p>}
+              {<p><span className="bold">Country:</span> {location.weather.country}</p>}
+              <p><span className="bold">Population:</span> {location.population}</p>
+              <p><span className="bold">Coordinates:</span> ({location.latitude}, {location.longitude})</p>
+              {<p><span className="bold">Weather:</span> {location.weather.current["current temp"]}</p>}
             </div>
           </div>
           <div className="model-container">
             <h3>Points of Interest</h3>
             <div className="poi-info-container">
               <div className="poi-left-info">
-                <POIMap coords={[location.latitude, location.longitude]} poiList={location["points of interest"]}/>
+                <POIMap coords={[location.latitude, location.longitude]} poiList={location["points of interest"][0]["points of interest"]}/>
               </div>
               <div className="listing_container poi-right-info">
-                {location["points of interest"].map((poi, i) => {
-                  console.log(poi);
+                {location['points of interest'][0]['points of interest'].map((poi, i) => {
                   return <PointOfInterest key={i} poi={poi}/>
                 })}
               </div>

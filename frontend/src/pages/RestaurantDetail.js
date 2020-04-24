@@ -52,7 +52,9 @@ const RestaurantDetail = (props) => {
   }, []);
 
   useEffect(() => {
-    getLocation();
+    if (Object.keys(restaurant).length !== 0) {
+      getLocation();
+    }
   },[restaurant]);
 
   const cuisine = restaurant.tags;
@@ -100,7 +102,7 @@ const RestaurantDetail = (props) => {
                 <br />
                 <i className="fa fa-external-link"></i> <a className="weblink" href={restaurant.link}> Website </a>
               </p>
-              <p classname="transactions_offered"> Services Offered: <TagList classname="tag_list_container" tags={services}/></p>
+              <div className="transactions_offered"> Services Offered: <TagList className="tag_list_container" tags={services}/></div>
             </div>
           </div>
           <div className="res_info">
