@@ -6,7 +6,7 @@ import os
 
 
 application = Flask(__name__)
-application.config['MONGO_URI'] = os.environ["CONNECTION_STRING"]
+application.config['MONGO_URI'] = os.environ['CONNECTION_STRING']
 mongo = PyMongo(application)
 
 @application.after_request
@@ -35,14 +35,21 @@ def all_restaurants():
         price = filters.get('price')
         filters['price'] = {'$gte': int(price)}
     
-    sort_dict = {}
+    sort_dict = []
     if sort != None:
         del filters['sort']
         del filters['sortBy']
         sort_dict = [(sortBy, int(sort))]
+    
+    else:
+        sort_dict = [("$natural", 1)] 
+
+    if filters is None:
+        results = list(restaurants.find().sort(sort_dict))
+        return dumps(results)
 
     if args is None:
-        results = list(restaurants.find(filters))
+        results = list(restaurants.find(filters).sort(sort_dict))
         return dumps(results)
     else:
         del filters['q']
@@ -86,15 +93,21 @@ def all_hotels():
         else:
             filters['swimming_pool'] = False
 
-    sort_dict = {}
+    sort_dict = []
     if sort != None:
         del filters['sort']
         del filters['sortBy']
         sort_dict = [(sortBy, int(sort))]
+    
+    else:
+        sort_dict = [("$natural", 1)] 
 
-
-    if args is None:
-        results = list(hotels.find(filters))
+    if filters is None:
+        results = list(hotels.find().sort(sort_dict))
+        return dumps(results)
+    
+    elif args is None:
+        results = list(hotels.find(filters).sort(sort_dict))
         return dumps(results)
     else:
         del filters['q']
@@ -127,16 +140,24 @@ def all_locations():
     args = request.args.get('q')
     sort = request.args.get('sort')
     sortBy = request.args.get('sortBy')
-    sort_dict = {}
+    sort_dict = []
+    results = {}
     
     if sort != None:
         del filters['sort']
         del filters['sortBy']
         sort_dict = [(sortBy, int(sort))]
         print(sort_dict)
+
+    else:
+        sort_dict = [("$natural", 1)] 
+
+    if filters is None:
+        results = list(locations.find().sort(sort_dict))
+        return dumps(results)
     
-    if args is None:
-        results = list(locations.find(request.args))
+    elif args is None:
+        results = list(locations.find(filters).sort(sort_dict))
         return dumps(results)
     
     else:   
@@ -148,7 +169,21 @@ def all_locations():
 @application.route('/locations/<oid>', methods=['GET'])
 def locations_by_id(oid):
     locations = mongo.db.locations
-    result = list(locations.find({"_id": oid}))
+    result = locations.find_one({"location_id": oid})
+
+    hotels = list(mongo.db.hotels.find({"location_id": oid}))
+    restaurants = list(mongo.db.restaurants.find({"location_id": oid}))
+    points_of_interest = list(mongo.db.pointsOfInterest.find({"location_id": oid}))
+    population = mongo.db.populations.find_one({"location_id": oid}).get('Population')
+    weather = mongo.db.weather.find_one({"location_id": oid})
+
+
+    result['hotels'] = hotels
+    result['restaurants'] = restaurants
+    result['points of interest'] = points_of_interest
+    result['population'] = population
+    result['weather'] = weather
+
     return dumps(result)
 
 if __name__ == '__main__':
