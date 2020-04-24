@@ -49,7 +49,6 @@ const Hotel = (props) => {
     <div>
       <Search type="Hotel" filters={filters} paginate={paginate} />
       {hotels.length !== 0 &&
-      hotels.sort(function(a, b){ if (a.name < b.name) return -1; else return 1;}) &&
         <div className="model-container">
           <h1 className="model-header">Hotels</h1>
           <div className="listing_container">

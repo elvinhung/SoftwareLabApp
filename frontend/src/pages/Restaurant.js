@@ -50,7 +50,6 @@ const Restaurant = (props) => {
     <div>
       <Search type="Restaurant" filters={filters} paginate={paginate}/>
       {restaurants.length !== 0 &&
-      restaurants.sort(function(a, b){ if (a.name[0] < b.name[0]) return -1; else return 1;}) &&
         <div className="model-container">
           <h1 className="model-header">Restaurants</h1>
           <div className="listing_container">

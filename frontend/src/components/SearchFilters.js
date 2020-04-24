@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Filter from "../components/Filter";
 import "../styles/Filters.css";
 
@@ -7,8 +7,11 @@ const SearchFilters = (props) => {
     setFilters,
     filters,
     filterOptions,
+    sortOptions,
     cleared,
   } = props;
+
+  useEffect(() => {}, [filters]);
 
   const onChange = (name, value) => {
     setFilters(name, value);
@@ -16,9 +19,9 @@ const SearchFilters = (props) => {
 
   return (
     <div className="filter-container">
-      {filterOptions.map(filterOption => (
+      {filterOptions.map((filterOption, index) => (
         <Filter
-          key={filterOption.value}
+          key={index}
           name={filterOption.name}
           value={filterOption.value}
           filters={filters}
@@ -27,6 +30,14 @@ const SearchFilters = (props) => {
           options={filterOption.options}
         />
       ))}
+      <Filter
+        name="Sort By"
+        value="sortBy"
+        filters={filters}
+        cleared={cleared}
+        onChange={onChange}
+        options={sortOptions}
+      />
     </div>
   );
 }

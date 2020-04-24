@@ -15,53 +15,93 @@ const searchTypes = [
   'Hotel'
 ];
 
-const filterOptions = {
+const sortOptions = {
   location: [
     {
-      name: 'Sort By',
-      value: 'sortBy',
-      options: [
-        {
-          name: "Name (A to Z)",
-          value: "name"
-        },
-        {
-          name: "Name (Z to A)",
-          value: "name"
-        },
-      ],
+      name: 'Name (A to Z)',
+      value: 'name',
+      dir: '1',
+    },
+    {
+      name: 'Name (Z to A)',
+      value: 'name',
+      dir: '-1',
     },
   ],
   restaurant: [
     {
-      name: "Sort By",
-      value: "sortBy",
-      options: [
-        {
-          name: "Name (A to Z)",
-          value: "name",
-        },
-        {
-          name: "Name (Z to A)",
-          value: "name",
-        }
-      ],
+      name: 'Name (A to Z)',
+      value: 'name',
+      dir: '1',
     },
+    {
+      name: 'Name (Z to A)',
+      value: 'name',
+      dir: '-1',
+    },
+    {
+      name: 'Price (High to Low)',
+      value: 'price',
+      dir: '-1',
+    },
+    {
+      name: 'Price (Low to High)',
+      value: 'price',
+      dir: '1',
+    },
+    {
+      name: 'Rating (High to Low)',
+      value: 'stars',
+      dir: '-1',
+    },
+    {
+      name: 'Rating (Low to High)',
+      value: 'stars',
+      dir: '1',
+    },
+  ],
+  hotel: [
+    {
+      name: 'Name (A to Z)',
+      value: 'name',
+      dir: '1',
+    },
+    {
+      name: 'Name (Z to A)',
+      value: 'name',
+      dir: '-1',
+    },
+    {
+      name: 'Rating (High to Low)',
+      value: 'stars',
+      dir: '-1',
+    },
+    {
+      name: 'Rating (Low to High)',
+      value: 'stars',
+      dir: '1',
+    },
+  ]
+}
+
+const filterOptions = {
+  location: [],
+  restaurant: [
     {
       name: "Price",
       value: "price",
       options: [
         {
-          name: "$",
-          value: 1
+          name: "$+",
+          value: "1",
         },
         {
-          name: "$$",
-          value: 2
+          name: "$$+",
+          value: "2",
         },
         {
-          name: "$$$",
-          value: 3
+          name: "$$$+",
+          value: "3",
         }
       ]
     },
@@ -71,23 +111,23 @@ const filterOptions = {
       options: [
         {
           name: "5 stars & up",
-          value: 5,
+          value: "5",
         },
         {
           name: "4 stars & up",
-          value: 4,
+          value: "4",
         },
         {
           name: "3 stars & up",
-          value: 3,
+          value: "3",
         },
         {
           name: "2 stars & up",
-          value: 2,
+          value: "2",
         },
         {
           name: "1 star & up",
-          value: 1,
+          value: "1",
         }
       ],
     },
@@ -99,23 +139,23 @@ const filterOptions = {
       options: [
         {
           name: "5 stars & up",
-          value: 5,
+          value: "5",
         },
         {
           name: "4 stars & up",
-          value: 4,
+          value: "4",
         },
         {
           name: "3 stars & up",
-          value: 3,
+          value: "3",
         },
         {
           name: "2 stars & up",
-          value: 2,
+          value: "2",
         },
         {
           name: "1 star & up",
-          value: 1,
+          value: "1",
         }
       ],
     },
@@ -145,7 +185,7 @@ const SearchFilterModal = (props) => {
   } = props;
 
   const parseLocationData = (locations) => {
-    locations.sort(function(a, b){ if (a.name[0] < b.name[0]) return -1; else return 1;})
+    if (locations.length === 0) return;
     let cityFilter = {
       name: "City",
       value: "location_id",
@@ -155,9 +195,10 @@ const SearchFilterModal = (props) => {
       name: "Country",
       value: "country",
       options: [],
-    };
-    let countryOptions = [];
+    }
     let cityOptions = [];
+    let countryOptions = [];
+    let countryOptionsSet = {};
     locations.forEach(location => {
       const city = {
         name: location.name,
@@ -167,14 +208,26 @@ const SearchFilterModal = (props) => {
         name: location.country,
         value: location.country,
       }
-      countryOptions.push(country);
+      countryOptionsSet[location.country] = country;
       cityOptions.push(city);
     });
-    cityFilter.options = cityOptions;
+    Object.keys(countryOptionsSet).forEach((countryOption) => {
+      countryOptions.push(countryOptionsSet[countryOption]);
+    });
+    cityOptions.sort(function(a, b){ if (a.name < b.name) return -1; else return 1;})
+    countryOptions.sort(function(a, b){ if (a.name < b.name) return -1; else return 1;});
     countryFilter.options = countryOptions;
+    cityFilter.options = cityOptions;
     filterOptions.location.push(countryFilter);
     filterOptions.restaurant.push(cityFilter);
     filterOptions.hotel.push(cityFilter);
+  }
+
+  const hasLocationFilters = () => {
+    filterOptions.location.forEach(locationFilter => {
+      if (locationFilter.name === "Country") return true;
+    });
+    return false;
   }
 
   const getLocationFilters = () => {
@@ -190,17 +243,35 @@ const SearchFilterModal = (props) => {
   }
 
   useEffect(() => {
-    getLocationFilters();
+    if (!hasLocationFilters()) getLocationFilters();
   }, []);
 
   const Filters = () => {
     switch (searchType) {
       case 'Location':
-        return <SearchFilters cleared={cleared} filterOptions={filterOptions.location} filters={filters} setFilters={setFilters}/>
+        return <SearchFilters
+          cleared={cleared}
+          sortOptions={sortOptions.location}
+          filterOptions={filterOptions.location}
+          filters={filters}
+          setFilters={setFilters}
+        />
       case 'Restaurant':
-        return <SearchFilters cleared={cleared} filterOptions={filterOptions.restaurant} filters={filters} setFilters={setFilters}/>
+        return <SearchFilters
+          cleared={cleared}
+          sortOptions={sortOptions.restaurant}
+          filterOptions={filterOptions.restaurant}
+          filters={filters}
+          setFilters={setFilters}
+        />
       case 'Hotel':
-        return <SearchFilters cleared={cleared} filterOptions={filterOptions.hotel} filters={filters} setFilters={setFilters}/>
+        return <SearchFilters
+          cleared={cleared}
+          sortOptions={sortOptions.hotel}
+          filterOptions={filterOptions.hotel}
+          filters={filters}
+          setFilters={setFilters}
+        />
       default:
         return <p>No additional filters</p>
     }

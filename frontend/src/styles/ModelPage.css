@@ -15,6 +15,7 @@
 .model-container {
     margin: 0 auto;
     width: 1250px;
+    padding-bottom: 50px;
 }
 
 .listing_padding {
@@ -79,5 +80,4 @@
 
 .see_more:hover {
     color: black;
-    text-decoration: none;
 }

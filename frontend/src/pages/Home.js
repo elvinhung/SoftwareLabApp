@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import '../styles/Home.css';
 import 'font-awesome/css/font-awesome.min.css';
 import denver from "../assets/denver.jpg";
@@ -34,7 +35,7 @@ const HomePageCarousel = (props) => {
       >
         <MDBCarouselInner className="fill">
           {props.images.map((image, index) => (
-            <MDBCarouselItem itemId={index + 1} className="fill">
+            <MDBCarouselItem itemId={index + 1} key={index + 1} className="fill">
               <MDBView className="fill">
                 <a href={"/locations/" + image.id}>
                   <img
@@ -74,4 +75,4 @@ const Home = () => {
   );
 }
 
-export default Home;
+export default withRouter(Home);

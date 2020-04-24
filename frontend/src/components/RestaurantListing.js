@@ -10,7 +10,7 @@ const RestaurantListing = (props) => {
       name,
       images,
       stars,
-      priceStr,
+      price,
       address,
       _id,
     }
@@ -19,7 +19,7 @@ const RestaurantListing = (props) => {
   let tags = [];
 
   let priceDollars = "";
-  for (let i = 0; i < priceStr.length; i++) {
+  for (let i = 0; i < price; i++) {
     priceDollars += "$";
   }
   tags.push(priceDollars);

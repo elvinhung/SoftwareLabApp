@@ -32,7 +32,7 @@ const HotelListing = (props) => {
             <h4 className="instance_name">{name}</h4>
           </div>
           <div className="instance_page_info">
-            <p className="instance_location">{title(address.cityName) + ', ' + address.stateCode}</p>
+            <p className="instance_location">{title(address[0] + ', ' + address[1])}</p>
             <Ratings rating={stars}/>
             <TagList className="tag_list_container" tags={tags}/>
           </div>

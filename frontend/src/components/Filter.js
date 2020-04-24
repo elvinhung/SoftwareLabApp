@@ -14,7 +14,12 @@ const Filter = (props) => {
   } = props;
 
   const handleChange = (event) => {
-    onChange(value, event.target.value);
+    if (Object.keys(event.target.dataset).length !== 0) {
+      onChange("sort", event.target.dataset.dir);
+      onChange("sortBy", event.target.value);
+    } else {
+      onChange(value, event.target.value);
+    }
   }
 
   const handleFilterQueryChange = event => {
@@ -29,11 +34,27 @@ const Filter = (props) => {
           <input type="text" id="filter-input" value={filterQuery} placeholder="Filter" onChange={handleFilterQueryChange} />
         }
         <ul className="filter-list">
-          {options.filter((option) => option.name.toLowerCase().startsWith(filterQuery.toLowerCase())).map(option => (
-            <li key={option.value}>
+          {options.filter((option) => option.name.toLowerCase().startsWith(filterQuery.toLowerCase())).map((option, index) => (
+            <li key={index}>
               <div className="pretty p-default p-curve">
-                {filters[value] === option.value && !cleared && <input type="radio" defaultChecked name="color" value={option.value} />}
-                {filters[value] !== option.value && <input type="radio" name="color" value={option.value} />}
+                {value === "sortBy" &&
+                  <>
+                    {filters[value] === option.value &&
+                      filters["sort"] === option.dir &&
+                      !cleared &&
+                      <input type="radio" data-dir={option.dir} defaultChecked name="color" value={option.value} />
+                    }
+                    {(filters[value] !== option.value || filters["sort"] !== option.dir) &&
+                      <input type="radio" data-dir={option.dir} name="color" value={option.value} />
+                    }
+                  </>
+                }
+                {value !== "sortBy" &&
+                  <>
+                    {filters[value] === option.value && !cleared && <input type="radio" defaultChecked name="color" value={option.value} />}
+                    {filters[value] !== option.value && <input type="radio" name="color" value={option.value} />}
+                  </>
+                }
                 <div className="state p-primary-o">
                   <label>{option.name}</label>
                 </div>
