@@ -107,7 +107,7 @@ const filterOptions = {
     },
     {
       name: "Rating",
-      value: "rating",
+      value: "stars",
       options: [
         {
           name: "5 stars & up",
