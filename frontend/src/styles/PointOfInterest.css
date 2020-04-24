@@ -10,7 +10,6 @@
 }
 
 .poi-container:hover {
-	box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
 	text-decoration: none;
 	max-height: 150px;
 }
