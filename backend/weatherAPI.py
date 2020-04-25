@@ -6,12 +6,12 @@ import os
 from pymongo.errors import BulkWriteError
 
 degree_sign = u"\N{DEGREE SIGN}"
-API_KEY = 'put api key here'
+API_KEY = '076029bc36157f1ec3aa33da4fa87612'
 base_url = "https://api.openweathermap.org/data/2.5/onecall?"
 os.chdir(r'/Users/Nithanth/SoftwareLabApp/backend')
 
 mongo = MongoClient()
-mongo_client = MongoClient('connection string')
+mongo_client = MongoClient('mongodb+srv://dbUser:adDJJ0ZG6O7VDdMz@softwarelabapp-hbwi6.mongodb.net/test?retryWrites=true&w=majority')
 db = mongo_client.models
 weather = db.weather
 locations = db.locations
