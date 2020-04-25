@@ -7,6 +7,7 @@ from pymongo.errors import BulkWriteError
 
 url = "https://maps.googleapis.com/maps/api/place/textsearch/json?"
 API_KEY = 'api key'
+os.chdir(r'/Users/Nithanth/SoftwareLabApp/backend')
 
 city_list = open("city_locations.txt")
 mongo = MongoClient()
