@@ -14,7 +14,6 @@ import { title } from '../Utils';
 const RestaurantDetail = (props) => {
   const id = props.match.params.id;
   const [restaurant, setRestaurant] = useState({});
-  const [location, setLocation] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
   function getRestaurant() {
@@ -33,29 +32,9 @@ const RestaurantDetail = (props) => {
       });
   }
 
-  function getLocation() {
-    const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/locations/' + restaurant.location_id;
-    fetch(apiUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        setLocation((prevData) => {
-          return data;
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
   useEffect(() => {
     getRestaurant();
   }, []);
-
-  useEffect(() => {
-    if (Object.keys(restaurant).length !== 0) {
-      getLocation();
-    }
-  },[restaurant]);
 
   const cuisine = restaurant.tags;
   let tags = [];
@@ -89,7 +68,7 @@ const RestaurantDetail = (props) => {
             <div className="instance_head_info">
               <h1>{restaurant.name}</h1>
               <div className="location">
-                <a className="location_link" href={"/locations/" + restaurant.location_id.toLowerCase()}>{location.name + ", " + location.country}</a>
+                <a className="location_link" href={"/locations/" + restaurant.location_id.toLowerCase()}>{restaurant.cityName + ", " + restaurant.countryCode}</a>
               </div>
               <Ratings rating={restaurant.stars[0]}/>
               <TagList className="tag_list_container" tags={tags}/>

@@ -21,6 +21,31 @@ def after_request(response):
 def index():
     return "hello world"
 
+@application.route('/search', methods=['GET'])
+def search():
+    restaurants = mongo.db.restaurants
+    hotels = mongo.db.hotels
+    locations = mongo.db.locations
+
+    args = request.args.get('q')
+
+    if args is None:
+        return 
+
+    results = {}
+
+    hotels_results = list(hotels.find({"$text" : {"$search": args}}))
+    restaurants_results = list(restaurants.find({"$text" : {"$search": args}}))
+    locations_results = list(locations.find({"$text" : {"$search": args}}))
+
+    results['hotels'] = hotels_results
+    results['restaurants'] = restaurants_results
+    results['locations'] = locations_results
+
+    return dumps(results)
+    
+    
+
 @application.route('/restaurants', methods=['GET'])
 def all_restaurants():
     restaurants = mongo.db.restaurants
@@ -169,18 +194,16 @@ def all_locations():
 @application.route('/locations/<oid>', methods=['GET'])
 def locations_by_id(oid):
     locations = mongo.db.locations
-    result = locations.find_one({"location_id": oid})
+    result = locations.find_one_or_404({"location_id": oid})
 
     hotels = list(mongo.db.hotels.find({"location_id": oid}))
     restaurants = list(mongo.db.restaurants.find({"location_id": oid}))
-    points_of_interest = list(mongo.db.pointsOfInterest.find({"location_id": oid}))
     population = mongo.db.populations.find_one({"location_id": oid}).get('Population')
     weather = mongo.db.weather.find_one({"location_id": oid})
 
 
     result['hotels'] = hotels
     result['restaurants'] = restaurants
-    result['points of interest'] = points_of_interest
     result['population'] = population
     result['weather'] = weather
 

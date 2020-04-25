@@ -39,11 +39,11 @@ for element in city_list:
 
     print(city_name + " access successful")
     db_array.append(temp)
-pointsOfInterest.create_index([
-      ('name', 'text')
-  ],
-  name="search_index"
-)
+# pointsOfInterest.create_index([
+#       ('name', 'text')
+#   ],
+#   name="search_index"
+# )
 try:
     x = pointsOfInterest.insert_many(db_array)
 except BulkWriteError as bwe:

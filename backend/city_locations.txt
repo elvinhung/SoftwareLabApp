@@ -138,7 +138,7 @@ BOD,Bordeaux, FRA,FRA
 NTE,Nantes, FRA,FRA
 LIL,Lille, FRA,FRA
 RNS,Rennes, FRA,FRA
-BSB,Brasília, BRA,BRA
+BSB,Brasilia, BRA,BRA
 VLC,Valencia, ESP,ESP
 CGN,Cologne, DEU,DEU
 NUE,Nuremberg, DEU,DEU
@@ -148,4 +148,3 @@ DUS,Düsseldorf, DEU,DEU
 BRE,Bremen, DEU,DEU
 GVA,Geneva, CHE,CHE
 BRN,Bern, CHE,CHE
-

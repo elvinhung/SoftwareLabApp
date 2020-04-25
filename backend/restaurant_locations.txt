@@ -1,6 +1,136 @@
-AGQ,Malaga Spain
+HOU,Houston
+MIA,Miami
+STL,St. Louis
+SFO,San Francisco
+HNL,Honolulu
+PDX,Portland
+DEN,Denver
+MSP,Minneapolis
+SAN,San Diego
+SAT,San Antonio
+SEA,Seattle
+LAS,Las Vegas
+PHL,Philadelphia
+DFW,Dallas
+LAX,Los Angeles
+ATL,Atlanta
+CHI,Chicago
+NYC,New York City
+SAV,Savannah
+SDF,Louisville
+ORL,Orlando
+AUS,Austin
+BWI, Baltimore
+COS,Colorado Springs
+BOI, Boise
+DTT,Detroit
+BOS,Boston
+HVN,New Haven
+MSY,New Orleans
+PHX,Phoenix
+SLC,Salt Lake City
+WAS,Washington DC
+OAK,Oakland
+TPA,Tampa Bay
+PIT,Pittsburgh
+MKC,Kansas City MO
+MKE,Milwaukee
+CLE,Cleveland
+LUK,Cincinnati
+BNA,Nashville
+MEM,Memphis
+ANC,Anchorage
+OKC,Oklahoma City
+SJC,San Jose
+JAX,Jacksonville
+CLT,Charlotte
+YTO,Toronto
+YVR,Vancouver
+YMQ,Montreal
+YOW,Ottawa
+YYC,Calgary
+YEG,Edmonton
+YHZ,Halifax
+SAC,Sacramento
+RIC,Richmond
+ABQ,Albuquerque
+SAF,Santa Fe
+ELP,El Paso
+OMA,Omaha
+EWR,Newark
+PCT,Princeton
+FLL,Fort Lauderdale
+RNO,Reno
+BUF,Buffalo
+IND,Indianapolis
+BMG,Bloomington
+JHM,Lahaina
+LIT,Little Rock
+MSN, Madison
+FAT,Fresno
+RDU,Raleigh
+LHR,London
+BFS,Belfast Ireland
+ESH,Brighton UK
+BRS,Bristol UK
+CWL,Cardiff UK
+EDI,Edinburgh Scotland
+GLA,Glasgow Scotland
+LBA,Leeds UK
+LPL,Liverpool UK
+MAN,Manchester UK
+CDG,Paris France
+MRS,Marseille France
+TXL,Berlin Germany
+FRA,Frankfurt Germany
+HAM,Hamburg Germany
+DUB,Dublin Ireland
+MAD,Madrid
+BCN,Barcelona
+AMS,Amsterdam Netherlands
+VCE,Venice Italy
+ARN,Stockholm Sweden
+ZRH,Zurich Switzerland
+SDU,Rio de Janeiro
+GRU,São Paulo Brazil
+OSL,Oslo Norway
+MXP,Milan Italy
+FCO,Rome Italy
+SJU,San Juan
+SIN,Singapore
+PVD,Providence RI
+HLN,Helena Montana
+ILG,Dover Delaware
+CHS,Charleston SC
+BTV,Burlington VT
+CYS,Cheyenne WY
+TUS,Tucson AZ
+BDL,Hartford CT
+BHM,Birmingham AL
+FAR,Fargo North Dakota
+CMH,Columbus Ohio
+APC,Napa California
+IOW,Iowa City Iowa
+NCE,Nice France
+LTT,Saint-Tropez France
+MPL,Montpellier France
+MUC,Munich Germany
+TRN,Turin Italy
+FLR,Florence Italy
+NAP,Naples Italy
+PMO,Palermo Italy
+GOA,Genoa Italy
+BLQ,Bologna Italy
+BRI,Bari Italy
+CTA,Catania Italy
+ORK,Cork Ireland
+SVQ,Seville Spain
+ZAZ,Zaragoza Spain
+LPA,Las Palmas Spain
+BIO,Bilbao Spain
+NCL,Newcastle England
 GOT,Gothenburg Sweden
-MMX,Malmo Sweden
+EIN,Eindhoven Netherlands
 LYS,Lyon France
 TLS,Toulouse France
 SXB,Strasbourg France
