@@ -84,7 +84,7 @@ const HotelDetail = (props) => {
             <div className="instance_head_info">
               <h1>{hotel.name}</h1>
               <div className="location">
-                <a className="location_link" href={"/locations/" + hotel.location_id.toLowerCase()}>{location.name + ", " + location.country}</a>
+                <a className="location_link" href={"/locations/" + hotel.location_id.toLowerCase()}>{hotel.cityName + ", " + hotel.countryCode}</a>
               </div>
               <Ratings rating={hotel.stars}/>
               <TagList className="tag_list_container" tags={tags}/>
