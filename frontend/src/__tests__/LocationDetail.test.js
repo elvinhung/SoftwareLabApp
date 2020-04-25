@@ -1,234 +1,11 @@
 import React from 'react';
+import {Router, Route, MemoryRouter} from 'react-router-dom';
+import { createMemoryHistory } from 'history';
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from 'react-dom/test-utils';
 import LocationDetail from "../pages/LocationDetail";
 
-const location = [
-  {
-    "name": "Houston",
-    "restaurants": [
-      {
-        "review_count": 310,
-        "name": [
-          "Mico’s Hot Chicken"
-        ],
-        "price": [
-          "$"
-        ],
-        "reviews": {
-          "reviews": [
-            {
-              "text": "This place is LEGIT y'all!! \nNow that's a chicken sandwich ... \nColeslaw on point ... \nChicken on point ...\nEverythang y'all !!!",
-              "user_name": "Vaping S.",
-              "stars": 5
-            },
-            {
-              "text": "Very good sandwich! \n\nI was about to give four stars then I gave five here's why. \n\nFood: The sandwich is really good. Very moist and full of flavor. The...",
-              "user_name": "Rex C.",
-              "stars": 5
-            },
-            {
-              "text": "Finally got to try out Mico's at their new brick and mortar! They're still redoing the building, so they are operating out of the food truck, but they have...",
-              "user_name": "Jeremy K.",
-              "stars": 4
-            }
-          ]
-        },
-        "contact": "(713) 548-6081",
-        "stars": [
-          4
-        ],
-        "address": [
-          [
-            "1603 N Durham Dr",
-            "Houston, TX 77008"
-          ]
-        ],
-        "_id": {
-          "$oid": "5e7fe60be36744f8cc254633"
-        },
-        "location_id": "HOU",
-        "image": [
-          "https://s3-media3.fl.yelpcdn.com/bphoto/y0D6eic32K0qGhJCWnXcwA/o.jpg"
-        ]
-      },
-      {
-        "review_count": 29,
-        "name": [
-          "Chick'nCone"
-        ],
-        "price": [
-          "$$"
-        ],
-        "reviews": {
-          "reviews": [
-            {
-              "text": "Great food with a twist! Chick'N Cone gets the chicken right by offering a bunch of sauce combos. They make chicken and waffles less messy by putting the...",
-              "user_name": "amir b.",
-              "stars": 5
-            },
-            {
-              "text": "As a chicken-n-waffles whiz, I search far & wide for anything that combines the dynamic duo. I came across Chick'nCone the other day while driving by this...",
-              "user_name": "Gustavo R.",
-              "stars": 4
-            },
-            {
-              "text": "This place is very family friendly, clean, welcoming. It is a 10 out of 10 for me. The quality of the food and service is un-real. The go out of their way...",
-              "user_name": "Kimmberly L.",
-              "stars": 5
-            }
-          ]
-        },
-        "contact": "(713) 965-7585",
-        "stars": [
-          4.5
-        ],
-        "address": [
-          [
-            "1919 N Shepherd Dr",
-            "Houston, TX 77008"
-          ]
-        ],
-        "_id": {
-          "$oid": "5e7fe60be36744f8cc254634"
-        },
-        "location_id": "HOU",
-        "image": [
-          "https://s3-media1.fl.yelpcdn.com/bphoto/4WznTX2LkiDtrVQ-ALWnfQ/o.jpg"
-        ]
-      },
-      {
-        "review_count": 777,
-        "name": [
-          "Yoyo's Hot Dog"
-        ],
-        "price": [
-          "$"
-        ],
-        "reviews": {
-          "reviews": [
-            {
-              "text": "Everything about Yoyo's just screams 5 stars! I came here right about 8pm on Friday and there was already a line forming, wait was about 30 minutes. There's...",
-              "user_name": "Anh N.",
-              "stars": 5
-            },
-            {
-              "text": "I came to Yoyo's to end a fun night of bar hopping around Houston, and it was exactly what I hoped for. \nYoyos is one of those places where you swear it's...",
-              "user_name": "Christian A.",
-              "stars": 3
-            },
-            {
-              "text": "Obviously I am in the minority about Yo Yo's. So, because of that, I suggest you check it out and formulate your own opinion.\n\nMy husband and I were in the...",
-              "user_name": "Elizabeth M.",
-              "stars": 3
-            }
-          ]
-        },
-        "contact": "(713) 839-6207",
-        "stars": [
-          4.5
-        ],
-        "address": [
-          [
-            "5555 Morningside Dr",
-            "Houston, TX 77005"
-          ]
-        ],
-        "_id": {
-          "$oid": "5e7fe60be36744f8cc254635"
-        },
-        "location_id": "HOU",
-        "image": [
-          "https://s3-media3.fl.yelpcdn.com/bphoto/TfX64197gXczdC48ccTj0A/o.jpg"
-        ]
-      }
-    ],
-    "longitude": -95.3698028,
-    "photos": [
-      {
-        "photo_reference": "CmRaAAAAQBA6jtbKJHXVT5zW87ABkMYeCFMjvPLYSvcMp3z5AH4iL_t-hICofNdOx0T1ZZot0kbJkc79501TyPD8pQMqkYiAEA2P2_VWlBOusb-lXPM7wSTeGR6E83OaBqRr9ybeEhAOVDrlLNA8rrjvI0QYxkJPGhQdFXK5mzVQwuWbpd1zHKXfixzRUg",
-        "width": 2048,
-        "html_attributions": [
-          "Victor Martin"
-        ],
-        "height": 1365
-      }
-    ],
-    "latitude": 29.7604267,
-    "_id": "HOU",
-    "hotels": [
-      {
-        "name": "The Lancaster Hotel",
-        "image": "http://multimediarepository.amadeus.com/cmr/retrieve/hotel/7AF8681D5B344933B7800FE8F9A31CB8",
-        "contact": {
-          "phone": "+1 713 2289500",
-          "fax": "+1 713 2234528"
-        },
-        "stars": "4",
-        "address": {
-          "postalCode": "77002",
-          "cityName": "HOUSTON",
-          "lines": [
-            "701 TEXAS AVENUE"
-          ],
-          "stateCode": "TX",
-          "countryCode": "US"
-        },
-        "_id": {
-          "$oid": "5e7e8ea593a16d5d9278b734"
-        },
-        "location_id": "HOU",
-        "description": "The Lancaster Hotel is a historic luxury boutique hotel in the heart of Houstons vibrant downtown Theater District. The landmark hotel enjoys a legacy of nearly 100 years of providing exceptional service and hospitality. Newly renovated in 2018 and taking inspiration from the classic Regency style the redesigned hotel is accented with clean elegant lines and an intimate yet open floor plan. Guests of The Lancaster Hotel enjoy a daily inclusive gourmet breakfast buffet located on the Mezzanine. Our European-style breakfast spread includes smoked salmon fruit parfaits fresh baked goods as well as many breakfast classics like eggs bacon sausage oatmeal and more. Each of our 93 guestrooms and suites offer complimentary high-speed WiFi Frette linens Waterworks bath fixtures Bulgari bath amenities luxurious bathrobes and slippers Carrera marble in-room refrigerator and safe. Guests will also enjoy personalized stellar service with additional amenities that include car service within the downtown area in-room complimentary snacks and beverages Nespresso in-room coffee and turn down service. The Lancaster Collection of over 200 pieces of contemporary works of art by artists with strong ties to Texas is displayed throughout the guestrooms and public spaces. Our on-site fine dining restaurant Cultivated FB provides sophisticated contemporary American dishes and is the ideal respite for a meal with friends a power breakfast pre-theater dinner or post-performance nosh. Our recently added sidewalk dining area allows you to enjoy al fresco dining while immersed in the bustle of one of the nations largest theater districts. In addition to our on-site Cardio Fitness Room our guests enjoy complimentary access to nearby full-service fitness center."
-      },
-      {
-        "name": "JW Marriott Houston Downtown",
-        "image": "https://d2573qu6qrjt8c.cloudfront.net/13A1A70B89ED4CCD84CF002AC532DEC5/B.JPEG",
-        "contact": {
-          "phone": "+1 713 237-1111",
-          "fax": "+1 713 237-8282",
-          "email": "jelle.vandenbroucke@marriott.com"
-        },
-        "stars": "5",
-        "address": {
-          "postalCode": "77002",
-          "cityName": "HOUSTON",
-          "lines": [
-            "806 MAIN STREET"
-          ],
-          "stateCode": "TX",
-          "countryCode": "US"
-        },
-        "_id": {
-          "$oid": "5e7e8ea593a16d5d9278b735"
-        },
-        "location_id": "HOU"
-      },
-      {
-        "name": "The Whitehall Downtown Houston",
-        "image": "http://multimediarepository.amadeus.com/cmr/retrieve/hotel/377E100D7833471BAD7C55EAA4162264",
-        "contact": {
-          "phone": "+1 713 7398800",
-          "fax": "+1 713 7397307"
-        },
-        "stars": "5",
-        "address": {
-          "postalCode": "77002",
-          "cityName": "HOUSTON",
-          "lines": [
-            "1700 SMITH STREET"
-          ],
-          "stateCode": "TX",
-          "countryCode": "US"
-        },
-        "_id": {
-          "$oid": "5e7e8ea593a16d5d9278b736"
-        },
-        "location_id": "HOU",
-        "description": "Set in the heart of the Central Business District- the Whitehall Houston is a contemporary boutique-style property that offers an unparalleled location near leading leisure and business destinations such as Houstons Toyota Center- Rice University- and Minute Maid Park. Less than 1 mile from the George R. Brown Convention Center- our Downtown Houston hotel is within walking distance to fine dining and shopping- plus just 4 blocks from the Metro LightRail. Take advantage of complimentary shuttle service to all Downtown Houston destinations including the Convention Center -Toyota Center- Minute Maid Park- Houston Theatre District- as well as the Metro Light Rail Main Station."
-      }
-    ]
-  }
-];
+const location = {"population": 8107916.0, "name": "New York City", "location_id": "NYC", "restaurants": [{"reviews": {"reviews": [{"text": "I have tried numerous restaurants in the Chinatown area, but this is simply the best. The flavor, and the price is why I am giving this place the best score...", "user_name": "Peter W.", "stars": 5}, {"text": "Stopped by for a lunch here. I tried the large bbq pork and it was $7 CASH only. The restaurant is tiny and doesn't have any space to sit, so we sat in the...", "user_name": "Edward W.", "stars": 4}, {"text": "Wah Fung holds a special place in my heart. Not because it's some of the best Chinese BBQ around (it is). And not because it's incredibly cheap for the...", "user_name": "Kenny C.", "stars": 5}]}, "review_count": 1412, "name": ["Wah Fung No 1"], "countryCode": "US", "tags": [[{"alias": "chinese", "title": "Chinese"}, {"alias": "hotdogs", "title": "Fast Food"}]], "price": 1, "transactions": [], "cityName": "New York City", "priceStr": "$", "contact": "(212) 925-5175", "link": "https://www.yelp.com/biz/wah-fung-no-1-new-york-2?adjust_creative=g4UIAL1h4DjzlsIhwC1opg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=g4UIAL1h4DjzlsIhwC1opg", "stars": [4.5], "address": [["79 Chrystie St", "New York, NY 10002"]], "images": [["https://s3-media3.fl.yelpcdn.com/bphoto/oMriteKj4yYHMmb8myOgJA/o.jpg", "https://s3-media3.fl.yelpcdn.com/bphoto/U1FKIedl1Fyj7-qKk4Dl9Q/o.jpg", "https://s3-media2.fl.yelpcdn.com/bphoto/MyCKvYBH-fVUeXVyx0hgvA/o.jpg"]], "_id": {"$oid": "5ea39d70a6b5b7c919acd4f5"}, "location_id": "NYC"}, {"reviews": {"reviews": [{"text": "For sure one of the best food trucks in the entire city. This is a Mexican truck on Roosevelt and 78th in Queens. I'm here in this area on rare occasion,...", "user_name": "Brett J.", "stars": 5}, {"text": "Stopped by on a Saturday night & there was a huge line (which was a good sign). Even with a line we got our food pretty quickly. \n\nMy husband & I ordered...", "user_name": "Amanda M.", "stars": 5}, {"text": "One of the better taco spots in queens. Not too many selections, but that's also good that they are not just trying to fill a menu.\n\nWe ordered all 4 items....", "user_name": "Ray W.", "stars": 4}]}, "review_count": 64, "name": ["Birria-Landia"], "countryCode": "US", "tags": [[{"alias": "foodtrucks", "title": "Food Trucks"}, {"alias": "tacos", "title": "Tacos"}]], "price": 1, "transactions": [], "cityName": "New York City", "priceStr": "$", "contact": "(347) 283-2162", "link": "https://www.yelp.com/biz/birria-landia-jackson-heights?adjust_creative=g4UIAL1h4DjzlsIhwC1opg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=g4UIAL1h4DjzlsIhwC1opg", "stars": [5.0], "address": [["Roosevelt Ave & 78th St", "Jackson Heights, NY 11372"]], "images": [["https://s3-media2.fl.yelpcdn.com/bphoto/43QCQA7cguF4clJ-cxk3zA/o.jpg", "https://s3-media4.fl.yelpcdn.com/bphoto/HJTi1pZPs4HFRrDs_d0EJg/o.jpg", "https://s3-media2.fl.yelpcdn.com/bphoto/QTNvKvx-LSP4fH8EV1b2qA/o.jpg"]], "_id": {"$oid": "5ea39d70a6b5b7c919acd4f6"}, "location_id": "NYC"}, {"reviews": {"reviews": [{"text": "It has been months since I have had Jacob's Pickles. As a Catholic, I gave up meat for Lent, so I looked forward to ordering my favorite chicken and...", "user_name": "Lucy C.", "stars": 5}, {"text": "I've only had 2 things here, but I've had them a lot and they're both the best in the city. Or anywhere. The Buffalo Chicken Mac 'n Cheese is incredible....", "user_name": "Howie S.", "stars": 5}, {"text": "My favorite restaurant in all of NYC. Yes it is absolutely worth the wait for a table. Everything on the menu is out of this world. I highly recommend the...", "user_name": "Matt K.", "stars": 5}]}, "review_count": 4132, "name": ["Jacob's Pickles"], "countryCode": "US", "tags": [[{"alias": "comfortfood", "title": "Comfort Food"}, {"alias": "southern", "title": "Southern"}, {"alias": "tradamerican", "title": "American (Traditional)"}]], "price": 2, "transactions": ["delivery", "pickup"], "cityName": "New York City", "priceStr": "$$", "contact": "(212) 470-5566", "link": "https://www.yelp.com/biz/jacobs-pickles-new-york?adjust_creative=g4UIAL1h4DjzlsIhwC1opg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=g4UIAL1h4DjzlsIhwC1opg", "stars": [4.0], "address": [["509 Amsterdam Ave", "New York, NY 10024"]], "images": [["https://s3-media2.fl.yelpcdn.com/bphoto/167Rl2s1oMge_2ZSDD1z0A/o.jpg", "https://s3-media3.fl.yelpcdn.com/bphoto/-mVM2wcSYh9K8kYEqj2VVA/o.jpg", "https://s3-media3.fl.yelpcdn.com/bphoto/9AeGlLujgX-NBQIrRYOP3A/o.jpg"]], "_id": {"$oid": "5ea39d70a6b5b7c919acd4f7"}, "location_id": "NYC"}], "longitude": -74.0059728, "photos": [{"photo_reference": "CmRaAAAA2ThWtuAGWS90lrnpev_FBcupzWVfqKqAnCTMsDRqYlnjMp5uEnLSeOsQuMgO8RGbqelHy0yfp_O8GCpnfq7sfxH0l7RArJm8cfV4ozzWhtFGN9Ahx-yi3fal8Q9dW4-AEhDnwy3nXPNBWyIreTZzTU8kGhSHlPu9-KQOJckwzAoB5DULUbTb9A", "width": 3456, "html_attributions": ["A Google User"], "height": 4608}], "weather": {"week_forecast": ["45.82 \u00b0F", "55.27 \u00b0F", "50.07 \u00b0F", "46.11 \u00b0F", "51.53 \u00b0F", "56.08 \u00b0F", "53.45 \u00b0F", "59.83 \u00b0F"], "city": "New York City", "country": "US", "current": {"current wind speed": "2.1 m/s", "current description": "clear sky", "current feel": "41.39 \u00b0F", "current humidity": "87%", "current temp": "45.82 \u00b0F"}, "_id": {"$oid": "5ea3a6a47b954f586d666fff"}, "location_id": "NYC"}, "country": "US", "latitude": 40.7127753, "_id": {"$oid": "5ea3a793e72bb54cbc69e588"}, "points of interest": [{"rating": 4.7, "user_ratings_total": 74550, "permanently_closed": true, "name": "Empire State Building", "reference": "ChIJaXQRs6lZwokRY6EFpJnhNNE", "geometry": {"location": {"lat": 40.7484405, "lng": -73.98566439999999}, "viewport": {"northeast": {"lat": 40.74971232989272, "lng": -73.98392452010728}, "southwest": {"lat": 40.74701267010728, "lng": -73.98662417989271}}}, "place_id": "ChIJaXQRs6lZwokRY6EFpJnhNNE", "plus_code": {"global_code": "87G8P2X7+9P", "compound_code": "P2X7+9P New York"}, "photos": [{"photo_reference": "CmRaAAAAcxYcyncjmOGE5uRLSa1YzK_YnU8k-BS64VQqOwX1Yx3UFUd8jvu-qnZftOywkobVwbZEpfF7WlUTzyqIXMa4s7gfyVXO3-clPP9rKcTKbGR_dJQrmZbNXIFoHOg-O0QUEhB30Mx64HXBwJqaTJpoOTJzGhSIwtQPdq-cJlCo1vbJXEgdPcZ9lg", "width": 900, "html_attributions": ["Hauser Quaid Zzyzx"], "height": 599}], "formatted_address": "20 W 34th St, New York, NY 10001, United States", "id": "bc232d2422e7068b2a2ffb314f02e3733dd47796", "types": ["tourist_attraction", "point_of_interest", "establishment"], "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png"}, {"rating": 5, "user_ratings_total": 1168, "name": "The Escape Game New York City", "reference": "ChIJwwwGE_tZwokRmpfoXySK-x0", "geometry": {"location": {"lat": 40.7518914, "lng": -73.97975869999999}, "viewport": {"northeast": {"lat": 40.75327417989272, "lng": -73.97848687010726}, "southwest": {"lat": 40.75057452010727, "lng": -73.98118652989271}}}, "opening_hours": {"open_now": false}, "place_id": "ChIJwwwGE_tZwokRmpfoXySK-x0", "plus_code": {"global_code": "87G8Q22C+Q3", "compound_code": "Q22C+Q3 New York"}, "photos": [{"photo_reference": "CmRaAAAA0Pn30UOmR5a3Jl3bsM_-9syaIcGx4DpkHuPK1nOa7KHLu_gClrUv6XqCTgJEBAGNTvge7eQw-aBSe1PUFCyRMfsse8LvMZuJ-1d7dT6hICNKz2xC59eVpTbI7_eFNtiMEhDXxt28gAvBKiIEyuNhjfUeGhTKk8XG_9BaQ1Nud1dfrqMqhEXUTA", "width": 5760, "html_attributions": ["A Google User"], "height": 3840}], "formatted_address": "295 Madison Ave, New York, NY 10017, United States", "id": "bbece6f14225b2630d57d340081b22e6119a3be9", "types": ["tourist_attraction", "point_of_interest", "establishment"], "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png"}, {"rating": 4.7, "user_ratings_total": 70677, "permanently_closed": true, "name": "Statue of Liberty National Monument", "reference": "ChIJPTacEpBQwokRKwIlDXelxkA", "geometry": {"location": {"lat": 40.6892494, "lng": -74.04450039999999}, "viewport": {"northeast": {"lat": 40.71814749999999, "lng": -73.99872490000001}, "southwest": {"lat": 40.6796167, "lng": -74.05975889999998}}}, "place_id": "ChIJPTacEpBQwokRKwIlDXelxkA", "plus_code": {"global_code": "87G7MXQ4+M5", "compound_code": "MXQ4+M5 New York"}, "photos": [{"photo_reference": "CmRaAAAAZnPyW_hKd0nXMKmBriEnQVg2dlksdfzmVPDjVc06PEXZ9nmbYhTgjXz85qwooY7VTFpKJA27uZ4Zo8uYJXQIkY3nipzsJCUFLM5eLli9AkVIsn7DD2PREPCkOAYKMNDjEhCqCgvlPzKkinIsVLeobPK3GhT9cUOQkoVYwMtDAY2Ag-8QRGqklA", "width": 6000, "html_attributions": ["Hauser Quaid Zzyzx"], "height": 4000}], "formatted_address": "New York, NY 10004, United States", "id": "5a0d7e67078e35af0c456a277df9ffba7c1e4da6", "types": ["tourist_attraction", "park", "point_of_interest", "establishment"], "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png"}, {"rating": 4.8, "user_ratings_total": 204343, "name": "Central Park", "reference": "ChIJ4zGFAZpYwokRGUGph3Mf37k", "geometry": {"location": {"lat": 40.7828647, "lng": -73.9653551}, "viewport": {"northeast": {"lat": 40.81804399999999, "lng": -73.9339825}, "southwest": {"lat": 40.74734159999999, "lng": -73.9970305}}}, "opening_hours": {"open_now": true}, "place_id": "ChIJ4zGFAZpYwokRGUGph3Mf37k", "plus_code": {"global_code": "87G8Q2MM+4V", "compound_code": "Q2MM+4V New York"}, "photos": [{"photo_reference": "CmRaAAAAT_azXf3VrXJazo2n7261ywqOQLsSLeIE_ZGrmRjI2nxvA_W6ZnvhRhIRbSj15MFItgWk-ARsGeWUG17EXnAjkhVLV1tBS1zxiPXHKDnwNmnvprs-n4n34JoADZ5gTKAaEhBulDyjXT3ZkW5iT-7xLoZbGhSKmU6wso5oARhx0G-JuZ7OGqvCtA", "width": 690, "html_attributions": ["A Google User"], "height": 445}], "formatted_address": "New York, NY, United States", "id": "c9bcef33f0cc85eda31f1c7444e9b1a3b82c9a9f", "types": ["park", "tourist_attraction", "point_of_interest", "establishment"], "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/generic_recreational-71.png"}, {"rating": 4.6, "user_ratings_total": 2692, "name": "Governors Island National Monument", "reference": "ChIJ2_ey6W9awokRxng4fzLDbPo", "geometry": {"location": {"lat": 40.6919879, "lng": -74.01599499999999}, "viewport": {"northeast": {"lat": 40.69333772989273, "lng": -74.01464517010727}, "southwest": {"lat": 40.69063807010728, "lng": -74.0173448298927}}}, "opening_hours": {"open_now": false}, "place_id": "ChIJ2_ey6W9awokRxng4fzLDbPo", "plus_code": {"global_code": "87G7MXRM+QJ", "compound_code": "MXRM+QJ New York"}, "photos": [{"photo_reference": "CmRaAAAALq0bH6CqdHut-aFQCmsiqYQPFwT-L0CnCagFH1Cl8o02ewUWfiVgz3zH2bvrhXwNlWkFMZWD0pbyH-YS-svEBKix7P3AB7iz5RO0eGIaB0jA4zfuvkPfc2LKZxm4R5YbEhCvqhb-xoyKrgLnFDs9cIVwGhTbXLjS9gy7EdZ-l2aPcymOTmWHiw", "width": 4032, "html_attributions": ["Molly Calliste"], "height": 1960}], "formatted_address": "10 South St, New York, NY 10004, United States", "id": "e2568410beb651c76959c8c706e1d771fc316fa9", "types": ["tourist_attraction", "point_of_interest", "establishment"], "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/museum-71.png"}], "hotels": [{"name": "3 West Club", "countryCode": "US", "image": "https://d2573qu6qrjt8c.cloudfront.net/062AB6619AB84494A43803C49B54DF44/B.JPEG", "cityName": "New York City", "swimming_pool": false, "contact": {"phone": "(1) 12125825454", "fax": "(1) 12129778972"}, "stars": "3", "address": {"postalCode": "10019", "cityName": "NEW YORK", "lines": ["3 W 51ST STREET"], "stateCode": "NY", "countryCode": "US"}, "_id": {"$oid": "5ea399910330200139c68787"}, "location_id": "NYC", "description": "Stay in one of 27 guestrooms featuring flat-screen televisions. Complimentary wired and wireless Internet access keeps you connected, and cable programming provides entertainment. Private bathrooms with shower/tub combinations feature complimentary toiletries and hair dryers. Conveniences include desks and coffee/tea makers, and housekeeping is provided daily.Featured amenities include complimentary wired Internet access, complimentary newspapers in the lobby, and a 24-hour front desk.Make use of convenient amenities such as complimentary wireless Internet access, concierge services, and wedding services.Enjoy a satisfying meal at a restaurant serving guests of 3 West Club. Quench your thirst with your favorite drink at a bar/lounge. Breakfast is available on weekdays from 7:30 AM to 10:00 AM for a fee."}, {"name": "Aloft Manhattan Downtown Financial District", "countryCode": "US", "image": "https://d2573qu6qrjt8c.cloudfront.net/121A3B45B3394D8D9211D23A07BB8A0B/B.JPEG", "cityName": "New York City", "swimming_pool": false, "contact": {"phone": "+1 212 513-0003", "fax": "+1 212 513-0004", "email": "info@aloftmanhattandowntown.com"}, "stars": "4", "address": {"postalCode": "10038", "cityName": "NEW YORK", "lines": ["49 53 ANN STREET"], "stateCode": "NY", "countryCode": "US"}, "_id": {"$oid": "5ea399910330200139c68788"}, "location_id": "NYC", "description": "Experience a different kind of stay at Aloft Manhattan Downtown-Financial District. Our modern hotel offers a variety of amenities including free Wi-Fi, an on-site fitness center and ideal location near New York City hot spots. With our location in the Financial District, you have easy access to the New York Stock Exchange, September 11 Memorial and thriving Lower Manhattan districts including Chinatown, Tribeca and Soho. After your fair share of the Big Apple, retreat to our contemporary, loft-like accommodations with 9-foot high ceilings, ergonomic workstations and flat-screen TVs. In select rooms, you can even relish in scenic city views. When hunger strikes, visit Re:fuel by Aloft, our 24-hour grab and go cafe, or discover bar fare and appetizers at W XYZ Bar. Within your busy schedule, find time to relax in our Backyard and socialize at our stylish ReMix Lounge. Whether you're in town to build memories or build business ties, you can dazzle your days at Aloft Manhattan Downtown-Financial District."}, {"name": "Duane Street Hotel", "countryCode": "US", "image": "https://d2573qu6qrjt8c.cloudfront.net/FE35FAA313B64BCD9FDA1059992640D6/B.JPEG", "cityName": "New York City", "swimming_pool": false, "contact": {"phone": "+1 212 9644600", "fax": "+212 964 4800", "email": "info@duanestreethotel.com"}, "stars": "5", "address": {"postalCode": "10013", "cityName": "NEW YORK", "lines": ["130 DUANE STREET"], "stateCode": "NY", "countryCode": "US"}, "_id": {"$oid": "5ea399910330200139c68789"}, "location_id": "NYC", "description": "Renovated, modern boutique hotel in downtown NYC, Tribeca location, free Wi-Fi & high speed internet, iPhone/iPad docking station, onsite dining, in-room coffee/ tea, & LOccitane bath amenities."}]}
 
 let container = null;
 
@@ -252,30 +29,49 @@ afterEach(() => {
 describe("<LocationDetail />",() => {
   it("should fetch location", async () => {
     await act(async () => {
-      render(<LocationDetail match={{params: {id: 1}}} />, container);
+      const history = createMemoryHistory();
+      history.push('/locations/abc');
+      render(
+        <Router history={history}>
+          <Route path="/locations/:id" component={LocationDetail}/>
+        </Router>, container);
     });
     expect(global.fetch).toHaveBeenCalledTimes(1);
   });
 
   it("renders nearby listings", async () => {
     await act(async () => {
-      render(<LocationDetail match={{params: {id: 1}}} />, container);
+      const history = createMemoryHistory();
+      history.push('/locations/abc');
+      render(
+        <Router history={history}>
+          <Route path="/locations/:id" component={LocationDetail}/>
+        </Router>, container);
     });
-    expect(container.getElementsByClassName("listing").length).toEqual(location[0].hotels.length + location[0].restaurants.length);
+    expect(container.getElementsByClassName("listing").length).toEqual(location.hotels.length + location.restaurants.length);
   });
 
   it("renders location name", async () => {
     await act(async () => {
-      render(<LocationDetail match={{params: {id: 1}}} />, container);
+      const history = createMemoryHistory();
+      history.push('/locations/abc');
+      render(
+        <Router history={history}>
+          <Route path="/locations/:id" component={LocationDetail}/>
+        </Router>, container);
     });
-    expect(container.getElementsByClassName("instance_head_info")[0].children[0].textContent).toEqual(location[0].name);
+    expect(container.getElementsByClassName("instance_head_info")[0].children[0].textContent).toEqual(location.name);
   });
 
   it("renders latitude and longitude", async () => {
     await act(async () => {
-      render(<LocationDetail match={{params: {id: 1}}} />, container);
+      const history = createMemoryHistory();
+      history.push('/locations/abc');
+      render(
+        <Router history={history}>
+          <Route path="/locations/:id" component={LocationDetail}/>
+        </Router>, container);
     });
-    expect(container.getElementsByClassName("instance_head_info")[0].children[1].textContent).toEqual('Lat. ' + location[0].latitude);
-    expect(container.getElementsByClassName("instance_head_info")[0].children[2].textContent).toEqual('Long. ' + location[0].longitude);
+    expect(container.getElementsByClassName("instance_head_info")[0].children[3].textContent).toEqual('Coordinates: (' + location.latitude + ', ' + location.longitude + ')' );
   });
 });
