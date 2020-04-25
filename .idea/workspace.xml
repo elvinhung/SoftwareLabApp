@@ -2,14 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4fd15fea-01a1-4f0c-85c2-567fbe05bbaa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/NearbyHotelListing.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/NearbyRestaurantListing.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../luckofthedraw/src/components/Card.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../luckofthedraw/src/components/Hand.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../luckofthedraw/src/stylesheets/Hand.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SoftwareLabApp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SoftwareLabApp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/HotelListing.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/HotelListing.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/HotelDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/HotelDetail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/RestaurantDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/RestaurantDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/styles/InstanceListing.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles/InstanceListing.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../luckofthedraw/src/components/BotGame.js" beforeDir="false" afterPath="$PROJECT_DIR$/../luckofthedraw/src/components/BotGame.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../luckofthedraw/src/pages/Play.js" beforeDir="false" afterPath="$PROJECT_DIR$/../luckofthedraw/src/pages/Play.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,27 +24,36 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1280" />
-    <option name="height" value="800" />
-  </component>
+  <component name="ProjectId" id="1apbfntV7ItnP5e4ppvPhFPumas" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SearchEverywhereHistoryKey" value="status&#9;null&#9;null" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../luckofthedraw/src/stylesheets" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="ts.external.directory.path" value="C:\Alex\UT\Schoolwork\Junior 2nd Sem\EE 461L\EE 461L Projects\Git Repositories\SoftwareLabApp\frontend\node_modules\typescript\lib" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -49,6 +62,12 @@
         <option name="myModuleName" value="SoftwareLabApp" />
       </console-settings>
     </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Alex\UT\Schoolwork\Junior 2nd Sem\EE 461L\EE 461L Projects\Git Repositories\luckofthedraw\src\stylesheets" />
+      <recent name="C:\Alex\UT\Schoolwork\Junior 2nd Sem\EE 461L\EE 461L Projects\Git Repositories\luckofthedraw\src\pages" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -104,13 +123,41 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1583359552654</updated>
+      <workItem from="1587435591756" duration="3760000" />
+      <workItem from="1587526715038" duration="2913000" />
+      <workItem from="1587587289569" duration="25588000" />
+      <workItem from="1587758399494" duration="8421000" />
     </task>
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="690" y="-808" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585514323668">
-      <screen x="0" y="-1080" width="1920" height="1050" />
+    <state x="690" y="272" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587611902642">
+      <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="690" y="-808" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834/0.-1080.1920.1050@0.-1080.1920.1050" timestamp="1585514323668" />
+    <state x="690" y="272" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.1080.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1587611902642" />
+    <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1587672705438">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="740" y="280" key="FileChooserDialogImpl/0.1080.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1587672705438" />
+    <state width="1899" height="285" key="GridCell.Tab.0.bottom" timestamp="1587704550115">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1899" height="285" key="GridCell.Tab.0.bottom/0.1080.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1587704550115" />
+    <state width="1899" height="285" key="GridCell.Tab.0.center" timestamp="1587704550115">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1899" height="285" key="GridCell.Tab.0.center/0.1080.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1587704550115" />
+    <state width="1899" height="285" key="GridCell.Tab.0.left" timestamp="1587704550115">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1899" height="285" key="GridCell.Tab.0.left/0.1080.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1587704550115" />
+    <state width="1899" height="285" key="GridCell.Tab.0.right" timestamp="1587704550115">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1899" height="285" key="GridCell.Tab.0.right/0.1080.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1587704550115" />
   </component>
 </project>
