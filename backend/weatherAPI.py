@@ -6,7 +6,7 @@ import os
 from pymongo.errors import BulkWriteError
 
 degree_sign = u"\N{DEGREE SIGN}"
-API_KEY = 'put api key here'
+API_KEY = 'api key here'
 base_url = "https://api.openweathermap.org/data/2.5/onecall?"
 os.chdir(r'/Users/Nithanth/SoftwareLabApp/backend')
 

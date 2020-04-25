@@ -104,7 +104,7 @@ ILG,Dover Delaware
 CHS,Charleston SC
 BTV,Burlington VT
 CYS,Cheyenne WY
-MKE,Milwaukee WI
+TUS,Tucson AZ
 BDL,Hartford CT
 BHM,Birmingham AL
 FAR,Fargo North Dakota

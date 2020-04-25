@@ -1,16 +1,16 @@
 import googlemaps
 import requests
 from pymongo import MongoClient
-import os
-
 from pymongo.errors import BulkWriteError
+import os
 
 url = "https://maps.googleapis.com/maps/api/place/textsearch/json?"
 API_KEY = 'api key'
+os.chdir(r'/Users/Nithanth/SoftwareLabApp/backend')
 
 city_list = open("city_locations.txt")
 mongo = MongoClient()
-mongo_client = MongoClient('connection string')
+mongo_client = MongoClient('connection_string')
 db = mongo_client.models
 locations = db.locations
 hotels = db.hotels

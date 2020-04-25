@@ -92,7 +92,7 @@ VCE,Venice, ITA,ITA
 ARN,Stockholm, SWE,SWE
 ZRH,Zurich, CHE,CHE
 SDU,Rio de Janeiro, BRA,BRA
-GRU,São Paulo, BRA,BRA
+GRU,Sao Paulo, BRA,BRA
 OSL,Oslo, NOR,NOR
 MXP,Milan, ITA,ITA
 FCO,Rome, ITA,ITA
@@ -104,7 +104,6 @@ ILG,Dover, DE,US
 CHS,Charleston, SC,US
 BTV,Burlington, VT,US
 CYS,Cheyenne, WY,US
-MKE,Milwaukee, WI,US
 BDL,Hartford, CT,US
 BHM,Birmingham, AL,US
 FAR,Fargo, ND,US
@@ -144,7 +143,9 @@ CGN,Cologne, DEU,DEU
 NUE,Nuremberg, DEU,DEU
 DTM,Dortmund, DEU,DEU
 STR,Stuttgart, DEU,DEU
-DUS,Düsseldorf, DEU,DEU
+DUS,Dusseldorf, DEU,DEU
 BRE,Bremen, DEU,DEU
 GVA,Geneva, CHE,CHE
 BRN,Bern, CHE,CHE
+TUS, Tucson, AZ, US
+
