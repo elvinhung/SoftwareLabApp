@@ -5,7 +5,6 @@ import TagList from "./TagList";
 import '../styles/ModelPage.css';
 
 const RestaurantListing = (props) => {
-  const [location, setLocation] = useState([]);
   const {
     restaurant: {
       name,
@@ -13,29 +12,12 @@ const RestaurantListing = (props) => {
       stars,
       price,
       address,
-      location_id,
+      cityName,
+      countryCode,
       _id,
     }
   } = props;
   const cuisine = props.restaurant.tags;
-
-  function getLocation() {
-    const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/locations/' + location_id;
-    fetch(apiUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        setLocation((prevData) => {
-          return data;
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
-  useEffect(() => {
-    getLocation();
-  },[]);
 
   let tags = [];
 
@@ -59,7 +41,7 @@ const RestaurantListing = (props) => {
             <h4 className="instance_name">{name[0]}</h4>
           </div>
           <div className="instance_page_info">
-            <p className="instance_location">{location.name + ", " + location.country}</p>
+            <p className="instance_location">{cityName + ", " + countryCode}</p>
             <Ratings rating = {stars[0]}/>
             <TagList className="tag_list_container" tags={tags}/>
           </div>
