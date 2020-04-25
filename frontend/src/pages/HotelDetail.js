@@ -110,7 +110,7 @@ const HotelDetail = (props) => {
             <h3>Nearby Restaurants</h3>
             <div className="listing_container">
               {hotel.restaurants.map((restaurant, index) => {
-                return <NearbyRestaurantListing restaurant={restaurant} location={location.cityName + ", " + location.countryCode} key={index}/>
+                return <NearbyRestaurantListing restaurant={restaurant} location={hotel.cityName + ", " + hotel.countryCode} key={index}/>
               })}
             </div>
           </div>

@@ -4,7 +4,6 @@ import { createMemoryHistory } from 'history';
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from 'react-dom/test-utils';
 import RestaurantDetail from "../pages/RestaurantDetail";
-import HotelDetail from "../pages/HotelDetail";
 
 const restaurant = {
   "reviews": {

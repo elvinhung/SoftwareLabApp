@@ -23,9 +23,8 @@ hotels = db.hotels
 #   name="search_index"
 # )
 
-
 os.chdir(r"C:\Users\risha\Documents\Spring 20\SoftwareLabApp\backend")
-f = open("restaurant_locations.txt")
+f = open("city_locations.txt")
 
 for city_code in f:
     city = city_code.strip('\n')
@@ -34,7 +33,7 @@ for city_code in f:
     cityCode = cityArr[0]
     cityStr = cityArr[1]
     print(city_code)
-    city = amadeus.shopping.hotel_offers.get(cityCode = cityCode, radius = '10', radiusUnit = 'MILE')
+    city = amadeus.shopping.hotel_offers.get(cityCode = cityCode, radius = '20', radiusUnit = 'MILE')
     data = json.dumps(city.result)
     city_json = json.loads(data)
     city_dict = {}
@@ -47,6 +46,8 @@ for city_code in f:
             temp['stars'] = p['hotel']['rating']
             temp['image'] = p['hotel']['media'][0]['uri']
             temp['contact'] = p['hotel']['contact']
+            temp['cityName'] = cityStr
+            temp['countryCode'] = cityArr[3]
 
             if "SWIMMING_POOL" in p['hotel']['amenities']:
                 temp['swimming_pool'] = True
@@ -59,5 +60,6 @@ for city_code in f:
             temp['location_id'] = cityCode
 
             city_dict['hotels'].append(temp)
-        
+
+
     hotels.insert_many(city_dict['hotels'][0:3])
