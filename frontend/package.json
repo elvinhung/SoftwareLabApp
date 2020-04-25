@@ -15,6 +15,7 @@
     "font-awesome": "^4.7.0",
     "google-map-react": "^1.1.7",
     "google-maps-react": "^2.0.6",
+    "history": "^4.10.1",
     "immutable": "^4.0.0-rc.12",
     "mdbreact": "^4.25.3",
     "pretty-checkbox": "^3.0.3",

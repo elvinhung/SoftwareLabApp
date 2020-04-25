@@ -1,77 +1,88 @@
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from 'react-dom/test-utils';
 import Hotel from "../pages/Hotel";
+import Location from "../pages/Location";
 
 const hotels = [
   {
-    "name": "The Lancaster Hotel",
-    "image": "http://multimediarepository.amadeus.com/cmr/retrieve/hotel/7AF8681D5B344933B7800FE8F9A31CB8",
+    "name": "Element Austin Downtown",
+    "countryCode": "US",
+    "image": "https://d2573qu6qrjt8c.cloudfront.net/AF60BCD1AE6F48A5975E9C087ED1B2CD/B.JPEG",
+    "cityName": "Austin",
+    "swimming_pool": false,
     "contact": {
-      "phone": "+1 713 2289500",
-      "fax": "+1 713 2234528"
+      "phone": "+1 512 473-0000",
+      "fax": "+1 512 391-1723"
     },
     "stars": "4",
     "address": {
-      "postalCode": "77002",
-      "cityName": "HOUSTON",
+      "postalCode": "78701",
+      "cityName": "AUSTIN",
       "lines": [
-        "701 TEXAS AVENUE"
+        "109 E 7TH STREET"
       ],
       "stateCode": "TX",
       "countryCode": "US"
     },
     "_id": {
-      "$oid": "5e7e8ea593a16d5d9278b734"
+      "$oid": "5ea399a30330200139c68794"
     },
-    "location_id": "HOU",
-    "description": "The Lancaster Hotel is a historic luxury boutique hotel in the heart of Houstons vibrant downtown Theater District. The landmark hotel enjoys a legacy of nearly 100 years of providing exceptional service and hospitality. Newly renovated in 2018 and taking inspiration from the classic Regency style the redesigned hotel is accented with clean elegant lines and an intimate yet open floor plan. Guests of The Lancaster Hotel enjoy a daily inclusive gourmet breakfast buffet located on the Mezzanine. Our European-style breakfast spread includes smoked salmon fruit parfaits fresh baked goods as well as many breakfast classics like eggs bacon sausage oatmeal and more. Each of our 93 guestrooms and suites offer complimentary high-speed WiFi Frette linens Waterworks bath fixtures Bulgari bath amenities luxurious bathrobes and slippers Carrera marble in-room refrigerator and safe. Guests will also enjoy personalized stellar service with additional amenities that include car service within the downtown area in-room complimentary snacks and beverages Nespresso in-room coffee and turn down service. The Lancaster Collection of over 200 pieces of contemporary works of art by artists with strong ties to Texas is displayed throughout the guestrooms and public spaces. Our on-site fine dining restaurant Cultivated FB provides sophisticated contemporary American dishes and is the ideal respite for a meal with friends a power breakfast pre-theater dinner or post-performance nosh. Our recently added sidewalk dining area allows you to enjoy al fresco dining while immersed in the bustle of one of the nations largest theater districts. In addition to our on-site Cardio Fitness Room our guests enjoy complimentary access to nearby full-service fitness center."
+    "location_id": "AUS",
+    "description": "Immerse in the world-famous charm of Austin at Element Austin Downtown. Situated in the heart of downtown, only one block from the dining, entertainment and nightlife of 6th Street, our hotel is perfectly positioned to explore all that Austin has to offer. Ideal for extended stays, our well-appointed hotel rooms and suites feature fully-equipped kitchenettes, Heavenly Beds, free WiFi, Smart TVs and a contemporary, open-flow style. Stay near your conference at the Austin Convention Center, attend ACL at Zilker Park, or root on the Longhorns at the University of Texas. Start your day with local roasted coffee and fresh pastries at The Coffeehouse at Caroline, then after exploring the area, enjoy modern American fare at Caroline, our neighborhood restaurant. After dining, visit Upstairs at Caroline, our rooftop bar and gaming yard, or decompress with a workout in our modern, 24-hour fitness center. With our downtown Austin location and business center, our hotel is also the ideal choice for company gatherings."
   },
   {
-    "name": "JW Marriott Houston Downtown",
-    "image": "https://d2573qu6qrjt8c.cloudfront.net/13A1A70B89ED4CCD84CF002AC532DEC5/B.JPEG",
+    "name": "Aloft Austin Downtown",
+    "countryCode": "US",
+    "image": "https://d2573qu6qrjt8c.cloudfront.net/61ED99CA0AF04C2CA5A0A39962CC5131/B.JPEG",
+    "cityName": "Austin",
+    "swimming_pool": false,
     "contact": {
-      "phone": "+1 713 237-1111",
-      "fax": "+1 713 237-8282",
-      "email": "jelle.vandenbroucke@marriott.com"
+      "phone": "+1 512 476-2222",
+      "fax": "+1 512 391-1723"
+    },
+    "stars": "4",
+    "address": {
+      "postalCode": "78701",
+      "cityName": "AUSTIN",
+      "lines": [
+        "109A EAST 7TH ST"
+      ],
+      "stateCode": "TX",
+      "countryCode": "US"
+    },
+    "_id": {
+      "$oid": "5ea399a30330200139c68793"
+    },
+    "location_id": "AUS",
+    "description": "Experience Texas' capital city like never before at Aloft Austin Downtown. Tucked within the popular 6th Street Entertainment District, our hotel places you just steps away from the area's best shopping, dining, and entertainment. The University of Texas at Austin is nearby, as is Zilker Metropolitan Park and Lady Bird Lake. Contemporary rooms offer smart design and perks like free Wi-Fi access, Smart TVS, ergonomic workspaces and The W's Bliss® Spa bath products. Many of our hotel accommodations also boast breathtaking views of downtown Austin from oversized windows. Break a sweat at re:charge℠ gym, grab a coffee and fresh baked pastry at Coffeehouse at Caroline, or drop in for a meal at Caroline, our inviting restaurant - then stake a spot at Upstairs at Caroline for drinks, games and more. Plan a meeting in one of our flexible spaces or a private dinner in the restaurant. Take time to explore downtown Austin while you're here, too; from incredible live music to great outdoor activities."
+  },
+  {
+    "name": "INTERCONTINENTAL STEPHEN F AUS",
+    "countryCode": "US",
+    "image": "https://d2573qu6qrjt8c.cloudfront.net/EA7DF1BB322A44ADA93BA45D5A2241F6/B.JPEG",
+    "cityName": "Austin",
+    "swimming_pool": true,
+    "contact": {
+      "phone": "+1 512 4578800",
+      "fax": "+1 512 4574218"
     },
     "stars": "5",
     "address": {
-      "postalCode": "77002",
-      "cityName": "HOUSTON",
+      "postalCode": "78701",
+      "cityName": "AUSTIN",
       "lines": [
-        "806 MAIN STREET"
+        "701 CONGRESS AVENUE"
       ],
       "stateCode": "TX",
       "countryCode": "US"
     },
     "_id": {
-      "$oid": "5e7e8ea593a16d5d9278b735"
+      "$oid": "5ea399a30330200139c68795"
     },
-    "location_id": "HOU"
-  },
-  {
-    "name": "The Whitehall Downtown Houston",
-    "image": "http://multimediarepository.amadeus.com/cmr/retrieve/hotel/377E100D7833471BAD7C55EAA4162264",
-    "contact": {
-      "phone": "+1 713 7398800",
-      "fax": "+1 713 7397307"
-    },
-    "stars": "5",
-    "address": {
-      "postalCode": "77002",
-      "cityName": "HOUSTON",
-      "lines": [
-        "1700 SMITH STREET"
-      ],
-      "stateCode": "TX",
-      "countryCode": "US"
-    },
-    "_id": {
-      "$oid": "5e7e8ea593a16d5d9278b736"
-    },
-    "location_id": "HOU",
-    "description": "Set in the heart of the Central Business District- the Whitehall Houston is a contemporary boutique-style property that offers an unparalleled location near leading leisure and business destinations such as Houstons Toyota Center- Rice University- and Minute Maid Park. Less than 1 mile from the George R. Brown Convention Center- our Downtown Houston hotel is within walking distance to fine dining and shopping- plus just 4 blocks from the Metro LightRail. Take advantage of complimentary shuttle service to all Downtown Houston destinations including the Convention Center -Toyota Center- Minute Maid Park- Houston Theatre District- as well as the Metro Light Rail Main Station."
+    "location_id": "AUS",
+    "description": "Originally built in 1924 as the city's first high rise hotel, our rich history and luxurious accommodations offer a truly unique experience of Texas hospitality. Conveniently located in the heart of downtown Austin, next door to The Paramount Theatre, across the street from The Driskill, one block from the 6th Street Entertainment District, and a short walk from the Texas State Capital, Bullock Texas Sate History Museum, Blanton Museum of Art and all the other feature that make Austin the culture capital of Texas. Known to Austinite's as the Stephen F, our historic Art Deco fa?ade has been a famous landmark for more than 90 years. Unwind after a busy day in our of our comfortable rooms or suites, stay active in our health club featuring an indoor lap pool and hot tub then indulge in a handmade craft cocktail, tasty cuisine and a breathtaking view of the Capital from our Stephen F's Bar and terrace on our second floor. Treat yourself to the Club InterContinental where you can enjoy a deluxe breakfast buffet, items to order, daily champagne tea hour, and heave hors devours and beverages in the evening."
   }
 ];
 
@@ -97,22 +108,28 @@ afterEach(() => {
 describe("<Hotel />",() => {
   it("should fetch hotels", async () => {
     await act(async () => {
-      render(<Hotel />, container);
-    });
-    expect(global.fetch).toHaveBeenCalledTimes(1);
+      render(
+        <MemoryRouter>
+          <Hotel />
+        </MemoryRouter>, container);    });
+    expect(global.fetch).toHaveBeenCalledTimes(2);
   });
 
   it("renders HotelListings", async () => {
     await act(async () => {
-      render(<Hotel />, container);
-    });
+      render(
+        <MemoryRouter>
+          <Hotel />
+        </MemoryRouter>, container);    });
     expect(container.getElementsByClassName('listing').length).toBe(hotels.length);
   });
 
   it("renders hotels title header", async () => {
     await act(async () => {
-      render(<Hotel />, container);
-    });
+      render(
+        <MemoryRouter>
+          <Hotel />
+        </MemoryRouter>, container);    });
     expect(container.getElementsByClassName('model-header').length).toBe(1);
   })
 });

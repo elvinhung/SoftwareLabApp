@@ -56,7 +56,6 @@ const HotelDetail = (props) => {
     if (Object.keys(hotel).length !== 0) {
       const { address } = hotel;
       setAddress(title(address.lines[0]) + ', ' + title(address.cityName) + ', ' + address.stateCode + ' ' + address.postalCode);
-      getLocation();
     }
   }, [hotel]);
 
@@ -111,7 +110,7 @@ const HotelDetail = (props) => {
             <h3>Nearby Restaurants</h3>
             <div className="listing_container">
               {hotel.restaurants.map((restaurant, index) => {
-                return <NearbyRestaurantListing restaurant={restaurant} location={location.name + ", " + location.country} key={index}/>
+                return <NearbyRestaurantListing restaurant={restaurant} location={location.cityName + ", " + location.countryCode} key={index}/>
               })}
             </div>
           </div>
