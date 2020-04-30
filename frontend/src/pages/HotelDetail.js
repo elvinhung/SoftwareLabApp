@@ -9,6 +9,7 @@ import { title } from '../Utils';
 import NearbyRestaurantListing from "../components/NearbyRestaurantListing";
 import Loader from "../components/Loader";
 import TagList from "../components/TagList";
+import { HOTELS_API_URL } from '../api/API';
 
 const mapStyle = {
   width: '25vw',
@@ -23,7 +24,7 @@ const HotelDetail = (props) => {
   const [isLoading, setLoading] = useState(true);
 
   function getHotel() {
-    const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/hotels/' + id;
+    const apiUrl = HOTELS_API_URL + '/' + id;
     fetch(apiUrl)
       .then((res) => res.json())
       .then((data) => {
@@ -34,20 +35,6 @@ const HotelDetail = (props) => {
       })
       .catch((err) => {
         setLoading(false);
-        console.log(err);
-      });
-  }
-
-  function getLocation() {
-    const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/locations/' + hotel.location_id;
-    fetch(apiUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        setLocation((prevData) => {
-          return data;
-        });
-      })
-      .catch((err) => {
         console.log(err);
       });
   }

@@ -8,9 +8,9 @@ import Loader from "../components/Loader";
 import Search from "../components/Search";
 import HotelListing from "../components/HotelListing";
 import RestaurantListing from "../components/RestaurantListing";
+import { SEARCH_API_URL } from '../api/API';
 
 const MAX_RESULTS = 4;
-const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com';
 const defaultData = {
   locations: [],
   restaurants: [],
@@ -25,7 +25,7 @@ const SearchPage = (props) => {
   const filters = queryString.parse(props.location.search);
 
   function search() {
-    fetch(apiUrl + '/search' + query)
+    fetch(SEARCH_API_URL + query)
       .then((res) => res.json())
       .then((data) => {
         setData((prevData) => {
@@ -40,6 +40,7 @@ const SearchPage = (props) => {
   }
 
   useEffect(() => {
+    setLoading(true);
     setData(defaultData);
     search();
   },[props.location.search]);

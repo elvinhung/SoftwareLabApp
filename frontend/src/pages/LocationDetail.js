@@ -9,6 +9,7 @@ import Loader from "../components/Loader";
 import Review from "../components/Review";
 import POIMap from "../components/POIMap";
 import ForecastCard from "../components/ForecastCard";
+import { LOCATIONS_API_URL } from '../api/API';
 
 const imgUrl = "https://maps.googleapis.com/maps/api/place/photo?";
 const api_key = "AIzaSyBJ2lOAHkcMp6O6SpyeRNcQ0jtjLqGpZnE";
@@ -20,7 +21,7 @@ const LocationDetail = (props) => {
 
   // api call for location information
   function getLocation() {
-    const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/locations/' + id.toUpperCase();
+    const apiUrl = LOCATIONS_API_URL + '/' + id.toUpperCase();
     fetch(apiUrl)
       .then((res) => res.json())
       .then((data) => {

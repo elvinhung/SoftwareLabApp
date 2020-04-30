@@ -8,6 +8,7 @@ import Pagination from "../components/Pagination";
 import Loader from "../components/Loader";
 import Search from "../components/Search";
 import queryString from "query-string";
+import { HOTELS_API_URL } from '../api/API';
 
 const PAGE_SIZE = 12;
 
@@ -18,8 +19,8 @@ const Hotel = (props) => {
   const filters = queryString.parse(props.location.search);
 
   function getHotels() {
-      const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/hotels';
-      fetch(apiUrl + props.location.search)
+      // const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/hotels';
+      fetch(HOTELS_API_URL + props.location.search)
         .then((res) => res.json())
         .then((data) => {
           setHotels((prevData) => {
@@ -34,6 +35,8 @@ const Hotel = (props) => {
   }
 
   useEffect(() => {
+    setLoading(true);
+    setHotels([]);
     getHotels();
   }, [props.location.search]);
 

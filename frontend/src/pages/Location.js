@@ -6,6 +6,7 @@ import "../styles/Location.css";
 import Pagination from "../components/Pagination";
 import Loader from "../components/Loader";
 import Search from "../components/Search";
+import { LOCATIONS_API_URL } from '../api/API';
 
 const PAGE_SIZE = 12;
 
@@ -17,8 +18,8 @@ const Location = (props) => {
   const query = props.location.search;
 
   function getLocations() {
-    const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/locations';
-    fetch(apiUrl + query)
+    // const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/locations';
+    fetch(LOCATIONS_API_URL + query)
       .then((res) => res.json())
       .then((data) => {
         setLocations((prevData) => {
@@ -33,6 +34,8 @@ const Location = (props) => {
   }
 
   useEffect(() => {
+    setLoading(true);
+    setLocations([]);
     getLocations();
   },[props.location.search]);
 

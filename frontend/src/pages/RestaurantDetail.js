@@ -10,6 +10,7 @@ import NearbyHotelListing from "../components/NearbyHotelListing";
 import Loader from "../components/Loader";
 import TagList from "../components/TagList";
 import { title } from '../Utils';
+import { RESTAURANTS_API_URL } from '../api/API';
 
 const RestaurantDetail = (props) => {
   const id = props.match.params.id;
@@ -17,7 +18,7 @@ const RestaurantDetail = (props) => {
   const [isLoading, setLoading] = useState(true);
 
   function getRestaurant() {
-    const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/restaurants/' + id;
+    const apiUrl = RESTAURANTS_API_URL + '/' + id;
     fetch(apiUrl)
       .then((res) => res.json())
       .then((data) => {

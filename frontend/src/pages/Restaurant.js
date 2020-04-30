@@ -8,6 +8,7 @@ import Pagination from "../components/Pagination";
 import Loader from "../components/Loader";
 import Search from "../components/Search";
 import queryString from "query-string";
+import { RESTAURANTS_API_URL } from "../api/API";
 
 const PAGE_SIZE = 12;
 
@@ -19,8 +20,8 @@ const Restaurant = (props) => {
 
 
   function getRestaurants() {
-    const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/restaurants';
-    fetch(apiUrl + props.location.search)
+    // const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/restaurants';
+    fetch(RESTAURANTS_API_URL + props.location.search)
       .then((res) => res.json())
       .then((data) => {
         setRestaurants((prevData) => {
@@ -35,6 +36,8 @@ const Restaurant = (props) => {
   }
 
   useEffect(() => {
+    setLoading(true);
+    setRestaurants([]);
     getRestaurants();
   }, [props.location.search]);
 

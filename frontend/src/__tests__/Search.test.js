@@ -7,6 +7,8 @@ const filters = {
   "sortBy": "name"
 }
 
+const paginate = (page) => {};
+
 let wrapper;
 
 beforeEach(() => {
@@ -15,7 +17,7 @@ beforeEach(() => {
       json: () => Promise.resolve()
     })
   );
-  wrapper = shallow(<Search type="All" filters={filters} />);
+  wrapper = shallow(<Search type="All" paginate={paginate} filters={filters} />);
 });
 
 afterEach(() => {
@@ -35,4 +37,6 @@ describe("<Search />", () => {
     wrapper.find('.search-bar').simulate('change', { target: { value: 'TEST' } });
     expect(wrapper.find('.search-bar').prop('value')).toEqual('TEST');
   });
+
+
 });
