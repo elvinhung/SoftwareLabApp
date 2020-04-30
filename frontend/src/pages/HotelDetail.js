@@ -58,8 +58,7 @@ const HotelDetail = (props) => {
             </div>
           </div>
           <div className="hotel_info">
-            <div className="hotel_
-            left_info">
+            <div className="hotel_left_info">
               <iframe className="map" frameBorder='0'
                       scrolling='no' marginHeight='0' marginWidth='0'
                       src={'https://maps.google.com/maps/embed/v1/place?q='+address+'&key=AIzaSyAY1pilCxM5qWgNJQCeiTPvqz5m2qiHE94'}>
