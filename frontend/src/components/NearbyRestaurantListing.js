@@ -1,30 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Ratings from "../components/Ratings";
 import 'font-awesome/css/font-awesome.min.css';
 import '../styles/Listings.css';
 import Spinner from "react-bootstrap/Spinner";
 import TagList from "./TagList";
+import InstanceGenerator from "../api/API";
 
 const NearbyRestaurantListing = (props) => {
   const id = props.restaurant.id.$oid;
   const [restaurant, setRestaurant] = useState({});
-
-  function getRestaurant() {
-    const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/restaurants/' + id;
-    fetch(apiUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        setRestaurant(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
-  useEffect(() => {
-    getRestaurant();
-  }, []);
-
+  const [isLoading, setLoading] = useState(true);
 
   const cuisine = restaurant.tags;
   let tags = [];
@@ -43,6 +28,7 @@ const NearbyRestaurantListing = (props) => {
 
   return(
     <div>
+      <InstanceGenerator model={"restaurants"} setInstances={setRestaurant} setLoading={setLoading} query={'/' + id}/>
       {Object.keys(restaurant).length !== 0 &&
         <a className="listing" href={"/restaurants/" + id}>
           <div className="instance">

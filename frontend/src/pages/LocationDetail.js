@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import '../styles/InstanceStyles.css';
 import PhotoCarousel from "../components/PhotoCarousel";
@@ -7,7 +7,7 @@ import Listing from "../components/Listing";
 import Loader from "../components/Loader";
 import POIMap from "../components/POIMap";
 import ForecastCard from "../components/ForecastCard";
-import { LOCATIONS_API_URL } from '../api/API';
+import InstanceGenerator from '../api/API';
 
 const imgUrl = "https://maps.googleapis.com/maps/api/place/photo?";
 const api_key = "AIzaSyBJ2lOAHkcMp6O6SpyeRNcQ0jtjLqGpZnE";
@@ -17,30 +17,9 @@ const LocationDetail = (props) => {
   const [location, setLocation] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
-  // api call for location information
-  function getLocation() {
-    const apiUrl = LOCATIONS_API_URL + '/' + id.toUpperCase();
-    fetch(apiUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        setLocation((prevData) => {
-          setLoading(false);
-          return data;
-        });
-      })
-      .catch((err) => {
-        setLoading(false);
-        console.log(err);
-      });
-  }
-
-  // runs upon initial render
-  useEffect(() => {
-    getLocation();
-  }, []);
-
   return (
     <div className="top-padding">
+      <InstanceGenerator model={"locations"} setInstances={setLocation} setLoading={setLoading} query={'/' + id.toUpperCase()}/>
       {location.length !== 0 &&
       location.restaurants.sort(function(a, b){ if (a.name[0] < b.name[0]) return -1; else return 1;}) &&
       location.hotels.sort(function(a, b){ if (a.name[0] < b.name[0]) return -1; else return 1;}) &&

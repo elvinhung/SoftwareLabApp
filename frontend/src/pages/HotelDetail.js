@@ -1,43 +1,21 @@
 import React, {useEffect, useState} from 'react';
 import { withRouter } from 'react-router-dom';
 import Ratings from "../components/Ratings";
-import 'font-awesome/css/font-awesome.min.css';
-import '../styles/HotelDetail.css';
-import '../styles/InstanceStyles.css';
 import PhotoCarousel from "../components/PhotoCarousel";
 import { title } from '../Utils';
 import Listing from "../components/Listing";
 import Loader from "../components/Loader";
 import TagList from "../components/TagList";
-import { HOTELS_API_URL } from '../api/API';
-
-const mapStyle = {
-  width: '25vw',
-  height: '25vh'
-}
+import InstanceGenerator from '../api/API';
+import 'font-awesome/css/font-awesome.min.css';
+import '../styles/HotelDetail.css';
+import '../styles/InstanceStyles.css';
 
 const HotelDetail = (props) => {
   const id = props.match.params.id;
   const [hotel, setHotel] = useState({});
-  const [location, setLocation] = useState([]);
   const [address, setAddress] = useState("");
   const [isLoading, setLoading] = useState(true);
-
-  function getHotel() {
-    const apiUrl = HOTELS_API_URL + '/' + id;
-    fetch(apiUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        setHotel((prevData) => {
-          setLoading(false);
-          return data;
-        });
-      })
-      .catch((err) => {
-        setLoading(false);
-        console.log(err);
-      });
-  }
 
   useEffect(() => {
     if (Object.keys(hotel).length !== 0) {
@@ -45,10 +23,6 @@ const HotelDetail = (props) => {
       setAddress(title(address.lines[0]) + ', ' + title(address.cityName) + ', ' + address.stateCode + ' ' + address.postalCode);
     }
   }, [hotel]);
-
-  useEffect(() => {
-    getHotel();
-  }, []);
 
   let tags = [hotel.stars + " Stars"];
 
@@ -62,6 +36,7 @@ const HotelDetail = (props) => {
 
   return(
     <div className="top-padding">
+      <InstanceGenerator model={"hotels"} setInstances={setHotel} setLoading={setLoading} query={'/' + id}/>
       {Object.keys(hotel).length !== 0 &&
       hotel.restaurants.sort(function(a, b){ return parseFloat(a.distance) - parseFloat(b.distance)}) &&
         <div>
@@ -83,7 +58,8 @@ const HotelDetail = (props) => {
             </div>
           </div>
           <div className="hotel_info">
-            <div className="hotel_left_info">
+            <div className="hotel_
+            left_info">
               <iframe className="map" frameBorder='0'
                       scrolling='no' marginHeight='0' marginWidth='0'
                       src={'https://maps.google.com/maps/embed/v1/place?q='+address+'&key=AIzaSyAY1pilCxM5qWgNJQCeiTPvqz5m2qiHE94'}>

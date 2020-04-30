@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import Ratings from "../components/Ratings";
 import 'font-awesome/css/font-awesome.min.css';
@@ -6,37 +6,16 @@ import '../styles/RestaurantDetail.css';
 import '../styles/InstanceStyles.css';
 import PhotoCarousel from "../components/PhotoCarousel";
 import Review from "../components/Review";
-import NearbyHotelListing from "../components/NearbyHotelListing";
 import Loader from "../components/Loader";
 import TagList from "../components/TagList";
 import { title } from '../Utils';
-import { RESTAURANTS_API_URL } from '../api/API';
+import InstanceGenerator from '../api/API';
 import Listing from "../components/Listing";
 
 const RestaurantDetail = (props) => {
   const id = props.match.params.id;
   const [restaurant, setRestaurant] = useState({});
   const [isLoading, setLoading] = useState(true);
-
-  function getRestaurant() {
-    const apiUrl = RESTAURANTS_API_URL + '/' + id;
-    fetch(apiUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        setRestaurant((prevData) => {
-          setLoading(false);
-          return data;
-        });
-      })
-      .catch((err) => {
-        setLoading(false);
-        console.log(err);
-      });
-  }
-
-  useEffect(() => {
-    getRestaurant();
-  }, []);
 
   const cuisine = restaurant.tags;
   let tags = [];
@@ -61,9 +40,9 @@ const RestaurantDetail = (props) => {
 
   return(
     <div className="top-padding">
+      <InstanceGenerator model={"restaurants"} setInstances={setRestaurant} setLoading={setLoading} query={'/' + id}/>
       {Object.keys(restaurant).length !== 0 &&
       restaurant.hotels.sort(function(a, b){ return parseFloat(a.distance) - parseFloat(b.distance)}) &&
-
         <div>
           <div className="instance_head">
             <div className="header_image"><PhotoCarousel image1={restaurant.images[0][0]} image2={restaurant.images[0][1]} image3={restaurant.images[0][2]}/></div>
