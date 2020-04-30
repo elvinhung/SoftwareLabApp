@@ -43,33 +43,3 @@
     font-weight: 300;
     margin: 0;
 }
-
-@media only screen and (max-width: 1200px) {
-
-    .location-card {
-        width: 250px;
-    }
-
-    .location-img-container  {
-        height: 175px;
-    }
-
-    .location-img {
-        height: 175px;
-    }
-}
-
-@media only screen and (max-width: 625px) {
-
-    .location-card {
-        width: 300px;
-    }
-
-    .location-img-container  {
-        height: 200px;
-    }
-
-    .location-img {
-        height: 200px;
-    }
-}
