@@ -11,6 +11,7 @@ import Loader from "../components/Loader";
 import TagList from "../components/TagList";
 import { title } from '../Utils';
 import { RESTAURANTS_API_URL } from '../api/API';
+import Listing from "../components/Listing";
 
 const RestaurantDetail = (props) => {
   const id = props.match.params.id;
@@ -102,7 +103,7 @@ const RestaurantDetail = (props) => {
             <h3>Nearby Hotels</h3>
             <div className="listing_container">
               {restaurant.hotels.map((hotel, index) => {
-                return <NearbyHotelListing hotel={hotel} location={restaurant.cityName + ", " + restaurant.countryCode} key={index}/>
+                return <Listing key={index} type={"Nearby Hotel"} instance={hotel} />
               })}
             </div>
           </div>

@@ -53,7 +53,7 @@ const NearbyRestaurantListing = (props) => {
               <h4 className="instance_name">{restaurant.name[0]}</h4>
             </div>
             <div className="instance_page_info">
-              <p className="instance_location">{props.location}</p>
+              <p className="instance_location">{restaurant.cityName + ", " + restaurant.countryCode}</p>
               <Ratings rating={restaurant.stars[0]}/>
               <TagList className="tag_list_container" tags={tags}/>
             </div>

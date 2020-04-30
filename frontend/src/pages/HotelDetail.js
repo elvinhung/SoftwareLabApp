@@ -6,7 +6,7 @@ import '../styles/HotelDetail.css';
 import '../styles/InstanceStyles.css';
 import PhotoCarousel from "../components/PhotoCarousel";
 import { title } from '../Utils';
-import NearbyRestaurantListing from "../components/NearbyRestaurantListing";
+import Listing from "../components/Listing";
 import Loader from "../components/Loader";
 import TagList from "../components/TagList";
 import { HOTELS_API_URL } from '../api/API';
@@ -97,7 +97,7 @@ const HotelDetail = (props) => {
             <h3>Nearby Restaurants</h3>
             <div className="listing_container">
               {hotel.restaurants.map((restaurant, index) => {
-                return <NearbyRestaurantListing restaurant={restaurant} location={hotel.cityName + ", " + hotel.countryCode} key={index}/>
+                return <Listing key={index} type={"Nearby Restaurant"} instance={restaurant} />
               })}
             </div>
           </div>

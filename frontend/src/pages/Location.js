@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import queryString from 'query-string';
-import LocationCard from "../components/LocationCard";
+import Listing from "../components/Listing";
 import "../styles/Location.css";
 import Pagination from "../components/Pagination";
 import Loader from "../components/Loader";
@@ -57,7 +57,7 @@ const Location = (props) => {
             <div className="location-page-container">
               <div className="location-card-container">
                 {locationPages[currPage - 1].map(location => (
-                  <LocationCard key={location.location_id} location={location} />
+                  <Listing key={location.location_id} type={"Location"} instance={location} />
                 ))}
               </div>
             </div>

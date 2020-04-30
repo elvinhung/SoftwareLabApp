@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import 'font-awesome/css/font-awesome.min.css';
-import RestaurantListing from "../components/RestaurantListing";
+import Listing from "../components/Listing";
 import '../styles/ModelPage.css';
 import Spinner from "react-bootstrap/Spinner"
 import Pagination from "../components/Pagination";
@@ -57,7 +57,7 @@ const Restaurant = (props) => {
           <h1 className="model-header">Restaurants</h1>
           <div className="listing_container">
             {restaurantsPage[curPage - 1].map((restaurant, index) => {
-              return <RestaurantListing restaurant={restaurant} key={index}/>
+              return <Listing key={index} type={"Restaurant"} instance={restaurant}/>
             })}
           </div>
           {restaurants.length === 0 &&

@@ -3,10 +3,8 @@ import { withRouter } from 'react-router-dom';
 import '../styles/InstanceStyles.css';
 import PhotoCarousel from "../components/PhotoCarousel";
 import PointOfInterest from "../components/PointOfInterest";
-import RestaurantListing from "../components/RestaurantListing";
-import HotelListing from "../components/HotelListing";
+import Listing from "../components/Listing";
 import Loader from "../components/Loader";
-import Review from "../components/Review";
 import POIMap from "../components/POIMap";
 import ForecastCard from "../components/ForecastCard";
 import { LOCATIONS_API_URL } from '../api/API';
@@ -85,7 +83,7 @@ const LocationDetail = (props) => {
             <div className="listing_container">
               {location.restaurants.map((restaurant, i) => {
                 return (
-                  <RestaurantListing key={i} restaurant={restaurant}/>
+                  <Listing key={i} type={"Restaurant"} instance={restaurant}/>
                 );
               })}
             </div>
@@ -94,7 +92,7 @@ const LocationDetail = (props) => {
             <div className="listing_container">
               {location.hotels.map((hotel, i) => {
                 return (
-                  <HotelListing key={i} hotel={hotel} />
+                  <Listing key={i} type={"Hotel"} instance={hotel}/>
                 );
               })}
             </div>
