@@ -1,13 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import 'font-awesome/css/font-awesome.min.css';
 import LocationCard from "./LocationCard";
 import RestaurantListing from "./RestaurantListing";
 import HotelListing from "./HotelListing";
 import NearbyRestaurantListing from "./NearbyRestaurantListing";
 import NearbyHotelListing from "./NearbyHotelListing";
-import Ratings from "../components/Ratings";
-import TagList from "./TagList";
-import '../styles/ModelPage.css';
 
 const Listing = (props) => {
   const {

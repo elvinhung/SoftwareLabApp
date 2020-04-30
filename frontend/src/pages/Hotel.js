@@ -1,26 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
-import 'font-awesome/css/font-awesome.min.css';
-import Listing from "../components/Listing";
-import '../styles/ModelPage.css';
-import Spinner from "react-bootstrap/Spinner";
-import Pagination from "../components/Pagination";
-import Loader from "../components/Loader";
-import Search from "../components/Search";
 import queryString from "query-string";
+import ModelPage from "../components/ModelPage";
 import { HOTELS_API_URL } from '../api/API';
-
-const PAGE_SIZE = 12;
 
 const Hotel = (props) => {
   const [hotels, setHotels] = useState([]);
-  const [curPage, setCurrentPage] = useState(1);
   const [isLoading, setLoading] = useState(true);
   const filters = queryString.parse(props.location.search);
+  const query = props.location.search;
 
   function getHotels() {
-      // const apiUrl = 'http://nomad.eba-xuhumcdw.us-east-2.elasticbeanstalk.com/hotels';
-      fetch(HOTELS_API_URL + props.location.search)
+      fetch(HOTELS_API_URL + query)
         .then((res) => res.json())
         .then((data) => {
           setHotels((prevData) => {
@@ -40,45 +31,7 @@ const Hotel = (props) => {
     getHotels();
   }, [props.location.search]);
 
-  let hotelsPage = [];
-  for (let i = 0; i < hotels.length; i += PAGE_SIZE) {
-    hotelsPage.push(hotels.slice(i, i + PAGE_SIZE));
-  }
-
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  const totalPages = Math.ceil(hotels.length / PAGE_SIZE);
-
-  return(
-    <div>
-      <Search type="Hotel" filters={filters} paginate={paginate} />
-      {hotels.length !== 0 &&
-        <div className="model-container">
-          <h1 className="model-header">Hotels</h1>
-          <div className="listing_container">
-            {hotelsPage[curPage - 1].map((hotel, index) => {
-              return <Listing key={index} type={"Hotel"} instance={hotel}/>
-            })}
-          </div>
-          {hotels.length === 0 &&
-          <div align="center">
-            <Spinner animation="border" role="status">
-              <span className="sr-only">Loading...</span>
-            </Spinner>
-          </div>
-          }
-          <Pagination postsPerPage={PAGE_SIZE} totalPosts={hotels.length} paginate={paginate} curPage={curPage} pagesAtTime={(totalPages >= 10 ? 10 : totalPages)}/>
-          <p align="center"> Page {curPage} / {totalPages}</p>
-        </div>
-      }
-      {isLoading && <Loader />}
-      {!isLoading && hotels.length === 0 &&
-        <div className="error" align="center">
-          <h1>No hotels found</h1>
-        </div>
-      }
-
-    </div>
-  );
+  return <ModelPage model={"Hotel"} instances={hotels} pagesAtTime={10} filters={filters} isLoading={isLoading}/>
 }
 
 export default withRouter(Hotel);
