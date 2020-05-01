@@ -8,6 +8,8 @@ import os
 application = Flask(__name__)
 application.config['MONGO_URI'] = os.environ['CONNECTION_STRING']
 mongo = PyMongo(application)
+nullObject = mongo.db.NullObject.find_one()
+
 
 @application.after_request
 def after_request(response):
@@ -27,39 +29,35 @@ def search():
     hotels = mongo.db.hotels
     locations = mongo.db.locations
 
-    args = request.args.get('q')
-
+    args = request.args
     if args is None:
         return 
 
     results = {}
 
-    hotels_results = list(hotels.find({"$text" : {"$search": args}}))
-    restaurants_results = list(restaurants.find({"$text" : {"$search": args}}))
-    locations_results = list(locations.find({"$text" : {"$search": args}}))
-
-    results['hotels'] = hotels_results
-    results['restaurants'] = restaurants_results
-    results['locations'] = locations_results
+    results['hotels'] = handler(args, hotels)
+    results['restaurants'] = handler(args, restaurants)
+    results['locations'] = handler(args, locations)
 
     return dumps(results)
     
-    
-
-@application.route('/restaurants', methods=['GET'])
-def all_restaurants():
-    restaurants = mongo.db.restaurants
-    args = request.args.get('q')
-    sort = request.args.get('sort')
-    sortBy = request.args.get('sortBy')
-    filters = request.args.copy()
+def handler(args, collection):
+    query = args.get('q')
+    sort = args.get('sort')
+    sortBy = args.get('sortBy')
+    filters = args.copy()
     if 'stars' in filters.keys():
         stars = filters.get('stars')
         filters['stars'] = {'$gte': int(stars)}
     if 'price' in filters.keys():
         price = filters.get('price')
         filters['price'] = {'$gte': int(price)}
-    
+    if 'swimming_pool' in filters.keys():
+        if filters['swimming_pool'] == 'true':
+            filters['swimming_pool'] = True
+        else:
+            filters['swimming_pool'] = False
+
     sort_dict = []
     if sort != None:
         del filters['sort']
@@ -70,18 +68,29 @@ def all_restaurants():
         sort_dict = [("$natural", 1)] 
 
     if filters is None:
-        results = list(restaurants.find().sort(sort_dict))
-        return dumps(results)
+        results = list(collection.find().sort(sort_dict))
 
-    if args is None:
-        results = list(restaurants.find(filters).sort(sort_dict))
-        return dumps(results)
+    elif query is None:
+        results = list(collection.find(filters).sort(sort_dict))
+
     else:
         del filters['q']
-        restaurants.aggregate([{"$match": {"$text": {"$search": args}}},{ "$sort": { "score": { "$meta": "textScore" } } }, {"$match" : filters}, {"$out": "temp"}])
-        results = mongo.db.temp.find().sort(sort_dict)
-        return dumps(results)
+        collection.aggregate([{"$match": {"$text": {"$search": query}}},{ "$sort": { "score": { "$meta": "textScore" } } }, {"$match" : filters}, {"$out": "temp"}])
+        results = list(mongo.db.temp.find(filters).sort(sort_dict))
 
+    if not results:
+        print("returning null")
+        return nullObject
+    
+    else:
+        print("returning results")
+        return results
+
+@application.route('/restaurants', methods=['GET'])
+def all_restaurants():
+    restaurants = mongo.db.restaurants
+    args = request.args
+    return dumps(handler(args, restaurants))
 
 @application.route('/restaurants/<ObjectId:oid>', methods=['GET'])
 def restaurant_by_id(oid):
@@ -102,43 +111,8 @@ def restaurant_by_id(oid):
 @application.route('/hotels', methods=['GET'])
 def all_hotels():
     hotels = mongo.db.hotels
-    args = request.args.get('q')
-    sort = request.args.get('sort')
-    sortBy = request.args.get('sortBy')
-    filters = request.args.copy()
-    if 'stars' in filters.keys():
-        stars = filters.get('stars')
-        filters['stars'] = {'$gte': stars}
-    if 'price' in filters.keys():
-        price = filters.get('price')
-        filters['price'] = {'$gte': price}
-    if 'swimming_pool' in filters.keys():
-        if filters['swimming_pool'] == 'true':
-            filters['swimming_pool'] = True
-        else:
-            filters['swimming_pool'] = False
-
-    sort_dict = []
-    if sort != None:
-        del filters['sort']
-        del filters['sortBy']
-        sort_dict = [(sortBy, int(sort))]
-    
-    else:
-        sort_dict = [("$natural", 1)] 
-
-    if filters is None:
-        results = list(hotels.find().sort(sort_dict))
-        return dumps(results)
-    
-    elif args is None:
-        results = list(hotels.find(filters).sort(sort_dict))
-        return dumps(results)
-    else:
-        del filters['q']
-        hotels.aggregate([{"$match": {"$text": {"$search": args}}},{ "$sort": { "score": { "$meta": "textScore" } } }, {"$match" : filters}, {"$out": "temp"}])
-        results = mongo.db.temp.find(filters).sort(sort_dict)
-        return dumps(results)
+    args = request.args
+    return dumps(handler(args, hotels))
 
 @application.route('/hotels/<ObjectId:oid>', methods=['GET'])
 def hotel_by_id(oid):
@@ -161,35 +135,8 @@ def hotel_by_id(oid):
 @application.route('/locations', methods=['GET'])
 def all_locations():
     locations = mongo.db.locations
-    filters = request.args.copy()
-    args = request.args.get('q')
-    sort = request.args.get('sort')
-    sortBy = request.args.get('sortBy')
-    sort_dict = []
-    results = {}
-    
-    if sort != None:
-        del filters['sort']
-        del filters['sortBy']
-        sort_dict = [(sortBy, int(sort))]
-        print(sort_dict)
-
-    else:
-        sort_dict = [("$natural", 1)] 
-
-    if filters is None:
-        results = list(locations.find().sort(sort_dict))
-        return dumps(results)
-    
-    elif args is None:
-        results = list(locations.find(filters).sort(sort_dict))
-        return dumps(results)
-    
-    else:   
-        del filters['q']
-        locations.aggregate([{"$match": {"$text": {"$search": args}}},{ "$sort": { "score": { "$meta": "textScore" } } }, {"$match" : filters}, {"$out": "temp"}])
-        results = mongo.db.temp.find(filters).sort(sort_dict)
-        return dumps(results)
+    args = request.args
+    return dumps(handler(args, locations))
 
 @application.route('/locations/<oid>', methods=['GET'])
 def locations_by_id(oid):
