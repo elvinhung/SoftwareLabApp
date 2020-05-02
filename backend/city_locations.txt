@@ -147,5 +147,5 @@ DUS,Dusseldorf, DEU,DEU
 BRE,Bremen, DEU,DEU
 GVA,Geneva, CHE,CHE
 BRN,Bern, CHE,CHE
-TUS, Tucson, AZ, US
+TUS,Tucson, AZ, US
 
