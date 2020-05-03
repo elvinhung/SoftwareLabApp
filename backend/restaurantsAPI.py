@@ -9,10 +9,10 @@ import requests
 import json
 
 
-yelp = YelpAPI('aM6SDa2ly7XvvwkMPF43SQW8v0WFGiWP-T-EzVzFE6AQhxwDDCF409ZCtp6P2QWm_MS-62TG_iH0oGWH86FELuRKC_2nYELTowqgkwPsT_DohqjZTRlpKQXKER1fXnYx')
+yelp = YelpAPI(api_key)
 
 mongo = MongoClient()
-mongo_client = MongoClient('mongodb+srv://dbUser:adDJJ0ZG6O7VDdMz@softwarelabapp-hbwi6.mongodb.net/test?retryWrites=true&w=majority')
+mongo_client = MongoClient(mongo_uri)
 db = mongo_client.models
 restaurants = db.restaurants
 
